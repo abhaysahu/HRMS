@@ -1,0 +1,54 @@
+CREATE TABLE Customer (
+	CustomerID serial NOT NULL,
+	Name varchar(255),
+	CONSTRAINT Customer_pk PRIMARY KEY (CustomerID)
+) WITH (
+  OIDS=FALSE
+);
+
+
+
+CREATE TABLE Item (
+	ItemID serial NOT NULL,
+	Name varchar(255),
+	Price DECIMAL,
+	CONSTRAINT Item_pk PRIMARY KEY (ItemID)
+) WITH (
+  OIDS=FALSE
+);
+
+
+
+CREATE TABLE Orders (
+	OrderID serial NOT NULL,
+	OrderNo varchar(255),
+	CustomerID integer,
+	PMethod varchar(255),
+	GTotal DECIMAL,
+	CONSTRAINT Order_pk PRIMARY KEY (OrderID)
+) WITH (
+  OIDS=FALSE
+);
+
+
+
+CREATE TABLE OrderItems (
+	OrderItemID serial NOT NULL,
+	OrderID integer,
+	ItemID integer,
+	Quantity integer,
+	CONSTRAINT OrderItems_pk PRIMARY KEY (OrderItemID)
+) WITH (
+  OIDS=FALSE
+);
+
+
+
+
+
+ALTER TABLE Orders ADD CONSTRAINT Orders_fk0 FOREIGN KEY (CustomerID) REFERENCES Customer(CustomerID);
+
+ALTER TABLE OrderItems ADD CONSTRAINT OrderItems_fk0 FOREIGN KEY (OrderID) REFERENCES Orders(OrderID);
+
+
+ALTER TABLE OrderItems ADD CONSTRAINT OrderItems_fk1 FOREIGN KEY (ItemID) REFERENCES Item(ItemID);
