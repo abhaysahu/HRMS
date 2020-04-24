@@ -18,9 +18,6 @@ export class LoginService {
       return this.http.post(environment.apiUrl+'/loginApi/login',login);
   }
 
-
-
-
 }
 
 

@@ -10,11 +10,19 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login/login.component';
 import { RouterModule } from '@angular/router';
 import { LoginService } from './login/services/login.service';
+import { DefaultComponent } from './layout/default/default.component';
+import { NavBarComponent } from './layout/common/nav-bar/nav-bar.component';
+import { SideBarComponent } from './layout/common/side-bar/side-bar.component';
+import { FooterComponent } from './layout/common/footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    DefaultComponent,
+    NavBarComponent,
+    SideBarComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
@@ -25,7 +33,16 @@ import { LoginService } from './login/services/login.service';
 
     RouterModule.forRoot([
       {path: '', redirectTo: 'login', pathMatch: 'full'},
-      {path: 'login', component: LoginComponent}
+      {path: 'login', component: LoginComponent},
+
+      {
+        path: '',component: DefaultComponent,
+
+        children: [{
+          
+        }]
+      }
+      
 
     ])
 
