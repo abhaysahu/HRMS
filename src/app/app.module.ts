@@ -14,6 +14,13 @@ import { DefaultComponent } from './layout/default/default.component';
 import { NavBarComponent } from './layout/common/nav-bar/nav-bar.component';
 import { SideBarComponent } from './layout/common/side-bar/side-bar.component';
 import { FooterComponent } from './layout/common/footer/footer.component';
+import { DashboardComponent } from './layout/component/dashboard/dashboard.component';
+import { MatSidenavModule, MatDividerModule, MatToolbarModule, MatIconModule, MatButtonModule, MatMenuModule, MatListModule } from '@angular/material';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+
+
 
 @NgModule({
   declarations: [
@@ -22,23 +29,31 @@ import { FooterComponent } from './layout/common/footer/footer.component';
     DefaultComponent,
     NavBarComponent,
     SideBarComponent,
-    FooterComponent
+    FooterComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    BrowserAnimationsModule,
     FormsModule,
+
+    MatSidenavModule,
+    MatDividerModule,
+    // FlexLayoutModule,
     HttpClientModule,
 
 
     RouterModule.forRoot([
       {path: '', redirectTo: 'login', pathMatch: 'full'},
       {path: 'login', component: LoginComponent},
+      {path: 'navbar', component: NavBarComponent},
 
       {
-        path: '',component: DefaultComponent,
+        path: 'dashboard',component: DefaultComponent,
 
         children: [{
+          path: '', component: DashboardComponent
           
         }]
       }
