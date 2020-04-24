@@ -8,7 +8,7 @@ const loginRoute=require('./login/login.js');
 
 
 
-apiRoute.use('/item', loginRoute);
+apiRoute.use('/loginApi', loginRoute);
 
 
 

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Login } from './login';
+import { LoginService } from 'src/app/services/login.service';
 
 @Component({
   selector: 'app-login',
@@ -7,9 +9,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+
+  login: Login[]=[]
+
+
+
+  constructor(private loginServices: LoginService) { }
 
   ngOnInit() {
+  }
+
+  save(login)
+  {
+  
+    this.loginServices.checklogin(login).subscribe(data => {
+      console.log(data)
+    })
+
   }
 
 }

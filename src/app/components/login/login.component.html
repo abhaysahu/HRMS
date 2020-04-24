@@ -1,14 +1,32 @@
 <body>
 <div class="login">
   <h1>Login Here</h1>
-  <form>
+  <form #f="ngForm" (ngSubmit)="save(f.value)">
     <p>Username</p>
-    <input type="text" name="" placeholder="Enter Username">
+    <input #username="ngModel" [(ngModel)]="login.username" name="username" id="username" type="text" placeholder="Enter Username">
+    <div class="alert alert-danger" *ngIf="username.touched && username.invalid">
+      Product Full Name is Required.
+    </div>
+
     <p>Password</p>
-    <input type="Password"  name="" placeholder="Enter password">
-    <input type="submit" name="" value="Login">
+    <input #password="ngModel" [(ngModel)]="login.password" name="password" id="password" type="Password" placeholder="Enter password">
+    <div class="alert alert-danger" *ngIf="password.touched && password.invalid">
+      Product Full Name is Required.
+    </div>
+
+    <input [disabled]="!f.valid" type="submit" value="Login">
     <a href="#">Forget your password</a><br>
     <a href="#">Don't have an account</a>
   </form>
 </div>
 </body>
+
+
+<!-- 
+<div class="form-group">
+  <label for="name">Name In English</label>
+  <input #name="ngModel" [(ngModel)]="product.name" name="name" id="name" type="text" class="form-control" required placeholder="Big Name">
+  <div class="alert alert-danger" *ngIf="name.touched && name.invalid">
+    Product Full Name is Required.
+  </div>
+</div> -->
