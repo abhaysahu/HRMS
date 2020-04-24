@@ -8,9 +8,11 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
-    <button type="button" (click)="toggleSideBar()">
-      <span class="navbar-toggler-icon"></span>
-  </button>
+    <!-- this is important so plz don't remove it, i mean next 3 line  -->
+
+    <button type="button" (click)="toggleSideBar()">     <!--1-->
+      <span class="navbar-toggler-icon"></span>          <!--2-->
+  </button>                                              <!--3-->  <!--these 3 are important line for toggle the sidevar-->
 
   
     <ul class="navbar-nav mr-auto">
