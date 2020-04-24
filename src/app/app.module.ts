@@ -10,11 +10,13 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login/login.component';
 import { RouterModule } from '@angular/router';
 import { LoginService } from './login/services/login.service';
+import { DashboardComponent } from './dashboard/dashboard/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,
@@ -25,7 +27,8 @@ import { LoginService } from './login/services/login.service';
 
     RouterModule.forRoot([
       {path: '', redirectTo: 'login', pathMatch: 'full'},
-      {path: 'login', component: LoginComponent}
+      {path: 'login', component: LoginComponent},
+      {path: 'dashboard', component: DashboardComponent}
 
     ])
 
