@@ -56,15 +56,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
       {path: 'navbar', component: NavBarComponent},
 
       {
-        path: 'dashboard',component: DefaultComponent,
+        path: 'dashboard', component: DefaultComponent,
 
         children: [{
           path: '', component: DashboardComponent
           }]
       }
-      
-
-    ]),
+      ]),
     BrowserAnimationsModule
 
   ],

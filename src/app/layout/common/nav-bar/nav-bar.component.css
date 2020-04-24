@@ -1,3 +1,15 @@
 ul li {
     list-style: none;
   }
+
+  mat-toolbar {
+    background-color: rgb(236, 236, 236);
+  }
+
+  .button{
+    background-color: brown;
+  }
+
+  .navbar toggle-icon {
+    background-color: brown;
+  }
