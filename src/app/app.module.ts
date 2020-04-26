@@ -21,6 +21,7 @@ import { FooterComponent } from './layout/common/footer/footer.component';
 import { DashboardComponent } from './layout/component/dashboard/dashboard.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AuthGuardService } from './auth/auth-guard.service';
 
 
 
@@ -56,17 +57,19 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
       {path: 'navbar', component: NavBarComponent},
 
       {
-        path: 'dashboard', component: DefaultComponent,
+        path: 'dashboard', component: DefaultComponent, canActivate: [AuthGuardService],
 
-        children: [{
-          path: '', component: DashboardComponent
-          }]
+        children: [
+          {
+          path: '', component: DashboardComponent, canActivate: [AuthGuardService]
+          }
+        ]
       }
       ]),
     BrowserAnimationsModule
 
   ],
-  providers: [LoginService],
+  providers: [LoginService, AuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

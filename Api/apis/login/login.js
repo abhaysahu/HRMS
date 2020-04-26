@@ -52,6 +52,10 @@ loginRoute.get('/allDetails/:id', function(req, res) {
 
 
 loginRoute.get('/data/:id', function(req, res) {
+
+    knex.select('*').from('login').where('uuid', '=', req.params.id).then(function(data) {
+        res.json(data);
+    });
    
 
 });

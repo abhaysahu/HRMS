@@ -18,6 +18,11 @@ export class LoginService {
       return this.http.post(environment.apiUrl+'/loginApi/login',login);
   }
 
+  getuser(userID)
+  {
+    return this.http.get(environment.apiUrl+'/loginApi/data/'+userID);
+  }
+
 }
 
 
