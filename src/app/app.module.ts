@@ -22,6 +22,7 @@ import { DashboardComponent } from './layout/component/dashboard/dashboard.compo
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthGuardService } from './auth/auth-guard.service';
+import { EmployeeDetailsComponent } from './layout/component/employee-details/employee-details.component';
 
 
 
@@ -34,7 +35,8 @@ import { AuthGuardService } from './auth/auth-guard.service';
     NavBarComponent,
     SideBarComponent,
     FooterComponent,
-    DashboardComponent
+    DashboardComponent,
+    EmployeeDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -63,6 +65,11 @@ import { AuthGuardService } from './auth/auth-guard.service';
         children: [
           {
           path: '', component: DashboardComponent, 
+          //canActivate: [AuthGuardService]
+          },
+
+          {
+            path: 'employee/details', component: EmployeeDetailsComponent, 
           //canActivate: [AuthGuardService]
           }
         ]
