@@ -57,11 +57,13 @@ import { AuthGuardService } from './auth/auth-guard.service';
       {path: 'navbar', component: NavBarComponent},
 
       {
-        path: 'dashboard', component: DefaultComponent, canActivate: [AuthGuardService],
+        path: 'dashboard', component: DefaultComponent, 
+        //canActivate: [AuthGuardService],
 
         children: [
           {
-          path: '', component: DashboardComponent, canActivate: [AuthGuardService]
+          path: '', component: DashboardComponent, 
+          //canActivate: [AuthGuardService]
           }
         ]
       }
