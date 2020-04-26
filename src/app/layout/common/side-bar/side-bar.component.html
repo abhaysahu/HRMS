@@ -1,8 +1,8 @@
 <mat-sidenav-container>
     <mat-sidenav mode="top" [(opened)]="opened">Sidenav</mat-sidenav>
     <mat-sidenav-content>SIDEBAR<br><br>
-    
-        <ul>
+    <div class="main-nav">
+        <ul class="main-nav-ul">
 
             <li><mat-icon aria-hidden="false" aria-label="Example home icon">home
                 <a href="">HOME</a></mat-icon></li>
@@ -13,13 +13,30 @@
             <li>
                 <mat-icon>
                     <a routerLink="/dashboard/employee/details">accessibility EMPLOYEE</a>
-                </mat-icon>
-                <ul class="menu">
-                    <li><a href="#">ADD</a></li>
+                </mat-icon><br><br>
+                <ul class="a1">
+                    <li style="padding-left: 150px;"><a href="#" style="color: brown;">ITEM1</a></li><hr>
+                    <li style="padding-left: 150px;"><a href="#">ITEM1</a></li><hr>
+                    <li style="padding-left: 150px;"><a href="#">ITEM1</a></li><hr>
+
+
                 </ul>
             </li>
             <hr>
-            <li><a href="">Leave</a></li>
+            <li><a href="">Leave</a>
+                <ul class="a1">
+                    <li style="padding-left: 150px;"><a href="#" style="color: brown;">ITEM1</a></li><hr>
+                    <li style="padding-left: 150px;"><a href="#">ITEM1</a></li><hr>
+                    <li style="padding-left: 150px;"><a href="#">ITEM1</a></li><hr>
+
+
+                </ul>
+                
+            
+            
+            
+            
+            </li>
             <hr>
             <li><a href="">Travel</a></li>
             <hr>
@@ -29,7 +46,12 @@
             <hr>
             <li><a href="">Performance</a></li>
             <hr>
-          </ul>
+           
+
+              
+
+         </ul>
+         </div>
           
         <!--<button (click)="opened=!opened">opened</button>-->
     </mat-sidenav-content>

@@ -23,9 +23,9 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthGuardService } from './auth/auth-guard.service';
 import { EmployeeDetailsComponent } from './layout/component/employee-details/employee-details.component';
-
-
-
+import {MatSelectModule} from '@angular/material/select';
+import {MatFormFieldModule } from '@angular/material';
+import { SidebarModule } from 'ng-sidebar';
 
 @NgModule({
   declarations: [
@@ -43,6 +43,9 @@ import { EmployeeDetailsComponent } from './layout/component/employee-details/em
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,
+    MatSelectModule,
+    MatFormFieldModule,
+    SidebarModule,
 
     MatSidenavModule,
     MatDividerModule,
