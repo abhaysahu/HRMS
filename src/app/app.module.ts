@@ -2,7 +2,16 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { MatSidenavModule, MatToolbarModule, MatListModule, MatButtonModule, MatIconModule, MatDividerModule } from '@angular/material';
+import { MatSidenavModule, 
+  MatToolbarModule,
+   MatListModule,
+    MatButtonModule,
+     MatIconModule,
+     MatDividerModule, 
+     MatNativeDateModule,
+      MatDatepickerModule,
+     MatFormFieldModule,
+    MatFormFieldControl } from '@angular/material';
 
 
 
@@ -24,7 +33,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthGuardService } from './auth/auth-guard.service';
 import { EmployeeDetailsComponent } from './layout/component/employee-details/employee-details.component';
 import {MatSelectModule} from '@angular/material/select';
-import {MatFormFieldModule } from '@angular/material';
 
 
 @NgModule({
@@ -45,8 +53,8 @@ import {MatFormFieldModule } from '@angular/material';
     FormsModule,
     MatSelectModule,
     MatFormFieldModule,
-   
-
+    MatNativeDateModule,
+    MatDatepickerModule,
     MatSidenavModule,
     MatDividerModule,
     // FlexLayoutModule,
