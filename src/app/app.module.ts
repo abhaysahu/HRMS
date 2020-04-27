@@ -73,7 +73,7 @@ import { SidebarModule } from 'ng-sidebar';
 
           {
             path: 'employee/details', component: EmployeeDetailsComponent, 
-          //canActivate: [AuthGuardService]
+            //canActivate: [AuthGuardService]
           }
         ]
       }
