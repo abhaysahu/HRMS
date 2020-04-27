@@ -60,7 +60,6 @@ import { SidebarModule } from 'ng-sidebar';
       {path: '', redirectTo: 'login', pathMatch: 'full'},
       {path: 'login', component: LoginComponent},
       {path: 'navbar', component: NavBarComponent},
-
       {
         path: 'dashboard', component: DefaultComponent, 
         //canActivate: [AuthGuardService],
