@@ -33,6 +33,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthGuardService } from './auth/auth-guard.service';
 import { EmployeeDetailsComponent } from './layout/component/employee-details/employee-details.component';
 import {MatSelectModule} from '@angular/material/select';
+import { EmployeeDeatilListComponent } from './layout/component/employee-detail-list/employee-deatil-list/employee-deatil-list.component';
 
 
 @NgModule({
@@ -44,7 +45,8 @@ import {MatSelectModule} from '@angular/material/select';
     SideBarComponent,
     FooterComponent,
     DashboardComponent,
-    EmployeeDetailsComponent
+    EmployeeDetailsComponent,
+    EmployeeDeatilListComponent
   ],
   imports: [
     BrowserModule,
@@ -81,7 +83,9 @@ import {MatSelectModule} from '@angular/material/select';
           {
             path: 'employee/details', component: EmployeeDetailsComponent, 
             //canActivate: [AuthGuardService]
-          }
+          },
+          {path: 'employee/list', component: EmployeeDeatilListComponent},
+
         ]
       }
       ]),
