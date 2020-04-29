@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { DataTableDirective } from 'angular-datatables';
+import { LoginService } from 'src/app/login/services/login.service';
 
 
 class Person {
@@ -22,12 +24,13 @@ class DataTablesResponse {
 })
 export class EmployeeListComponent implements OnInit {
 
-  
+  @ViewChild(DataTableDirective)
+  datatableElement: DataTableDirective;
 
   dtOptions: DataTables.Settings = {};
   persons: Person[];
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private loginService: LoginService) {}
 
   ngOnInit(): void {
     const that = this;
@@ -37,17 +40,19 @@ export class EmployeeListComponent implements OnInit {
       pageLength: 5,
       serverSide: true,
       processing: true,
-      searching: false,
+      searching: true,
+      search: false,
+      info:false,
+
       // paging: false,
-      dom: '<"top"i>rt<"bottom"flp><"clear">',
+      // dom: '<"bottom"i>rt<"bottom"flp><"clear">',
       
       ajax: (dataTablesParameters: any, callback) => {
-        that.http
-          .post<DataTablesResponse>(
-            'https://angular-datatables-demo-server.herokuapp.com/',
-            dataTablesParameters, {}
-          ).subscribe(resp => {
+        this.loginService.getDate(dataTablesParameters)
+        .subscribe(resp => {
             that.persons = resp.data;
+
+            console.log(this.persons)
 
             callback({
               recordsTotal: resp.recordsTotal,
@@ -56,7 +61,25 @@ export class EmployeeListComponent implements OnInit {
             });
           });
       },
-      columns: [{ data: 'id' }, { data: 'firstName' }, { data: 'lastName' }]
+      columns: [{ data: 'id' }, { data: 'firstName' }, { data: 'lastName' },]
     };
   }
+
+
+  ngAfterViewInit(): void {
+    this.datatableElement.dtInstance.then((dtInstance: DataTables.Api) => {
+      dtInstance.columns().every(function () {
+        const that = this;
+        $('input', this.footer()).on('keyup change', function () {
+          
+          if (that.search() !== this['value']) {
+            that
+              .search(this['value'])
+              .draw();
+          }
+        });
+      });
+    });
+  }
+
 }

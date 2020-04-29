@@ -2,6 +2,13 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 
+class DataTablesResponse {
+  data: any[];
+  draw: number;
+  recordsFiltered: number;
+  recordsTotal: number;
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -21,6 +28,11 @@ export class LoginService {
   getuser(userID)
   {
     return this.http.get(environment.apiUrl+'/loginApi/data/'+userID);
+  }
+
+  getDate(data: any)
+  {
+    return this.http.post<DataTablesResponse>('https://angular-datatables-demo-server.herokuapp.com/',data);
   }
 
 }
