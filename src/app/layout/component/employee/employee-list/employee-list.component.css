@@ -12,8 +12,10 @@ select{
 
 }
 
-.a1{
+.employeeList{
     background-color: lightblue;
-    font-size: 20px;
+    font-size: 18px;
     color: white;
 }
+
+.dataTables_filter, .dataTables_info { display: none; }

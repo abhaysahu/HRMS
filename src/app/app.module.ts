@@ -19,6 +19,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login/login.component';
 import { RouterModule } from '@angular/router';
+import { DataTablesModule } from 'angular-datatables';
+import { FlexLayoutModule } from '@angular/flex-layout';
+
 import { LoginService } from './login/services/login.service';
 
 
@@ -28,12 +31,14 @@ import { NavBarComponent } from './layout/common/nav-bar/nav-bar.component';
 import { SideBarComponent } from './layout/common/side-bar/side-bar.component';
 import { FooterComponent } from './layout/common/footer/footer.component';
 import { DashboardComponent } from './layout/component/dashboard/dashboard.component';
-import { FlexLayoutModule } from '@angular/flex-layout';
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthGuardService } from './auth/auth-guard.service';
-import { EmployeeDetailsComponent } from './layout/component/employee-details/employee-details.component';
 import {MatSelectModule} from '@angular/material/select';
-import { EmployeeDeatilListComponent } from './layout/component/employee-detail-list/employee-deatil-list/employee-deatil-list.component';
+import { EmployeeDetailsComponent } from './layout/component/employee/employee-details/employee-details.component';
+import { EmployeeListComponent } from './layout/component/employee/employee-list/employee-list.component';
+
+
 
 
 @NgModule({
@@ -46,13 +51,14 @@ import { EmployeeDeatilListComponent } from './layout/component/employee-detail-
     FooterComponent,
     DashboardComponent,
     EmployeeDetailsComponent,
-    EmployeeDeatilListComponent
+    EmployeeListComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,
+    DataTablesModule,
     MatSelectModule,
     MatFormFieldModule,
     MatNativeDateModule,
@@ -84,7 +90,11 @@ import { EmployeeDeatilListComponent } from './layout/component/employee-detail-
             path: 'employee/details', component: EmployeeDetailsComponent, 
             //canActivate: [AuthGuardService]
           },
-          {path: 'employee/list', component: EmployeeDeatilListComponent},
+          {
+            path: 'employee/list', component: EmployeeListComponent,
+          //canActivate: [AuthGuardService],
+          },
+          
 
         ]
       }
