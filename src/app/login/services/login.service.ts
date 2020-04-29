@@ -35,6 +35,13 @@ export class LoginService {
     return this.http.post<DataTablesResponse>('https://angular-datatables-demo-server.herokuapp.com/',data);
   }
 
+  getalldate()
+  {
+    return this.http.get("./assets/data.json");
+  }
+
+  
+
 }
 
 
