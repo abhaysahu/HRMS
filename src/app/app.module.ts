@@ -37,6 +37,10 @@ import { AuthGuardService } from './auth/auth-guard.service';
 import {MatSelectModule} from '@angular/material/select';
 import { EmployeeDetailsComponent } from './layout/component/employee/employee-details/employee-details.component';
 import { EmployeeListComponent } from './layout/component/employee/employee-list/employee-list.component';
+import { MyAttendanceComponent } from './layout/component/Attendance-and-leaves/my-attendance/my-attendance.component';
+import { ApplyTimeAwayComponent } from './layout/component/Attendance-and-leaves/apply-time-away/apply-time-away.component';
+import { MyTimeAwayRequestsComponent } from './layout/component/Attendance-and-leaves/my-time-away-requests/my-time-away-requests.component';
+import { MyLeavesComponent } from './layout/component/Attendance-and-leaves/my-leaves/my-leaves.component';
 
 
 
@@ -51,7 +55,11 @@ import { EmployeeListComponent } from './layout/component/employee/employee-list
     FooterComponent,
     DashboardComponent,
     EmployeeDetailsComponent,
-    EmployeeListComponent
+    EmployeeListComponent,
+    MyAttendanceComponent,
+    ApplyTimeAwayComponent,
+    MyTimeAwayRequestsComponent,
+    MyLeavesComponent
   ],
   imports: [
     BrowserModule,
@@ -94,6 +102,19 @@ import { EmployeeListComponent } from './layout/component/employee/employee-list
             path: 'employee/list', component: EmployeeListComponent,
           //canActivate: [AuthGuardService],
           },
+          {
+            path: 'myattendance', component: MyAttendanceComponent,
+          },
+          {
+            path: 'applytimeaway', component: ApplyTimeAwayComponent,
+          },
+          {
+            path: 'mytimeawayrequests', component: MyTimeAwayRequestsComponent,
+          },
+          {
+            path: 'myleaves', component: MyLeavesComponent,
+          }
+
           
 
         ]

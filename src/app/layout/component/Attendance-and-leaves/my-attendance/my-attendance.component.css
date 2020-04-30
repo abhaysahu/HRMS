@@ -1,17 +1,3 @@
-h1{
-    color: blue;
-}
-
-input{
-    box-shadow:inset 0 0 1px 1px #888;
-
-}
-
-select{
-    box-shadow:inset 0 0 1px 1px #888;
-
-}
-
 .employeeList{
     background-color: lightblue;
     font-size: 18px;

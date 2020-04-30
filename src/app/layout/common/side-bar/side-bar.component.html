@@ -22,16 +22,16 @@
                 </ul>
             </li>-->
             <li>
-                <a href="#"><span class="material-icons">
+                <a href="#"><span class="material-icons" style="font-size: 18px;">
                     account_circle DASHBOARD
                     </span></a>
             </li>
             <hr>
             <p>INTERFACE</p>
             <li>
-                <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><span class="material-icons">
+                <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><span class="material-icons" style="font-size: 18px;">
                     accessibility
-                    </span>EMPLOPYEE</a>
+                    EMPLOYEE</span></a>
                 <ul class="collapse list-unstyled" id="homeSubmenu">
                     <li>
                         <a routerLink="/dashboard/employee/details" style="color:rgb(127,131,135);">Emplopyee Details</a>
@@ -45,15 +45,21 @@
             </li>
             <p>INTERFACE</p>
             <li>
-                <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><span class="material-icons">
-                    assignment PAGES
+                <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><span class="material-icons" style="font-size: 16px;">
+                    assignment ATTENDANCE <br>AND LEAVES
                     </span></a>
                 <ul class="collapse list-unstyled" id="pageSubmenu">
                     <li>
-                        <a href="#" style="color:rgb(127,131,135);">Authentication</a>
+                        <a routerLink="/dashboard/myattendance" style="color:rgb(127,131,135);">My Attendance</a>
                     </li>
                     <li>
-                        <a href="#" style="color:rgb(127,131,135);">Error</a>
+                        <a routerLink="/dashboard/applytimeaway" style="color:rgb(127,131,135);">Apply Time Away</a>
+                    </li>
+                    <li>
+                        <a routerLink="/dashboard/mytimeawayrequests" style="color:rgb(127,131,135);">My Time Away Requests</a>
+                    </li>
+                    <li>
+                        <a routerLink="/dashboard/myleaves" style="color:rgb(127,131,135);">My Leaves</a>
                     </li>
                     <hr>
                 </ul>
