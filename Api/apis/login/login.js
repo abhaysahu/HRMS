@@ -29,10 +29,12 @@ loginRoute.post('/login', function(req, res) {
 
 
 
-
 loginRoute.get('/allData', function(req, res) {
-    
 
+    knex.raw(`select * from login;`).then(data=>{
+        res.json(data) 
+        console.log("yes")
+    })
 });
 
 
