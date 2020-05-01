@@ -6,7 +6,7 @@
 
 .dataTables_filter, .dataTables_info { display: none; }
 
-td{
+/*td{
     border: 1px solid  black;
     padding: 8px;
 }
@@ -20,4 +20,57 @@ tr:nth-child(odd){background-color:  white;}*/
 
 
 
-tr:hover {background-color: #ddd;}
+/*tr:hover {background-color: #ddd;}*/
+.box{
+    background-color: #DAD7D7;	
+    width: 100%;
+    height: 100px;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+    box-shadow: 0 20px 20px rgba(0,0, 0, 0.15);
+}
+
+.box1{
+    background-color: white;
+    width: 100%;
+    height: 20px;
+}
+
+.content{
+    border-collapse: collapse;
+    font-size: 0.9rem;
+    min-width: 400px;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0,0, 0, 0.15);
+}
+
+.content thead tr {
+    background-color: #009879;
+    color: #ffffff;
+    text-align: left;
+    font-weight: bold;
+}
+
+.content th,
+.content td {
+    padding: 12px 15px;
+}
+
+.content tbody tr{
+    border-bottom: 1px solid #dddddd;
+}
+
+.content tbody tr:last-of-type {
+    border-bottom: 2px solid #009869;
+}
+
+.material-icons.md-38 { 
+    font-size: 38px; 
+    color: #009869;
+}
+
+.content1{
+    padding-left: 40px;
+}
+
