@@ -16,7 +16,10 @@ select{
     background-color: #009879;
     font-size: 18px;
     color: white;
-    width: 13%;
+    width: 12%;
+    border-radius: 5px 5px 5px 5px;
+    box-shadow: 0 0 20px rgba(0,0, 0, 0.15);
+
 }
 
 .dataTables_filter, .dataTables_info { display: none; }
