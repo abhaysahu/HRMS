@@ -1,7 +1,16 @@
 
-<h1>Employee List</h1>
-<hr>
-<div class="container">
+<div class="box"> 
+  <span class="material-icons md-38" style="size: 25px;">
+    view_list EMPLOYEE LIST
+    </span><!--<p class="content1">Data Table Details</p>-->
+    <div class="sideicon">
+      <span class="material-icons">
+        home
+        </span><a routerLink="">  Home</a>/<a routerLink="">Employee List</a>
+   </div>
+
+</div>
+<br><br>
   <!-- <div class="form-row">
     <div class="form-group col-md-4">
       <label for="employeename">Employee Code</label>
@@ -54,7 +63,7 @@
     </div>
 </div> -->
 
-<div class="employeeList">Employee List</div>
+<!--<div class="employeeList">Employee List</div>-->
 <div>
   <table class="content" datatable [dtOptions]="dtOptions"  style="width:100%">
     <thead>
@@ -165,4 +174,4 @@
 </table> -->
 
 </div>
-</div>
+
