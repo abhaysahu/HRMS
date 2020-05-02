@@ -6,52 +6,71 @@
 <br><br>
 
 
+<!-- <div class="box1"></div> -->
 
 
+<div class="card">
+  <div class="card-header">
+    MY Attendance
+  </div>
+  <div class="card-body">
 
-
-
-
-<div class="box1"></div>
-<div>
-  <table class="content"  datatable [dtOptions]="dtOptions"  style="width:100%">
-    <thead>
-      <tr>
-        <th>#</th>
-        <th>Date</th>
-        <th>Shift Time</th>
-        <th>In Time</th>
-        <th>Out Time</th>
-        <th>Working Hours</th>
-        <th>Status</th>
-        <th>Options</th>
-        
-      </tr>
-    </thead>
-    <tbody *ngIf="persons?.length != 0">
-        <tr *ngFor="let person of persons">
-            <td>{{ person.id }}</td>
-            <td>{{ person.firstName }}</td>
-            <td>{{ person.lastName }}</td>
-            <td>{{ person.id }}</td>
-            <td>{{ person.firstName }}</td>
-            <td>{{ person.lastName }}</td>
-        </tr>
-    </tbody>
-    <tbody *ngIf="persons?.length == 0">
-      <tr>
-        <td colspan="3" class="no-data-available">No data!</td>
-      </tr>
-    <tbody>
-
-      <tfoot>
-        <tr>
-          <th><input type="text" class="textFilter" placeholder="Search ID" name="search-id"/></th>
-          <th><input type="text" class="textFilter" placeholder="Search first name" name="search-first-name"/></th>
-          <th><input type="text" placeholder="Search last name" name="search-last-name"/></th>
-        </tr>
-      </tfoot>
-
-  </table>
-
+    <div>
+      <table class="content row-border hover"  datatable [dtOptions]="dtOptions"  style="width:100%">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Date</th>
+            <th>Shift Time</th>
+            <th>In Time</th>
+            <th>Out Time</th>
+            <th>Working Hours</th>
+            <th>Status</th>
+            <th>Options</th>
+            <th>Actions</th>
+            
+          </tr>
+        </thead>
+        <tbody *ngIf="persons?.length != 0">
+            <tr *ngFor="let person of persons">
+                <td>{{ person.id }}</td>
+                <td>{{ person.firstName }}</td>
+                <td>{{ person.lastName }}</td>
+                <td>{{ person.id }}</td>
+                <td>{{ person.firstName }}</td>
+                <td>{{ person.lastName }}</td>
+                <td>{{ person.id }}</td>
+                <td>{{ person.firstName }}</td>
+                <td>{{ person.lastName }}</td>
+            </tr>
+        </tbody>
+        <tbody *ngIf="persons?.length == 0">
+          <tr>
+            <td colspan="3" class="no-data-available">No data!</td>
+          </tr>
+        <tbody>
+    
+          <tfoot>
+            <tr>
+              <th><input type="text" class="search" placeholder="Search ID" name="search-id"/></th>
+              <th><input type="text" class="search" placeholder="Search first name" name="search-first-name"/></th>
+              <th><input type="text" class="search" placeholder="Search last name" name="search-last-name"/></th>
+              <th><input type="text" class="search" placeholder="Search ID" name="search-id"/></th>
+              <th><input type="text" class="search" placeholder="Search first name" name="search-first-name"/></th>
+              <th><input type="text" class="search" placeholder="Search last name" name="search-last-name"/></th>
+              <th><input type="text" class="search" placeholder="Search ID" name="search-id"/></th>
+              <th><input type="text" class="search" placeholder="Search first name" name="search-first-name"/></th>
+              <th><input type="text" class="search" placeholder="Search last name" name="search-last-name"/></th>
+            </tr>
+          </tfoot>
+    
+      </table>
+    
+    </div>
+    
+    
+  </div>
 </div>
+
+
+
