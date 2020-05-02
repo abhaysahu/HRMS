@@ -89,8 +89,17 @@ a{
 }
 
 .material-icons.md-38 { 
-    font-size: 38px; 
+    font-size: 30px; 
     color: #009869;
+}
+
+.card{
+
+    box-shadow: 0 0 20px rgba(0,0, 0, 0.15);
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+    border-collapse: collapse;
+
 }
 
 

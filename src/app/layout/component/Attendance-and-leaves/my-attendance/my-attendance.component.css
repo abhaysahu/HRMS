@@ -26,8 +26,8 @@ tr:nth-child(odd){background-color:  white;}*/
 
     /* position: relative;
  
-    background-color: #f2f2f2;
-    */
+    background-color: #f2f2f2;*/
+    
 
 
 
@@ -83,11 +83,12 @@ tr:nth-child(odd){background-color:  white;}*/
 .content tbody tr:last-of-type {
     border-bottom: 2px solid #009869;
 }
-
-.material-icons.md-38 { 
-    font-size: 38px; 
+/*this is for the font-size of attendance icon you can change as you wish*/
+.material-icons.md-24 { 
+    font-size: 30px; 
     color: #009869;
 }
+
 
 .content1{
     padding-left: 40px;
@@ -118,7 +119,15 @@ a{
     text-decoration: none;
     color: teal;
 }
-.material-icons{
-    color: teal;
-}
 
+/*this is for the font-size of home/my attendance icon you can change as you wish*/
+
+/*.material-icons{
+    color: teal;
+}*/
+
+.card{
+    border-radius: 5px 5px 0 0;
+    box-shadow: 0 0 20px rgba(0,0, 0, 0.15);
+
+}
