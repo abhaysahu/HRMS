@@ -1,15 +1,18 @@
 
-<div class="box"> 
-  <span class="material-icons md-38">
-    view_list EMPLOYEE LIST
-    </span><!--<p class="content1">Data Table Details</p>-->
-    <div class="sideicon">
-      <span class="material-icons">
-        home
-        </span><a routerLink="/dashboard">  Home</a>/<a routerLink="">Employee List</a>
-   </div>
+<section class="content-header z-depth-1">
+  <div class="header-icon">
+      <i class="fa fa-table"></i>
+  </div>
+  <div class="header-title">
+      <h1>EMPLOYEE LIST</h1>
+      <small>EMPLOYEE RECORD</small>
+      <ul class="link hidden-xs">
+          <li><a href="index-2.html"><i class="fa fa-home"></i>Home</a></li>
+          <li><a href="datatable.html">data table</a></li>
+      </ul>
+  </div>
+</section>
 
-</div>
 <br><br>
  
 <div class="card">
@@ -41,6 +44,8 @@
             <td>{{ person.id }}</td>
             <td>{{ person.firstName }}</td>
             <td>{{ person.lastName }}</td>
+            <td>{{ person.id }}</td>
+            <td>{{ person.firstName }}</td>
         </tr>
     </tbody>
     <tbody *ngIf="persons?.length == 0">
@@ -51,81 +56,20 @@
 
       <tfoot>
         <tr>
-          <th><input type="text" class="textFilter" placeholder="Search ID" name="search-id"/></th>
-          <th><input type="text" class="textFilter" placeholder="Search first name" name="search-first-name"/></th>
-          <th><input type="text" placeholder="Search last name" name="search-last-name"/></th>
+          <th><input type="text" class="search" placeholder="Search ID" name="search-id"/></th>
+          <th><input type="text" class="search" placeholder="Search first name" name="search-first-name"/></th>
+          <th><input type="text" class="search" placeholder="Search last name" name="search-last-name"/></th>
+          <th><input type="text" class="search" placeholder="Search ID" name="search-id"/></th>
+          <th><input type="text" class="search" placeholder="Search first name" name="search-first-name"/></th>
+          <th><input type="text" class="search" placeholder="Search last name" name="search-last-name"/></th>
+          <th><input type="text" class="search" placeholder="Search ID" name="search-id"/></th>
+          <th><input type="text" class="search" placeholder="Search first name" name="search-first-name"/></th>
+          
         </tr>
       </tfoot>
 
   </table>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <!-- <table id="example" class="table table-striped table-bordered" style="width:100%">
-    <thead>
-        <tr>
-            <th>Emp Code</th>
-            <th>Employee Name</th>
-            <th>Designation</th>
-            <th>Employment Status</th>
-            <th>Job Ttile</th>
-            <th>Location</th>
-            <th>Departments</th>
-            <th>Action</th>
-
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>Tiger Nixon</td>
-            <td>System Architect</td>
-            <td>Edinburgh</td>
-            <td>61</td>
-            <td>2011/04/25</td>
-            <td>$320,800</td>
-        </tr>
-        <tr>
-            <td>Garrett Winters</td>
-            <td>Accountant</td>
-            <td>Tokyo</td>
-            <td>63</td>
-            <td>2011/07/25</td>
-            <td>$170,750</td>
-        </tr>
-        <tr>
-            <td>Ashton Cox</td>
-            <td>Junior Technical Author</td>
-            <td>San Francisco</td>
-            <td>66</td>
-            <td>2009/01/12</td>
-            <td>$86,000</td>
-        </tr>
-        
-    </tbody>
-    <tfoot>
-        <tr>
-            <th>Name</th>
-            <th>Position</th>
-            <th>Office</th>
-            <th>Age</th>
-            <th>Start date</th>
-            <th>Salary</th>
-        </tr>
-    </tfoot>
-</table> -->
 
 </div>
 </div>

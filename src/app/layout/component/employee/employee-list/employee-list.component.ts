@@ -38,12 +38,12 @@ export class EmployeeListComponent implements OnInit {
 
     this.dtOptions = {
       pagingType: 'full_numbers',
-     
+      pageLength: 5,
       serverSide: true,
       processing: true,
       searching: true,
       search: false,
-      info:false,
+      info:true,
 
       // paging: false,
       // dom: '<"bottom"i>rt<"bottom"flp><"clear">',
@@ -65,10 +65,9 @@ export class EmployeeListComponent implements OnInit {
             });
           });
       },
-      columns: [{ data: 'id' }, { data: 'firstName' }, { data: 'lastName' },]
+      columns: [{ data: 'id' }, { data: 'firstName' }, { data: 'lastName' },{ data: 'id' }, { data: 'firstName' }, { data: 'lastName' },{ data: 'id' }, { data: 'firstName' }]
     };
   }
-
 
   ngAfterViewInit(): void {
     this.datatableElement.dtInstance.then((dtInstance: DataTables.Api) => {
