@@ -1,133 +1,88 @@
-.employeeList{
-    background-color: lightblue;
-    font-size: 18px;
-    color: white;
-}
 
-.dataTables_filter, .dataTables_info { display: none; }
-
-/*td{
-    border: 1px solid  black;
-    padding: 8px;
-}
-
-th{
-    background-color: cadetblue;
-}
-
-/*tr:nth-child(even){background-color: #f2f2f2;}
-tr:nth-child(odd){background-color:  white;}*/
-
-
-
-/*tr:hover {background-color: #ddd;}*/
-.box{
-
-
-    /* position: relative;
- 
-    background-color: #f2f2f2;*/
+.content-header {
+    position: relative;
+    padding: 15px 30px;
+    background-color: #f2f2f2;
+    border-bottom: 1px solid #fff;
     
 
-
-
-
-    background-color: #DAD7D7;	
-    width: 100%;
-    height: 150px;
-    border-radius: 5px 5px 0 0;
-    overflow: hidden;
-    box-shadow: 0 20px 20px rgba(0,0, 0, 0.15);
-}
-
-.box1{
-    background-color: white;
-    width: 100%;
-    height: 20px;
-}
-
-.content{
-    border-collapse: collapse;
-    font-size: 0.9rem;
-    min-width: 400px;
-    border-radius: 5px 5px 0 0;
-    overflow: hidden;
-    box-shadow: 0 0 20px rgba(0,0, 0, 0.15);
-}
-
-.card{
-
     box-shadow: 0 0 20px rgba(0,0, 0, 0.15);
     border-radius: 5px 5px 0 0;
     overflow: hidden;
     border-collapse: collapse;
-
 }
-
-.content thead tr {
-    background-color: #009879;
-    color: #ffffff;
-    text-align: left;
-    font-weight: bold;
+.content-header .header-icon {
+    font-size: 45px;
+    color: #4b4b79;
+    width: 65px;
+    float: left;
+    margin-top: -4px;
+    line-height: 0;
 }
-
-.content th,
-.content td {
-    padding: 12px 15px;
+.content-header .header-title {
+    margin-left: 62px;
 }
-
-.content tbody tr{
-    border-bottom: 1px solid #dddddd;
+.content-header .header-title h1 {
+    margin: 0;
+    font-size: 24px;
 }
-
-.content tbody tr:last-of-type {
-    border-bottom: 2px solid #009869;
+.content-header .header-title small {
+    font-size: 14px;
+    display: inline-block;
+    padding-left: 4px;
+    font-weight: 600;
+    color: #555;
 }
-/*this is for the font-size of attendance icon you can change as you wish*/
-.material-icons.md-24 { 
-    font-size: 30px; 
-    color: #009869;
-}
-
-
-.content1{
-    padding-left: 40px;
-}
-
-
-
-.search {
-    background-color: transparent;
-    border: none;
-    border-bottom: 1px solid #9e9e9e;
-    border-radius: 0;
-    outline: 0;
-    height: 3rem;
-    width: 100%;
-    font-size: 1rem;
-    margin: 0 0 20px;
-    padding: 0;
-    box-shadow: none;
-    box-sizing: content-box;
-    transition: all .3s;
-}
-
-.sideicon{
+.header-title .link {
     float: right;
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 12px;
+    position: absolute;
+    bottom: 20px;
+    right: 30px;
+    top: 18px;
+    border-radius: 0;
+    font-weight: 600;
 }
-a{
-    text-decoration: none;
-    color: teal;
+.link>.active {
+    color: #26a69a;
+    font-weight: 700;
+}
+ul.link {
+    padding: 10px 16px;
+    list-style: none;
+    font-size: 17px;
+}
+ul.link li {
+    display: inline;
+}
+ul.link li+li:before {
+    padding: 8px;
+    color: black;
+    content: "/\00a0";
 }
 
-/*this is for the font-size of home/my attendance icon you can change as you wish*/
+ul.link li a:hover {
+    color: #01447e;
+    text-decoration: underline;
+}
+ul.link li > a > i.fa {
+    font-size: 14px;
+    padding-right: 2px;
+}
 
-/*.material-icons{
-    color: teal;
-}*/
+
+
 
 .card{
+
+    box-shadow: 0 0 20px rgba(0,0, 0, 0.20);
     border-radius: 5px 5px 0 0;
-    box-shadow: 0 0 20px rgba(0,0, 0, 0.15);
+    overflow: hidden;
+    border-collapse: collapse;
+    
 
 }
+
+

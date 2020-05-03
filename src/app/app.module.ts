@@ -41,6 +41,8 @@ import { MyAttendanceComponent } from './layout/component/Attendance-and-leaves/
 import { ApplyTimeAwayComponent } from './layout/component/Attendance-and-leaves/apply-time-away/apply-time-away.component';
 import { MyTimeAwayRequestsComponent } from './layout/component/Attendance-and-leaves/my-time-away-requests/my-time-away-requests.component';
 import { MyLeavesComponent } from './layout/component/Attendance-and-leaves/my-leaves/my-leaves.component';
+import { CreateEmployeeComponent } from './layout/component/employee/create-employee/create-employee.component';
+import { EditEmployeeComponent } from './layout/component/employee/edit-employee/edit-employee.component';
 
 
 
@@ -59,7 +61,9 @@ import { MyLeavesComponent } from './layout/component/Attendance-and-leaves/my-l
     MyAttendanceComponent,
     ApplyTimeAwayComponent,
     MyTimeAwayRequestsComponent,
-    MyLeavesComponent
+    MyLeavesComponent,
+    CreateEmployeeComponent,
+    EditEmployeeComponent
   ],
   imports: [
     BrowserModule,
