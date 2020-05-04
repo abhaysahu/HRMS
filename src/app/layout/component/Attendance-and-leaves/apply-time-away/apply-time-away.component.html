@@ -1,3 +1,219 @@
-<p>
-  apply-time-away works!
-</p>
+<section class="content-header z-depth-1">
+  <div class="header-icon">
+      <i class="fa fa-briefcase"></i>
+  </div>
+  <div class="header-title">
+      <h1>Apply Time Away From Work</h1>
+      <small>Apply Time Away From Work Record</small>
+      <ul class="link hidden-xs">
+          <li><a href="index-2.html"><i class="fa fa-home"></i>Home</a></li>
+          <li><a href="datatable.html">Apply Time Away From Work</a></li>
+      </ul>
+  </div>
+</section>
+
+<br><br>
+
+
+<div class="card">
+  <div class="card-header">
+    Apply Time Away From Work
+  </div>
+  <div class="card-body">
+    <form>
+      <div class="form">
+        <div class="form-row">
+        <div class="form-group col-md-4">
+          <label for="applyfor">Apply For</label>
+          
+          <select class="custom-select" id="applyfor">
+            <option selected>Leave</option>
+            <option value="1">Working Out Of Office</option>
+            <option value="2">Work From Home</option>
+            <option value="3">Attendance Modification</option>
+            <option value="4">Earning Compensatory</option>
+            <option value="5">Short Leave</option>
+
+
+
+          </select>
+        </div>
+
+
+        <div class="form-group col-md-4">
+          <label for="from">From</label>
+          <div class="form-group">
+            <input type="date" name="bday" max="3000-12-31" 
+                  min="1000-01-01" class="form-control">
+          </div>
+          
+          
+          
+        </div>
+
+        <div class="form-group col-md-4">
+          <label for="to">To</label>
+          <div class="form-group">
+            <input type="date" name="bday" max="3000-12-31" 
+                  min="1000-01-01" class="form-control">
+          </div>
+        </div>
+
+        <div class="form-group col-md-2">
+          <label for="noofdays">No. Of Days</label>
+          <input type="number" id="noofdays" class="form-control" placeholder="0" step="" min="0" max="10">
+        </div><br>
+
+
+        <div class="form-check">
+          <label for="halfdays">Half Days</label><br>
+          <input  type="checkbox" id="blankCheckbox" value="option1" aria-label="...">
+        </div>
+        </div>
+       <div>
+        <label for="leavesummary">Leave Sumarry</label>
+
+        <table class="table table-bordered">
+          <thead>
+            <tr class="table-header" >
+              <th scope="col" ></th>
+              <th scope="col">GL</th>
+              <th scope="col">FL</th>
+              <th scope="col">Comp</th>
+              <th scope="col">Others(BL/PL)</th>
+
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row" class="table-header">B/F</th>
+              <td>Jacob</td>
+              <td>Thornton</td>
+              <td>@fat</td>
+              <td>Abc</td>
+            </tr>
+            <tr >
+              <th scope="row" class="table-header">Entitlement(CY)</th>
+              <td>Jacob</td>
+              <td>Thornton</td>
+              <td>@fat</td>
+              <td>Abc</td>
+            </tr>
+            <tr>
+              <th scope="row" class="table-header">Availed(CY)</th>
+              <td >Larry the Bird</td>
+              <td>@twitter</td>
+              <td>@fat</td>
+              <td>Abc</td>
+
+            </tr>
+            <tr>
+              <th scope="row" class="table-header">Applied(CY)</th>
+              <td >Larry the Bird</td>
+              <td>@twitter</td>
+              <td>@fat</td>
+              <td>Abc</td>
+
+            </tr>
+            <tr>
+              <th scope="row" class="table-header">Balance(CY)</th>
+              <td >Larry the Bird</td>
+              <td>@twitter</td>
+              <td>@fat</td>
+              <td>Abc</td>
+
+            </tr>
+          </tbody>
+        </table>
+       </div>
+       <div class="form-group col-md-4">
+        <label for="applyunder">Apply Under</label>
+        
+        <select class="custom-select" id="applyunder">
+          <option selected>Select</option>
+          <option value="1">General Leave</option>
+          <option value="2">Floating Leave</option>
+          <option value="3">Compensatory Off</option>
+          <option value="4">Berevement Leave</option>
+
+
+
+        </select>
+      </div>
+
+
+      <label for="category">Category</label>
+
+      <div class="form-check">
+        <label class="form-check-label">
+          <input type="radio" class="form-check-input" name="optradio">Personal Leave
+        </label>
+      </div>
+      <div class="form-check-inline">
+        <label class="form-check-label">
+          <input type="radio" class="form-check-input" name="optradio">Sick Leave
+        </label>
+      </div><br>
+      <div class="form-check-inline ">
+        <label class="form-check-label">
+          <input type="radio" class="form-check-input" name="optradio" >Emergency Leave
+        </label>
+      </div>
+      <br><br>
+      <div class="form-group col-md-6">
+        <label for="reasonofleave">Reason Of Leave</label>
+        <input type="next" class="form-control" id="reasonofleave" style="width: 200%; height: 200px;">
+      </div><br>
+      <div class="form-group col-md-6">
+        <label for="remarks">Remarks</label>
+        <input type="next" class="form-control" id="remarks" style="width: 200%; height: 200px;">
+      </div><br>
+      <div>
+        <label>I have informed the RM about my leave/s</label><br>
+        <div class="form-check-inline">
+          <label class="form-check-label">
+            <input type="radio" class="form-check-input" name="optradio">Yes
+          </label>
+        </div>
+        <div class="form-check-inline">
+          <label class="form-check-label">
+            <input type="radio" class="form-check-input" name="optradio">No
+          </label>
+        </div>
+      </div><br>
+      <div class="form-group col-md-4">
+        <label for="approvalname">Approval Name</label>
+        
+        <select class="custom-select" id="approvalname">
+          <option selected>Select</option>
+          <option value="1">General Leave</option>
+          <option value="2">Floating Leave</option>
+          <option value="3">Compensatory Off</option>
+          <option value="4">Berevement Leave</option>
+
+
+
+        </select>
+      </div>
+      <div style="margin-left: 400px;">
+      <button type="button" class="btn btn-danger">Submit</button>
+      
+      <button type="button" class="btn btn-danger" style="margin-left: 10px;">Cancel</button>
+
+        </div>
+
+
+       
+
+      
+        
+
+       
+
+        
+
+      </div>   
+    </form>
+    </div>
+    </div>
+
