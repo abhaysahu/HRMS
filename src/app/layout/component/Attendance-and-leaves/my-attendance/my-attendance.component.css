@@ -84,9 +84,9 @@ ul.link li > a > i.fa {
     
 
 }
-label {
-    display: block;
-    font: 1rem 'Fira Sans', sans-serif;
+label{
+    font-family: "Lucida Console", Courier, monospace;
+    font-weight: bold;
 
 }
 
