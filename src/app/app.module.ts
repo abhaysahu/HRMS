@@ -111,6 +111,12 @@ import { TimesheetBankComponent } from './layout/component/Timesheet/timesheet-b
           //canActivate: [AuthGuardService],
           },
           {
+            path: 'create/new/employee', component:CreateEmployeeComponent
+          },
+          {
+            path: 'edit/employee',component:EditEmployeeComponent
+          },
+          {
             path: 'myattendance', component: MyAttendanceComponent,
           },
           {
