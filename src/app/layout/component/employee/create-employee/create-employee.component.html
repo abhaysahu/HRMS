@@ -34,7 +34,7 @@
               <form #f="ngForm" (ngSubmit)="Basic(f.value)" class="was-validated">
               <div class="form-row">
                 <div class="form-group col-md-4">
-                  <label for="name">name</label>
+                  <label for="name">Full Name</label>
                   <input #name="ngModel" [(ngModel)]="Employee.name" name="name" id="name" type="text" class="form-control" placeholder="Employee Name" required>
                   <div class="invalid-feedback" *ngIf="name.touched && name.invalid">
                     Product Full Name is Required.
@@ -54,18 +54,20 @@
 
                 <div class="form-group col-md-4">
                   <label for="dateOfJoining">Date Of Joining</label>
-                  <div class="form-group">
                     <input type="date" max="3000-12-31"  #dateOfJoining="ngModel" [(ngModel)]="Employee.dateOfJoining" name="dateOfJoining" id="dateOfJoining"
                           min="1000-01-01" class="form-control">
+                  <div class="invalid-feedback" *ngIf="dateOfJoining.touched && dateOfJoining.invalid">
+                    Product Full Name is Required.
                   </div>                  
                 </div>
 
                 <div class="form-group col-md-4">
                   <label for="dateOfConfirmation">Date Of Confirmation</label>
-                  <div class="form-group">
                     <input type="date" max="3000-12-31" #dateOfConfirmation="ngModel" [(ngModel)]="Employee.dateOfConfirmation" name="dateOfConfirmation" id="dateOfConfirmation"
                           min="1000-01-01" class="form-control">
-                  </div>
+                    <div class="invalid-feedback" *ngIf="dateOfConfirmation.touched && dateOfConfirmation.invalid">
+                      Product Full Name is Required.
+                    </div>  
                 </div>
 
                 <div class="form-group col-md-4">
@@ -76,6 +78,9 @@
                     <option value="Two">Two</option>
                     <option value="Three">Three</option>
                   </select>
+                  <div class="invalid-feedback" *ngIf="division.touched && division.invalid">
+                    Product Full Name is Required.
+                  </div>  
                 </div>
 
               
@@ -87,6 +92,9 @@
                     <option value="Two">Two</option>
                     <option value="Three">Three</option>
                   </select>
+                  <div class="invalid-feedback" *ngIf="department.touched && department.invalid">
+                    Product Full Name is Required.
+                  </div>  
                 </div>
 
                 <div class="form-group col-md-4">
@@ -97,31 +105,49 @@
                     <option value="Two">Two</option>
                     <option value="Three">Three</option>
                   </select>
+                  <div class="invalid-feedback" *ngIf="designation.touched && designation.invalid">
+                    Product Full Name is Required.
+                  </div>  
                 </div>
 
                 <div class="form-group col-md-4">
                   <label for="grade">Grade</label>
                   <input type="number" #grade="ngModel" [(ngModel)]="Employee.grade" name="grade" id="grade" class="form-control" placeholder="1.0" step="0.01" min="0" max="10">
+                  <div class="invalid-feedback" *ngIf="grade.touched && grade.invalid">
+                    Product Full Name is Required.
+                  </div>  
                 </div>
 
                 <div class="form-group col-md-4">
                   <label for="email">E-mail</label>
                   <input type="text" class="form-control" #email="ngModel" [(ngModel)]="Employee.email" name="email" id="email">
+                  <div class="invalid-feedback" *ngIf="email.touched && email.invalid">
+                    Product Full Name is Required.
+                  </div>  
                 </div>
 
                 <div class="form-group col-md-4">
                   <label for="highQualification">High Qualification</label>
                   <input type="text" class="form-control"#highQualification="ngModel" [(ngModel)]="Employee.highQualification" name="highQualification" id="highQualification">
+                  <div class="invalid-feedback" *ngIf="highQualification.touched && highQualification.invalid">
+                    Product Full Name is Required.
+                  </div> 
                 </div>
                 
                 <div class="form-group col-md-4">
                   <label for="totalExperiece">Total Experience(yrs)</label><br>
                   <input type="number" id="totalExperiece" class="form-control" #totalExperiece="ngModel" [(ngModel)]="Employee.totalExperiece" name="totalExperiece" id="totalExperiece" min="1" max="20">
+                  <div class="invalid-feedback" *ngIf="totalExperiece.touched && totalExperiece.invalid">
+                    Product Full Name is Required.
+                  </div>
                 </div>
 
                 <div class="form-group col-md-4">
                   <label for="experienceIn">Experience in Pobara</label>
                   <input type="text" class="form-control" #experienceIn="ngModel" [(ngModel)]="Employee.experienceIn" name="experienceIn" id="experienceIn">
+                  <div class="invalid-feedback" *ngIf="dateOfJoiningtouched && dateOfJoining.invalid">
+                    Product Full Name is Required.
+                  </div>
                 </div>
 
                 <div class="form-group col-md-4">
@@ -133,6 +159,9 @@
                     <option value="Widowed">Widowed</option>
                     <option value="Divorced">Divorced</option>
                   </select>
+                  <div class="invalid-feedback" *ngIf="dateOfJoiningtouched && dateOfJoining.invalid">
+                    Product Full Name is Required.
+                  </div>
                 </div>
 
                 <div class="form-group col-md-4">
@@ -143,26 +172,41 @@
                     <option value="Female">Female</option>
                     <option value="Other">Others</option>
                   </select>
+                  <div class="invalid-feedback" *ngIf="dateOfJoiningtouched && dateOfJoining.invalid">
+                    Product Full Name is Required.
+                  </div>
                 </div>
 
                 <div class="form-group col-md-4">
                   <label for="aadharCardNumber">Aadhar Card Number</label><br>
                   <input type="text" class="form-control" #aadharCardNumber="ngModel" [(ngModel)]="Employee.aadharCardNumber" id="aadharCardNumber" name="aadharCardNumber" min="0000000000" max="999999999999999">
+                  <div class="invalid-feedback" *ngIf="dateOfJoiningtouched && dateOfJoining.invalid">
+                    Product Full Name is Required.
+                  </div>
                 </div>
 
                 <div class="form-group col-md-4">
                   <label for="panCard">PAN #</label><br>
                   <input type="text" class="form-control" #panCard="ngModel" [(ngModel)]="Employee.panCard" id="panCard" name="panCard" min="0000000000" max="999999999999999">
+                  <div class="invalid-feedback" *ngIf="dateOfJoiningtouched && dateOfJoining.invalid">
+                    Product Full Name is Required.
+                  </div>
                 </div>
 
                 <div class="form-group col-md-4">
                   <label for="uanCard">UAN #</label><br>
                   <input type="text"  class="form-control" #uanCard="ngModel" [(ngModel)]="Employee.uanCard" id="uanCard" name="uanCard" min="0000000000" max="999999999999999">
+                  <div class="invalid-feedback" *ngIf="dateOfJoiningtouched && dateOfJoining.invalid">
+                    Product Full Name is Required.
+                  </div>
                 </div>
 
                 <div class="form-group col-md-4">
                   <label for="pfCard">PF #</label><br>
                   <input type="text" class="form-control" #pfCard="ngModel" [(ngModel)]="Employee.pfCard" id="pfCard" name="pfCard" min="0000000000" max="999999999999999">
+                  <div class="invalid-feedback" *ngIf="dateOfJoiningtouched && dateOfJoining.invalid">
+                    Product Full Name is Required.
+                  </div>
                 </div>
 
               </div>
