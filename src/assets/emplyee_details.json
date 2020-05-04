@@ -1,7 +1,7 @@
+
 [
         {
-            "basic":
-                {
+            
                     "name": "abhay sahu",
                     "loginid": "2154",
                     "empCode": 123,
@@ -20,36 +20,29 @@
                     "aadharCardNumber": "2456 2587 4895",
                     "panCard": "APJD5548S",
                     "uanCard": "2548 4584",
-                    "pfCard": "2548 48785"
-                }
-            ,
+                    "pfCard": "2548 48785",
+                    
+                        "addressName": "abhay sahu",
+                        "addressNumber":9617625945,
+                        "currentAddressLine1": "shubhash colny",
+                        "currentAddressLine2": "near IDBI bank",
+                        "currentCity": "Guna",
+                        "currentState": "MP",
+                        "currentZip":215487,
+            
+    
+                
+            
 
-            "current":
-                {
-                    "addressName": "abhay sahu",
-                    "addressNumber":9617625945,
-                    "currentAddressLine1": "shubhash colny",
-                    "currentAddressLine2": "near IDBI bank",
-                    "currentCity": "Guna",
-                    "currentState": "MP",
-                    "currentZip":215487
-                }
-
-            ,
-            "permanent": 
-                {
+            
                     "permanentName": "abhay sahu",
                     "permanentNumber":9617625945,
                     "permanentAddressLine1": "shubhash colny",
                     "permanentAddressLine2": "near IDBI bank",
                     "permanentCity": "Guna",
                     "permanentState": "MP",
-                    "permanentZip":215487
-                }
-
-            ,
-            "emergency": 
-                {
+                    "permanentZip":215487,
+           
                     "emergencyName": "abhay sahu",
                     "emergencyNumber":9617625945,
                     "emergencyAddressLine1": "shubhash colny",
@@ -57,8 +50,5 @@
                     "emergencyCity": "Guna",
                     "emergencyState": "MP",
                     "emergencyZip":215487
-                }
-
-            
         }
 ]

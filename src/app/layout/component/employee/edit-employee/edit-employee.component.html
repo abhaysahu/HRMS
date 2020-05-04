@@ -31,28 +31,28 @@
         </div>
         <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
           <div class="card-body">
-              <form #f="ngForm">
-              <div *ngIf="Employee.basic" class="form-row">
+              <form #f="ngForm" (ngSubmit)="Basic(f.value)">
+              <div class="form-row">
                 <div class="form-group col-md-4">
                   <label for="name">name</label>
-                  <input #name="ngModel" [(ngModel)]="Employee.basic.name" name="name" id="name" type="text" class="form-control" placeholder="Employee Name" readonly>
+                  <input #name="ngModel" [(ngModel)]="Employee.name" name="name" id="name" type="text" class="form-control" placeholder="Employee Name" readonly>
                 </div>
 
                 <div class="form-group col-md-4">
                   <label for="loginid">LoginId</label>
-                  <input #loginid="ngModel" [(ngModel)]="Employee.basic.loginid" name="loginid" id="loginid" type="text" class="form-control" placeholder="Login ID" readonly>
+                  <input #loginid="ngModel" [(ngModel)]="Employee.loginid" name="loginid" id="loginid" type="text" class="form-control" placeholder="Login ID" readonly>
                 </div>
 
                 <div class="form-group col-md-4">
                   <label for="empCode">Emp Code</label>
-                  <input #empCode="ngModel" [(ngModel)]="Employee.basic.empCode" name="empCode" id="empCode" type="text" class="form-control" placeholder="Employee Code" readonly>
+                  <input #empCode="ngModel" [(ngModel)]="Employee.empCode" name="empCode" id="empCode" type="text" class="form-control" placeholder="Employee Code" readonly>
                 </div>
 
 
                 <div class="form-group col-md-4">
                   <label for="dateOfJoining">Date Of Joining</label>
                   <div class="form-group">
-                    <input type="text" max="3000-12-31"  #dateOfJoining="ngModel" [(ngModel)]="Employee.basic.dateOfJoining" name="dateOfJoining" id="dateOfJoining"
+                    <input type="text" max="3000-12-31"  #dateOfJoining="ngModel" [(ngModel)]="Employee.dateOfJoining" name="dateOfJoining" id="dateOfJoining"
                           min="1000-01-01" class="form-control" readonly>
                   </div>                  
                 </div>
@@ -60,14 +60,14 @@
                 <div class="form-group col-md-4">
                   <label for="dateOfConfirmation">Date Of Confirmation</label>
                   <div class="form-group">
-                    <input type="text" max="3000-12-31" #dateOfConfirmation="ngModel" [(ngModel)]="Employee.basic.dateOfConfirmation" name="dateOfConfirmation" id="dateOfConfirmation"
+                    <input type="text" max="3000-12-31" #dateOfConfirmation="ngModel" [(ngModel)]="Employee.dateOfConfirmation" name="dateOfConfirmation" id="dateOfConfirmation"
                           min="1000-01-01" class="form-control" readonly>
                   </div>
                 </div>
 
                 <div class="form-group col-md-4">
                   <label for="division">Division</label>
-                  <select class="custom-select" #division="ngModel" [(ngModel)]="Employee.basic.division" name="division" id="division" disabled="disabled">
+                  <select class="custom-select" #division="ngModel" [(ngModel)]="Employee.division" name="division" id="division" disabled="disabled">
                     <option value=""></option>  
                     <option value="One">One</option>
                     <option value="Two">Two</option>
@@ -78,7 +78,7 @@
               
                 <div class="form-group col-md-4">
                   <label for="department">Department</label>
-                  <select class="custom-select" #department="ngModel" [(ngModel)]="Employee.basic.department" name="department" id="department" disabled="disabled">
+                  <select class="custom-select" #department="ngModel" [(ngModel)]="Employee.department" name="department" id="department" disabled="disabled">
                     <option selected>Choose...</option>
                     <option value="One">One</option>
                     <option value="Two">Two</option>
@@ -88,7 +88,7 @@
 
                 <div class="form-group col-md-4">
                   <label for="designation">Designation</label>
-                  <select class="custom-select" #designation="ngModel" [(ngModel)]="Employee.basic.designation" name="designation" id="designation" disabled="disabled">
+                  <select class="custom-select" #designation="ngModel" [(ngModel)]="Employee.designation" name="designation" id="designation" disabled="disabled">
                     <option selected>Choose...</option>
                     <option value="One">One</option>
                     <option value="Two">Two</option>
@@ -98,32 +98,32 @@
 
                 <div class="form-group col-md-4">
                   <label for="grade">Grade</label>
-                  <input type="number" #grade="ngModel" [(ngModel)]="Employee.basic.grade" name="grade" id="grade" class="form-control" placeholder="1.0" step="0.01" min="0" max="10" readonly>
+                  <input type="number" #grade="ngModel" [(ngModel)]="Employee.grade" name="grade" id="grade" class="form-control" placeholder="1.0" step="0.01" min="0" max="10" readonly>
                 </div>
 
                 <div class="form-group col-md-4">
                   <label for="email">E-mail</label>
-                  <input type="text" class="form-control" #email="ngModel" [(ngModel)]="Employee.basic.email" name="email" id="email" readonly>
+                  <input type="text" class="form-control" #email="ngModel" [(ngModel)]="Employee.email" name="email" id="email" readonly>
                 </div>
 
                 <div class="form-group col-md-4">
                   <label for="highQualification">High Qualification</label>
-                  <input type="text" class="form-control"#highQualification="ngModel" [(ngModel)]="Employee.basic.highQualification" name="highQualification" id="highQualification" readonly>
+                  <input type="text" class="form-control"#highQualification="ngModel" [(ngModel)]="Employee.highQualification" name="highQualification" id="highQualification" readonly>
                 </div>
                 
                 <div class="form-group col-md-4">
                   <label for="totalExperiece">Total Experience(yrs)</label><br>
-                  <input type="number" id="totalExperiece" class="form-control" #totalExperiece="ngModel" [(ngModel)]="Employee.basic.totalExperiece" name="totalExperiece" id="totalExperiece" min="1" max="20" readonly>
+                  <input type="number" id="totalExperiece" class="form-control" #totalExperiece="ngModel" [(ngModel)]="Employee.totalExperiece" name="totalExperiece" id="totalExperiece" min="1" max="20" readonly>
                 </div>
 
                 <div class="form-group col-md-4">
                   <label for="experienceIn">Experience in Pobara</label>
-                  <input type="text" class="form-control" #experienceIn="ngModel" [(ngModel)]="Employee.basic.experienceIn" name="experienceIn" id="experienceIn" readonly>
+                  <input type="text" class="form-control" #experienceIn="ngModel" [(ngModel)]="Employee.experienceIn" name="experienceIn" id="experienceIn" readonly>
                 </div>
 
                 <div class="form-group col-md-4">
                   <label for="maritalStatus">Marital Status</label>
-                  <select class="custom-select" #maritalStatus="ngModel" [(ngModel)]="Employee.basic.maritalStatus" name="maritalStatus" id="maritalStatus" disabled="disabled">
+                  <select class="custom-select" #maritalStatus="ngModel" [(ngModel)]="Employee.maritalStatus" name="maritalStatus" id="maritalStatus" disabled="disabled">
                     <option selected>Choose...</option>
                     <option value="Single">Single</option>
                     <option value="Married">Married</option>
@@ -134,7 +134,7 @@
 
                 <div class="form-group col-md-4">
                   <label for="gender">Gender</label>
-                  <select class="custom-select" #gender="ngModel" [(ngModel)]="Employee.basic.gender" name="gender" id="gender" disabled="disabled">
+                  <select class="custom-select" #gender="ngModel" [(ngModel)]="Employee.gender" name="gender" id="gender" disabled="disabled">
                     <option selected>Choose...</option>
                     <option value="Male">Male</option>
                     <option value="Female">Female</option>
@@ -144,22 +144,22 @@
 
                 <div class="form-group col-md-3">
                   <label for="aadharCardNumber">Aadhar Card Number</label><br>
-                  <input type="text" class="form-control" #aadharCardNumber="ngModel" [(ngModel)]="Employee.basic.aadharCardNumber" id="aadharCardNumber" name="aadharCardNumber" min="0000000000" max="999999999999999" readonly>
+                  <input type="text" class="form-control" #aadharCardNumber="ngModel" [(ngModel)]="Employee.aadharCardNumber" id="aadharCardNumber" name="aadharCardNumber" min="0000000000" max="999999999999999" readonly>
                 </div>
 
                 <div class="form-group col-md-3">
                   <label for="panCard">PAN #</label><br>
-                  <input type="text" class="form-control" #panCard="ngModel" [(ngModel)]="Employee.basic.panCard" id="panCard" name="panCard" min="0000000000" max="999999999999999" readonly>
+                  <input type="text" class="form-control" #panCard="ngModel" [(ngModel)]="Employee.panCard" id="panCard" name="panCard" min="0000000000" max="999999999999999" readonly>
                 </div>
 
                 <div class="form-group col-md-3">
                   <label for="uanCard">UAN #</label><br>
-                  <input type="text"  class="form-control" #uanCard="ngModel" [(ngModel)]="Employee.basic.uanCard" id="uanCard" name="uanCard" min="0000000000" max="999999999999999" readonly>
+                  <input type="text"  class="form-control" #uanCard="ngModel" [(ngModel)]="Employee.uanCard" id="uanCard" name="uanCard" min="0000000000" max="999999999999999" readonly>
                 </div>
 
                 <div class="form-group col-md-3">
                   <label for="pfCard">PF #</label><br>
-                  <input type="text" class="form-control" #pfCard="ngModel" [(ngModel)]="Employee.basic.pfCard" id="pfCard" name="pfCard" min="0000000000" max="999999999999999" readonly>
+                  <input type="text" class="form-control" #pfCard="ngModel" [(ngModel)]="Employee.pfCard" id="pfCard" name="pfCard" min="0000000000" max="999999999999999" readonly>
                 </div>
 
               </div>
@@ -181,38 +181,38 @@
         </div>
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
           <div class="card-body">
-              <form>
+              <form #f="ngForm" (ngSubmit)="Current(f.value)">
               <div class="form-row">
                 <div class="form-group col-md-6">
                   <label for="addressName">Address Name</label>
-                  <input type="text" class="form-control" #addressName="ngModel" [(ngModel)]="Employee.current.addressName" name="addressName" id="addressName">
+                  <input type="text" class="form-control" #addressName="ngModel" [(ngModel)]="Employee.addressName" name="addressName" id="addressName">
                 </div>
 
                 <div class="form-group col-md-6">
                   <label for="addressNumber">number</label>
-                  <input type="number" class="form-control" #addressNumber="ngModel" [(ngModel)]="Employee.current.addressNumber" name="addressNumber" id="addressNumber">
+                  <input type="number" class="form-control" #addressNumber="ngModel" [(ngModel)]="Employee.addressNumber" name="addressNumber" id="addressNumber">
                 </div>
               </div>
 
               <div class="form-group">
                 <label for="currentAddressLine1">Address Line 1</label>
-                <input type="text" class="form-control" #currentAddressLine1="ngModel" [(ngModel)]="Employee.current.currentAddressLine1" name="currentAddressLine1" id="currentAddressLine1" placeholder="1234 Main St">
+                <input type="text" class="form-control" #currentAddressLine1="ngModel" [(ngModel)]="Employee.currentAddressLine1" name="currentAddressLine1" id="currentAddressLine1" placeholder="1234 Main St">
               </div>
 
               <div class="form-group">
                 <label for="currentAddressLine2">Address 2</label>
-                <input type="text" class="form-control" #currentAddressLine2="ngModel" [(ngModel)]="Employee.current.currentAddressLine2" name="currentAddressLine2" id="currentAddressLine2" placeholder="Apartment, studio, or floor">
+                <input type="text" class="form-control" #currentAddressLine2="ngModel" [(ngModel)]="Employee.currentAddressLine2" name="currentAddressLine2" id="currentAddressLine2" placeholder="Apartment, studio, or floor">
               </div>
 
               <div class="form-row">
                 <div class="form-group col-md-5">
                   <label for="currentCity">City</label>
-                  <input type="text" class="form-control" #currentCity="ngModel" [(ngModel)]="Employee.current.currentCity" name="currentCity" id="currentCity">
+                  <input type="text" class="form-control" #currentCity="ngModel" [(ngModel)]="Employee.currentCity" name="currentCity" id="currentCity">
                 </div>
 
                 <div class="form-group col-md-4">
                   <label for="currentState">State</label>
-                  <select id="currentState" class="form-control" #currentState="ngModel" [(ngModel)]="Employee.current.currentState" name="currentState">
+                  <select id="currentState" class="form-control" #currentState="ngModel" [(ngModel)]="Employee.currentState" name="currentState">
                     <option selected>Choose...</option>
                     <option value="MP">MP</option>
                     <option value="UP">UP</option>
@@ -222,7 +222,7 @@
 
                 <div class="form-group col-md-3">
                   <label for="currentZip">Zip</label>
-                  <input type="number" class="form-control" #currentZip="ngModel" [(ngModel)]="Employee.current.currentZip" name="currentZip" id="currentZip">
+                  <input type="number" class="form-control" #currentZip="ngModel" [(ngModel)]="Employee.currentZip" name="currentZip" id="currentZip">
                 </div>
               </div>
             
@@ -244,38 +244,38 @@
         <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
           <div class="card-body">
 
-              <form>
+              <form #f="ngForm" (ngSubmit)="Permanent(f.value)">
               <div class="form-row">
                 <div class="form-group col-md-6">
                   <label for="permanentName">Address Name</label>
-                  <input type="text" class="form-control" #permanentName="ngModel" [(ngModel)]="Employee.permanent.permanentName" name="permanentName" id="permanentName">
+                  <input type="text" class="form-control" #permanentName="ngModel" [(ngModel)]="Employee.permanentName" name="permanentName" id="permanentName">
                 </div>
 
                 <div class="form-group col-md-6">
                   <label for="permanentNumber">number</label>
-                  <input type="number" class="form-control" #permanentNumber="ngModel" [(ngModel)]="Employee.permanent.permanentNumber" name="permanentNumber" id="permanentNumber">
+                  <input type="number" class="form-control" #permanentNumber="ngModel" [(ngModel)]="Employee.permanentNumber" name="permanentNumber" id="permanentNumber">
                 </div>
               </div>
 
               <div class="form-group">
                 <label for="permanentAddressLine1">Address Line 1</label>
-                <input type="text" class="form-control" #permanentAddressLine1="ngModel" [(ngModel)]="Employee.permanent.permanentAddressLine1" name="permanentAddressLine1" id="permanentAddressLine1" placeholder="1234 Main St">
+                <input type="text" class="form-control" #permanentAddressLine1="ngModel" [(ngModel)]="Employee.permanentAddressLine1" name="permanentAddressLine1" id="permanentAddressLine1" placeholder="1234 Main St">
               </div>
 
               <div class="form-group">
                 <label for="permanentAddressLine2">Address 2</label>
-                <input type="text" class="form-control" #permanentAddressLine2="ngModel" [(ngModel)]="Employee.permanent.permanentAddressLine2" name="permanentAddressLine2" id="permanentAddressLine2" placeholder="Apartment, studio, or floor">
+                <input type="text" class="form-control" #permanentAddressLine2="ngModel" [(ngModel)]="Employee.permanentAddressLine2" name="permanentAddressLine2" id="permanentAddressLine2" placeholder="Apartment, studio, or floor">
               </div>
 
               <div class="form-row">
                 <div class="form-group col-md-5">
                   <label for="permanentCity">City</label>
-                  <input type="text" class="form-control" #permanentCity="ngModel" [(ngModel)]="Employee.permanent.permanentCity" name="permanentCity" id="permanentCity">
+                  <input type="text" class="form-control" #permanentCity="ngModel" [(ngModel)]="Employee.permanentCity" name="permanentCity" id="permanentCity">
                 </div>
 
                 <div class="form-group col-md-4">
                   <label for="permanentState">State</label>
-                  <select id="permanentState" class="form-control" #permanentState="ngModel" [(ngModel)]="Employee.permanent.permanentState" name="permanentState">
+                  <select id="permanentState" class="form-control" #permanentState="ngModel" [(ngModel)]="Employee.permanentState" name="permanentState">
                     <option selected>Choose...</option>
                     <option value="MP">MP</option>
                     <option value="UP">UP</option>
@@ -285,7 +285,7 @@
 
                 <div class="form-group col-md-3">
                   <label for="permanentZip">Zip</label>
-                  <input type="text" class="form-control" #permanentZip="ngModel" [(ngModel)]="Employee.permanent.permanentZip" name="permanentZip" id="permanentZip">
+                  <input type="text" class="form-control" #permanentZip="ngModel" [(ngModel)]="Employee.permanentZip" name="permanentZip" id="permanentZip">
                 </div>
               </div>
             
@@ -307,38 +307,38 @@
         <div id="collapsefour" class="collapse" aria-labelledby="headingfour" data-parent="#accordionExample">
           <div class="card-body">
 
-              <form>
+              <form #f="ngForm" (ngSubmit)="Emergency(f.value)">
               <div class="form-row">
                 <div class="form-group col-md-6">
                   <label for="emergencyName">Address Name</label>
-                  <input type="next" class="form-control" #emergencyName="ngModel" [(ngModel)]="Employee.emergency.emergencyName" name="emergencyName" id="emergencyName">
+                  <input type="next" class="form-control" #emergencyName="ngModel" [(ngModel)]="Employee.emergencyName" name="emergencyName" id="emergencyName">
                 </div>
 
                 <div class="form-group col-md-6">
                   <label for="emergencyNumber">number</label>
-                  <input type="number" class="form-control" #emergencyNumber="ngModel" [(ngModel)]="Employee.emergency.emergencyNumber" name="emergencyNumber" id="emergencyNumber">
+                  <input type="number" class="form-control" #emergencyNumber="ngModel" [(ngModel)]="Employee.emergencyNumber" name="emergencyNumber" id="emergencyNumber">
                 </div>
               </div>
 
               <div class="form-group">
                 <label for="emergencyAddressLine1">Address Line 1</label>
-                <input type="text" class="form-control" #emergencyAddressLine1="ngModel" [(ngModel)]="Employee.emergency.emergencyAddressLine1" name="emergencyAddressLine1" id="emergencyAddressLine1" placeholder="1234 Main St">
+                <input type="text" class="form-control" #emergencyAddressLine1="ngModel" [(ngModel)]="Employee.emergencyAddressLine1" name="emergencyAddressLine1" id="emergencyAddressLine1" placeholder="1234 Main St">
               </div>
 
               <div class="form-group">
                 <label for="emergencyAddressLine2">Address 2</label>
-                <input type="text" class="form-control" #emergencyAddressLine2="ngModel" [(ngModel)]="Employee.emergency.emergencyAddressLine2" name="emergencyAddressLine2" id="emergencyAddressLine2" placeholder="Apartment, studio, or floor">
+                <input type="text" class="form-control" #emergencyAddressLine2="ngModel" [(ngModel)]="Employee.emergencyAddressLine2" name="emergencyAddressLine2" id="emergencyAddressLine2" placeholder="Apartment, studio, or floor">
               </div>
 
               <div class="form-row">
                 <div class="form-group col-md-5">
                   <label for="emergencyCity">City</label>
-                  <input type="text" class="form-control" #emergencyCity="ngModel" [(ngModel)]="Employee.emergency.emergencyCity" name="emergencyCity" id="emergencyCity">
+                  <input type="text" class="form-control" #emergencyCity="ngModel" [(ngModel)]="Employee.emergencyCity" name="emergencyCity" id="emergencyCity">
                 </div>
 
                 <div class="form-group col-md-4">
                   <label for="emergencyState">State</label>
-                  <select id="emergencyState" class="form-control" #emergencyState="ngModel" [(ngModel)]="Employee.emergency.emergencyState" name="emergencyState">
+                  <select id="emergencyState" class="form-control" #emergencyState="ngModel" [(ngModel)]="Employee.emergencyState" name="emergencyState">
                     <option selected>Choose...</option>
                     <option value="MP">MP</option>
                     <option value="UP">UP</option>
@@ -348,7 +348,7 @@
 
                 <div class="form-group col-md-3">
                   <label for="emergencyZip">Zip</label>
-                  <input type="text" class="form-control" #emergencyZip="ngModel" [(ngModel)]="Employee.emergency.emergencyName" name="emergencyZip" id="emergencyZip">
+                  <input type="text" class="form-control" #emergencyZip="ngModel" [(ngModel)]="Employee.emergencyZip" name="emergencyZip" id="emergencyZip">
                 </div>
               </div>
             

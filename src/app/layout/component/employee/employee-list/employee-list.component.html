@@ -45,7 +45,7 @@
             <td>{{ person.firstName }}</td>
             <td>{{ person.lastName }}</td>
             <td>{{ person.id }}</td>
-            <td>{{ person.firstName }}</td>
+            <td><a [routerLink]="['/dashboard/edit/employee/', person.id]">Edit</a></td>
         </tr>
     </tbody>
     <tbody *ngIf="persons?.length == 0">

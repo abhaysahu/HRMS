@@ -111,7 +111,7 @@ import { EmployeeService } from './layout/component/employee/services/employee.s
             path: 'create/new/employee', component:CreateEmployeeComponent
           },
           {
-            path: 'edit/employee',component:EditEmployeeComponent
+            path: 'edit/employee/:id',component:EditEmployeeComponent
           },
           {
             path: 'myattendance', component: MyAttendanceComponent,
