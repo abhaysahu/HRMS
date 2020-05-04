@@ -37,7 +37,7 @@
                   <label for="name">Full Name</label>
                   <input #name="ngModel" [(ngModel)]="Employee.name" name="name" id="name" type="text" class="form-control" placeholder="Employee Name" required>
                   <div class="invalid-feedback" *ngIf="name.touched && name.invalid">
-                    Product Full Name is Required.
+                    Full Name is Required.
                   </div>
                 </div>
 
@@ -55,169 +55,170 @@
                 <div class="form-group col-md-4">
                   <label for="dateOfJoining">Date Of Joining</label>
                     <input type="date" max="3000-12-31"  #dateOfJoining="ngModel" [(ngModel)]="Employee.dateOfJoining" name="dateOfJoining" id="dateOfJoining"
-                          min="1000-01-01" class="form-control">
-                  <div class="invalid-feedback" *ngIf="dateOfJoining.touched && dateOfJoining.invalid">
-                    Product Full Name is Required.
-                  </div>                  
+                          min="1000-01-01" class="form-control" required>
+										<div class="invalid-feedback" *ngIf="dateOfJoining.touched && dateOfJoining.invalid">
+											Date of Joining is Required.
+										</div>                  
                 </div>
 
                 <div class="form-group col-md-4">
                   <label for="dateOfConfirmation">Date Of Confirmation</label>
                     <input type="date" max="3000-12-31" #dateOfConfirmation="ngModel" [(ngModel)]="Employee.dateOfConfirmation" name="dateOfConfirmation" id="dateOfConfirmation"
-                          min="1000-01-01" class="form-control">
+                          min="1000-01-01" class="form-control" required>
                     <div class="invalid-feedback" *ngIf="dateOfConfirmation.touched && dateOfConfirmation.invalid">
-                      Product Full Name is Required.
+                      Date Of Confirmation Is Required.
                     </div>  
                 </div>
 
                 <div class="form-group col-md-4">
                   <label for="division">Division</label>
-                  <select class="custom-select" #division="ngModel" [(ngModel)]="Employee.division" name="division" id="division">
+                  <select class="custom-select" #division="ngModel" [(ngModel)]="Employee.division" name="division" id="division" required>
                     <option value=""></option>  
                     <option value="One">One</option>
                     <option value="Two">Two</option>
                     <option value="Three">Three</option>
                   </select>
                   <div class="invalid-feedback" *ngIf="division.touched && division.invalid">
-                    Product Full Name is Required.
+                  	Select One Division, It Is Required.
                   </div>  
                 </div>
 
               
                 <div class="form-group col-md-4">
                   <label for="department">Department</label>
-                  <select class="custom-select" #department="ngModel" [(ngModel)]="Employee.department" name="department" id="department">
+                  <select class="custom-select" #department="ngModel" [(ngModel)]="Employee.department" name="department" id="department" required>
                     <option selected>Choose...</option>
                     <option value="One">One</option>
                     <option value="Two">Two</option>
                     <option value="Three">Three</option>
                   </select>
                   <div class="invalid-feedback" *ngIf="department.touched && department.invalid">
-                    Product Full Name is Required.
+                    Select One Department, It Is Required.
                   </div>  
                 </div>
 
                 <div class="form-group col-md-4">
                   <label for="designation">Designation</label>
-                  <select class="custom-select" #designation="ngModel" [(ngModel)]="Employee.designation" name="designation" id="designation">
+                  <select class="custom-select" #designation="ngModel" [(ngModel)]="Employee.designation" name="designation" id="designation" required>
                     <option selected>Choose...</option>
                     <option value="One">One</option>
                     <option value="Two">Two</option>
                     <option value="Three">Three</option>
                   </select>
                   <div class="invalid-feedback" *ngIf="designation.touched && designation.invalid">
-                    Product Full Name is Required.
+                    Select One Designation, It Is Required.
                   </div>  
                 </div>
 
                 <div class="form-group col-md-4">
                   <label for="grade">Grade</label>
-                  <input type="number" #grade="ngModel" [(ngModel)]="Employee.grade" name="grade" id="grade" class="form-control" placeholder="1.0" step="0.01" min="0" max="10">
+                  <input type="number" #grade="ngModel" [(ngModel)]="Employee.grade" name="grade" id="grade" class="form-control" placeholder="1.0" step="0.01" min="0" max="10" required>
                   <div class="invalid-feedback" *ngIf="grade.touched && grade.invalid">
-                    Product Full Name is Required.
+                    Grade is Required.
                   </div>  
                 </div>
 
                 <div class="form-group col-md-4">
                   <label for="email">E-mail</label>
-                  <input type="text" class="form-control" #email="ngModel" [(ngModel)]="Employee.email" name="email" id="email">
+                  <input type="text" class="form-control" #email="ngModel" [(ngModel)]="Employee.email" name="email" id="email" required>
                   <div class="invalid-feedback" *ngIf="email.touched && email.invalid">
-                    Product Full Name is Required.
+                    Email Is Required.
                   </div>  
                 </div>
 
                 <div class="form-group col-md-4">
                   <label for="highQualification">High Qualification</label>
-                  <input type="text" class="form-control"#highQualification="ngModel" [(ngModel)]="Employee.highQualification" name="highQualification" id="highQualification">
+                  <input type="text" class="form-control"#highQualification="ngModel" [(ngModel)]="Employee.highQualification" name="highQualification" id="highQualification" required>
                   <div class="invalid-feedback" *ngIf="highQualification.touched && highQualification.invalid">
-                    Product Full Name is Required.
+                    High Qualification Is Required.
                   </div> 
                 </div>
                 
                 <div class="form-group col-md-4">
                   <label for="totalExperiece">Total Experience(yrs)</label><br>
-                  <input type="number" id="totalExperiece" class="form-control" #totalExperiece="ngModel" [(ngModel)]="Employee.totalExperiece" name="totalExperiece" id="totalExperiece" min="1" max="20">
+                  <input type="number" id="totalExperiece" class="form-control" #totalExperiece="ngModel" [(ngModel)]="Employee.totalExperiece" name="totalExperiece" id="totalExperiece" min="1" max="20" required>
                   <div class="invalid-feedback" *ngIf="totalExperiece.touched && totalExperiece.invalid">
-                    Product Full Name is Required.
+                    Total Experience Is Required.
                   </div>
                 </div>
 
-                <div class="form-group col-md-4">
+                <!-- <div class="form-group col-md-4">
                   <label for="experienceIn">Experience in Pobara</label>
                   <input type="text" class="form-control" #experienceIn="ngModel" [(ngModel)]="Employee.experienceIn" name="experienceIn" id="experienceIn">
-                  <div class="invalid-feedback" *ngIf="dateOfJoiningtouched && dateOfJoining.invalid">
-                    Product Full Name is Required.
+                  <div class="invalid-feedback" *ngIf="experienceIn.touched && experienceIn.invalid">
+                    Total Required.
                   </div>
-                </div>
+                </div> -->
 
                 <div class="form-group col-md-4">
                   <label for="maritalStatus">Marital Status</label>
-                  <select class="custom-select" #maritalStatus="ngModel" [(ngModel)]="Employee.maritalStatus" name="maritalStatus" id="maritalStatus">
+                  <select class="custom-select" #maritalStatus="ngModel" [(ngModel)]="Employee.maritalStatus" name="maritalStatus" id="maritalStatus" required>
                     <option selected>Choose...</option>
                     <option value="Single">Single</option>
                     <option value="Married">Married</option>
                     <option value="Widowed">Widowed</option>
                     <option value="Divorced">Divorced</option>
                   </select>
-                  <div class="invalid-feedback" *ngIf="dateOfJoiningtouched && dateOfJoining.invalid">
-                    Product Full Name is Required.
+                  <div class="invalid-feedback" *ngIf="maritalStatus.touched && maritalStatus.invalid">
+                    Marital Status Is Required.
                   </div>
                 </div>
 
                 <div class="form-group col-md-4">
                   <label for="gender">Gender</label>
-                  <select class="custom-select" #gender="ngModel" [(ngModel)]="Employee.gender" name="gender" id="gender">
+                  <select class="custom-select" #gender="ngModel" [(ngModel)]="Employee.gender" name="gender" id="gender" required>
                     <option selected>Choose...</option>
                     <option value="Male">Male</option>
                     <option value="Female">Female</option>
                     <option value="Other">Others</option>
                   </select>
-                  <div class="invalid-feedback" *ngIf="dateOfJoiningtouched && dateOfJoining.invalid">
-                    Product Full Name is Required.
+                  <div class="invalid-feedback" *ngIf="gender.touched && gender.invalid">
+                    Select Your Gender, It Is Required.
                   </div>
                 </div>
 
                 <div class="form-group col-md-4">
                   <label for="aadharCardNumber">Aadhar Card Number</label><br>
-                  <input type="text" class="form-control" #aadharCardNumber="ngModel" [(ngModel)]="Employee.aadharCardNumber" id="aadharCardNumber" name="aadharCardNumber" min="0000000000" max="999999999999999">
-                  <div class="invalid-feedback" *ngIf="dateOfJoiningtouched && dateOfJoining.invalid">
-                    Product Full Name is Required.
+                  <input type="text" class="form-control" #aadharCardNumber="ngModel" [(ngModel)]="Employee.aadharCardNumber" id="aadharCardNumber" name="aadharCardNumber" min="0000000000" max="999999999999999" required>
+                  <div class="invalid-feedback" *ngIf="aadharCardNumber.touched && aadharCardNumber.invalid">
+                    Aadhar Card Number Is Required.
                   </div>
                 </div>
 
                 <div class="form-group col-md-4">
                   <label for="panCard">PAN #</label><br>
-                  <input type="text" class="form-control" #panCard="ngModel" [(ngModel)]="Employee.panCard" id="panCard" name="panCard" min="0000000000" max="999999999999999">
-                  <div class="invalid-feedback" *ngIf="dateOfJoiningtouched && dateOfJoining.invalid">
-                    Product Full Name is Required.
+                  <input type="text" class="form-control" #panCard="ngModel" [(ngModel)]="Employee.panCard" id="panCard" name="panCard" min="0000000000" max="999999999999999" required>
+                  <div class="invalid-feedback" *ngIf="panCard.touched && panCard.invalid">
+                    PAN Number Is Required.
                   </div>
                 </div>
 
                 <div class="form-group col-md-4">
                   <label for="uanCard">UAN #</label><br>
-                  <input type="text"  class="form-control" #uanCard="ngModel" [(ngModel)]="Employee.uanCard" id="uanCard" name="uanCard" min="0000000000" max="999999999999999">
-                  <div class="invalid-feedback" *ngIf="dateOfJoiningtouched && dateOfJoining.invalid">
-                    Product Full Name is Required.
+                  <input type="text"  class="form-control" #uanCard="ngModel" [(ngModel)]="Employee.uanCard" id="uanCard" name="uanCard" min="0000000000" max="999999999999999" required>
+                  <div class="invalid-feedback" *ngIf="uanCard.touched && uanCard.invalid">
+                    UAN Number Is Required.
                   </div>
                 </div>
 
                 <div class="form-group col-md-4">
                   <label for="pfCard">PF #</label><br>
-                  <input type="text" class="form-control" #pfCard="ngModel" [(ngModel)]="Employee.pfCard" id="pfCard" name="pfCard" min="0000000000" max="999999999999999">
-                  <div class="invalid-feedback" *ngIf="dateOfJoiningtouched && dateOfJoining.invalid">
-                    Product Full Name is Required.
+                  <input type="text" class="form-control" #pfCard="ngModel" [(ngModel)]="Employee.pfCard" id="pfCard" name="pfCard" min="0000000000" max="999999999999999" required>
+                  <div class="invalid-feedback" *ngIf="pfCard.touched && pfCard.invalid">
+                    PF Number Is Required.
                   </div>
                 </div>
 
               </div>
               
-              <!-- <button type="submit" class="btn btn-primary">Save</button> -->
+              <button type="submit" class="btn btn-primary">Save</button>
             </form>
             
           </div>
         </div>
       </div>
 
+			
       <div class="card">
         <div class="card-header" id="headingTwo">
           <h2 class="mb-0">
@@ -228,49 +229,70 @@
         </div>
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
           <div class="card-body">
-              <form #f="ngForm" (ngSubmit)="Current(f.value)">
+              <form #f="ngForm" (ngSubmit)="Current(f.value)" class="was-validated">
               <div class="form-row">
                 <div class="form-group col-md-6">
                   <label for="addressName">Address Name</label>
-                  <input type="text" class="form-control" #addressName="ngModel" [(ngModel)]="Employee.addressName" name="addressName" id="addressName">
-                </div>
+                  <input type="text" class="form-control" #addressName="ngModel" [(ngModel)]="Employee.addressName" name="addressName" id="addressName" required>
+									<div class="invalid-feedback" *ngIf="addressName.touched && addressName.invalid">
+									  Name Of Address Is Required.
+								  </div>
+								</div>
 
                 <div class="form-group col-md-6">
-                  <label for="addressNumber">number</label>
-                  <input type="number" class="form-control" #addressNumber="ngModel" [(ngModel)]="Employee.addressNumber" name="addressNumber" id="addressNumber">
-                </div>
+                  <label for="addressNumber">Number</label>
+                  <input type="number" class="form-control" #addressNumber="ngModel" [(ngModel)]="Employee.addressNumber" name="addressNumber" id="addressNumber" required>
+									<div class="invalid-feedback" *ngIf="addressNumber.touched && addressNumber.invalid">
+										NUmber Is Required.
+								  </div>
+								</div>
               </div>
 
               <div class="form-group">
                 <label for="currentAddressLine1">Address Line 1</label>
-                <input type="text" class="form-control" #currentAddressLine1="ngModel" [(ngModel)]="Employee.currentAddressLine1" name="currentAddressLine1" id="currentAddressLine1" placeholder="1234 Main St">
-              </div>
+                <input type="text" class="form-control" #currentAddressLine1="ngModel" [(ngModel)]="Employee.currentAddressLine1" name="currentAddressLine1" id="currentAddressLine1" placeholder="1234 Main St" required>
+								<div class="invalid-feedback" *ngIf="currentAddressLine1.touched && currentAddressLine1.invalid">
+									Address Line 1 Is Required.
+							  </div>
+							</div>
 
               <div class="form-group">
                 <label for="currentAddressLine2">Address 2</label>
-                <input type="text" class="form-control" #currentAddressLine2="ngModel" [(ngModel)]="Employee.currentAddressLine2" name="currentAddressLine2" id="currentAddressLine2" placeholder="Apartment, studio, or floor">
-              </div>
+                <input type="text" class="form-control" #currentAddressLine2="ngModel" [(ngModel)]="Employee.currentAddressLine2" name="currentAddressLine2" id="currentAddressLine2" placeholder="Apartment, studio, or floor" required>
+								<div class="invalid-feedback" *ngIf="currentAddressLine2.touched && currentAddressLine2invalid">
+									Address Line 2 Is Required.
+							  </div>
+							</div>
 
               <div class="form-row">
                 <div class="form-group col-md-5">
                   <label for="currentCity">City</label>
-                  <input type="text" class="form-control" #currentCity="ngModel" [(ngModel)]="Employee.currentCity" name="currentCity" id="currentCity">
-                </div>
+                  <input type="text" class="form-control" #currentCity="ngModel" [(ngModel)]="Employee.currentCity" name="currentCity" id="currentCity" required>
+									<div class="invalid-feedback" *ngIf="currentCity.touched && currentCity.invalid">
+										Current City Is Required.
+								 	</div>
+								</div>
 
                 <div class="form-group col-md-4">
                   <label for="currentState">State</label>
-                  <select id="currentState" class="form-control" #currentState="ngModel" [(ngModel)]="Employee.currentState" name="currentState">
+                  <select id="currentState" class="form-control" #currentState="ngModel" [(ngModel)]="Employee.currentState" name="currentState" required>
                     <option selected>Choose...</option>
                     <option value="MP">MP</option>
                     <option value="UP">UP</option>
                     <option value="TL">TL</option>
                   </select>
-                </div>
+									<div class="invalid-feedback" *ngIf="currentState.touched && currentState.invalid">
+										Select Current State, It Is Required.
+								 	</div>
+								</div>
 
                 <div class="form-group col-md-3">
                   <label for="currentZip">Zip</label>
-                  <input type="number" class="form-control" #currentZip="ngModel" [(ngModel)]="Employee.currentZip" name="currentZip" id="currentZip">
-                </div>
+                  <input type="number" class="form-control" #currentZip="ngModel" [(ngModel)]="Employee.currentZip" name="currentZip" id="currentZip" required>
+									<div class="invalid-feedback" *ngIf="currentZip.touched && currentZip.invalid">
+										Current City Zip Code Is Required.
+								 	</div>
+								</div>
               </div>
             
               <button type="submit" class="btn btn-primary">Save</button>
@@ -291,49 +313,70 @@
         <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
           <div class="card-body">
 
-              <form #f="ngForm" (ngSubmit)="Permanent(f.value)">
+              <form #f="ngForm" (ngSubmit)="Permanent(f.value)" class="was-validated">
               <div class="form-row">
                 <div class="form-group col-md-6">
                   <label for="permanentName">Address Name</label>
-                  <input type="text" class="form-control" #permanentName="ngModel" [(ngModel)]="Employee.permanentName" name="permanentName" id="permanentName">
-                </div>
+                  <input type="text" class="form-control" #permanentName="ngModel" [(ngModel)]="Employee.permanentName" name="permanentName" id="permanentName" required>
+									<div class="invalid-feedback" *ngIf="permanentName.touched && permanentName.invalid">
+										Permanent Name Is Required.
+								  </div>
+								</div>
 
                 <div class="form-group col-md-6">
                   <label for="permanentNumber">number</label>
-                  <input type="number" class="form-control" #permanentNumber="ngModel" [(ngModel)]="Employee.permanentNumber" name="permanentNumber" id="permanentNumber">
-                </div>
+                  <input type="number" class="form-control" #permanentNumber="ngModel" [(ngModel)]="Employee.permanentNumber" name="permanentNumber" id="permanentNumber" required>
+									<div class="invalid-feedback" *ngIf="permanentNumber.touched && permanentNumber.invalid">
+										Permanent Number Is Required.
+								  </div>
+								</div>
               </div>
 
               <div class="form-group">
                 <label for="permanentAddressLine1">Address Line 1</label>
-                <input type="text" class="form-control" #permanentAddressLine1="ngModel" [(ngModel)]="Employee.permanentAddressLine1" name="permanentAddressLine1" id="permanentAddressLine1" placeholder="1234 Main St">
-              </div>
+                <input type="text" class="form-control" #permanentAddressLine1="ngModel" [(ngModel)]="Employee.permanentAddressLine1" name="permanentAddressLine1" id="permanentAddressLine1" placeholder="1234 Main St" required>
+								<div class="invalid-feedback" *ngIf="permanentAddressLine1.touched && permanentAddressLine1.invalid">
+									Permanent Address Line 1 Is Required.
+							  </div>
+							</div>
 
               <div class="form-group">
                 <label for="permanentAddressLine2">Address 2</label>
-                <input type="text" class="form-control" #permanentAddressLine2="ngModel" [(ngModel)]="Employee.permanentAddressLine2" name="permanentAddressLine2" id="permanentAddressLine2" placeholder="Apartment, studio, or floor">
-              </div>
+                <input type="text" class="form-control" #permanentAddressLine2="ngModel" [(ngModel)]="Employee.permanentAddressLine2" name="permanentAddressLine2" id="permanentAddressLine2" placeholder="Apartment, studio, or floor" required>
+								<div class="invalid-feedback" *ngIf="permanentAddressLine2.touched && permanentAddressLine2.invalid">
+									Permanent Address Line 2 Is Required.
+							  </div>
+							</div>
 
               <div class="form-row">
                 <div class="form-group col-md-5">
                   <label for="permanentCity">City</label>
-                  <input type="text" class="form-control" #permanentCity="ngModel" [(ngModel)]="Employee.permanentCity" name="permanentCity" id="permanentCity">
-                </div>
+                  <input type="text" class="form-control" #permanentCity="ngModel" [(ngModel)]="Employee.permanentCity" name="permanentCity" id="permanentCity" required>
+									<div class="invalid-feedback" *ngIf="permanentCity.touched && permanentCity.invalid">
+										Permanent City Is Required.
+								  </div>
+								</div>
 
                 <div class="form-group col-md-4">
                   <label for="permanentState">State</label>
-                  <select id="permanentState" class="form-control" #permanentState="ngModel" [(ngModel)]="Employee.permanentState" name="permanentState">
+                  <select id="permanentState" class="form-control" #permanentState="ngModel" [(ngModel)]="Employee.permanentState" name="permanentState" required>
                     <option selected>Choose...</option>
                     <option value="MP">MP</option>
                     <option value="UP">UP</option>
                     <option value="TL">TL</option>
                   </select>
-                </div>
+									<div class="invalid-feedback" *ngIf="permanentState.touched && permanentState.invalid">
+										Permanent State Is Required.
+								  </div>
+								</div>
 
                 <div class="form-group col-md-3">
                   <label for="permanentZip">Zip</label>
-                  <input type="text" class="form-control" #permanentZip="ngModel" [(ngModel)]="Employee.permanentZip" name="permanentZip" id="permanentZip">
-                </div>
+                  <input type="text" class="form-control" #permanentZip="ngModel" [(ngModel)]="Employee.permanentZip" name="permanentZip" id="permanentZip" required>
+									<div class="invalid-feedback" *ngIf="permanentZip.touched && permanentZip.invalid">
+										Permanent Zip Code Is Required.
+								  </div>
+								</div>
               </div>
             
               <button type="submit" class="btn btn-primary">Save</button>
@@ -354,49 +397,70 @@
         <div id="collapsefour" class="collapse" aria-labelledby="headingfour" data-parent="#accordionExample">
           <div class="card-body">
 
-              <form #f="ngForm" (ngSubmit)="Emergency(f.value)">
+              <form #f="ngForm" (ngSubmit)="Emergency(f.value)" class="was-validated">
               <div class="form-row">
                 <div class="form-group col-md-6">
                   <label for="emergencyName">Address Name</label>
-                  <input type="next" class="form-control" #emergencyName="ngModel" [(ngModel)]="Employee.emergencyName" name="emergencyName" id="emergencyName">
-                </div>
+                  <input type="next" class="form-control" #emergencyName="ngModel" [(ngModel)]="Employee.emergencyName" name="emergencyName" id="emergencyName" required>
+									<div class="invalid-feedback" *ngIf="emergencyName.touched && emergencyName.invalid">
+										Address Name Is Required.
+								  </div>
+								</div>
 
                 <div class="form-group col-md-6">
                   <label for="emergencyNumber">number</label>
-                  <input type="number" class="form-control" #emergencyNumber="ngModel" [(ngModel)]="Employee.emergencyNumber" name="emergencyNumber" id="emergencyNumber">
-                </div>
+                  <input type="number" class="form-control" #emergencyNumber="ngModel" [(ngModel)]="Employee.emergencyNumber" name="emergencyNumber" id="emergencyNumber" required>
+									<div class="invalid-feedback" *ngIf="emergencyNumber.touched && emergencyNumber.invalid">
+										Emergency Number Is Required.
+								  </div>
+								</div>
               </div>
 
               <div class="form-group">
                 <label for="emergencyAddressLine1">Address Line 1</label>
-                <input type="text" class="form-control" #emergencyAddressLine1="ngModel" [(ngModel)]="Employee.emergencyAddressLine1" name="emergencyAddressLine1" id="emergencyAddressLine1" placeholder="1234 Main St">
-              </div>
+                <input type="text" class="form-control" #emergencyAddressLine1="ngModel" [(ngModel)]="Employee.emergencyAddressLine1" name="emergencyAddressLine1" id="emergencyAddressLine1" placeholder="1234 Main St" required>
+								<div class="invalid-feedback" *ngIf="emergencyAddressLine1.touched && emergencyAddressLine1.invalid">
+									Emergency Address Line 1 Is Required.
+							  </div>
+							</div>
 
               <div class="form-group">
                 <label for="emergencyAddressLine2">Address 2</label>
-                <input type="text" class="form-control" #emergencyAddressLine2="ngModel" [(ngModel)]="Employee.emergencyAddressLine2" name="emergencyAddressLine2" id="emergencyAddressLine2" placeholder="Apartment, studio, or floor">
-              </div>
+                <input type="text" class="form-control" #emergencyAddressLine2="ngModel" [(ngModel)]="Employee.emergencyAddressLine2" name="emergencyAddressLine2" id="emergencyAddressLine2" placeholder="Apartment, studio, or floor" required>
+								<div class="invalid-feedback" *ngIf="emergencyAddressLine2.touched && emergencyAddressLine2.invalid">
+									Emergency Address Line 2 Is Required.
+							  </div>
+							</div>
 
               <div class="form-row">
                 <div class="form-group col-md-5">
                   <label for="emergencyCity">City</label>
-                  <input type="text" class="form-control" #emergencyCity="ngModel" [(ngModel)]="Employee.emergencyCity" name="emergencyCity" id="emergencyCity">
-                </div>
+                  <input type="text" class="form-control" #emergencyCity="ngModel" [(ngModel)]="Employee.emergencyCity" name="emergencyCity" id="emergencyCity" required>
+									<div class="invalid-feedback" *ngIf="emergencyCity.touched && emergencyCity.invalid">
+										Emergency City Is Required.
+								  </div>
+								</div>
 
                 <div class="form-group col-md-4">
                   <label for="emergencyState">State</label>
-                  <select id="emergencyState" class="form-control" #emergencyState="ngModel" [(ngModel)]="Employee.emergencyState" name="emergencyState">
+                  <select id="emergencyState" class="form-control" #emergencyState="ngModel" [(ngModel)]="Employee.emergencyState" name="emergencyState" required>
                     <option selected>Choose...</option>
                     <option value="MP">MP</option>
                     <option value="UP">UP</option>
                     <option value="TL">TL</option>
                   </select>
-                </div>
+									<div class="invalid-feedback" *ngIf="emergencyState.touched && emergencyState.invalid">
+										Emergency State Is Required.
+								  </div>
+								</div>
 
                 <div class="form-group col-md-3">
                   <label for="emergencyZip">Zip</label>
-                  <input type="text" class="form-control" #emergencyZip="ngModel" [(ngModel)]="Employee.emergencyZip" name="emergencyZip" id="emergencyZip">
-                </div>
+                  <input type="text" class="form-control" #emergencyZip="ngModel" [(ngModel)]="Employee.emergencyZip" name="emergencyZip" id="emergencyZip" required>
+									<div class="invalid-feedback" *ngIf="emergencyZip.touched && emergencyZip.invalid">
+										Emergency City Code Is Required.
+								  </div>
+								</div>
               </div>
             
               <button type="submit" class="btn btn-primary">Save</button>
