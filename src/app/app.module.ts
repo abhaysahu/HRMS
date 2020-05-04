@@ -43,6 +43,8 @@ import { MyTimeAwayRequestsComponent } from './layout/component/Attendance-and-l
 import { MyLeavesComponent } from './layout/component/Attendance-and-leaves/my-leaves/my-leaves.component';
 import { CreateEmployeeComponent } from './layout/component/employee/create-employee/create-employee.component';
 import { EditEmployeeComponent } from './layout/component/employee/edit-employee/edit-employee.component';
+import { MyTimesheetComponent } from './layout/component/Timesheet/my-timesheet/my-timesheet.component';
+import { TimesheetBankComponent } from './layout/component/Timesheet/timesheet-bank/timesheet-bank.component';
 
 
 
@@ -63,7 +65,9 @@ import { EditEmployeeComponent } from './layout/component/employee/edit-employee
     MyTimeAwayRequestsComponent,
     MyLeavesComponent,
     CreateEmployeeComponent,
-    EditEmployeeComponent
+    EditEmployeeComponent,
+    MyTimesheetComponent,
+    TimesheetBankComponent
   ],
   imports: [
     BrowserModule,

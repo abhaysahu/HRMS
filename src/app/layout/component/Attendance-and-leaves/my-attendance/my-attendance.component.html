@@ -7,49 +7,78 @@
       <small>Attendance Record</small>
       <ul class="link hidden-xs">
           <li><a href="index-2.html"><i class="fa fa-home"></i>Home</a></li>
-          <li><a href="datatable.html">data table</a></li>
+          <li><a href="datatable.html">My Attendance</a></li>
       </ul>
   </div>
 </section>
+
+
+
 
 <br><br>
 
 
 <div class="card">
   <div class="card-header">
-    Abhay Sahu
+    My Attendance
   </div>
   <div class="card-body">
+    <label for="start"><strong>Month</strong></label>
 
-    <table class="table table-striped">
+      <input type="month" id="start" name="start"
+       min="2018-03" value="2020-05">  
+        <button type="button" class="btn btn-info" style="margin-left: 10px;" >Search</button>
+
+
+    <table class="table table-striped table-bordered">
       <thead>
+        <!--<tr>
+          <th colspan="1" rowspan="2">NAME</th>
+          <th colspan="2">HR Information</th>
+          <th colspan="3">Contact</th>
+
+        </tr>-->
+
         <tr>
-          <th scope="col">#</th>
-          <th scope="col">First</th>
-          <th scope="col">Last</th>
-          <th scope="col">Handle</th>
+          <th>#</th>
+          <th>Date</th>
+          <th>In Time</th>
+          <th>Out Time</th>
+          <th>Working Hours</th>
+          <th>Status</th>
+          <th>Options</th>
+
         </tr>
       </thead>
       <tbody>
         <tr>
-          <th scope="row">1</th>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>@mdo</td>
+          <td>Abc</td>
+          <td>Abc</td>
+          <td>Abc</td>
+          <td>Abc</td>
+          <td>Abc</td>
+          <td>Abc</td>
+
         </tr>
         <tr>
-          <th scope="row">2</th>
-          <td>Jacob</td>
-          <td>Thornton</td>
-          <td>@fat</td>
+          <td>Abc</td>
+          <td>Abc</td>
+          <td>Abc</td>
+          <td>Abc</td>
+          <td>Abc</td>
+          <td>Abc</td>
+
         </tr>
-        <tr>
-          <th scope="row">3</th>
-          <td>Larry</td>
-          <td>the Bird</td>
-          <td>@twitter</td>
-        </tr>
+
+
       </tbody>
+      <tfoot>
+        <tr>
+
+        </tr>
+      </tfoot>
+      
+         
     </table>
     
     

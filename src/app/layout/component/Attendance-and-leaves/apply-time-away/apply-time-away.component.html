@@ -1,3 +1,85 @@
-<p>
-  apply-time-away works!
-</p>
+<section class="content-header z-depth-1">
+  <div class="header-icon">
+      <i class="fa fa-briefcase"></i>
+  </div>
+  <div class="header-title">
+      <h1>Apply Time Away From Work</h1>
+      <small>Apply Time Away From Work Record</small>
+      <ul class="link hidden-xs">
+          <li><a href="index-2.html"><i class="fa fa-home"></i>Home</a></li>
+          <li><a href="datatable.html">Apply Time Away From Work</a></li>
+      </ul>
+  </div>
+</section>
+
+<br><br>
+
+
+<div class="card">
+  <div class="card-header">
+    Apply Time Away From Work
+  </div>
+  <div class="card-body">
+    <form>
+      <div class="form-row">
+        <div class="form-group col-md-4">
+          <label for="applyfor">Apply For</label>
+          
+          <select class="custom-select" id="applyfor">
+            <option selected>Leave</option>
+            <option value="1">Working Out Of Office</option>
+            <option value="2">Work From Home</option>
+            <option value="3">Attendance Modification</option>
+            <option value="4">Earning Compensatory</option>
+            <option value="5">Short Leave</option>
+
+
+
+          </select>
+        </div>
+
+
+        <div class="form-group col-md-4">
+          <label for="from">From</label>
+          <div class="form-group">
+            <input type="date" name="bday" max="3000-12-31" 
+                  min="1000-01-01" class="form-control">
+          </div>
+          
+          
+          
+        </div>
+
+        <div class="form-group col-md-4">
+          <label for="to">To</label>
+          <div class="form-group">
+            <input type="date" name="bday" max="3000-12-31" 
+                  min="1000-01-01" class="form-control">
+          </div>
+        </div>
+
+        <div class="form-group col-md-2">
+          <label for="noofdays">No. Of Days</label>
+          <input type="number" id="noofdays" class="form-control" placeholder="0" step="" min="0" max="10">
+        </div><br>
+
+
+        <div class="form-check">
+          <label for="halfdays">Half Days</label><br>
+          <input class="form-check-input position-static" type="checkbox" id="blankCheckbox" value="option1" aria-label="...">
+        </div>
+
+       
+
+      
+        
+
+       
+
+        
+
+      </div>   
+    </form>
+    </div>
+    </div>
+
