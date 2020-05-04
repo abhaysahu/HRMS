@@ -107,6 +107,12 @@ import { EditEmployeeComponent } from './layout/component/employee/edit-employee
           //canActivate: [AuthGuardService],
           },
           {
+            path: 'create/new/employee', component:CreateEmployeeComponent
+          },
+          {
+            path: 'edit/employee',component:EditEmployeeComponent
+          },
+          {
             path: 'myattendance', component: MyAttendanceComponent,
           },
           {
