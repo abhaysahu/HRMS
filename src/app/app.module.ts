@@ -43,6 +43,7 @@ import { MyTimeAwayRequestsComponent } from './layout/component/Attendance-and-l
 import { MyLeavesComponent } from './layout/component/Attendance-and-leaves/my-leaves/my-leaves.component';
 import { CreateEmployeeComponent } from './layout/component/employee/create-employee/create-employee.component';
 import { EditEmployeeComponent } from './layout/component/employee/edit-employee/edit-employee.component';
+import { EmployeeService } from './layout/component/employee/services/employee.service';
 
 
 
@@ -133,7 +134,7 @@ import { EditEmployeeComponent } from './layout/component/employee/edit-employee
     BrowserAnimationsModule
 
   ],
-  providers: [LoginService, AuthGuardService],
+  providers: [LoginService, AuthGuardService, EmployeeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

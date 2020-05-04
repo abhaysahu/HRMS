@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
       {
         console.log(data)
         localStorage.setItem('pobara_user_id', data[0].uuid);             //this is store the uuid of user into localStorage.
-        this.router.navigate(['/dashboard']);         
+        // this.router.navigate(['/dashboard']);         
         
       }
     })

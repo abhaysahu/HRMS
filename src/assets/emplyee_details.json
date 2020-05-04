@@ -1,7 +1,6 @@
-{
-    "data":[
+[
         {
-            "basic":[
+            "basic":
                 {
                     "name": "abhay sahu",
                     "loginid": "2154",
@@ -9,26 +8,26 @@
                     "dateOfJoining": "04-05-2020",
                     "dateOfConfirmation":"05-05-2020", 
                     "division": "One",
-                    "department": "two",
-                    "designation": "three",
+                    "department": "Two",
+                    "designation": "Three",
                     "grade": 5.6,
                     "email":"sahua545@gmail.com",
                     "highQualification":"B.Tech",
                     "totalExperiece": 5,
-                    "experienceWith": 1,
+                    "experienceIn": 1,
                     "maritalStatus": "Single",
-                    "gender":"male",
+                    "gender":"Male",
                     "aadharCardNumber": "2456 2587 4895",
                     "panCard": "APJD5548S",
                     "uanCard": "2548 4584",
                     "pfCard": "2548 48785"
                 }
-            ],
+            ,
 
-            "current": [
+            "current":
                 {
-                    "addressname": "abhay sahu",
-                    "addressnumber":9617625945,
+                    "addressName": "abhay sahu",
+                    "addressNumber":9617625945,
                     "currentAddressLine1": "shubhash colny",
                     "currentAddressLine2": "near IDBI bank",
                     "currentCity": "Guna",
@@ -36,8 +35,8 @@
                     "currentZip":215487
                 }
 
-            ],
-            "permanent": [
+            ,
+            "permanent": 
                 {
                     "permanentName": "abhay sahu",
                     "permanentNumber":9617625945,
@@ -48,10 +47,10 @@
                     "permanentZip":215487
                 }
 
-            ],
-            "emergency": [
+            ,
+            "emergency": 
                 {
-                    "emergencytName": "abhay sahu",
+                    "emergencyName": "abhay sahu",
                     "emergencyNumber":9617625945,
                     "emergencyAddressLine1": "shubhash colny",
                     "emergencyAddressLine2": "near IDBI bank",
@@ -60,9 +59,6 @@
                     "emergencyZip":215487
                 }
 
-            ]
+            
         }
-        
-    ]
-
-}
+]
