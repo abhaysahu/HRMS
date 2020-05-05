@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Employee } from '../models/employee';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-employee',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreateEmployeeComponent implements OnInit {
 
-  constructor() { }
+  Employee: Employee[]=[];
+
+  constructor(private router: Router) { }
 
   ngOnInit() {
+  }
+
+  Basic(employee) {
+    console.log(employee)
+    let id=3
+    this.router.navigate(['/dashboard/edit/employee/'+id]);
   }
 
 }
