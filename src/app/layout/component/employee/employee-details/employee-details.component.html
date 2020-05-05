@@ -8,8 +8,8 @@
       <h1>EMPLOYEE DETAILS</h1>
       <small>Employee Full Details</small>
       <ul class="link hidden-xs">
-          <li><a href="index-2.html"><i class="fa fa-home"></i>Home</a></li>
-          <li><a href="datatable.html">data table</a></li>
+        <li><a [routerLink]="['/dashboard']"><i class="fa fa-home"></i>Home</a></li>
+        <li><a [routerLink]="['/dashboard/employee/details']">Employee Details</a></li>
       </ul>
   </div>
 </section>
@@ -266,6 +266,15 @@
         <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
           <div class="card-body">
 
+      
+            <!-- this is use to copy the current address into permanent address -->
+
+            <div class="form-group form-check">
+              <input type="checkbox" class="form-check-input" id="exampleCheck1" (change)="copyCurrentToPermanent($event)">
+              <label class="form-check-label" for="exampleCheck1">Same As Current Address</label>
+            </div>
+
+
               <form #f="ngForm" (ngSubmit)="Permanent(f.value)" class="was-validated">
               <div class="form-row">
                 <div class="form-group col-md-6">
@@ -349,6 +358,20 @@
         </div>
         <div id="collapsefour" class="collapse" aria-labelledby="headingfour" data-parent="#accordionExample">
           <div class="card-body">
+
+            <div class="form-row shift">
+              <!-- this is use to copy the current address into emergency address -->
+                <div class="form-group form-check col-md-6">
+                  <input type="checkbox" class="form-check-input" id="exampleCheck1" (change)="copyCurrentToEmergency($event)">
+                  <label class="form-check-label" for="exampleCheck1">Same As Current Address</label>
+                </div>
+                <!-- this is use to copy the permanent address into emergecy address -->
+                <div class="form-group form-check col-md-6">
+                  <input type="checkbox" class="form-check-input" id="exampleCheck1" (change)="copyPermanentToEmergency($event)">
+                  <label class="form-check-label" for="exampleCheck1">Same As Permanent Address</label>
+                </div>
+              </div>
+  
 
               <form #f="ngForm" (ngSubmit)="Emergency(f.value)" class="was-validated">
               <div class="form-row">

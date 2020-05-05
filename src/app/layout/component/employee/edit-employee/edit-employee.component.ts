@@ -11,7 +11,7 @@ export class EditEmployeeComponent implements OnInit {
 
   copy = false
 
-  Employee: Employee=[];
+  Employee: Employee
 
   constructor(private employeeService: EmployeeService) { 
     this.employeeService.getemployee().subscribe(resp=>{
