@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { EmployeeService } from '../services/employee.service';
+import { Employee } from '../models/employee';
 
 @Component({
   selector: 'app-edit-employee',
@@ -8,7 +9,9 @@ import { EmployeeService } from '../services/employee.service';
 })
 export class EditEmployeeComponent implements OnInit {
 
-  Employee: any[] =[];
+  copy = false
+
+  Employee: Employee[] =[];
 
   constructor(private employeeService: EmployeeService) { 
     this.employeeService.getemployee().subscribe(resp=>{
@@ -25,5 +28,12 @@ export class EditEmployeeComponent implements OnInit {
   {
     console.log(employee)
   }
+
+  toggleEditable(event) {
+    console.log(event.target.checked)
+    if ( event.target.checked ) {
+        this.copy = true;
+   }
+}
 
 }
