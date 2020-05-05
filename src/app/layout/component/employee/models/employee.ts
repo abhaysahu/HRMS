@@ -1,7 +1,6 @@
-export interface Employee {
+export interface Employee { 
+    
 
-        
-        
                 name: string;
                 loginid: string;
                 empCode: number;
@@ -23,8 +22,6 @@ export interface Employee {
                 pfCard:string;
          
 
-      
-            
                 addressName: string
                 addressNumber:number;
                 currentAddressLine1: string;
