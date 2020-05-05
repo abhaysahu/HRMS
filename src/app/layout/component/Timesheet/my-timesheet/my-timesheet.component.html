@@ -1,3 +1,167 @@
-<p>
-  my-timesheet works!
-</p>
+<section class="content-header z-depth-1">
+  <div class="header-icon">
+      <i class="fa fa-file-excel-o"></i>
+  </div>
+  <div class="header-title">
+      <h1>My Timesheet</h1>
+      <small>My Timesheet Record</small>
+      <ul class="link hidden-xs">
+          <li><a href="index-2.html"><i class="fa fa-home"></i>Home</a></li>
+          <li><a href="datatable.html">My Timesheet Record</a></li>
+      </ul>
+  </div>
+</section>
+<br><br>
+
+<div class="card">
+  <div class="card-header">
+    Timesheet Entry <span style="padding-left: 700px;"> Week view | Day view</span>
+
+  </div>
+  <div class="card-body">
+    <div class="form-row">
+        <div class="form-group col-md-3">
+          <label for="Period"><strong>Period:-</strong></label>
+
+          <label for="from">From</label>
+          <div class="form-group">
+            <input type="date" name="from" max="3000-12-31" 
+                  min="1000-01-01" class="form-control">
+          </div>
+          </div>
+
+          <div class="form-group col-md-3">
+  
+            <label for="to">To</label>
+            <div class="form-group">
+              <input type="date" name="to" max="3000-12-31" 
+                    min="1000-01-01" class="form-control">
+            </div>
+            </div>
+
+            <div class="form-group col-md-2">
+              <i class="fa fa-clone" aria-hidden="true"></i> Copy a Timesheet<br><br>Working Hours:0.00   
+
+            </div>
+            <div class="form-group col-md-2"><br><br>
+              Leave Hours:0.00
+
+            </div>
+
+            <div class="form-group col-md-2">
+              Status: New<br><br>
+              Holiday Hours: 16.00
+
+            </div>
+        </div>
+        <button type="button" class="btn btn-primary">Cancel</button>
+        <button type="button" class="btn btn-primary" style="margin-left: 10px;">Save</button>
+        <button type="button" class="btn btn-primary" style="margin-left: 10px;">Submit</button>
+        <br><br>
+
+
+
+        <!----code for table-->
+        <div class="card-header">
+          Project/Activity
+          </div>
+
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">
+                <div class="form-row">
+                <div class="form-group col-md-8">
+                  
+                  <select class="custom-select" id="type">
+                    <option selected>Careworks- CRM Implementation-BYT</option>
+                    <option value="1">Working Out Of Office</option>
+                    <option value="2">Work From Home</option>
+                    <option value="3">Attendance Modification</option>
+                    <option value="4">Earning Compensatory</option>
+                    <option value="5">Short Leave</option>
+                    </select>
+                  </div><br>
+
+
+                  <div >Tasks/Subtasks</div>
+                  </div>
+              </th>
+              <th scope="col">Mon<br><u>13April</u></th>
+              <th scope="col">Tue</th>
+              <th scope="col">Wed</th>
+              <th scope="col">Thu</th>
+              <th scope="col">Fri</th>
+              <th scope="col">Sat</th>
+              <th scope="col">Sun</th>
+              <th scope="col">Total</th>
+
+
+
+
+
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td scope="row">1 <span style="padding-left: 150px;">Communication/Client Meetings</span></td>
+              <td>Mark</td>
+              <td>Otto</td>
+              <td>@mdo</td>
+            </tr>
+            <tr>
+              <td scope="row">1 <span style="padding-left: 360px;">Communication/Team Meetings</span></td>
+              <td>Jacob</td>
+              <td>Thornton</td>
+              <td>@fat</td>
+            </tr>
+            <tr>
+              <td scope="row">1 <span style="padding-left: 360px;">Development/Bug Fixes</span></td>
+              <td>Larry</td>
+              <td>the Bird</td>
+              <td>@twitter</td>
+            </tr>
+          </tbody>
+        </table>
+
+
+    <!------code for description-->
+    <div class="input-group" style="width: 120px;">
+
+
+      <input type="number" name="grade" id="grade" class="form-control" placeholder="0.0" step="0.01" min="0" max="10" >
+      <div class="input-group-append">
+        <span class="input-group-text"><i class="fa fa-file-excel-o"  data-toggle="modal" data-target="#exampleModal"
+          data-backdrop="false">
+         
+          <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                  
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  </button>
+                
+                <div class="modal-body">
+                  <textarea rows="4" cols="50" name="comment" form="usrform">
+          Enter text here...</textarea>
+                  
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+              </div>
+            </div>
+          </div>
+         
+        </i>
+          
+    </span>
+      </div>
+      
+  
+   
+  
+
+    </div>
+    </div>
