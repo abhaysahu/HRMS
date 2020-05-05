@@ -5,7 +5,8 @@
 }
 
 mat-drawer{
-    width: 270px;
+    width: 251px;
+    height: 100%;
 }
 
 mat-drawer-container {

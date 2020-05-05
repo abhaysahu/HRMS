@@ -7,8 +7,8 @@
       <h1>EMPLOYEE LIST</h1>
       <small>EMPLOYEE RECORD</small>
       <ul class="link hidden-xs">
-          <li><a href="index-2.html"><i class="fa fa-home"></i>Home</a></li>
-          <li><a href="datatable.html">data table</a></li>
+          <li><a [routerLink]="['/dashboard']"><i class="fa fa-home"></i>Home</a></li>
+          <li><a [routerLink]="['/dashboard/employee/list']">Employee List</a></li>
       </ul>
   </div>
 </section>
@@ -18,6 +18,9 @@
 <div class="card">
   <div class="card-header">
     Employee List
+
+    <a [routerLink]="['/dashboard/create/new/employee']">New Employee</a>
+
   </div>
   <div class="card-body">
 

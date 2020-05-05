@@ -1,8 +1,10 @@
 <app-nav-bar (toggleSideBarForMe)="sideBarToggler($event)"></app-nav-bar>
 
 <mat-drawer-container>
+
   <mat-drawer mode="side" [opened]="siderBarOpen">
     <app-side-bar></app-side-bar>
+
   </mat-drawer>
 
   <mat-drawer-content>
@@ -13,9 +15,9 @@
   
 </mat-drawer-container>
 
-
-
 <app-footer></app-footer>
+
+
 
 
 
