@@ -127,10 +127,13 @@ import { TimesheetBankComponent } from './layout/component/Timesheet/timesheet-b
           },
           {
             path: 'myleaves', component: MyLeavesComponent,
+          },
+          {
+            path: 'mytimesheet', component: MyTimesheetComponent,
+          },
+          {
+            path: 'timesheetbank', component: TimesheetBankComponent,
           }
-
-          
-
         ]
       }
       ]),
