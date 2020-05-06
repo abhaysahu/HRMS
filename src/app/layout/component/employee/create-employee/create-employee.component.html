@@ -181,7 +181,7 @@ both are edited the other in formation  -->
                 <div class="form-group col-md-4">
                   <label for="aadharCardNumber">Aadhar Card Number</label><br>
                   <input type="text" class="form-control" #aadharCardNumber="ngModel" [(ngModel)]="Employee.aadharCardNumber" id="aadharCardNumber" name="aadharCardNumber" min="0000000000" max="999999999999999" required>
-                  <div class="invalid-feedback" *ngIf="aadharCardNumber.touched && aadharCardNumber.invalid">
+                  <div class="invalid-feedback" *ngIf="aadharCardNumber.touched">
                     Aadhar Card Number Is Required.
                   </div>
                 </div>
