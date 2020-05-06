@@ -24,8 +24,8 @@ a:focus{
 	max-width: 250px;
 	background: #212529;
 	color: #fff;
-    transition: all 0.3s;
-	height: 100%;
+	transition: all 0.3s;
+	height: 800px;
 }
 
 #sidebar.active{
@@ -37,15 +37,15 @@ a:focus{
 	border-bottom: 1px solid #212529;
 }
 
-#sidebar ul p{
+/*#sidebar ul p{
 	padding: 10px;
-	font-size: 15px;
-    display: block;
+	/*font-size: 15px;*/
+   /* display: block;
     color: rgb(127,131,135);
-}
+}*/
 
 #sidebar ul li a {
-	padding: 10px;
+	padding: 20px 0px;
 	font-size: 1.1rem;
 	display: block;
 }
@@ -60,13 +60,13 @@ a[data-toggle="collapse"]{
 	position: relative;
 }
 
-.dropdown-toggle:after{
+/*.dropdown-toggle:after{
 	display: block;
 	position: absolute;
 	top: 60%;
 	right: 20px;
 	transform: translate(-50%);
-}
+}*/
 
 ul ul a{
 	font-size: 0.9rem ! important;
@@ -74,9 +74,9 @@ ul ul a{
 	background: #212529;
 }
 
-ul.CTAs{
+/*ul.CTAs{
 	padding: 20px;
-}
+}*/
 
 ul.CTAs a{
 	text-align: center;
@@ -86,16 +86,16 @@ ul.CTAs a{
 	margin-bottom: 5px;
 }
 
-a.download{
+/*a.download{
 	background: #fff;
 	color: #212529;
-}
+}*/
 
-a.article,
+/*a.article,
 a.article:hover{
 	background: #212529 !important;
 	color: #fff !important;
-}
+}*/
 
 #content{
 	width: 100%;
