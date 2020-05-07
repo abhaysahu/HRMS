@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ApplyTimeAwayComponent implements OnInit {
 
+  Attendance: any[] = [];
+
   constructor() { }
 
   ngOnInit() {

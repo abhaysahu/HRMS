@@ -162,16 +162,21 @@
       <br><br>
       <div class="form-group col-md-6">
         <div class="form-group">
-          <label for="reasonofleave">Reason Of Leave</label>
+          <label for="reasonofLeave">Reason Of Leave</label>
 
-          <textarea class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
+          <textarea class="form-control"  rows="5" #remarks="ngModel" [(ngModel)]="Attendance.reasonOfLeave" name="reasonOfLeave" id="reasonOfLeave" required></textarea>
+          <div class="invalid-feedback" *ngIf="remarks.touched && remarks.invalid">
+            Reason Of Leave
+          </div>
         </div>
       </div><br>
       <div class="form-group col-md-6">
         <div class="form-group">
           <label for="remarks">Remarks</label>
-
-          <textarea class="form-control" id="exampleFormControlTextarea2" rows="3"></textarea>
+          <textarea class="form-control"  rows="3" #remarks="ngModel" [(ngModel)]="Attendance.remarks" name="remarks" id="remarks" required></textarea>
+          <div class="invalid-feedback" *ngIf="remarks.touched && remarks.invalid">
+              Remarks are required.
+            </div>
         </div>
 
       </div><br>
