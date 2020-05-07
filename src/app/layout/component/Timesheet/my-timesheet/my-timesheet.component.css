@@ -83,3 +83,11 @@ ul.link li > a > i.fa {
     
 
 }
+
+.modal-backdrop {
+    position: relative;
+  }
+
+.modal-dialog {
+      padding-top: 40px;
+  }
