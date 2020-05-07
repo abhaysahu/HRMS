@@ -47,6 +47,8 @@ import { EmployeeService } from './layout/component/employee/services/employee.s
 
 import { MyTimesheetComponent } from './layout/component/Timesheet/my-timesheet/my-timesheet.component';
 import { TimesheetBankComponent } from './layout/component/Timesheet/timesheet-bank/timesheet-bank.component';
+import { MyServiceRequetsComponent } from './layout/component/Service-request/my-service-requets/my-service-requets.component';
+import { AddSRComponent } from './layout/component/Service-request/add-sr/add-sr.component';
 
 
 
@@ -69,7 +71,9 @@ import { TimesheetBankComponent } from './layout/component/Timesheet/timesheet-b
     CreateEmployeeComponent,
     EditEmployeeComponent,
     MyTimesheetComponent,
-    TimesheetBankComponent
+    TimesheetBankComponent,
+    MyServiceRequetsComponent,
+    AddSRComponent
   ],
   imports: [
     BrowserModule,
@@ -135,6 +139,12 @@ import { TimesheetBankComponent } from './layout/component/Timesheet/timesheet-b
           },
           {
             path: 'timesheetbank', component: TimesheetBankComponent,
+          },
+          {
+            path: 'myservicerequests', component: MyServiceRequetsComponent,
+          },
+          {
+            path: 'addsr', component: AddSRComponent,
           }
         ]
       }

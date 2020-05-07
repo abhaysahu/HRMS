@@ -1,0 +1,138 @@
+<section class="content-header z-depth-1">
+  <div class="header-icon">
+      <i class="fa fa-briefcase"></i>
+  </div>
+  <div class="header-title">
+      <h1>My Service Requests</h1>
+      <small>My Service Requests Record</small>
+      <ul class="link hidden-xs">
+          <li><a href="index-2.html"><i class="fa fa-home"></i>Home</a></li>
+          <li><a href="datatable.html">My Service Requests</a></li>
+      </ul>
+  </div>
+</section>
+<br><br>
+
+
+<div class="card">
+  <div class="card-header">
+    My Service Requests
+  </div>
+  <div class="card-body">
+    <div class="form">
+<div class="form-row">
+  
+  <div class="form-group col-md-2">
+    <label for="requestId">Request Id</label><br>
+    <input type="number" class="form-control"  id="requestid" name="requestid" min="0000000000" max="999999999999999">
+  </div>
+  <div class="form-group col-md-3">
+    <label for="function">Function</label>
+    
+    <select class="custom-select" id="function">
+      <option selected>All</option>
+      <option value="1">Working Out Of Office</option>
+      <option value="2">Work From Home</option>
+      <option value="3">Attendance Modification</option>
+      <option value="4">Earning Compensatory</option>
+      <option value="5">Short Leave</option>
+
+
+
+    </select>
+  </div>
+
+  <div class="form-group col-md-3">
+    <label for="subfunction">Subfunction</label>
+    
+    <select class="custom-select" id="subfunction">
+      <option selected>All</option>
+      <option value="1">Working Out Of Office</option>
+      <option value="2">Work From Home</option>
+      <option value="3">Attendance Modification</option>
+      <option value="4">Earning Compensatory</option>
+      <option value="5">Short Leave</option>
+
+
+
+    </select>
+  </div>
+
+  <div class="form-group col-md-3">
+    <label for="status">Status</label>
+    
+    <select class="custom-select" id="status">
+      <option selected>Open</option>
+      <option value="1">Working Out Of Office</option>
+      <option value="2">Work From Home</option>
+      <option value="3">Attendance Modification</option>
+      <option value="4">Earning Compensatory</option>
+      <option value="5">Short Leave</option>
+
+
+
+    </select>
+  </div>
+      <div class="form-group col-md-2">
+        <label for="dateFrom">Date From</label>
+        <div class="form-group">
+          <input type="date" name="bday" max="3000-12-31" 
+                min="1000-01-01" class="form-control">
+        </div>
+        </div>
+      <div class="form-group col-md-2">
+        <label for="dateTo">Date To</label>
+        <div class="form-group">
+          <input type="date" name="bday" max="3000-12-31" 
+                min="1000-01-01" class="form-control">
+        </div>
+        </div>
+        <div class="form-group col-md-2">
+          <label for="dateTo"></label>
+          <div class="form-group">        
+            <button type="button" class="btn btn-primary">Filter</button>
+        </div>
+</div>
+
+
+
+</div>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th scope="col">Request No.</th>
+      <th scope="col">Submit Date</th>
+      <th scope="col">Division</th>
+      <th scope="col">Function</th>
+      <th scope="col">Status</th>
+      <th scope="col">Resolving Time(Hrs.)</th>
+      <th scope="col">Option</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>Mark</td>
+      <td>Otto</td>
+      <td>@mdo</td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>Jacob</td>
+      <td>Thornton</td>
+      <td>@fat</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td >Larry the Bird</td>
+      <td>@twitter</td>
+      <td>@fat</td>
+
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
