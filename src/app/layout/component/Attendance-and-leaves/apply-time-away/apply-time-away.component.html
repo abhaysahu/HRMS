@@ -24,9 +24,9 @@
       <div class="form">
         <div class="form-row">
         <div class="form-group col-md-4">
-          <label for="applyfor">Apply For</label>
+          <label for="applyFor">Apply For</label>
           
-          <select class="custom-select" id="applyfor">
+          <select class="custom-select" #applyFor="ngModel" [(ngModel)]="Attendance.applyFor" name="applyFor" id="applyFor">
             <option selected>Leave</option>
             <option value="1">Working Out Of Office</option>
             <option value="2">Work From Home</option>
@@ -43,7 +43,7 @@
         <div class="form-group col-md-4">
           <label for="from">From</label>
           <div class="form-group">
-            <input type="date" name="bday" max="3000-12-31" 
+            <input type="date" max="3000-12-31" #from="ngModel" [(ngModel)]="Attendance.from" name="from" id="from"
                   min="1000-01-01" class="form-control">
           </div>
           
@@ -54,20 +54,20 @@
         <div class="form-group col-md-4">
           <label for="to">To</label>
           <div class="form-group">
-            <input type="date" name="bday" max="3000-12-31" 
+            <input type="date"  max="3000-12-31" #to="ngModel" [(ngModel)]="Attendance.to" name="to" id="to"
                   min="1000-01-01" class="form-control">
           </div>
         </div>
 
         <div class="form-group col-md-2">
           <label for="noofdays">No. Of Days</label>
-          <input type="number" id="noofdays" class="form-control" placeholder="0" step="" min="0" max="10">
+          <input type="number" #noOfDays="ngModel" [(ngModel)]="Attendance.noOfDays" name="noOfDays" id="noOfDays" class="form-control" placeholder="0" step="" min="0" max="10">
         </div><br>
 
 
         <div class="form-check">
-          <label for="halfdays">Half Days</label><br>
-          <input  type="checkbox" id="blankCheckbox" value="option1" aria-label="...">
+          <label for="halfDays">Half Days</label><br>
+          <input  type="checkbox" #halfDays="ngModel" [(ngModel)]="Attendance.halfDays" name="halfDays" id="halfDays" value="option1" aria-label="...">
         </div>
         </div>
        <div>
@@ -127,9 +127,9 @@
         </table>
        </div>
        <div class="form-group col-md-4">
-        <label for="applyunder">Apply Under</label>
+        <label for="applyUnder">Apply Under</label>
         
-        <select class="custom-select" id="applyunder">
+        <select class="custom-select" #applyUnder="ngModel" [(ngModel)]="Attendance.maritalStatus" name="applyUnder" id="applyUnder">
           <option selected>Select</option>
           <option value="1">General Leave</option>
           <option value="2">Floating Leave</option>
@@ -146,17 +146,17 @@
 
       <div class="form-check">
         <label class="form-check-label">
-          <input type="radio" class="form-check-input" name="optradio">Personal Leave
+          <input type="radio" #personalLeave="ngModel" [(ngModel)]="Attendance.personalLeave" name="personalLeave" id="personalLeave" class="form-check-input" >Personal Leave
         </label>
       </div>
       <div class="form-check-inline">
         <label class="form-check-label">
-          <input type="radio" class="form-check-input" name="optradio">Sick Leave
+          <input type="radio" #sickLeave="ngModel" [(ngModel)]="Attendance.sickLeave" name="sickLeave" id="sickLeave" class="form-check-input" >Sick Leave
         </label>
       </div><br>
       <div class="form-check-inline ">
         <label class="form-check-label">
-          <input type="radio" class="form-check-input" name="optradio" >Emergency Leave
+          <input type="radio" #emergencyLeave="ngModel" [(ngModel)]="Attendance.emergencyLeave" name="emergencyLeave" id="emergencyLeave" class="form-check-input"  >Emergency Leave
         </label>
       </div>
       <br><br>
@@ -164,7 +164,7 @@
         <div class="form-group">
           <label for="reasonofLeave">Reason Of Leave</label>
 
-          <textarea class="form-control"  rows="5" #remarks="ngModel" [(ngModel)]="Attendance.reasonOfLeave" name="reasonOfLeave" id="reasonOfLeave" required></textarea>
+          <textarea class="form-control"  rows="5" #resonOfLeave="ngModel" [(ngModel)]="Attendance.reasonOfLeave" name="reasonOfLeave" id="reasonOfLeave" required></textarea>
           <div class="invalid-feedback" *ngIf="remarks.touched && remarks.invalid">
             Reason Of Leave
           </div>
@@ -194,9 +194,9 @@
         </div>
       </div><br>
       <div class="form-group col-md-4">
-        <label for="approvalname">Approval Name</label>
+        <label for="approvalName">Approval Name</label>
         
-        <select class="custom-select" id="approvalname">
+        <select class="custom-select" #approvalName="ngModel" [(ngModel)]="Attendance.approvalName" name="approvalName" id="approvalName" id="approvalName">
           <option selected>Select</option>
           <option value="1">General Leave</option>
           <option value="2">Floating Leave</option>
