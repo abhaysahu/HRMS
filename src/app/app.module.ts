@@ -154,6 +154,7 @@ import { CommentsComponent } from './layout/component/Timesheet/comments/comment
     BrowserAnimationsModule
 
   ],
+  entryComponents:[CommentsComponent],
   providers: [LoginService, AuthGuardService, EmployeeService],
   bootstrap: [AppComponent]
 })
