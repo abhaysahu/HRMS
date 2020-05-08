@@ -7,9 +7,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MyTimesheetComponent implements OnInit {
 
+  Timesheet: any[]=[];
+
+  
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  onSubmit(timesheet)
+  {
+    console.log(timesheet)
+
   }
 
 }
