@@ -49,6 +49,7 @@ import { MyTimesheetComponent } from './layout/component/Timesheet/my-timesheet/
 import { TimesheetBankComponent } from './layout/component/Timesheet/timesheet-bank/timesheet-bank.component';
 import { MyServiceRequetsComponent } from './layout/component/Service-request/my-service-requets/my-service-requets.component';
 import { AddSRComponent } from './layout/component/Service-request/add-sr/add-sr.component';
+import { CommentsComponent } from './layout/component/Timesheet/comments/comments.component';
 
 
 
@@ -73,7 +74,8 @@ import { AddSRComponent } from './layout/component/Service-request/add-sr/add-sr
     MyTimesheetComponent,
     TimesheetBankComponent,
     MyServiceRequetsComponent,
-    AddSRComponent
+    AddSRComponent,
+    CommentsComponent
   ],
   imports: [
     BrowserModule,
