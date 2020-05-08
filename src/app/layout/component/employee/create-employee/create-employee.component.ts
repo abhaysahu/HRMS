@@ -9,7 +9,8 @@ import { Router } from '@angular/router';
 })
 export class CreateEmployeeComponent implements OnInit {
 
-  Employee: Employee[]=[];
+  Employee: any[]=[];
+
 
   constructor(private router: Router) { }
 
