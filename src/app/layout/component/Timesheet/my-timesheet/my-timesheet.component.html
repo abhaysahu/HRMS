@@ -18,7 +18,7 @@
     Timesheet Entry <span style="padding-left: 700px;"> Week view | Day view</span>
 
   </div>
-  <form #form="ngForm" (submit)="onSubmit(form)">
+  <form #form="ngForm" (submit)="onSubmit(form.value)">
   <div class="card-body">
     <div class="form-row">
         <div class="form-group col-md-3">
@@ -37,7 +37,6 @@
           
           </div>
 
-         
 
             <div class="form-group col-md-2">
               <br><br>Working Hours:0.00   
@@ -111,109 +110,74 @@
               
               <td>
                 <div class="input-group" style="width: 120px;">
-
-
-                  <input #timeOf="ngModel" [(ngModel)]="Employee.name" name="name" id="name" type="number" class="form-control" placeholder="0.0" step="0.01" min="0" max="10" >
-                    <span class="input-group-text" data-toggle="modal" data-target="#exampleModal"
-                      type="submit"><i class="fa fa-file-excel-o">
-                      </i>
-                      
+                  <input #timeOneOfOne="ngModel" [(ngModel)]="Timesheet.timeOneOfOne" name="timeOneOfOne" id="timeOneOfOne" type="number" class="form-control" placeholder="0.0" step="0.01" min="0" max="10" >
+                    <span class="input-group-text" data-toggle="modal" data-target="#exampleModal"type="submit">
+                      <i class="fa fa-file-excel-o"></i>   
                     </span>
-                     
-                   
-                  </div>
+                </div>
               </td>
 
               <td>
                 <div class="input-group" style="width: 120px;">
-
-
-                  <input type="number" name="grade" id="grade" class="form-control" placeholder="0.0" step="0.01" min="0" max="10" >
-                 
-                  <span class="input-group-text" data-toggle="modal" data-target="#exampleModal"
-                  type="submit"><i class="fa fa-file-excel-o">
-                  </i>
-                  
-                </span>
-                  </div>
+                  <input #timeOneOfTwo="ngModel" [(ngModel)]="Timesheet.timeOneOfTwo" name="timeOneOfTwo" id="timeOneOfTwo" type="number" class="form-control" placeholder="0.0" step="0.01" min="0" max="10" >                 
+                  <span class="input-group-text" data-toggle="modal" data-target="#exampleModal"type="submit">
+                    <i class="fa fa-file-excel-o"></i>                  
+                  </span>
+                </div>
               </td>
+
               <td>
                 <div class="input-group" style="width: 120px;">
-
-
-                  <input type="number" name="grade" id="grade" class="form-control" placeholder="0.0" step="0.01" min="0" max="10" >
-                 
-                  <span class="input-group-text" data-toggle="modal" data-target="#exampleModal"
-                  type="submit"><i class="fa fa-file-excel-o">
-                  </i>
-                  
-                </span>
-                  </div>
+                  <input type="number" #timeOneOfThree="ngModel" [(ngModel)]="Timesheet.timeOneOfThree" name="timeOneOfThree" id="timeOneOfThree" class="form-control" placeholder="0.0" step="0.01" min="0" max="10" >   
+                  <span class="input-group-text" data-toggle="modal" data-target="#exampleModal"type="submit">
+                    <i class="fa fa-file-excel-o"></i>   
+                  </span>
+                </div>
               </td>
+
               <td>
                 <div class="input-group" style="width: 120px;">
-
-
-                  <input type="number" name="grade" id="grade" class="form-control" placeholder="0.0" step="0.01" min="0" max="10" >
-                 
-                  <span class="input-group-text" data-toggle="modal" data-target="#exampleModal"
-                  type="submit"><i class="fa fa-file-excel-o">
-                  </i>
-                  
-                </span>
-                  </div>
+                  <input type="number" #timeOneOfFour="ngModel" [(ngModel)]="Timesheet.timeOneOfFour" name="timeOneOffour" id="timeOneOfFour" class="form-control" placeholder="0.0" step="0.01" min="0" max="10" >
+                  <span class="input-group-text" data-toggle="modal" data-target="#exampleModal" type="submit">
+                   <i class="fa fa-file-excel-o"></i>
+                  </span>
+                </div>
               </td>
+
               <td>
                 <div class="input-group" style="width: 120px;">
-
-
-                  <input type="number" name="grade" id="grade" class="form-control" placeholder="0.0" step="0.01" min="0" max="10" >
-                 
-                  <span class="input-group-text" data-toggle="modal" data-target="#exampleModal"
-                  type="submit"><i class="fa fa-file-excel-o">
-                  </i>
-                  
-                </span>
-                  </div>
+                  <input type="number" #timeOneOfFive="ngModel" [(ngModel)]="Timesheet.timeOneOfFive" name="timeOneOfFive" id="timeOneOfFive" class="form-control" placeholder="0.0" step="0.01" min="0" max="10" >                
+                  <span class="input-group-text" data-toggle="modal" data-target="#exampleModal" type="submit">
+                    <i class="fa fa-file-excel-o"></i>
+                  </span>
+                </div>
               </td>
+
               <td>
                 <div class="input-group" style="width: 120px;">
-
-
-                  <input type="number" name="grade" id="grade" class="form-control" placeholder="0.0" step="0.01" min="0" max="10" >
-                 
-                  <span class="input-group-text" data-toggle="modal" data-target="#exampleModal"
-                  type="submit"><i class="fa fa-file-excel-o">
-                  </i>
-                  
-                </span>
-                  </div>
+                  <input type="number" #timeOneOfSix="ngModel" [(ngModel)]="Timesheet.timeOneOfSix" name="timeOneOfSix" id="timeOneOfSix" class="form-control" placeholder="0.0" step="0.01" min="0" max="10" >              
+                  <span class="input-group-text" data-toggle="modal" data-target="#exampleModal" type="submit">
+                    <i class="fa fa-file-excel-o"></i>
+                  </span>
+                </div>
               </td>
+
               <td>
                 <div class="input-group" style="width: 120px;">
-
-
-                  <input type="number" name="grade" id="grade" class="form-control" placeholder="0.0" step="0.01" min="0" max="10" >
-                 
-                  <span class="input-group-text" data-toggle="modal" data-target="#exampleModal"
-                  type="submit"><i class="fa fa-file-excel-o">
-                  </i>
-                  
-                </span>
-                  </div>
+                  <input type="number" #timeOneOfSeven="ngModel" [(ngModel)]="Timesheet.timeOneOfSeven" name="timeOneOfSeven" id="timeOneOfSeven" class="form-control" placeholder="0.0" step="0.01" min="0" max="10" >
+                  <span class="input-group-text" data-toggle="modal" data-target="#exampleModal" type="submit">
+                    <i class="fa fa-file-excel-o"></i>
+                  </span>
+                </div>
               </td>
+
               <td>
                 <div class="input-group" style="width: 120px;">
-
-
-                  <input type="number" name="grade" id="grade" class="form-control" placeholder="0.0" step="0.01" min="0" max="10" >
-                 
-                  <span class="input-group-text" data-toggle="modal" data-target="#exampleModal"
-                  type="submit"><i class="fa fa-file-excel-o">
-                  </i>
-                  
-                </span>
-                  </div>
+                  <input type="number" #Total="ngModel" [(ngModel)]="Timesheet.Total" name="Total" id="Total" class="form-control" placeholder="0.0" step="0.01" min="0" max="10" >
+                  <span class="input-group-text" data-toggle="modal" data-target="#exampleModal" type="submit">
+                    <i class="fa fa-file-excel-o"></i>
+                  </span>
+                </div>
               </td>
 
             </tr>
@@ -223,207 +187,145 @@
               <td>Add Project</td>
               <td>
                 <div class="input-group" style="width: 120px;">
-
-
-                  <input type="number" name="grade" id="grade" class="form-control" placeholder="0.0" step="0.01" min="0" max="10" >
-                 
-                  <span class="input-group-text" data-toggle="modal" data-target="#exampleModal"
-                  type="submit"><i class="fa fa-file-excel-o">
-                  </i>
-                  
-                </span>
-                  </div>
+                  <input type="number" #timeTwoOfOne="ngModel" [(ngModel)]="Timesheet.timeTwoOfOne" name="timeTwoOfOne" id="timeTwoOfOne" class="form-control" placeholder="0.0" step="0.01" min="0" max="10" >
+                  <span class="input-group-text" data-toggle="modal" data-target="#exampleModal" type="submit">
+                    <i class="fa fa-file-excel-o"></i>
+                  </span>
+                </div>
               </td>
+    
               <td>
                 <div class="input-group" style="width: 120px;">
-
-
-                  <input type="number" name="grade" id="grade" class="form-control" placeholder="0.0" step="0.01" min="0" max="10" >
-                 
-                  <span class="input-group-text" data-toggle="modal" data-target="#exampleModal"
-                  type="submit"><i class="fa fa-file-excel-o">
-                  </i>
-                  
-                </span>
-                  </div>
+                  <input type="number" #timeTwoOfTwo="ngModel" [(ngModel)]="Timesheet.timeTwoOfTwo" name="timeTwoOfTwo" id="timeTwoOfTwo" class="form-control" placeholder="0.0" step="0.01" min="0" max="10">
+                  <span class="input-group-text" data-toggle="modal" data-target="#exampleModal" type="submit">
+                    <i class="fa fa-file-excel-o"></i>
+                  </span>
+                </div>
               </td>
+
               <td>
                 <div class="input-group" style="width: 120px;">
-
-
-                  <input type="number" name="grade" id="grade" class="form-control" placeholder="0.0" step="0.01" min="0" max="10" >
-                 
-                  <span class="input-group-text" data-toggle="modal" data-target="#exampleModal"
-                  type="submit"><i class="fa fa-file-excel-o">
-                  </i>
-                  
-                </span>
-                  </div>
+                  <input type="number" #timeTwoOfThree="ngModel" [(ngModel)]="Timesheet.timeTwoOfThree" name="timeTwoOfThree" id="timeTwoOfThree" class="form-control" placeholder="0.0" step="0.01" min="0" max="10" >
+                  <span class="input-group-text" data-toggle="modal" data-target="#exampleModal" type="submit">
+                    <i class="fa fa-file-excel-o"></i>
+                  </span>
+                </div>
               </td>
+
               <td>
                 <div class="input-group" style="width: 120px;">
-
-
-                  <input type="number" name="grade" id="grade" class="form-control" placeholder="0.0" step="0.01" min="0" max="10" >
-                 
-                  <span class="input-group-text" data-toggle="modal" data-target="#exampleModal"
-                  type="submit"><i class="fa fa-file-excel-o">
-                  </i>
-                  
-                </span>
-                  </div>
+                  <input type="number" #timeTwoOfFour="ngModel" [(ngModel)]="Timesheet.timeTwoOfFour" name="timeTwoOfFour" id="timeTwoOfFour" class="form-control" placeholder="0.0" step="0.01" min="0" max="10" >
+                  <span class="input-group-text" data-toggle="modal" data-target="#exampleModal" type="submit">
+                    <i class="fa fa-file-excel-o"></i>
+                  </span>
+                </div>
               </td>
+
               <td>
                 <div class="input-group" style="width: 120px;">
-
-
-                  <input type="number" name="grade" id="grade" class="form-control" placeholder="0.0" step="0.01" min="0" max="10" >
-                 
-                  <span class="input-group-text" data-toggle="modal" data-target="#exampleModal"
-                  type="submit"><i class="fa fa-file-excel-o">
-                  </i>
-                  
-                </span>
-                  </div>
+                  <input type="number" #timeTwoOfFive="ngModel" [(ngModel)]="Timesheet.timeTwoOfFive" name="timeTwoOfFive" id="timeTwoOfFive" class="form-control" placeholder="0.0" step="0.01" min="0" max="10" >
+                  <span class="input-group-text" data-toggle="modal" data-target="#exampleModal" type="submit">
+                    <i class="fa fa-file-excel-o"></i>
+                  </span>
+                </div>
               </td>
-              <td>
-                <div class="input-group" style="width: 120px;">
-
-
-                  <input type="number" name="grade" id="grade" class="form-control" placeholder="0.0" step="0.01" min="0" max="10" >
-                 
-                  <span class="input-group-text" data-toggle="modal" data-target="#exampleModal"
-                  type="submit"><i class="fa fa-file-excel-o">
-                  </i>
-                  
-                </span>
-                  </div>
-              </td>
-              <td>
-                <div class="input-group" style="width: 120px;">
-
-
-                  <input type="number" name="grade" id="grade" class="form-control" placeholder="0.0" step="0.01" min="0" max="10" >
-                 
-                  <span class="input-group-text" data-toggle="modal" data-target="#exampleModal"
-                  type="submit"><i class="fa fa-file-excel-o">
-                  </i>
-                  
-                </span>
-                  </div>
-              </td>
-              <td>
-                <div class="input-group" style="width: 120px;">
-
-
-                  <input type="number" name="grade" id="grade" class="form-control" placeholder="0.0" step="0.01" min="0" max="10" >
-                 
-                  </div>
-              </td>
-
-            </tr>
-            <!--second row ends here-->
-            <!---third row starts from here-->
-            <tr>
-              <td>Add Project</td>
               
               <td>
                 <div class="input-group" style="width: 120px;">
+                  <input type="number" #timeTwoOfSix="ngModel" [(ngModel)]="Timesheet.timeTwoOfSix" name="timeTwoOfSix" id="timeTwoOfSix" class="form-control" placeholder="0.0" step="0.01" min="0" max="10" >
+                  <span class="input-group-text" data-toggle="modal" data-target="#exampleModal" type="submit">
+                    <i class="fa fa-file-excel-o"></i>
+                  </span>
+                </div>
+              </td>
 
+              <td>
+                <div class="input-group" style="width: 120px;">
+                  <input type="number" #timeTwoOfSeven="ngModel" [(ngModel)]="Timesheet.timeTwoOfSeven" name="timeTwoOfSeven" id="timeTwoOfSeven" class="form-control" placeholder="0.0" step="0.01" min="0" max="10" >
+                  <span class="input-group-text" data-toggle="modal" data-target="#exampleModal" type="submit">
+                    <i class="fa fa-file-excel-o"></i>
+                  </span>
+                </div>
+              </td>
 
+              <td>
+                <div class="input-group" style="width: 120px;">
                   <input type="number" name="grade" id="grade" class="form-control" placeholder="0.0" step="0.01" min="0" max="10" >
-                 
-                  <span class="input-group-text" data-toggle="modal" data-target="#exampleModal"
-                  type="submit"><i class="fa fa-file-excel-o">
-                  </i>
-                  
-                </span>
                   </div>
+              </td>
+            </tr>
+            <!--second row ends here-->
+
+            <!---third row starts from here-->
+            <tr>
+              <td>Add Project</td>  
+              <td>
+                <div class="input-group" style="width: 120px;">
+                  <input type="number" name="grade" id="grade" class="form-control" placeholder="0.0" step="0.01" min="0" max="10" >
+                  <span class="input-group-text" data-toggle="modal" data-target="#exampleModal" type="submit">
+                    <i class="fa fa-file-excel-o"></i>
+                  </span>
+                </div>
+              </td>
+
+              <td>
+                <div class="input-group" style="width: 120px;">
+                  <input type="number" name="grade" id="grade" class="form-control" placeholder="0.0" step="0.01" min="0" max="10" >
+                  <span class="input-group-text" data-toggle="modal" data-target="#exampleModal" type="submit">
+                    <i class="fa fa-file-excel-o"></i>
+                  </span>
+                </div>
+              </td>
+
+              <td>
+                <div class="input-group" style="width: 120px;">
+                  <input type="number" name="grade" id="grade" class="form-control" placeholder="0.0" step="0.01" min="0" max="10" >
+                  <span class="input-group-text" data-toggle="modal" data-target="#exampleModal" type="submit">
+                    <i class="fa fa-file-excel-o"></i>
+                  </span>
+                </div>
+              </td>
+
+              <td>
+                <div class="input-group" style="width: 120px;">
+                  <input type="number" name="grade" id="grade" class="form-control" placeholder="0.0" step="0.01" min="0" max="10" >
+                  <span class="input-group-text" data-toggle="modal" data-target="#exampleModal" type="submit">
+                    <i class="fa fa-file-excel-o"></i>
+                  
+                  </span>
+                </div>
               </td>
               <td>
                 <div class="input-group" style="width: 120px;">
-
-
                   <input type="number" name="grade" id="grade" class="form-control" placeholder="0.0" step="0.01" min="0" max="10" >
-                 
-                  <span class="input-group-text" data-toggle="modal" data-target="#exampleModal"
-                  type="submit"><i class="fa fa-file-excel-o">
-                  </i>
-                  
-                </span>
-                  </div>
+                  <span class="input-group-text" data-toggle="modal" data-target="#exampleModal" type="submit">
+                    <i class="fa fa-file-excel-o"></i>
+                  </span>
+                </div>
               </td>
+
               <td>
                 <div class="input-group" style="width: 120px;">
-
-
                   <input type="number" name="grade" id="grade" class="form-control" placeholder="0.0" step="0.01" min="0" max="10" >
-                 
-                  <span class="input-group-text" data-toggle="modal" data-target="#exampleModal"
-                  type="submit"><i class="fa fa-file-excel-o">
-                  </i>
-                  
-                </span>
-                  </div>
+                  <span class="input-group-text" data-toggle="modal" data-target="#exampleModal" type="submit">
+                    <i class="fa fa-file-excel-o"></i>
+                  </span>
+                </div>
               </td>
+              
               <td>
                 <div class="input-group" style="width: 120px;">
-
-
-                  <input type="number" name="grade" id="grade" class="form-control" placeholder="0.0" step="0.01" min="0" max="10" >
-                 
-                  <span class="input-group-text" data-toggle="modal" data-target="#exampleModal"
-                  type="submit"><i class="fa fa-file-excel-o">
-                  </i>
-                  
-                </span>
-                  </div>
-              </td>
-              <td>
-                <div class="input-group" style="width: 120px;">
-
-
-                  <input type="number" name="grade" id="grade" class="form-control" placeholder="0.0" step="0.01" min="0" max="10" >
-                 
-                  <span class="input-group-text" data-toggle="modal" data-target="#exampleModal"
-                  type="submit"><i class="fa fa-file-excel-o">
-                  </i>
-                  
-                </span>
-                  </div>
-              </td>
-              <td>
-                <div class="input-group" style="width: 120px;">
-
-
-                  <input type="number" name="grade" id="grade" class="form-control" placeholder="0.0" step="0.01" min="0" max="10" >
-                 
-                  <span class="input-group-text" data-toggle="modal" data-target="#exampleModal"
-                  type="submit"><i class="fa fa-file-excel-o">
-                  </i>
-                  
-                </span>
-                  </div>
-              </td>
-              <td>
-                <div class="input-group" style="width: 120px;">
-
                   <input type="number" name="grade" id="grade" class="form-control" placeholder="0.0" step="0.01" min="0" max="10" > 
-                  <span class="input-group-text" data-toggle="modal" data-target="#exampleModal"
-                  type="submit"><i class="fa fa-file-excel-o">
-                  </i>    
-                </span>
-                  </div>
+                  <span class="input-group-text" data-toggle="modal" data-target="#exampleModal" type="submit">
+                    <i class="fa fa-file-excel-o"></i>    
+                  </span>
+                </div>
               </td>
               <td>
                 <div class="input-group" style="width: 120px;">
-
-
                   <input type="number" name="grade" id="grade" class="form-control" placeholder="0.0" step="0.01" min="0" max="10" >
-                 
-                  </div>
+                </div>
               </td>
-
             </tr>
             <!---third row ends here-->
 
@@ -468,9 +370,7 @@
           </tbody>
         </table>
         </div>
-   
     </div>
-
   </form>
 
 
@@ -495,32 +395,6 @@
         </div>
       </div>
     </div>
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
