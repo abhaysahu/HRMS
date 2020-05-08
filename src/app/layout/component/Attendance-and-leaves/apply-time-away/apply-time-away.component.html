@@ -20,13 +20,13 @@
     Apply Time Away From Work
   </div>
   <div class="card-body">
-    <form #form="ngForm" (submit)="onSubmit(form.value)">
+    <form #form="ngForm" (submit)="onSubmit(form.value)" class="was-validated">  
       <div class="form">
         <div class="form-row">
         <div class="form-group col-md-4">
           <label for="applyFor">Apply For</label>
           
-          <select class="custom-select" #applyFor="ngModel" [(ngModel)]="Attendance.applyFor" name="applyFor" id="applyFor">
+          <select class="custom-select" #applyFor="ngModel" [(ngModel)]="Attendance.applyFor" name="applyFor" id="applyFor" required> 
             <option selected>Leave</option>
             <option value="1">Working Out Of Office</option>
             <option value="2">Work From Home</option>
@@ -34,10 +34,8 @@
             <option value="4">Earning Compensatory</option>
             <option value="5">Short Leave</option>
 
-
-
           </select>
-          <div class="invalid-feedback" *ngIf="remarks.touched && remarks.invalid">
+          <div class="invalid-feedback" *ngIf="applyFor.touched && applyFor.invalid">
             Apply For is required.
           </div>
         </div>
@@ -46,9 +44,9 @@
         <div class="form-group col-md-4">
           <label for="from">From</label>
           <div class="form-group">
-            <input type="date" max="3000-12-31" #from="ngModel" [(ngModel)]="Attendance.from" name="from" id="from"
-                  min="1000-01-01" class="form-control">
-                  <div class="invalid-feedback" *ngIf="remarks.touched && remarks.invalid">
+            <input type="date" max="3000-12-31" #from="ngModel" [(ngModel)]="Attendance.from" name="from" id="from" required
+                  min="1000-01-01" class="form-control">                                                                        
+                  <div class="invalid-feedback" *ngIf="from.touched && from.invalid">
                     From is required.
                   </div>
           </div>
@@ -60,9 +58,9 @@
         <div class="form-group col-md-4">
           <label for="to">To</label>
           <div class="form-group">
-            <input type="date"  max="3000-12-31" #to="ngModel" [(ngModel)]="Attendance.to" name="to" id="to"
-                  min="1000-01-01" class="form-control">
-                  <div class="invalid-feedback" *ngIf="remarks.touched && remarks.invalid">
+            <input type="date"  max="3000-12-31" #to="ngModel" [(ngModel)]="Attendance.to" name="to" id="to" required
+                  min="1000-01-01" class="form-control">                                                              
+                  <div class="invalid-feedback" *ngIf="to.touched && to.invalid">
                     To is required.
                   </div>
           </div>
@@ -70,8 +68,8 @@
 
         <div class="form-group col-md-2">
           <label for="noofdays">No. Of Days</label>
-          <input type="number" #noOfDays="ngModel" [(ngModel)]="Attendance.noOfDays" name="noOfDays" id="noOfDays" class="form-control" placeholder="0" step="" min="0" max="10">
-          <div class="invalid-feedback" *ngIf="remarks.touched && remarks.invalid">
+          <input type="number" #noOfDays="ngModel" [(ngModel)]="Attendance.noOfDays" name="noOfDays" id="noOfDays" class="form-control" placeholder="0" step="" min="0" max="10" required>  
+          <div class="invalid-feedback" *ngIf="noOfDays.touched && noOfDays.invalid">
             No Of Days is required.
           </div>
         </div><br>
@@ -142,17 +140,15 @@
        <div class="form-group col-md-4">
         <label for="applyUnder">Apply Under</label>
         
-        <select class="custom-select" #applyUnder="ngModel" [(ngModel)]="Attendance.maritalStatus" name="applyUnder" id="applyUnder">
+        <select class="custom-select" #applyUnder="ngModel" [(ngModel)]="Attendance.applyUnder" name="applyUnder" id="applyUnder" required>     
           <option selected>Select</option>
           <option value="1">General Leave</option>
           <option value="2">Floating Leave</option>
           <option value="3">Compensatory Off</option>
           <option value="4">Berevement Leave</option>
 
-
-
         </select>
-        <div class="invalid-feedback" *ngIf="remarks.touched && remarks.invalid">
+        <div class="invalid-feedback" *ngIf="applyUnder.touched && applyUnder.invalid">
           Apply Under is required.
         </div>
       </div>
@@ -180,8 +176,8 @@
         <div class="form-group">
           <label for="reasonofLeave">Reason Of Leave</label>
 
-          <textarea class="form-control"  rows="5" #resonOfLeave="ngModel" [(ngModel)]="Attendance.reasonOfLeave" name="reasonOfLeave" id="reasonOfLeave" required></textarea>
-          <div class="invalid-feedback" *ngIf="remarks.touched && remarks.invalid">
+          <textarea class="form-control"  rows="5" #reasonOfLeave="ngModel" [(ngModel)]="Attendance.reasonOfLeave" name="reasonOfLeave" id="reasonOfLeave" required></textarea>
+          <div class="invalid-feedback" *ngIf="reasonOfLeave.touched && reasonOfLeave.invalid">
             Reason Of Leave is required.
           </div>
         </div>
@@ -189,7 +185,7 @@
       <div class="form-group col-md-6">
         <div class="form-group">
           <label for="remarks">Remarks</label>
-          <textarea class="form-control"  rows="3" #remarks="ngModel" [(ngModel)]="Attendance.remarks" name="remarks" id="remarks" required></textarea>
+          <textarea class="form-control"  rows="3" #remarks="ngModel" [(ngModel)]="Attendance.remarks" name="remarks" id="remarks" required></textarea>   <!-- you have to add one word here. go and check ant input field of create componet and find that word -->
           <div class="invalid-feedback" *ngIf="remarks.touched && remarks.invalid">
               Remarks are required.
             </div>
@@ -212,7 +208,7 @@
       <div class="form-group col-md-4">
         <label for="approvalName">Approval Name</label>
         
-        <select class="custom-select" #approvalName="ngModel" [(ngModel)]="Attendance.approvalName" name="approvalName" id="approvalName" id="approvalName">
+        <select class="custom-select" #approvalName="ngModel" [(ngModel)]="Attendance.approvalName" name="approvalName" id="approvalName" id="approvalName" required>
           <option selected>Select</option>
           <option value="1">General Leave</option>
           <option value="2">Floating Leave</option>
@@ -222,7 +218,7 @@
 
 
         </select>
-        <div class="invalid-feedback" *ngIf="remarks.touched && remarks.invalid">
+        <div class="invalid-feedback" *ngIf="approvalName.touched && approvalName.invalid">
           Approval Name is required.
         </div>
       </div>
