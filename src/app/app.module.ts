@@ -50,6 +50,7 @@ import { TimesheetBankComponent } from './layout/component/Timesheet/timesheet-b
 import { MyServiceRequetsComponent } from './layout/component/Service-request/my-service-requets/my-service-requets.component';
 import { AddSRComponent } from './layout/component/Service-request/add-sr/add-sr.component';
 import { CommentsComponent } from './layout/component/Timesheet/comments/comments.component';
+import { TimesheetService } from './layout/component/Timesheet/service/timesheet.service';
 
 
 
@@ -155,7 +156,7 @@ import { CommentsComponent } from './layout/component/Timesheet/comments/comment
 
   ],
   entryComponents:[CommentsComponent],
-  providers: [LoginService, AuthGuardService, EmployeeService],
+  providers: [LoginService, AuthGuardService, EmployeeService, TimesheetService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
