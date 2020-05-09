@@ -6,10 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./my-leaves.component.css']
 })
 export class MyLeavesComponent implements OnInit {
+  Leaves: any[] = [];
 
   constructor() { }
 
   ngOnInit() {
   }
-
+  onSubmit(leaves) {
+    console.log(leaves) 
+  }
 }
+
