@@ -17,22 +17,25 @@
     My Time Away Requests
   </div>
   <div class="card-body">
-    <form>
+    <form class="was-validated">
       <div class="form-row">
       <div class="form-group col-md-2">
-        <label for="requestid">Request Id</label>
+        <label for="requestId">Request Id</label>
         
-        <select class="custom-select" id="requestid">
+        <select class="custom-select" #requestId="ngModel" [(ngModel)]="Attendance.requestId" name="requestId" id="requestId" required>
           <option selected>All</option>
           <option value="1">A</option>
           <option value="2">B</option>
 
           </select>
+          <div class="invalid-feedback" *ngIf="requestId.touched && requestId.invalid">
+            RequestId is required.
+          </div>
         </div>
         <div class="form-group col-md-2">
           <label for="type">Type</label>
           
-          <select class="custom-select" id="type">
+          <select class="custom-select" #type="ngModel" [(ngModel)]="Attendance.type" name="type" id="type" required>
             <option selected>All</option>
             <option value="1">Working Out Of Office</option>
             <option value="2">Work From Home</option>
@@ -40,12 +43,15 @@
             <option value="4">Earning Compensatory</option>
             <option value="5">Short Leave</option>
             </select>
+            <div class="invalid-feedback" *ngIf="type.touched && type.invalid">
+              Type is required.
+            </div>
           </div>
 
           <div class="form-group col-md-2">
             <label for="month">Month</label>
             
-            <select class="custom-select" id="month">
+            <select class="custom-select" #month="ngModel" [(ngModel)]="Attendance.month" name="month" id="month" required>
               <option selected>Select</option>
               <option value="1">Jan</option>
               <option value="2">Feb</option>
@@ -61,12 +67,15 @@
               <option value="12">December</option>
   
             </select>
+            <div class="invalid-feedback" *ngIf="month.touched && month.invalid">
+              Month is required.
+            </div>
             </div>
 
             <div class="form-group col-md-2">
               <label for="year">Year</label>
               
-              <select class="custom-select" id="year">
+              <select class="custom-select" #year="ngModel" [(ngModel)]="Attendance.year" name="year" id="year" required>
                 <option selected>Select</option>
                 <option value="1">Jan</option>
                 <option value="2">Feb</option>
@@ -82,12 +91,15 @@
                 <option value="12">December</option>
     
               </select>
+              <div class="invalid-feedback" *ngIf="year.touched && year.invalid">
+                Year is required.
+              </div>
               </div>
 
               <div class="form-group col-md-2">
-                <label for="approvalstatus">Approval Status</label>
+                <label for="approvalStatus">Approval Status</label>
                 
-                <select class="custom-select" id="approvalstatus">
+                <select class="custom-select" #approvalStatus="ngModel" [(ngModel)]="Attendance.approvalStatus" name="approvalStatus" id="approvalStatus" required>
                   <option selected>Pending</option>
                   <option value="1">Working Out Of Office</option>
                   <option value="2">Work From Home</option>
@@ -95,12 +107,15 @@
                   <option value="4">Earning Compensatory</option>
                   <option value="5">Short Leave</option>
                   </select>
+                  <div class="invalid-feedback" *ngIf="approvalStatus.touched && approvalStatus.invalid">
+                    ApprovalStatus is required.
+                  </div>
                 </div>
 
                 <div class="form-group col-md-2">
-                  <label for="hrstatus">Hr Status</label>
+                  <label for="hrStatus">Hr Status</label>
                   
-                  <select class="custom-select" id="hrstatus">
+                  <select class="custom-select" #hrStatus="ngModel" [(ngModel)]="Attendance.hrStatus" name="hrStatus" id="hrStatus" required>
                     <option selected>Pending</option>
                     <option value="1">Working Out Of Office</option>
                     <option value="2">Work From Home</option>
@@ -108,10 +123,14 @@
                     <option value="4">Earning Compensatory</option>
                     <option value="5">Short Leave</option>
                     </select>
+                    <div class="invalid-feedback" *ngIf="hrStatus.touched && hrStatus.invalid">
+                      Hr status is required.
+                    </div>
+            
                   </div>
       </div>
       <button type="button" class="btn btn-primary">Filter</button>
-
+      
     </form><br>
     <table class="table table-bordered">
       <thead>

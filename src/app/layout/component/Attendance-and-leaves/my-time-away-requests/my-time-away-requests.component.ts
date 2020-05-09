@@ -6,10 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./my-time-away-requests.component.css']
 })
 export class MyTimeAwayRequestsComponent implements OnInit {
+  Attendance: any[] = [];
+
 
   constructor() { }
 
   ngOnInit() {
   }
-
+  onSubmit(attendance) {
+    console.log(attendance) 
+  }
 }
+
