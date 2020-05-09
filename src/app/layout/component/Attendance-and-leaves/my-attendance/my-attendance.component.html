@@ -23,12 +23,12 @@
     My Attendance
   </div>
   <div class="card-body">
-    <form>
+    <form class="was-validated">
         <div class="form-row">
         <div class="form-group col-md-4">
-          <label for="applyfor">Month</label>
+          <label for="month">Month</label>
           
-          <select class="custom-select" id="month">
+          <select class="custom-select" #month="ngModel" [(ngModel)]="Attendance.month" name="month" id="month" required> >
             <option selected>April</option>
             <option value="1">Jan</option>
             <option value="2">Feb</option>
@@ -44,11 +44,14 @@
             <option value="12">December</option>
 
             </select>
+            <div class="invalid-feedback" *ngIf="month.touched && month.invalid">
+              Month is required.
+            </div>
           </div>
           <div class="form-group col-md-4">
             <label for="year">Year</label>
             
-            <select class="custom-select" id="year">
+            <select class="custom-select" #year="ngModel" [(ngModel)]="Attendance.year" name="year" id="year" required> >
               <option selected>2020</option>
               <option value="1">2019</option>
               <option value="2">2018</option>
@@ -56,6 +59,9 @@
               <option value="4">2016</option>
               <option value="5">2015</option>
               </select>
+              <div class="invalid-feedback" *ngIf="year.touched && year.invalid">
+                Year is required.
+              </div>
             </div>
         </div>
       </form>

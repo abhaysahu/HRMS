@@ -23,11 +23,16 @@ class DataTablesResponse {
   styleUrls: ['./my-attendance.component.css']
 })
 export class MyAttendanceComponent implements OnInit {
+  Attendance: any[] = [];
+
 
   
   constructor(private http: HttpClient, private loginService: LoginService) {}
 
-  ngOnInit() {    
+  ngOnInit() {
   }
-
+  onSubmit(attendance) {
+    console.log(attendance) 
+  }
 }
+
