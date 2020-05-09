@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material';
 import { CommentsComponent } from '../comments/comments.component';
+import { TimesheetService } from '../service/timesheet.service';
 
 @Component({
   selector: 'app-my-timesheet',
@@ -13,7 +14,10 @@ export class MyTimesheetComponent implements OnInit {
 
   
 
-  constructor(private dialog: MatDialog) { }
+  constructor(private dialog: MatDialog,
+    private timesheetService: TimesheetService,
+
+    ) { }
 
   ngOnInit() {
   }
@@ -24,14 +28,14 @@ export class MyTimesheetComponent implements OnInit {
 
   }
 
-  AddOrEditOrderItem(orderItemIndex, orderid)
+  AddOrEditOrderItem(commentId, status)
   {
     
     const dialogConfig = new MatDialogConfig();
     dialogConfig.autoFocus = true;
     dialogConfig.disableClose = true;
     dialogConfig.width="50%";
-    dialogConfig.data={orderItemIndex, orderid}
+    dialogConfig.data={commentId, status}
     this.dialog.open(CommentsComponent, dialogConfig).afterClosed().subscribe(res =>{
       
     });
