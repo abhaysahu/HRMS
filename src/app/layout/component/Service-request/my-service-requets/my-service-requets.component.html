@@ -19,17 +19,20 @@
     My Service Requests
   </div>
   <div class="card-body">
-    <div class="form">
+    <form #form="ngForm" (submit)="onSubmit(form.value)" class="was-validated">
 <div class="form-row">
   
   <div class="form-group col-md-2">
     <label for="requestId">Request Id</label><br>
-    <input type="number" class="form-control"  id="requestid" name="requestid" min="0000000000" max="999999999999999">
+    <input type="number" class="form-control"  #requestId="ngModel" [(ngModel)]="Servicerequest.requestId" name="requestId" id="requestId" min="0000000000" max="999999999999999" required>
+    <div class="invalid-feedback" *ngIf="requestId.touched && requestId.invalid">
+      RequestId is required.
+    </div>
   </div>
   <div class="form-group col-md-3">
     <label for="function">Function</label>
     
-    <select class="custom-select" id="function">
+    <select class="custom-select" #function="ngModel" [(ngModel)]="Servicerequest.function" name="function" id="function" required>
       <option selected>All</option>
       <option value="1">Working Out Of Office</option>
       <option value="2">Work From Home</option>
@@ -40,12 +43,15 @@
 
 
     </select>
+    <div class="invalid-feedback" *ngIf="function.touched && function.invalid">
+      Function is required.
+    </div>
   </div>
 
   <div class="form-group col-md-3">
-    <label for="subfunction">Subfunction</label>
+    <label for="subFunction">Subfunction</label>
     
-    <select class="custom-select" id="subfunction">
+    <select class="custom-select" #subFunction="ngModel" [(ngModel)]="Servicerequest.subFunction" name="subFunction" id="subFunction" required >
       <option selected>All</option>
       <option value="1">Working Out Of Office</option>
       <option value="2">Work From Home</option>
@@ -56,12 +62,15 @@
 
 
     </select>
+   <div class="invalid-feedback" *ngIf="subFunction.touched && subFunction.invalid">
+      Subfunction is required.
+   </div>
   </div>
 
   <div class="form-group col-md-3">
     <label for="status">Status</label>
     
-    <select class="custom-select" id="status">
+    <select class="custom-select" #status="ngModel" [(ngModel)]="Servicerequest.status" name="status" id="status" required>
       <option selected>Open</option>
       <option value="1">Working Out Of Office</option>
       <option value="2">Work From Home</option>
@@ -72,25 +81,34 @@
 
 
     </select>
+   <div class="invalid-feedback" *ngIf="status.touched && status.invalid">
+      Status is required.
+    </div>
   </div>
       <div class="form-group col-md-2">
         <label for="dateFrom">Date From</label>
         <div class="form-group">
-          <input type="date" name="bday" max="3000-12-31" 
-                min="1000-01-01" class="form-control">
+          <input type="date" #dateFrom="ngModel" [(ngModel)]="Servicerequest.dateFrom" name="dateFrom" id="dateFrom"  max="3000-12-31" 
+                min="1000-01-01" class="form-control" required>
+                <div class="invalid-feedback" *ngIf="dateFrom.touched && dateFrom.invalid">
+                  Date  is required.
+                </div>
         </div>
         </div>
       <div class="form-group col-md-2">
         <label for="dateTo">Date To</label>
         <div class="form-group">
-          <input type="date" name="bday" max="3000-12-31" 
-                min="1000-01-01" class="form-control">
+          <input type="date" #dateTo="ngModel" [(ngModel)]="Servicerequest.dateTo" name="dateTo" id="dateTo" max="3000-12-31" 
+                min="1000-01-01" class="form-control" required>
+                <div class="invalid-feedback" *ngIf="dateTo.touched && dateTo.invalid">
+                  Date  is required.
+                </div>
         </div>
         </div>
         <div class="form-group col-md-2">
           <label for="dateTo"></label>
           <div class="form-group">        
-            <button type="button" class="btn btn-primary">Filter</button>
+            <button type="submit" class="btn btn-primary">Filter</button>
         </div>
 </div>
 
@@ -133,6 +151,6 @@
     </tr>
   </tbody>
 </table>
-</div>
+</form>
 </div>
 </div>

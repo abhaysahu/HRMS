@@ -6,10 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./add-sr.component.css']
 })
 export class AddSRComponent implements OnInit {
+  Sr: any[] = [];
 
   constructor() { }
 
   ngOnInit() {
   }
-
+  onSubmit(sr) {
+    console.log(sr) 
+  }
 }
+

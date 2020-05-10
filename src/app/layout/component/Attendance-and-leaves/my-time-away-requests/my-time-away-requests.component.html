@@ -17,7 +17,7 @@
     My Time Away Requests
   </div>
   <div class="card-body">
-    <form class="was-validated">
+    <form #form="ngForm" (submit)="onSubmit(form.value)" class="was-validated">
       <div class="form-row">
       <div class="form-group col-md-2">
         <label for="requestId">Request Id</label>
@@ -129,7 +129,7 @@
             
                   </div>
       </div>
-      <button type="button" class="btn btn-primary">Filter</button>
+      <button type="submit" class="btn btn-primary">Filter</button>
       
     </form><br>
     <table class="table table-bordered">

@@ -6,10 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./my-service-requets.component.css']
 })
 export class MyServiceRequetsComponent implements OnInit {
+  Servicerequest: any[] = [];
 
   constructor() { }
 
   ngOnInit() {
   }
-
+  onSubmit(servicerequest) {
+    console.log(servicerequest) 
+  }
 }
