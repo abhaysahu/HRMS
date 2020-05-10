@@ -35,7 +35,7 @@
         <th>Job Ttile</th>
         <th>Location</th>
         <th>Departments</th>
-        <th>Action</th>
+        <th>Edit</th>
         
       </tr>
     </thead>
@@ -48,7 +48,7 @@
             <td>{{ person.firstName }}</td>
             <td>{{ person.lastName }}</td>
             <td>{{ person.id }}</td>
-            <td><a [routerLink]="['/dashboard/edit/employee/', person.id]"><i class="material-icons" style="color: green;">&#xE254;</i>  <i class="material-icons"  style="color: red;">&#xE872;</i></a></td>
+            <td><a [routerLink]="['/dashboard/edit/employee/', person.id]"><i class="material-icons" style="color: green;">&#xE254;</i>  </a></td>
         </tr>
     </tbody>
     <tbody *ngIf="persons?.length == 0">
@@ -57,7 +57,7 @@
       </tr>
     <tbody>
 
-      <tfoot>
+      <!---<tfoot>
         <tr>
           <th><input type="text" class="search" placeholder="Search ID" name="search-id"/></th>
           <th><input type="text" class="search" placeholder="Search first name" name="search-first-name"/></th>
@@ -69,7 +69,7 @@
           <th><input type="text" class="search" placeholder="Search first name" name="search-first-name"/></th>
           
         </tr>
-      </tfoot>
+      </tfoot>--->
 
   </table>
 
