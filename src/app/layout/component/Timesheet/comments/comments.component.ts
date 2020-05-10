@@ -22,14 +22,21 @@ export class CommentsComponent implements OnInit {
 
     if(this.data.status == 0)
     {
-      console.log("yes")
       console.log(this.data)
+      this.formData = {
+        
+        commentId: this.data.commentId,
+        hour: this.data.hour,
+        comment: '',
+        status: 1
+      }
      
     }
     else 
     {
       console.log(this.data)
-      
+      this.formData = Object.assign({},this.timesheetService.comment[this.data.iteration]);
+      console.log(this.formData)
     }
 
 
@@ -41,6 +48,24 @@ export class CommentsComponent implements OnInit {
   }
 
 
+  onSubmit(form)
+  {
+    console.log(form);
+      if(this.data.status == 0)
+      {
+        console.log("push")
+        this.timesheetService.comment.push(form);
+      }
+      else
+      {
+        this.timesheetService.comment[this.data.orderItemIndex] = form;
+        
+      }
+
+      //this.dialogRef.close();
+      
+    
+  }
 
 
   
