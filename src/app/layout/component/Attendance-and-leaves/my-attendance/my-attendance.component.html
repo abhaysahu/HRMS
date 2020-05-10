@@ -24,6 +24,18 @@
   </div>
   <div class="card-body">
     <form class="was-validated">
+      <div class="form-group col-md-4">
+        <label for="employee">Employee</label>
+        
+        <select class="custom-select" #employee="ngModel" [(ngModel)]="Attendance.employee" name="employee" id="employee" required>
+          <option selected>Selected</option>
+          <option value="1">A</option>
+          <option value="2">b</option>
+          </select>
+          <div class="invalid-feedback" *ngIf="year.touched && year.invalid">
+            Year is required.
+          </div>
+        </div>
         <div class="form-row">
         <div class="form-group col-md-4">
           <label for="month">Month</label>
