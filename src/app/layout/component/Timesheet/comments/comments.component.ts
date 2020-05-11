@@ -26,7 +26,7 @@ export class CommentsComponent implements OnInit {
       this.formData = {
         
         commentId: this.data.commentId,
-        hour: this.data.hour,
+        hour: 0,
         comment: '',
         status: 1
       }
