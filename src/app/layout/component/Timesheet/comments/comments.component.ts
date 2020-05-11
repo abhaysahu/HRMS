@@ -20,25 +20,13 @@ export class CommentsComponent implements OnInit {
 
   ngOnInit() {
 
-    if(this.data.status == 0)
-    {
+   
       console.log(this.data)
       this.formData = {
-        
         commentId: this.data.commentId,
-        hour: 0,
-        comment: '',
-        status: 1
+        hour: this.data.hour,
+        comment: this.data.comment,
       }
-     
-    }
-    else 
-    {
-      console.log(this.data)
-      this.formData = Object.assign({},this.timesheetService.comment[this.data.iteration]);
-      console.log(this.formData)
-    }
-
 
   }
 
@@ -51,20 +39,50 @@ export class CommentsComponent implements OnInit {
   onSubmit(form)
   {
     console.log(form);
-      if(this.data.status == 0)
-      {
-        console.log("push")
-        this.timesheetService.comment.push(form);
-      }
-      else
-      {
-        this.timesheetService.comment[this.data.orderItemIndex] = form;
-        
-      }
+    this.dialogRef.close();
 
-      //this.dialogRef.close();
-      
+    if(form.commentId == 1)
+    {
+      this.timesheetService.timesheet[this.data.index].monefforts = form.hour;
+      this.timesheetService.timesheet[this.data.index].mondesc = form.comment;
+    }
+     
+    else if(form.commentId == 2)
+    {
+      this.timesheetService.timesheet[this.data.index].tusefforts = form.hour;
+      this.timesheetService.timesheet[this.data.index].tusdesc = form.comment;
+    }
+
+    else if(form.commentId == 3)
+    {
+      this.timesheetService.timesheet[this.data.index].wedefforts = form.hour;
+      this.timesheetService.timesheet[this.data.index].weddesc = form.comment;
+    }
+
+    else if(form.commentId == 4)
+    {
+      this.timesheetService.timesheet[this.data.index].thuefforts = form.hour;
+      this.timesheetService.timesheet[this.data.index].thudesc = form.comment;
+    }
+
+    else if(form.commentId == 5)
+    {
+      this.timesheetService.timesheet[this.data.index].friefforts = form.hour;
+      this.timesheetService.timesheet[this.data.index].fridesc = form.comment;
+    }
     
+    else if(form.commentId == 6)
+    {
+      this.timesheetService.timesheet[this.data.index].satefforts = form.hour;
+      this.timesheetService.timesheet[this.data.index].satdesc = form.comment;
+    }
+
+    else if(form.commentId == 7)
+    {
+      this.timesheetService.timesheet[this.data.index].sunefforts = form.hour;
+      this.timesheetService.timesheet[this.data.index].sundesc = form.comment;
+    }
+              
   }
 
 
