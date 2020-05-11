@@ -34,7 +34,21 @@
     color: #555;
 }
 
-.header-title .link {
+.breadcrumb{
+    float: right;
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 12px;
+    position: absolute;
+    bottom: 20px;
+    right: 30px;
+    top: 18px;
+    border-radius: 0;
+    font-weight: 600;
+
+}
+
+/*.header-title .link {
     float: right;
     margin-top: 0;
     margin-bottom: 0;
@@ -72,7 +86,7 @@ ul.link li a:hover {
 ul.link li > a > i.fa {
     font-size: 14px;
     padding-right: 2px;
-}
+}*/
 
 .card{
 

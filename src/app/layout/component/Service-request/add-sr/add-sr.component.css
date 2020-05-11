@@ -32,7 +32,7 @@
     font-weight: 600;
     color: #555;
 }
-.header-title .link {
+/*.header-title .link {
     float: right;
     margin-top: 0;
     margin-bottom: 0;
@@ -43,12 +43,26 @@
     top: 18px;
     border-radius: 0;
     font-weight: 600;
+}*/
+
+.breadcrumb{
+    float: right;
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 12px;
+    position: absolute;
+    bottom: 20px;
+    right: 30px;
+    top: 18px;
+    border-radius: 0;
+    font-weight: 600;
+
 }
-.link>.active {
+/*.link>.active {
     color: #26a69a;
     font-weight: 700;
-}
-ul.link {
+}*/
+/*ul.link {
     padding: 10px 16px;
     list-style: none;
     font-size: 17px;
@@ -69,7 +83,7 @@ ul.link li a:hover {
 ul.link li > a > i.fa {
     font-size: 14px;
     padding-right: 2px;
-}
+}*/
 
 .card{
 
