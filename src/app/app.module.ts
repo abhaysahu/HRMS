@@ -51,6 +51,7 @@ import { MyServiceRequetsComponent } from './layout/component/Service-request/my
 import { AddSRComponent } from './layout/component/Service-request/add-sr/add-sr.component';
 import { CommentsComponent } from './layout/component/Timesheet/comments/comments.component';
 import { TimesheetService } from './layout/component/Timesheet/service/timesheet.service';
+import { AddAttendanceComponent } from './layout/component/Attendance-and-leaves/add-attendance/add-attendance.component';
 
 
 
@@ -76,7 +77,8 @@ import { TimesheetService } from './layout/component/Timesheet/service/timesheet
     TimesheetBankComponent,
     MyServiceRequetsComponent,
     AddSRComponent,
-    CommentsComponent
+    CommentsComponent,
+    AddAttendanceComponent
   ],
   imports: [
     BrowserModule,
@@ -148,6 +150,9 @@ import { TimesheetService } from './layout/component/Timesheet/service/timesheet
           },
           {
             path: 'addsr', component: AddSRComponent,
+          },
+          {
+            path: 'addattendance', component: AddAttendanceComponent,
           }
         ]
       }
