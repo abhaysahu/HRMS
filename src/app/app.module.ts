@@ -52,6 +52,8 @@ import { AddSRComponent } from './layout/component/Service-request/add-sr/add-sr
 import { CommentsComponent } from './layout/component/Timesheet/comments/comments.component';
 import { TimesheetService } from './layout/component/Timesheet/service/timesheet.service';
 import { AddAttendanceComponent } from './layout/component/Attendance-and-leaves/add-attendance/add-attendance.component';
+import { ExpenseClaimComponent } from './layout/component/Expense/expense-claim/expense-claim.component';
+import { ExpenseBankComponent } from './layout/component/Expense/expense-bank/expense-bank.component';
 
 
 
@@ -78,7 +80,9 @@ import { AddAttendanceComponent } from './layout/component/Attendance-and-leaves
     MyServiceRequetsComponent,
     AddSRComponent,
     CommentsComponent,
-    AddAttendanceComponent
+    AddAttendanceComponent,
+    ExpenseClaimComponent,
+    ExpenseBankComponent
   ],
   imports: [
     BrowserModule,
@@ -153,6 +157,12 @@ import { AddAttendanceComponent } from './layout/component/Attendance-and-leaves
           },
           {
             path: 'addattendance', component: AddAttendanceComponent,
+          },
+          {
+            path: 'expenseclaim' , component: ExpenseClaimComponent,
+          },
+          {
+            path: 'expensebank' , component: ExpenseBankComponent,
           }
         ]
       }
