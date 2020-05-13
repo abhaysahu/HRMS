@@ -25,7 +25,7 @@ a:focus{
 	background: #212529;
 	color: #fff;
 	transition: all 0.3s;
-	height: 800px;
+	height: 100%;
 }
 
 #sidebar.active{
