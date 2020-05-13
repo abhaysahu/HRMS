@@ -65,6 +65,7 @@
   </div>
   <div class="card-body">
     <form #form="ngForm" (submit)="onSubmit(form.value)" class="was-validated">
+      <div class="form-row">
       <div class="form-group col-md-4">
         <label for="function">Function</label>
         
@@ -131,7 +132,9 @@
         </div>
 
       </div>
+      </div>
       <button type="submit" class="btn btn-primary" style="margin-left: 15px;">Submit</button>
+
 
     </form>
     

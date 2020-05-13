@@ -54,7 +54,6 @@ import { TimesheetService } from './layout/component/Timesheet/service/timesheet
 import { AddAttendanceComponent } from './layout/component/Attendance-and-leaves/add-attendance/add-attendance.component';
 import { ExpenseClaimComponent } from './layout/component/Expense/expense-claim/expense-claim.component';
 import { ExpenseBankComponent } from './layout/component/Expense/expense-bank/expense-bank.component';
-import { EntityComponent } from './layout/component/Admin/entity/entity.component';
 import { StringMapComponent } from './layout/component/Admin/string-map/string-map.component';
 import { SystemLogComponent } from './layout/component/Admin/system-log/system-log.component';
 import { ProjectComponent } from './layout/component/Admin/project/project.component';
@@ -94,7 +93,6 @@ import { EntityListComponent } from './layout/component/Admin/entity/entity-list
     AddAttendanceComponent,
     ExpenseClaimComponent,
     ExpenseBankComponent,
-    EntityComponent,
     StringMapComponent,
     SystemLogComponent,
     ProjectComponent,
@@ -187,7 +185,7 @@ import { EntityListComponent } from './layout/component/Admin/entity/entity-list
             path: 'expensebank' , component: ExpenseBankComponent,
           },
           {
-            path: 'entity' , component: EntityComponent,
+            path: 'entity/list' , component: EntityListComponent,
           },
           {
             path: 'project' , component: ProjectComponent,
@@ -204,9 +202,6 @@ import { EntityListComponent } from './layout/component/Admin/entity/entity-list
             path: 'entity/save' , component: EntitySaveComponent,
           },
           {
-            path: 'entity/list' , component: EntityListComponent,
-          },
-          {
             path: 'project/save' , component: ProjectSaveComponent,
           },
           {
@@ -216,7 +211,7 @@ import { EntityListComponent } from './layout/component/Admin/entity/entity-list
             path: 'stringmap/save' , component: StringMapSaveComponent,
           },
           {
-            path: 'stringmap/list' , component: StringMapSaveComponent,
+            path: 'stringmap/list' , component: StringMapListComponent,
           },
           {
             path: 'systemlog/list' , component: SystemLogComponent,

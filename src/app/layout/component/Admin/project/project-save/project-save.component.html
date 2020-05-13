@@ -1,3 +1,106 @@
-<p>
-  project-save works!
-</p>
+<div class="col">
+  <div class="row my-row" >
+    <div class="col my-col">
+       <ul class="breadcrumb" style="background-color: transparent;">
+        <li class="breadcrumb-item " >
+            <span class="icon">
+            <i class="fa fa-briefcase"></i></span>  
+            <span class="heading" style="color: black; background-color: transparent;">Add Project</span></li>
+           
+      </ul>
+    </div>
+<div class="col my-col">
+  <div class="a">
+      <ul class="breadcrumb" style="background-color: transparent;">
+        <li class="breadcrumb-item"><a href="#">
+          <i class="fa fa-home"></i> Home</a></li>
+        <li class="breadcrumb-item"><a href="#">Add Project</a></li>
+      </ul>
+  </div>
+</div>
+  </div>
+  <div class="row my-row">
+    <div class="col my-col1">
+    Add Project Record
+  </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header">
+    Add Project
+  </div>
+  <div class="card-body">
+    <form>  
+      <div class="form-row">
+        <div class="form-group col-md-3">
+
+        <label for="value">Name</label>
+        <input type="number" class="form-control" id="schemaName" >
+
+        </div>
+
+        <div class="form-group col-md-3">
+
+          <label for="logicalName">Short Desc</label>
+          <input type="text" class="form-control" id="schemaName" >
+        </div>
+
+        <div class="form-group col-md-3">
+          <label for="dateTo">Period Start</label>
+          <div class="form-group">
+            <input type="date"  id="dateTo" max="3000-12-31" 
+                  min="1000-01-01" class="form-control" >
+                  
+          </div>
+          </div>
+
+          <div class="form-group col-md-3">
+            <label for="dateTo">Period End</label>
+            <div class="form-group">
+              <input type="date"  id="dateTo" max="3000-12-31" 
+                    min="1000-01-01" class="form-control" >
+                  
+            </div>
+            </div>
+            <div class="form-group col-md-4">
+              <label for="dateTo">Primary ManagerId</label>
+            <div style="position:relative">
+              <i class="fa fa-search"></i><input placeholder="Search " name="primaryManagerId" type="text" id="primaryManagerId" class="form-control ui-autocomplete-input"  autocomplete="off">
+             
+          </div>
+            </div>
+
+            <div class="form-group col-md-3">
+
+              <label for="isMasterEntity">Description</label>
+              <textarea class="form-control" rows="2" id="description" ></textarea>
+
+              
+                </div>
+                <div class="form-group col-md-3">
+                  <div style="padding-left: 20px;">
+
+                  <label for="primaryAttribute">Is Active</label><br><br>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                    <label class="form-check-label" for="inlineRadio1">Yes</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                    <label class="form-check-label" for="inlineRadio2">No</label>
+                    </div>
+                  </div>
+                  </div>
+                  
+                  
+
+
+
+        </div>
+        <button type="button" class="btn btn-primary">Save</button>
+
+        </form>
+        
+        </div>
+        </div>
