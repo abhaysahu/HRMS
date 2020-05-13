@@ -59,7 +59,11 @@
     border-radius: 5px 5px 0 0;
     overflow: hidden;
     border-collapse: collapse;
-    height: 20%;
+    height: 40%;
     margin-left: 5px;
 
+}
+
+label{
+    font-weight: bold;
 }

@@ -35,24 +35,21 @@
       <div class="form">
         
           <div class="form-group col-md-4">
-            <label for="applyFor">Period</label>
+            <label for="period">Period</label>
             
-            <select class="custom-select" id="applyfor"> 
-              <option selected>Leave</option>
-              <option value="1">Working Out Of Office</option>
-              <option value="2">Work From Home</option>
-              <option value="3">Attendance Modification</option>
-              <option value="4">Earning Compensatory</option>
-              <option value="5">Short Leave</option>
-  
-            </select>
+            <select class="custom-select" id="period">
+              <option selected>04 May 2020 - 10 May 2020</option>
+              <option value="1">27 Apr 2020 - 03 May 2020</option>
+              <option value="2">11 May 2020 - 17 May 2020</option>
+              <option value="3">10 Feb 2020 - 16 Feb 2020</option>
+              </select>
             
           </div>
           <div class="form-group col-md-4">
-            <label for="applyFor">Project</label>
+            <label for="project">Project</label>
             
-            <select class="custom-select"  id="leave"> 
-              <option selected>Leave</option>
+            <select class="custom-select"  id="project"> 
+              <option selected>Select</option>
               <option value="1">Working Out Of Office</option>
               <option value="2">Work From Home</option>
               <option value="3">Attendance Modification</option>
@@ -71,13 +68,13 @@
           </div>
           </div>
           <div class="form-group col-md-4">
-            <label for="applyFor">Description</label>
-            <textarea class="form-control" rows="1" id="comment"></textarea>
+            <label for="description">Description</label>
+            <textarea class="form-control" rows="1" id="description"></textarea>
 
             </div>
 
             <div class="form-group col-md-4">
-              <label for="applyFor">Type</label>
+              <label for="type">Type</label>
               <select class="custom-select" id="type">
         
                 <option selected>Carework</option>
@@ -91,15 +88,15 @@
 
 
               <div class="form-group col-md-4">
-                <label for="applyFor">Amount</label><br>
-                <input type="number" id="quantity" name="quantity" min="1" max="5">
+                <label for="amount">Amount</label><br>
+                <input type="number" id="quantity" name="quantity" min="1" max="5" style="width: 40%;">
 
                 </div>
 
 
                 <div class="form-group col-md-4">
-                  <label for="applyFor">Paid By</label>
-                  <select class="custom-select" id="type">
+                  <label for="paidBy">Paid By</label>
+                  <select class="custom-select" id="paidBy">
         
                     <option selected>Select</option>
                      <option value="1">Working </option>
@@ -112,7 +109,7 @@
 
                   
                   <div class="form-group col-md-4">
-                    <label for="applyFor">Scanned Bills</label><br>
+                    <label for="scannedBills">Scanned Bills</label><br>
                     <div class="form-check form-check-inline">
                       <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
                       <label class="form-check-label" for="inlineRadio1">Yes</label>
@@ -125,7 +122,7 @@
 
 
                     <div class="form-group col-md-4">
-                      <label for="applyFor">Physical Bills</label><br>
+                      <label for="physicalBills">Physical Bills</label><br>
                       <div class="form-check form-check-inline">
                         <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
                         <label class="form-check-label" for="inlineRadio1">Yes</label>
@@ -135,8 +132,11 @@
                         <label class="form-check-label" for="inlineRadio2">No</label>
                         </div>
                       </div>
+                      <div style="margin-left: 450px;">
+                      <button type="button" class="btn btn-primary">Save</button>
+                      <button type="button" class="btn btn-primary" style="margin-left: 15px;">Submit</button>
 
-                     
+                     </div>
 
 
             
