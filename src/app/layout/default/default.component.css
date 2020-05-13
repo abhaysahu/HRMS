@@ -2,12 +2,12 @@
     display: flex;
     flex-direction: column;
     height: 100%;
+    
 }
 
-mat-drawer{
-    width: 270px;
-    height: 100%;
-}
+/* mat-drawer{
+    
+} */
 
 mat-drawer-container {
     height: 100%;
@@ -16,10 +16,4 @@ mat-drawer-container {
 
 mat-drawer-content {
     padding: 20px;
-
-    /* overflow-x: hidden;
-    overflow-y: auto;
-    color: #374767;
-    background-color: #d5d8da; */
-
 }

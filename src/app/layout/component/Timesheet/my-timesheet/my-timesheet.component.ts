@@ -24,12 +24,12 @@ export class MyTimesheetComponent implements OnInit {
 
       this.timesheetService.timesheet = this.Timesheet
 
-      this.timesheetService.getdata().subscribe(data =>{
-        console.log("yes")
-        this.Timesheet = data
-        this.timesheetService.timesheet = this.Timesheet
-        console.log(this.Timesheet)
-      })
+      // this.timesheetService.getdata().subscribe(data =>{
+      //   console.log("yes")
+      //   this.Timesheet = data
+      //   this.timesheetService.timesheet = this.Timesheet
+      //   console.log(this.Timesheet)
+      // })
     }
 
   ngOnInit() {
