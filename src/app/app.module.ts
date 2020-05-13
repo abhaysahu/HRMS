@@ -54,6 +54,15 @@ import { TimesheetService } from './layout/component/Timesheet/service/timesheet
 import { AddAttendanceComponent } from './layout/component/Attendance-and-leaves/add-attendance/add-attendance.component';
 import { ExpenseClaimComponent } from './layout/component/Expense/expense-claim/expense-claim.component';
 import { ExpenseBankComponent } from './layout/component/Expense/expense-bank/expense-bank.component';
+import { EntityComponent } from './layout/component/Admin/entity/entity.component';
+import { StringMapComponent } from './layout/component/Admin/string-map/string-map.component';
+import { SystemLogComponent } from './layout/component/Admin/system-log/system-log.component';
+import { ProjectComponent } from './layout/component/Admin/project/project.component';
+import { StringMapSaveComponent } from './layout/component/Admin/string-map/string-map-save/string-map-save.component';
+import { StringMapListComponent } from './layout/component/Admin/string-map/string-map-list/string-map-list.component';
+import { ProjectSaveComponent } from './layout/component/Admin/project/project-save/project-save.component';
+import { ProjectListComponent } from './layout/component/Admin/project/project-list/project-list.component';
+import { SystemLogListComponent } from './layout/component/Admin/system-log/system-log-list/system-log-list.component';
 
 
 
@@ -82,7 +91,16 @@ import { ExpenseBankComponent } from './layout/component/Expense/expense-bank/ex
     CommentsComponent,
     AddAttendanceComponent,
     ExpenseClaimComponent,
-    ExpenseBankComponent
+    ExpenseBankComponent,
+    EntityComponent,
+    StringMapComponent,
+    SystemLogComponent,
+    ProjectComponent,
+    StringMapSaveComponent,
+    StringMapListComponent,
+    ProjectSaveComponent,
+    ProjectListComponent,
+    SystemLogListComponent
   ],
   imports: [
     BrowserModule,
