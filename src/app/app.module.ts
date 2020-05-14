@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { MatSidenavModule, 
   MatToolbarModule,
    MatListModule,
@@ -63,6 +63,7 @@ import { EntityListComponent } from './layout/component/Admin/entity/entity-list
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { AuthService } from './service/auth.service';
 import { AuthGuardService } from './service/auth-guard.service';
+import { TokenizedInterceptor } from './TokenizedInterceptor/Tokenized-Interceptor';
 
 
 
@@ -114,7 +115,9 @@ import { AuthGuardService } from './service/auth-guard.service';
     MatSidenavModule,
     MatDividerModule,
     // FlexLayoutModule,
+
     HttpClientModule,
+
     MatToolbarModule,
     MatSidenavModule,
     MatListModule,

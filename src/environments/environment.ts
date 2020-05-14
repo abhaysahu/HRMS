@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  apiUrl:'http://localhost:3000/api',
-  webapiUrl:'apitest.pobara.com/'
+  
+  webapiUrl:'//apitest.pobara.com/'
 };
 
 /*
