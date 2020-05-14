@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { MatSidenavModule, 
   MatToolbarModule,
    MatListModule,
@@ -33,7 +33,6 @@ import { FooterComponent } from './layout/common/footer/footer.component';
 import { DashboardComponent } from './layout/component/dashboard/dashboard.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { AuthGuardService } from './auth/auth-guard.service';
 import {MatSelectModule} from '@angular/material/select';
 import { EmployeeDetailsComponent } from './layout/component/employee/employee-details/employee-details.component';
 import { EmployeeListComponent } from './layout/component/employee/employee-list/employee-list.component';
@@ -62,6 +61,9 @@ import { SystemLogListComponent } from './layout/component/Admin/system-log/syst
 import { EntitySaveComponent } from './layout/component/Admin/entity/entity-save/entity-save.component';
 import { EntityListComponent } from './layout/component/Admin/entity/entity-list/entity-list.component';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+import { AuthService } from './service/auth.service';
+import { AuthGuardService } from './service/auth-guard.service';
+import { TokenizedInterceptor } from './TokenizedInterceptor/Tokenized-Interceptor';
 
 
 
@@ -113,7 +115,9 @@ import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
     MatSidenavModule,
     MatDividerModule,
     // FlexLayoutModule,
+
     HttpClientModule,
+
     MatToolbarModule,
     MatSidenavModule,
     MatListModule,
@@ -210,7 +214,13 @@ import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 
   ],
   entryComponents:[CommentsComponent],
-  providers: [LoginService, AuthGuardService, EmployeeService, TimesheetService],
+  providers: [
+    LoginService, 
+    AuthGuardService,
+    EmployeeService,
+    TimesheetService, 
+    AuthService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

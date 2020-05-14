@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Login } from '../models/login';
 import { LoginService } from 'src/app/login/services/login.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { LoggedinUser } from 'src/app/models/loggedInUser';
+import { AuthService } from 'src/app/service/auth.service';
+import { AppResponse } from 'src/app/models/appResponse';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +14,15 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class LoginComponent implements OnInit {
 
 
-  login: Login[]=[]
+  // login: Login[]=[]
+
+
+
+  error: string;
+
+  grant_type = "password"
+
+  formData: any[]=[]
 
 
 
@@ -19,24 +30,68 @@ export class LoginComponent implements OnInit {
     private loginServices: LoginService,
     private router: Router,
     private route: ActivatedRoute,
-    ) { }
+    private authService: AuthService
+    ) {
+
+      this.authService.getdata().subscribe(data => {
+        console.log(data)
+      })
+
+
+     }
 
   ngOnInit() {
   }
 
-  save(login) //this is for login or check that the username and password is right or not
-  {
 
-    this.loginServices.checklogin(login).subscribe(data => {
-      if(data[0])                                                        //user is login or not 
-      {
+
+  login(form) {
+
+    form.grant_type = "password"
+    
+
+    console.log(form)
+
+    this.authService.login(form)    
+      .subscribe((data: LoggedinUser) => {
         console.log(data)
-        localStorage.setItem('pobara_user_id', data[0].uuid);             //this is store the uuid of user into localStorage.
-        this.router.navigate(['/dashboard']);         
-        
-      }
-    })
-
+          this.authService.manageSession(data);
+          this.authService.loginStatus.emit(true);
+          if (this.authService.redirectUrl) {
+            this.router.navigate([this.authService.redirectUrl]);
+          } else {
+            this.router.navigate(['/']);
+          }        
+        },   (error: AppResponse) => {
+             if(error.status === 400)
+             {
+              this.error = "Either user name or password is incorrect!";
+              console.log(this.error)
+             }       
+              else
+                   this.error = error.message;
+       });
   }
+
+
+
+
+
+
+
+  // login(login) 
+  // {
+
+  //   this.loginServices.checklogin(login).subscribe(data => {
+  //     if(data[0])                                                        
+  //     {
+  //       console.log(data)
+  //       localStorage.setItem('pobara_user_id', data[0].uuid);             
+  //       this.router.navigate(['/dashboard']);         
+        
+  //     }
+  //   })
+
+  // }
 
 }
