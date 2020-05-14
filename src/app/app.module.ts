@@ -54,9 +54,6 @@ import { TimesheetService } from './layout/component/Timesheet/service/timesheet
 import { AddAttendanceComponent } from './layout/component/Attendance-and-leaves/add-attendance/add-attendance.component';
 import { ExpenseClaimComponent } from './layout/component/Expense/expense-claim/expense-claim.component';
 import { ExpenseBankComponent } from './layout/component/Expense/expense-bank/expense-bank.component';
-import { StringMapComponent } from './layout/component/Admin/string-map/string-map.component';
-import { SystemLogComponent } from './layout/component/Admin/system-log/system-log.component';
-import { ProjectComponent } from './layout/component/Admin/project/project.component';
 import { StringMapSaveComponent } from './layout/component/Admin/string-map/string-map-save/string-map-save.component';
 import { StringMapListComponent } from './layout/component/Admin/string-map/string-map-list/string-map-list.component';
 import { ProjectSaveComponent } from './layout/component/Admin/project/project-save/project-save.component';
@@ -64,6 +61,8 @@ import { ProjectListComponent } from './layout/component/Admin/project/project-l
 import { SystemLogListComponent } from './layout/component/Admin/system-log/system-log-list/system-log-list.component';
 import { EntitySaveComponent } from './layout/component/Admin/entity/entity-save/entity-save.component';
 import { EntityListComponent } from './layout/component/Admin/entity/entity-list/entity-list.component';
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+
 
 
 
@@ -93,9 +92,6 @@ import { EntityListComponent } from './layout/component/Admin/entity/entity-list
     AddAttendanceComponent,
     ExpenseClaimComponent,
     ExpenseBankComponent,
-    StringMapComponent,
-    SystemLogComponent,
-    ProjectComponent,
     StringMapSaveComponent,
     StringMapListComponent,
     ProjectSaveComponent,
@@ -123,6 +119,8 @@ import { EntityListComponent } from './layout/component/Admin/entity/entity-list
     MatListModule,
     MatButtonModule,
     MatIconModule,
+    CKEditorModule,
+
     RouterModule.forRoot([
       {path: '', redirectTo: 'login', pathMatch: 'full'},
       {path: 'login', component: LoginComponent},
@@ -188,17 +186,6 @@ import { EntityListComponent } from './layout/component/Admin/entity/entity-list
             path: 'entity/list' , component: EntityListComponent,
           },
           {
-            path: 'project' , component: ProjectComponent,
-
-
-          },
-          {
-            path: 'stringmap' , component: StringMapComponent,
-          },
-          {
-            path: 'systemlog' , component: SystemLogComponent,
-          },
-          {
             path: 'entity/save' , component: EntitySaveComponent,
           },
           {
@@ -214,7 +201,7 @@ import { EntityListComponent } from './layout/component/Admin/entity/entity-list
             path: 'stringmap/list' , component: StringMapListComponent,
           },
           {
-            path: 'systemlog/list' , component: SystemLogComponent,
+            path: 'systemlog/list' , component: SystemLogListComponent,
           },
         ]
       }

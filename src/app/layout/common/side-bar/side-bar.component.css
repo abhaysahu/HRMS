@@ -46,7 +46,7 @@ a:focus{
 
 #sidebar ul li a {
 	/*this is for the space between the links*/
-	padding: 12px 0px;
+	padding: 5px 0px;
 	font-size: 1.1rem;
 	display: block;
 }
