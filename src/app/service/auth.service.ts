@@ -68,13 +68,16 @@ export class AuthService {
 
   getdata(): Observable<any> {
 
+    const token = sessionStorage.getItem('token')
+
+    console.log(token)
+
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
-      'authorization': 'bearer XBIxO88s85VR3rlfP3UqLqFQzhtSjAlzKGNW_zpcl1Da5A7ievMHX4GRI3LrbQBQAD86t4t0osN_yEEaiSqygdERYCo7T0IFtMmzaGlBa9IYW4RlD5OA5T0m9U-LRbvxzdiHhJdPHyIaXx0ttIuCcsLBg8cAvJePLaXN-WiLgY9mDyVZXbQ6Hu6Jme2AXehq2lcAiFh_4hygOwzG_aX62cx_r_YEfLukqqcR8fhdzqrwCb6Uww87qznpmKbgm6mTST7LFYUirGfFETElxnUHuFnxpn_EIL-hPSzM1YOBnV-EWAYmVCIwHsHQM1YJHSue6TYXZNKTTqaao3WS19wh-mZW3I9lFYpO4HgQtaAlCxfncDdqJm6AtOXg4mdAw5-T'
-
+      'authorization': `bearer ${token}`
     })
 
-    return this.httpClient.get('apitest.pobara.com/api/user/72fecddb-fcfa-4afb-a8ec-7c0a3839e7c5', { headers: headers  })
+    return this.httpClient.get(environment.webapiUrl+'api/user/72fecddb-fcfa-4afb-a8ec-7c0a3839e7c5', { headers: headers  })
   } 
 
 

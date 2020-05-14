@@ -33,10 +33,6 @@ export class LoginComponent implements OnInit {
     private authService: AuthService
     ) {
 
-      this.authService.getdata().subscribe(data => {
-        console.log(data)
-      })
-
 
      }
 
@@ -58,9 +54,12 @@ export class LoginComponent implements OnInit {
           this.authService.manageSession(data);
           this.authService.loginStatus.emit(true);
           if (this.authService.redirectUrl) {
+            console.log("redirect url")
             this.router.navigate([this.authService.redirectUrl]);
+
           } else {
-            this.router.navigate(['/']);
+            console.log("")
+            this.router.navigate(['/dashboard']);
           }        
         },   (error: AppResponse) => {
              if(error.status === 400)
