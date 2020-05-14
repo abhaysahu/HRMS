@@ -105,6 +105,12 @@ a.article:hover{
 	transition: all 0.3s;
 }
 
+hr{
+	background-color: white;
+	width: 290px;
+	margin-left: -25px;
+}
+
 
 /* @media(max-width: 768px){
 	#sidebar{margin-left: -250px;}
