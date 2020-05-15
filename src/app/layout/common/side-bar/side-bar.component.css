@@ -20,8 +20,8 @@ a:focus{
 }
 
 #sidebar{
-	min-width: 250px;
-	max-width: 250px;
+	min-width: 200px;
+	max-width: 200px;
 	background: #212529;
 	color: #fff;
 	transition: all 0.3s;
@@ -29,7 +29,7 @@ a:focus{
 }
 
 #sidebar.active{
-	margin-left: -250px;
+	margin-left: -230px;
 }
 
 #sidebar ul.components{
@@ -107,7 +107,7 @@ a.article:hover{
 
 hr{
 	background-color: white;
-	width: 290px;
+	width: 230px;
 	margin-left: -25px;
 }
 
