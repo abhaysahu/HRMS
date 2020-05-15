@@ -33,6 +33,8 @@ export class AuthService {
      * it in more detail and different scenarios which 
      * we need for real project */
   }
+
+
   public getUserDetail() {     
     if (sessionStorage.getItem('user')) {
       return JSON.parse(sessionStorage.getItem('user'));
@@ -54,7 +56,7 @@ export class AuthService {
     sessionStorage.setItem('user', JSON.stringify(data));
 
   }
-
+ 
   
   public logout(): void {
     this.redirectUrl = document.location.pathname;
@@ -79,8 +81,6 @@ export class AuthService {
 
     return this.httpClient.get(environment.webapiUrl+'api/user/72fecddb-fcfa-4afb-a8ec-7c0a3839e7c5', { headers: headers  })
   } 
-
-
 
 
 }
