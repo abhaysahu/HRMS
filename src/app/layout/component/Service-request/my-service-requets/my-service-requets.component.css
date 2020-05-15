@@ -1,4 +1,4 @@
-.content-header {
+/*.content-header {
     position: relative;
     padding: 15px 30px;
     background-color: #f2f2f2;
@@ -79,4 +79,58 @@ ul.link li > a > i.fa {
     border-collapse: collapse;
     
 
+}*/
+.card{
+
+    box-shadow: 0 0 20px rgba(0,0, 0, 0.20);
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+    border-collapse: collapse;
+    
+
+}
+.my-row {
+	border: transparent;
+}
+.my-col {
+	border: transparent;
+}
+.a{
+    float: right;
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 12px;
+    position: absolute;
+    bottom: 20px;
+    right: 30px;
+    top: -3px;
+    border-radius: 0;
+    font-weight: 600;
+
+}
+
+.heading{
+    margin: 0;
+    font-size: 24px;
+}
+.icon{
+    font-size: 45px;
+    color: #4b4b79;
+    width: 65px;
+    float: left;
+    margin-top: -4px;
+    line-height: 0;
+
+}
+.my-col1{
+	font-size: 14px;
+    display: inline-block;
+    padding-left: 95px;
+    font-weight: 600;
+    color: #555;
+    bottom: 35px;
+}
+
+label{
+    font-weight: bold;
 }

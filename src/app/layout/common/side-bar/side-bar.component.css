@@ -17,6 +17,7 @@ a:focus{
 	display: flex;
 	width: 100%;
 	align-items: stretch;
+	/*display: none;*/
 }
 
 #sidebar{
@@ -26,6 +27,8 @@ a:focus{
 	color: #fff;
 	transition: all 0.3s;
 	height: 100%;
+	/*position: fixed;*/
+
 }
 
 #sidebar.active{
