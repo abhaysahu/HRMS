@@ -3,7 +3,7 @@
   <p id="logo"><img src="../../../assets/images/logo.png" ></p>
   <h1>Login Here</h1><br>
   <form #f="ngForm" (ngSubmit)="login(f.value)">
-    <p>Username</p>
+    <p>User Name</p>
     <input type="hidden" value="password"  name="grant_type" #grant_type="ngModel" [(ngModel)]="formData.grant_type">
 
     <input #userName="ngModel" [(ngModel)]="login.userName" name="userName" id="userName" type="text" placeholder="Enter Username">

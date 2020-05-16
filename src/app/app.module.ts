@@ -199,10 +199,10 @@ import { TokenizedInterceptor } from './TokenizedInterceptor/Tokenized-Intercept
             path: 'project/list' , component: ProjectListComponent,
           },
           {
-            path: 'stringmap/save' , component: StringMapSaveComponent,
+            path: 'picklist/save' , component: StringMapSaveComponent,
           },
           {
-            path: 'stringmap/list' , component: StringMapListComponent,
+            path: 'picklist/list' , component: StringMapListComponent,
           },
           {
             path: 'systemlog/list' , component: SystemLogListComponent,
