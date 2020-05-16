@@ -10,9 +10,25 @@ export class DefaultComponent implements OnInit {
 
   siderBarOpen = true;
 
-  constructor() { }
 
   ngOnInit() {
+   
+    window.onresize = () => {
+
+      console.log(window.screen.width)
+    if (window.screen.width <= 540)
+    {
+      this.siderBarOpen = false;
+    }
+
+    else
+    {
+      this.siderBarOpen = true;
+    }
+
+    };
+ 
+    
   }
 
   sideBarToggler() {
