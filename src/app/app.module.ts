@@ -64,6 +64,7 @@ import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { AuthService } from './service/auth.service';
 import { AuthGuardService } from './service/auth-guard.service';
 import { TokenizedInterceptor } from './TokenizedInterceptor/Tokenized-Interceptor';
+import { EntityService } from './layout/component/Admin/entity/service/entity.service';
 
 
 
@@ -219,7 +220,8 @@ import { TokenizedInterceptor } from './TokenizedInterceptor/Tokenized-Intercept
     AuthGuardService,
     EmployeeService,
     TimesheetService, 
-    AuthService
+    AuthService,
+    EntityService
   ],
   bootstrap: [AppComponent]
 })
