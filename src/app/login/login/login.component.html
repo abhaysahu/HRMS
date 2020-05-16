@@ -1,6 +1,7 @@
 <body>
 <div class="login">
-  <h1>Login Here</h1>
+  <p id="logo"><img src="../../../assets/images/logo.png" ></p>
+  <h1>Login Here</h1><br>
   <form #f="ngForm" (ngSubmit)="login(f.value)">
     <p>Username</p>
     <input type="hidden" value="password"  name="grant_type" #grant_type="ngModel" [(ngModel)]="formData.grant_type">
@@ -16,9 +17,9 @@
       Product Full Name is Required.
     </div>
 
-    <input [disabled]="!f.valid" type="submit" value="Login">
-    <a href="#">Forget your password</a><br>
-    <a href="#">Don't have an account</a>
+   <input [disabled]="!f.valid" type="submit" value="Login">
+   <!--- <a href="#">Forget your password</a><br>
+    <a href="#">Don't have an account</a>-->
   </form>
 </div>
 </body>
