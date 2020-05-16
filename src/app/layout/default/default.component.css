@@ -18,3 +18,24 @@ mat-drawer-container {
 mat-drawer-content {
     padding: 20px;
 }
+
+
+
+@media(max-width: 540px){
+
+    #mat-drawer{
+        transform: translateX(230px);
+    }
+
+
+
+	/* #sidebar{margin-left: -250px;}
+	#sidebar.active{
+		margin-left: 0px;
+	}
+	#sidebarCollapse span{
+		display: none;
+	} */
+
+
+}
