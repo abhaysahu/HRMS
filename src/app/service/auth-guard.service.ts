@@ -15,7 +15,8 @@ export class AuthGuardService implements CanActivate {
   }
 
   checkLogin(url: string): boolean {
-    if (this.authService.isLoggedIn) { return true; }
+    if (this.authService.isLoggedIn) {     console.log("yes")
+    return true; }
     // To redirect to the page user is after login
     this.authService.redirectUrl = url;
     // move to login page
