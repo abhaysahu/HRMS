@@ -23,7 +23,7 @@ export class NavBarComponent implements OnInit {
       window.dispatchEvent(
         new Event('resize')
       );
-    }, 300);
+    }, 100);
 
 }
 

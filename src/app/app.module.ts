@@ -131,12 +131,12 @@ import { TokenizedInterceptor } from './TokenizedInterceptor/Tokenized-Intercept
       {path: 'navbar', component: NavBarComponent},
       {
         path: 'dashboard', component: DefaultComponent, 
-        //canActivate: [AuthGuardService],
+        canActivate: [AuthGuardService],
 
         children: [
           {
           path: '', component: DashboardComponent, 
-          //canActivate: [AuthGuardService]
+          canActivate: [AuthGuardService]
           },
 
           {

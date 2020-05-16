@@ -69,20 +69,20 @@ export class EmployeeListComponent implements OnInit {
     };
   }
 
-  ngAfterViewInit(): void {
-    this.datatableElement.dtInstance.then((dtInstance: DataTables.Api) => {
-      dtInstance.columns().every(function () {
-        const that = this;
-        $('input', this.footer()).on('keyup change', function () {
+  // ngAfterViewInit(): void {
+  //   this.datatableElement.dtInstance.then((dtInstance: DataTables.Api) => {
+  //     dtInstance.columns().every(function () {
+  //       const that = this;
+  //       $('input', this.footer()).on('keyup change', function () {
           
-          if (that.search() !== this['value']) {
-            that
-              .search(this['value'])
-              .draw();
-          }
-        });
-      });
-    });
-  }
+  //         if (that.search() !== this['value']) {
+  //           that
+  //             .search(this['value'])
+  //             .draw();
+  //         }
+  //       });
+  //     });
+  //   });
+  // }
 
 }
