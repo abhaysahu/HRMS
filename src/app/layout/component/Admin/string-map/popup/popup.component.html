@@ -1,27 +1,42 @@
 <div class="popup">
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th scope="col">Text</th>
-      <th scope="col" >Value</th>
-      <th scope="col">Display Order</th>
-      <th scope="col">Active Status</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Male</td>
-      <td>1</td>
-      <td>1</td>
-      <td><input type="checkbox" value="" checked></td>
-    </tr>
-   
-    
-  </tbody>
-</table>
-<button type="button" class="btn btn-primary" (click)="AddProject()">Add New</button>
-<button type="button" class="btn btn-primary" style="margin-left: 10px;">Update</button>
-<button type="button" class="btn btn-primary" (click)="close()" style="margin-left: 10px;"><i class="fa fa-close"></i> Close</button>
+  <form #form="ngForm" (submit)="onSubmit(form.value)">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th scope="col">Text</th>
+          <th scope="col" >Value</th>
+          <th scope="col">Display Order</th>
+          <th scope="col">Active Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let popup of Popup; let i=index">
+          <td>
+            <div class="input-group">
+              <input #Name="ngModel" [(ngModel)]="popup[i].Name" name="Name" id="Name" type="text" class="form-control" placeholder="0.0" step="0.01" min="0" max="10" >                 
+            </div>
+          </td>
 
+          <td>
+            <div class="input-group">
+              <input #Value="ngModel" [(ngModel)]="popup[i].Value" name="Value" id="Value" type="number" class="form-control" placeholder="0.0" step="0.01" min="0" max="10" >                 
+            </div>
+          </td>
 
+          <td>
+            <div class="input-group">
+              <input #Order="ngModel" [(ngModel)]="popup[i].Order" name="Order" id="Order" type="number" class="form-control" placeholder="0.0" step="0.01" min="0" max="10" >                 
+            </div>
+          </td>
+
+          <td><input type="checkbox" #Status="ngModel" [(ngModel)]="popup[i].Status" name="Status" id="Status"></td>
+        </tr>
+      
+        
+      </tbody>
+    </table>
+    <button type="button" class="btn btn-primary" (click)="AddProject()">Add New</button>
+    <button type="submit" class="btn btn-primary" style="margin-left: 10px;">Update</button>
+    <button type="button" class="btn btn-primary" (click)="close()" style="margin-left: 10px;"><i class="fa fa-close"></i> Close</button>
+  </form>
 </div>

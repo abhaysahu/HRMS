@@ -1,6 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
-import { Popup } from '../model/popup/popup.module';
+import { Popup } from '../model/popup.module';
+import { StringMapService } from '../service/string-map.service';
 
 
 
@@ -10,17 +11,22 @@ import { Popup } from '../model/popup/popup.module';
   styleUrls: ['./popup.component.css']
 })
 export class PopupComponent implements OnInit {
-  Popup: any=[]
+
+  Popup: Popup[]=[]
 
   formData: Popup;
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public data,
     public dialogRef: MatDialogRef<PopupComponent>,
-    /*private timesheetService: TimesheetService*/
-  ) { }
+    private stringmapService: StringMapService
+  ) { 
+
+    this.Popup = this.stringmapService.stringMapPopup
+  }
 
   ngOnInit() {
+    
   }
   close()
   {
@@ -28,30 +34,23 @@ export class PopupComponent implements OnInit {
   }
   AddProject(){
 
-    this.formData = {
-        
-      id:3,
-      projectid: 0,
-      date: '',
-      monefforts: 0,
-      mondesc:'',
-      tusefforts: 0,
-      tusdesc: '',
-      wedefforts: 0,
-      weddesc: '',
-      thuefforts: 0,
-      thudesc: '',
-      friefforts: 0,
-      fridesc: '',
-      satefforts: 0,
-      satdesc: '',
-      sunefforts: 0,
-      sundesc: '',
-      status: 0
+    this.formData = {        
+      Name:"",
+      Value:0,
+      Order:0,
+      Status:true
     }
+    this.stringmapService.stringMapPopup.push(this.formData);
+    console.log(this.stringmapService.stringMapPopup)
+    
+  }
 
-    /*this.timesheetService.timesheet.push(this.formData);
-    console.log(this.timesheetService.timesheet)*/
+
+  onSubmit(Popup)
+  {
+    console.log(this.stringmapService.stringMapPopup)
+ 
+
   }
 
 }

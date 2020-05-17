@@ -66,6 +66,9 @@ import { AuthGuardService } from './service/auth-guard.service';
 import { TokenizedInterceptor } from './TokenizedInterceptor/Tokenized-Interceptor';
 import { EntityService } from './layout/component/Admin/entity/service/entity.service';
 import { PopupComponent } from './layout/component/Admin/string-map/popup/popup.component';
+import { SearchPipe } from './layout/component/Admin/entity/search.pipe';
+import { Popup } from './layout/component/Admin/string-map/model/popup.module';
+import { StringMapService } from './layout/component/Admin/string-map/service/string-map.service';
 
 
 
@@ -103,7 +106,9 @@ import { PopupComponent } from './layout/component/Admin/string-map/popup/popup.
     SystemLogListComponent,
     EntitySaveComponent,
     EntityListComponent,
-    PopupComponent
+    PopupComponent,
+
+    SearchPipe
   ],
   imports: [
     BrowserModule,
@@ -223,7 +228,8 @@ import { PopupComponent } from './layout/component/Admin/string-map/popup/popup.
     EmployeeService,
     TimesheetService, 
     AuthService,
-    EntityService
+    EntityService,
+    StringMapService,
   ],
   bootstrap: [AppComponent]
 })
