@@ -42,20 +42,18 @@
           <th scope="col">Is Master Entity</th>
           <th scope="col">Primary Attribute</th>
           <th scope="col">Primary Key</th>
-
         </tr>
       </thead>
-      <tbody>
+      <tbody *ngFor="let entity of entity; let i = index">
         <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          
+          <td>{{ entity.Name }}</td>
+          <td>{{ entity.LogicalName }}</td>
+          <td>{{ entity.SchemaName }}</td>
+          <td>{{ entity.ObjectTypeCode }}</td>
+          <td>{{ entity.Description }}</td>
+          <td>{{ entity.IsMasterEntity }}</td>
+          <td>{{ entity.PrimaryAttribute }}</td>
+          <td>{{ entity.PrimaryKey}}</td>
         </tr>
         
        
