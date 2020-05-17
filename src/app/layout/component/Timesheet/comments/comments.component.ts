@@ -20,7 +20,7 @@ export class CommentsComponent implements OnInit {
 
   ngOnInit() {
 
-   
+
       console.log(this.data)
       this.formData = {
         commentId: this.data.commentId,
