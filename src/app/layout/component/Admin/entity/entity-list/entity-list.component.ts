@@ -9,7 +9,7 @@ import { EntityService } from '../service/entity.service';
 })
 export class EntityListComponent implements OnInit {
 
-  entity: Entity[]=[];
+  entity: Entity;
 
   email="";
   aa:boolean=false;
@@ -19,7 +19,7 @@ export class EntityListComponent implements OnInit {
 
     /*this.entityService.getEntityData().subscribe(resp =>{
       console.log(resp)
-      this.entity = resp.Data
+      this.entity = resp
       console.log(this.entity)
     })*/
   }

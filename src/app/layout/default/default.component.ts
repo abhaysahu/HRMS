@@ -46,7 +46,7 @@ export class DefaultComponent implements OnInit {
     else
     {
       console.log(this.status)
-      this.siderBarOpen = true;
+      // this.siderBarOpen = true;
       this.status=true;
     }
 
