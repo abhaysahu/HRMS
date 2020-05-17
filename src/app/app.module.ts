@@ -69,6 +69,7 @@ import { PopupComponent } from './layout/component/Admin/string-map/popup/popup.
 import { SearchPipe } from './layout/component/Admin/entity/search.pipe';
 import { Popup } from './layout/component/Admin/string-map/model/popup.module';
 import { StringMapService } from './layout/component/Admin/string-map/service/string-map.service';
+import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 
 
 
@@ -132,97 +133,12 @@ import { StringMapService } from './layout/component/Admin/string-map/service/st
     MatButtonModule,
     MatIconModule,
     CKEditorModule,
-
-    RouterModule.forRoot([
-      {path: '', redirectTo: 'login', pathMatch: 'full'},
-      {path: 'login', component: LoginComponent},
-      {path: 'navbar', component: NavBarComponent},
-      {
-        path: 'dashboard', component: DefaultComponent, 
-        canActivate: [AuthGuardService],
-
-        children: [
-          {
-          path: '', component: DashboardComponent, 
-          canActivate: [AuthGuardService]
-          },
-
-          {
-            path: 'employee/details', component: EmployeeDetailsComponent, 
-            //canActivate: [AuthGuardService]
-          },
-          {
-            path: 'employee/list', component: EmployeeListComponent,
-          //canActivate: [AuthGuardService],
-          },
-          {
-            path: 'create/new/employee', component:CreateEmployeeComponent
-          },
-          {
-            path: 'edit/employee/:id',component:EditEmployeeComponent
-          },
-          {
-            path: 'myattendance', component: MyAttendanceComponent,
-          },
-          {
-            path: 'applytimeaway', component: ApplyTimeAwayComponent,
-          },
-          {
-            path: 'mytimeawayrequests', component: MyTimeAwayRequestsComponent,
-          },
-          {
-            path: 'myleaves', component: MyLeavesComponent,
-          },
-          {
-            path: 'mytimesheet', component: MyTimesheetComponent,
-          },
-          {
-            path: 'timesheetbank', component: TimesheetBankComponent,
-          },
-          {
-            path: 'myservicerequests', component: MyServiceRequetsComponent,
-          },
-          {
-            path: 'addsr', component: AddSRComponent,
-          },
-          {
-            path: 'addattendance', component: AddAttendanceComponent,
-          },
-          {
-            path: 'expenseclaim' , component: ExpenseClaimComponent,
-          },
-          {
-            path: 'expensebank' , component: ExpenseBankComponent,
-          },
-          {
-            path: 'entity/list' , component: EntityListComponent,
-          },
-          {
-            path: 'entity/save' , component: EntitySaveComponent,
-          },
-          {
-            path: 'project/save' , component: ProjectSaveComponent,
-          },
-          {
-            path: 'project/list' , component: ProjectListComponent,
-          },
-          {
-            path: 'picklist/save' , component: StringMapSaveComponent,
-          },
-          {
-            path: 'picklist/list' , component: StringMapListComponent,
-          },
-          {
-            path: 'systemlog/list' , component: SystemLogListComponent,
-          },
-        ]
-      }
-      ]),
     BrowserAnimationsModule
 
   ],
   entryComponents:[CommentsComponent, PopupComponent],
   providers: [
+     //{provide: LocationStrategy, useClass: HashLocationStrategy},
     LoginService, 
     AuthGuardService,
     EmployeeService,

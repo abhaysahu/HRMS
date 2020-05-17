@@ -30,73 +30,79 @@
 
 <div class="card">
   <div class="card-header">
-    Add Pick List  <span style="padding-left: 1005px;"><a routerLink="/dashboard/picklist/list" > Pick List</a></span>
+    Add Pick List
   </div>
   <div class="card-body">
-    <form>  
+    <form #f="ngForm" (ngSubmit)="StringMapData(f.value)" class="was-validated">  
       <div class="form-row">
-        <div class="form-group col-md-3">
-
-        <label for="value">Value</label>
-        <input type="number" class="form-control" id="schemaName" >
-
-        </div>
-
-        <div class="form-group col-md-3">
-
-          <label for="logicalName">Attribute Value</label>
-          <input type="text" class="form-control" id="schemaName" >
-        </div>
-
-          <div class="form-group col-md-3">
-
-            <label for="schemaName">Attribute Name</label>
-            <input type="text" class="form-control" id="schemaName" >
-            </div>
-
-            <div class="form-group col-md-3">
-
-              <label for="objectTypeCode">Sort Order</label>
-              <input type="number" class="form-control" id="schemaName" >
-            </div>
-
-            <div class="form-group col-md-3">
-
-              <label for="description">Object Type Code</label>
-              <input type="number" class="form-control" id="schemaName" >
-
-            </div>
-
-            <div class="form-group col-md-3">
-
-              <label for="isMasterEntity">Description</label>
-              <textarea class="form-control" rows="2" id="description" ></textarea>
-
-              
-                </div>
-                <div class="form-group col-md-3">
-                  <div style="padding-left: 20px;">
-
-                  <label for="primaryAttribute">Is Active</label><br><br>
-                  <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-                    <label class="form-check-label" for="inlineRadio1">Yes</label>
-                  </div>
-                  <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                    <label class="form-check-label" for="inlineRadio2">No</label>
-                    </div>
-                  </div>
-                  </div>
-                  
-                  
-
-
-
-        </div>
-        <button type="button" class="btn btn-primary">Save</button>
-
-        </form>
         
+        <div class="form-group col-md-3">
+          <label for="Value">Value</label>
+          <input type="text" class="form-control" #Value="ngModel" [(ngModel)]="stringMap.Value" name="Value" id="Value" required>
+          <div class="invalid-feedback" *ngIf="Value.touched && Value.invalid">
+            Value Is Required.
+          </div>
         </div>
+
+        <div class="form-group col-md-3">
+          <label for="AttributeValue">Attribute Value</label>
+          <input type="text" class="form-control" #AttributeValue="ngModel" [(ngModel)]="stringMap.AttributeValue" name="AttributeValue" id="AttributeValue" required>
+          <div class="invalid-feedback" *ngIf="AttributeValue.touched && AttributeValue.invalid">
+            Name Is Required.
+          </div>
         </div>
+
+        <div class="form-group col-md-3">
+          <label for="AttributeName">Attribute Name</label>
+          <input type="text" class="form-control" #AttributeName="ngModel" [(ngModel)]="stringMap.AttributeName" name="AttributeName" id="AttributeName" required>
+          <div class="invalid-feedback" *ngIf="AttributeName.touched && AttributeName.invalid">
+            AttributeValue Is Required.
+          </div>
+        </div>
+
+        <div class="form-group col-md-3">
+          <label for="SortOrder">Sort Order</label>
+          <input type="text" class="form-control" #SortOrder="ngModel" [(ngModel)]="stringMap.SortOrder" name="SortOrder" id="SortOrder" required>
+          <div class="invalid-feedback" *ngIf="SortOrder.touched && SortOrder.invalid">
+            Name Is Required.
+          </div>
+        </div>
+
+        <div class="form-group col-md-3">
+          <label for="ObjectTypeCode">Object Type Code</label>
+          <input type="text" class="form-control" #ObjectTypeCode="ngModel" [(ngModel)]="stringMap.ObjectTypeCode" name="ObjectTypeCode" id="ObjectTypeCode" required>
+          <div class="invalid-feedback" *ngIf="ObjectTypeCode.touched && ObjectTypeCode.invalid">
+            Object Type Code Is Required.
+          </div>
+        </div>
+
+        <div class="form-group col-md-3">
+          <label for="Description">Description</label>
+          <textarea rows="2" class="form-control" #Description="ngModel" [(ngModel)]="stringMap.Description" name="Description" id="Description" required></textarea>
+          <div class="invalid-feedback" *ngIf="Description.touched && Description.invalid">
+            Description Is Required.
+          </div>              
+        </div>
+
+        
+        <div class="form-group col-md-3">
+          <div style="padding-left: 20px;">
+            <label for="IsActive">Is Active</label><br><br>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" value="true" #IsActive="ngModel" [(ngModel)]="stringMap.IsActive" name="IsActive" required>
+              <label class="form-check-label" for="inlineRadio1">Yes</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" value="false" #IsActive="ngModel" [(ngModel)]="stringMap.IsActive" name="IsActive" required>
+              <label class="form-check-label" for="inlineRadio2">No</label>
+            </div>
+          </div>
+          <div class="invalid-feedback" *ngIf="IsActive.touched && IsActive.invalid">
+            Master Entity Is Required.
+          </div>
+        </div>            
+      </div>
+      <button type="submit" class="btn btn-primary">Save</button>
+    </form>      
+  </div>
+</div>
