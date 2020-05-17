@@ -65,6 +65,7 @@ import { AuthService } from './service/auth.service';
 import { AuthGuardService } from './service/auth-guard.service';
 import { TokenizedInterceptor } from './TokenizedInterceptor/Tokenized-Interceptor';
 import { EntityService } from './layout/component/Admin/entity/service/entity.service';
+import { PopupComponent } from './layout/component/Admin/string-map/popup/popup.component';
 
 
 
@@ -101,7 +102,8 @@ import { EntityService } from './layout/component/Admin/entity/service/entity.se
     ProjectListComponent,
     SystemLogListComponent,
     EntitySaveComponent,
-    EntityListComponent
+    EntityListComponent,
+    PopupComponent
   ],
   imports: [
     BrowserModule,
@@ -214,7 +216,7 @@ import { EntityService } from './layout/component/Admin/entity/service/entity.se
     BrowserAnimationsModule
 
   ],
-  entryComponents:[CommentsComponent],
+  entryComponents:[CommentsComponent, PopupComponent],
   providers: [
     LoginService, 
     AuthGuardService,
