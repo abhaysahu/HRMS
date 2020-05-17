@@ -8,7 +8,9 @@ body{
 .login{
     width: 320px;
     height: 440px;
-    background: rgb(188,188,204);
+    background: #efffef;
+    box-shadow: 0 10px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19) !important;
+
     top: 50%;
     left: 50%;
     position: absolute;
@@ -40,7 +42,7 @@ h1{
     background: transparent;
     outline: none;
     height: 40px;
-    color: #fff;
+    /*color: #fff;*/
     font-size: 16px;
 }
 .login input[type="submit"]

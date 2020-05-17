@@ -17,11 +17,11 @@ export class EntityListComponent implements OnInit {
 
   constructor(private entityService: EntityService) { 
 
-    this.entityService.getEntityData().subscribe(resp =>{
+    /*this.entityService.getEntityData().subscribe(resp =>{
       console.log(resp)
       this.entity = resp.Data
       console.log(this.entity)
-    })
+    })*/
   }
 
   ngOnInit() {
