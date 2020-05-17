@@ -9,11 +9,15 @@ import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 })
 export class ProjectSaveComponent implements OnInit {
   public Editor = ClassicEditor;
+  Project: any[] = [];
+
 
 
   constructor() { }
 
   ngOnInit() {
   }
-
+  onSubmit(project) {
+    console.log(project)  
+  }
 }

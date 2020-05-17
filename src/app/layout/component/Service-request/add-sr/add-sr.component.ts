@@ -13,7 +13,7 @@ export class AddSRComponent implements OnInit {
   ngOnInit() {
   }
   onSubmit(sr) {
-    console.log(sr) 
+    console.log(sr)  
   }
 }
 

@@ -12,9 +12,11 @@
 <div class="col my-col">
   <div class="a">
       <ul class="breadcrumb" style="background-color: transparent;">
-        <li class="breadcrumb-item"><a href="#">
+        <li class="breadcrumb-item"><a routerLink="/dashboard">
           <i class="fa fa-home"></i> Home</a></li>
-        <li class="breadcrumb-item"><a href="#"> Pick List</a></li>
+        <li class="breadcrumb-item"><a routerLink="/dashboard/picklist/list"> Pick List</a></li>
+        <li class="breadcrumb-item"><a routerLink="/dashboard/picklist/save"> Add Pick List</a></li>
+
       </ul>
   </div>
 </div>
@@ -46,16 +48,15 @@
       </div>-->
       <form class="form-inline">
         <div class="form-group mb-1">
-          <label for="staticEmail2">Select Entity</label>
+          <label for="selectEntity">Select Entity</label>
         </div>
-        <div class="form-group mx-sm-3 mb-2" >
-          <select class="custom-select"  id="applyFor" > 
+        <div class="form-group col-md-4" >
+          <select class="custom-select"  id="selectEntity" > 
             <option selected>Select</option>
             <option value="1">Employee</option>
             <option value="2">Timesheet</option>
-            <option value="3">Attendance Modification</option>
-            <option value="4">Earning Compensatory</option>
-            <option value="5">Short Leave</option>
+            <option value="3">Attendance</option>
+            <option value="4">Global</option>
   
           </select>
         </div>
