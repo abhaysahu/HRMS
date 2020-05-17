@@ -31,6 +31,16 @@
     Entity List <span style="padding-left: 950px;"><a routerLink="/dashboard/entity/save" ><i class="fa fa-plus-circle" ></i> New Entity</a></span>
   </div>
   <div class="card-body" style="overflow-x: scroll;">
+
+    <!-- <form class="form-inline" #f="ngForm" (ngsubmit)="Search(f.value)">
+      <input class="form-control mr-sm-2" type="text" #Search="ngModel" [(ngModel)]="Search" name="Search" placeholder="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form> -->
+
+    <input type="text" class="form-control" [(ngModel)]="email" placeholder="Serach any fields"/>
+
+    <br>
+
     <table class="table table-bordered">
       <thead>
         <tr>
@@ -44,16 +54,16 @@
           <th scope="col">Primary Key</th>
         </tr>
       </thead>
-      <tbody *ngFor="let entity of entity; let i = index">
-        <tr>
-          <td>{{ entity.Name }}</td>
-          <td>{{ entity.LogicalName }}</td>
-          <td>{{ entity.SchemaName }}</td>
-          <td>{{ entity.ObjectTypeCode }}</td>
-          <td>{{ entity.Description }}</td>
-          <td>{{ entity.IsMasterEntity }}</td>
-          <td>{{ entity.PrimaryAttribute }}</td>
-          <td>{{ entity.PrimaryKey}}</td>
+      <tbody>
+        <tr *ngFor="let entitys of entity | entitysEmailFilter:email;">
+          <td>{{ entitys.Name }}</td>
+          <td>{{ entitys.LogicalName }}</td>
+          <td>{{ entitys.SchemaName }}</td>
+          <td>{{ entitys.ObjectTypeCode }}</td>
+          <td>{{ entitys.Description }}</td>
+          <td>{{ entitys.IsMasterEntity }}</td>
+          <td>{{ entitys.PrimaryAttribute }}</td>
+          <td>{{ entitys.PrimaryKey}}</td>
         </tr>
         
        

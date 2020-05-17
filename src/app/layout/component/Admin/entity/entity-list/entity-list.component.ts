@@ -11,6 +11,10 @@ export class EntityListComponent implements OnInit {
 
   entity: Entity[]=[];
 
+  email="";
+  aa:boolean=false;
+  search="";
+
   constructor(private entityService: EntityService) { 
 
     this.entityService.getEntityData().subscribe(resp =>{
@@ -21,6 +25,18 @@ export class EntityListComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+
+  Search(value)
+  {
+    console.log(value)
+  }
+
+
+  setIndex(ii){
+    this.aa=ii;
+    console.log("yes")
   }
 
 }

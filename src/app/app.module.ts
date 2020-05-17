@@ -66,6 +66,7 @@ import { AuthGuardService } from './service/auth-guard.service';
 import { TokenizedInterceptor } from './TokenizedInterceptor/Tokenized-Interceptor';
 import { EntityService } from './layout/component/Admin/entity/service/entity.service';
 import { PopupComponent } from './layout/component/Admin/string-map/popup/popup.component';
+import { SearchPipe } from './layout/component/Admin/entity/search.pipe';
 
 
 
@@ -103,7 +104,9 @@ import { PopupComponent } from './layout/component/Admin/string-map/popup/popup.
     SystemLogListComponent,
     EntitySaveComponent,
     EntityListComponent,
-    PopupComponent
+    PopupComponent,
+
+    SearchPipe
   ],
   imports: [
     BrowserModule,
