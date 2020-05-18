@@ -31,8 +31,6 @@
 <div class="card">
   <div class="card-header">
 
-    Add Pick List
-
    Add Pick List <span style="padding-left: 990px;"><a routerLink="/dashboard/picklist/list" ><i class="fa fa-plus-circle" ></i>  Pick List</a></span>
 
   </div>
@@ -63,60 +61,7 @@
           <div class="invalid-feedback" *ngIf="AttributeName.touched && AttributeName.invalid">
             AttributeValue Is Required.
           </div>
-        </div>
-
-          <div class="form-group col-md-3">
-
-            <label for="schemaName">Attribute Name</label>
-            <input type="text" class="form-control" id="schemaName" >
-            </div>
-
-            <div class="form-group col-md-3">
-
-              <label for="objectTypeCode">Sort Order</label>
-              <input type="number" class="form-control" id="schemaName" >
-            </div>
-
-            <div class="form-group col-md-3">
-
-              <label for="description">Object Type Code</label>
-              <div class="form-group mx-sm-3 mb-2" >
-                <select class="custom-select"  id="objectTypeCode" > 
-                  <option selected>Select</option>
-                  <option value="1">Employee</option>
-                  <option value="2">Timesheet</option>
-                  <option value="3">Attendance</option>
-                  <option value="4">Global</option>
-        
-                </select>
-              </div>
-
-            </div>
-
-            <div class="form-group col-md-3">
-
-              <label for="isMasterEntity">Description</label>
-              <textarea class="form-control" rows="2" id="description" ></textarea>
-
-              
-                </div>
-                <div class="form-group col-md-3">
-                  <div style="padding-left: 20px;">
-
-                  <label for="primaryAttribute">Is Active</label><br><br>
-                  <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-                    <label class="form-check-label" for="inlineRadio1">Yes</label>
-                  </div>
-                  <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                    <label class="form-check-label" for="inlineRadio2">No</label>
-                    </div>
-                  </div>
-                  </div>
-                  
-                  
-
+        </div>                  
 
         <div class="form-group col-md-3">
           <label for="SortOrder">Sort Order</label>

@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { PopupComponent } from '../popup/popup.component';
 import { MatDialog, MatDialogConfig } from '@angular/material';
+import { StringMapService } from '../service/string-map.service';
+import { StringMapList } from '../model/stringMapList.module';
+import { AppResponse } from 'src/app/models/appResponse';
 
 
 @Component({
@@ -10,7 +13,47 @@ import { MatDialog, MatDialogConfig } from '@angular/material';
 })
 export class StringMapListComponent implements OnInit {
 
-  constructor(private dialog: MatDialog){}
+  stringMapList: StringMapList[]=[];
+  status=false;
+  message="";
+
+  constructor(private dialog: MatDialog,
+              private stringmapService: StringMapService
+              
+      ){
+
+        this.stringmapService.stringMapGetList(2).subscribe(resp =>{
+          console.log(resp)
+          if(resp.Success)
+          {
+            this.stringMapList = resp.Data
+            console.log(this.stringMapList)
+          }
+          else
+          {
+            this.status=true;
+            this.message=resp.ErrorMessage;
+          }
+          
+        },   (error: AppResponse) => {
+          if(error.status === 400)
+          {
+           this.message = error.message
+           console.log(this.message)
+          }       
+           else
+           {
+              this.status=true;
+              this.message = error.message;
+           }
+    })
+
+
+
+
+
+
+  }
 
   ngOnInit() {
   }

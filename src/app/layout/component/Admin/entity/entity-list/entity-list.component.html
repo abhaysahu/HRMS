@@ -57,7 +57,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let entitys of entity.Data | entitysEmailFilter:email;">
+        <tr *ngFor="let entitys of entity| entitysEmailFilter:email;">
           <td>{{ entitys.Name }}</td>
           <td>{{ entitys.LogicalName }}</td>
           <td>{{ entitys.SchemaName }}</td>
