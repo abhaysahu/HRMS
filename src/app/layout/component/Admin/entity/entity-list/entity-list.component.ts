@@ -31,8 +31,8 @@ export class EntityListComponent implements OnInit {
       }
       else
       {
-        this.status=true;
-        this.message=resp.ErrorMessage;
+          this.status=true;
+          this.message=resp.ErrorMessage;
       }
       
     },   (error: AppResponse) => {
@@ -40,6 +40,11 @@ export class EntityListComponent implements OnInit {
       {
        this.message = error.message
        console.log(this.message)
+      }
+      else if(error.status === 401)
+      {
+        this.status=true;
+        this.message = "Authorization has been denied for this request And You have to Login again."
       }       
        else
        {
