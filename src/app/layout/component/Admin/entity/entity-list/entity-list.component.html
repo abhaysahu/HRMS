@@ -1,5 +1,6 @@
 <div *ngIf="status" class="alert alert-danger" role="alert">
-  {{ message }} <a class="btn btn-primary" routerLink="/login">Go To Login Page</a>
+  {{ message }}
+   <!-- <a class="btn btn-primary" routerLink="/login">Go To Login Page</a> -->
 </div>
 
 <div class="col">
@@ -70,19 +71,21 @@
           <td>{{ entitys.IsMasterEntity }}</td>
           <td>{{ entitys.PrimaryAttribute }}</td>
           <td>{{ entitys.PrimaryKey }}</td>
+          <td><input type="text" class="form-control" value="{{i}}"   placeholder="Serach any fields"/></td>
+        </tr>
+        <tr>
           <td>{{ i }}</td>
-          
         </tr>
       </tbody>
+      <tbody *ngIf="i">
+        <tr>
+          <td colspan="8" class="no-data-available">No matching records found</td>
+        </tr>
+      <tbody>
     </table>
   </div>
 </div>
 
 
 
-<!-- 
-    <tbody *ngIf="entity == null">
-      <tr>
-        <td colspan="8" class="no-data-available">No matching records found</td>
-      </tr>
-    <tbody> -->
+

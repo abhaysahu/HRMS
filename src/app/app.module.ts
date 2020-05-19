@@ -109,7 +109,8 @@ import { LocationStrategy, HashLocationStrategy } from '@angular/common';
     EntityListComponent,
     PopupComponent,
 
-    SearchPipe
+    SearchPipe,
+
   ],
   imports: [
     BrowserModule,

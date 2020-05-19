@@ -17,6 +17,7 @@ export class SearchPipe implements PipeTransform {
                 //  (val.IsMasterEntity.toLocaleLowerCase().includes(args)) ||
                  (val.PrimaryAttribute.toLocaleLowerCase().includes(args)) ||
                  (val.PrimaryKey.toLocaleLowerCase().includes(args));
+
       return rVal;
     })
 
