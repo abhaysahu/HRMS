@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Entity } from '../model/entity';
 import { EntityService } from '../service/entity.service';
+import { EntityList } from '../model/entityList';
+import { AppResponse } from 'src/app/models/appResponse';
 
 @Component({
   selector: 'app-entity-list',
@@ -9,7 +11,10 @@ import { EntityService } from '../service/entity.service';
 })
 export class EntityListComponent implements OnInit {
 
-  entity: Entity;
+  entity: EntityList[]=[]
+
+  status=false;
+  message="";
 
   email="";
   aa:boolean=false;
@@ -17,11 +22,38 @@ export class EntityListComponent implements OnInit {
 
   constructor(private entityService: EntityService) { 
 
-    /*this.entityService.getEntityData().subscribe(resp =>{
+    this.entityService.getEntityData().subscribe(resp =>{
       console.log(resp)
-      this.entity = resp
-      console.log(this.entity)
-    })*/
+      if(resp.Success)
+      {
+        this.entity = resp.Data
+        console.log(this.entity)
+      }
+      else
+      {
+          this.status=true;
+          this.message=resp.ErrorMessage;
+      }
+      
+    },   (error: AppResponse) => {
+      if(error.status === 400)
+      {
+       this.message = error.message
+       console.log(this.message)
+      }
+      else if(error.status === 401)
+      {
+        this.status=true;
+        this.message = "Authorization has been denied for this request And You have to Login again."
+      }       
+       else
+       {
+          this.status=true;
+          this.message = error.message;
+       }
+})
+
+
   }
 
   ngOnInit() {

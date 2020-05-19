@@ -4,6 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Observable } from 'rxjs';
 import { Entity } from '../model/entity';
+import { EntityList } from '../model/entityList';
 
 @Injectable({
   providedIn: 'root'
@@ -32,7 +33,7 @@ export class EntityService {
   } 
 
 
-  getEntityData(): Observable<Entity>
+  getEntityData(): Observable<EntityList>
   {
     const token = sessionStorage.getItem('token')
 
@@ -43,7 +44,7 @@ export class EntityService {
       'authorization': `bearer ${token}`
     })
 
-    return this.httpClient.get<Entity>(environment.webapiUrl+'api/get/entity', { headers: headers })
+    return this.httpClient.get<EntityList>(environment.webapiUrl+'api/get/entity', { headers: headers })
   
   }
 
