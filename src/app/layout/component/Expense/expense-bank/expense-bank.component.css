@@ -63,7 +63,7 @@
     margin-left: 5px;
 
 }*/
-card{
+.card{
 
     box-shadow: 0 0 20px rgba(0,0, 0, 0.20);
     border-radius: 5px 5px 0 0;
@@ -97,7 +97,7 @@ card{
     font-size: 24px;
 }
 .icon{
-    font-size: 45px;
+    font-size: 32px;
     color: #4b4b79;
     width: 65px;
     float: left;
