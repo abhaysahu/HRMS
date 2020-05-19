@@ -70,6 +70,7 @@ import { SearchPipe } from './layout/component/Admin/entity/search.pipe';
 import { Popup } from './layout/component/Admin/string-map/model/popup.module';
 import { StringMapService } from './layout/component/Admin/string-map/service/string-map.service';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
+import { PageNotFoundComponent } from './layout/component/page-not-found/page-not-found.component';
 
 
 
@@ -109,7 +110,9 @@ import { LocationStrategy, HashLocationStrategy } from '@angular/common';
     EntityListComponent,
     PopupComponent,
 
-    SearchPipe
+    SearchPipe,
+
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
