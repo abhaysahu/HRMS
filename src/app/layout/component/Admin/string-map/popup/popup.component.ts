@@ -25,6 +25,8 @@ export class PopupComponent implements OnInit {
   message="";
 
   updatePopup: UpdatePopup;
+
+  
  
 
   constructor(
@@ -36,13 +38,9 @@ export class PopupComponent implements OnInit {
     private dialog: MatDialog
   ) { 
 
-
     console.log(this.data)
     let attributeName = this.data.stringMapList.AttributeName;
-    let objectTypeCode = this.data.typeCode;
-
-    console.log(attributeName)
-    console.log(objectTypeCode)
+    let objectTypeCode = this.data.stringMapList.ObjectTypeCode;
 
     this.stringmapService.getDataOfPopup(attributeName, objectTypeCode).subscribe(resp => {
       console.log(resp)
@@ -87,20 +85,17 @@ export class PopupComponent implements OnInit {
     this.dialogRef.close();
   }
 
-  UpDate(value,attributeValue,attributeName,sortOrder,description,isActive)
+
+  UpDate(value,attributeValue,attributeName,sortOrder,description,isActive,id,objectTypeCode)
   {
 
-    // this.dialogRef.close();
-
-    let id = JSON.parse(sessionStorage.getItem('user')).Id
-
     this.updatePopup = {
-      id:id,
+      Id:id,
       Value:value,
       AttributeValue:attributeValue,
       AttributeName:attributeName,
       SortOrder:sortOrder,
-      ObjectTypeCode:this.data.typeCode,
+      ObjectTypeCode:objectTypeCode,
       Description:description,
       IsActive:isActive
     }
@@ -111,9 +106,9 @@ export class PopupComponent implements OnInit {
     dialogConfig.autoFocus = true;
     dialogConfig.disableClose = true;
     dialogConfig.width="50%";
-    dialogConfig.data=this.updatePopup
+    dialogConfig.data=[this.updatePopup, id]
     this.dialog.open(EditpicklistComponent, dialogConfig).afterClosed().subscribe(res =>{
-      
+      this.refresh()
     });
   
   }
@@ -121,18 +116,17 @@ export class PopupComponent implements OnInit {
 
   AddProject(data)
   {
+
     console.log(data)
 
-    let id = JSON.parse(sessionStorage.getItem('user')).Id
-
     this.updatePopup = {
-      id:id,
+      Id:"",
       Value:null,
       AttributeValue:null,
       AttributeName:data.AttributeName,
       SortOrder:null,
-      ObjectTypeCode:this.data.typeCode,
-      Description:data.Description,
+      ObjectTypeCode:data.ObjectTypeCode,
+      Description:"",
       IsActive:true
     }
 
@@ -142,12 +136,54 @@ export class PopupComponent implements OnInit {
     dialogConfig.autoFocus = true;
     dialogConfig.disableClose = true;
     dialogConfig.width="50%";
-    dialogConfig.data=this.updatePopup
+    dialogConfig.data=[this.updatePopup]
     this.dialog.open(EditpicklistComponent, dialogConfig).afterClosed().subscribe(res =>{
+      this.refresh()
       
     });
   
+  }
 
+
+
+  refresh()
+  {
+    console.log(this.data)
+    let attributeName = this.data.stringMapList.AttributeName;
+    let objectTypeCode = this.data.stringMapList.ObjectTypeCode;
+
+    this.stringmapService.getDataOfPopup(attributeName, objectTypeCode).subscribe(resp => {
+      console.log(resp)
+      if(resp.Success)
+      {
+        this.listOfPopup = resp.Data
+        console.log(this.listOfPopup)
+      }
+      else
+      {
+        this.status=true;
+        this.message=resp.ErrorMessage;
+      }
+      
+    }
+    ,   (error: AppResponse) => {
+      if(error.status === 400)
+      {
+       this.message = error.message
+       console.log(this.message)
+      }
+      else if(error.status === 401)
+      {
+        this.status=true;
+        this.message = "Authorization has been denied for this request And You have to Login again."
+      }       
+       else
+       {
+          this.status=true;
+          this.message = error.message;
+       }
+}
+)
   }
 
 

@@ -7,7 +7,7 @@
           <th scope="col" >Value</th>
           <th scope="col">Display Order</th>
           <th scope="col">Active Status</th>
-          <th scope="col">UpDate</th>
+          <th scope="col">Edit</th>
         </tr>
       </thead>
       <tbody *ngIf="listOfPopup?.length != 0">
@@ -29,9 +29,11 @@
             </td>
             <td>
               <input type="hidden" #AttributeName="ngModel" [(ngModel)]="popup.AttributeName" name="AttributeName" id="AttributeName">
-              <input type="hidden" #Description="ngModel" [(ngModel)]="popup.Description" name="Description" id="Description">
+              <!-- <input type="hidden" #Description="ngModel" [(ngModel)]="popup.Description" name="Description" id="Description">
+              <input type="hidden" #Id="ngModel" [(ngModel)]="popup.Id" name="Id" id="Id"> -->
+              <input type="hidden" #ObjectTypeCode="ngModel" [(ngModel)]="popup.ObjectTypeCode" name="ObjectTypeCode" id="ObjectTypeCode">
               
-              <button type="button" class="btn btn-primary" (click)="UpDate(popup.Value,popup.AttributeValue,popup.AttributeName,popup.SortOrder,popup.Description,popup.IsActive)">Add New</button>
+              <button type="button" class="btn btn-primary" (click)="UpDate(popup.Value,popup.AttributeValue,popup.AttributeName,popup.SortOrder,popup.Description,popup.IsActive,popup.Id,popup.ObjectTypeCode)">Edit</button>
             </td>
         </tr>
     

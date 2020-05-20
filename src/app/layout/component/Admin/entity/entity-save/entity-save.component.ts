@@ -11,6 +11,9 @@ export class EntitySaveComponent implements OnInit {
 
   entity: Entity[]=[];
 
+  status=false;
+  message="";
+
   constructor(private entityService: EntityService) { }
 
   ngOnInit() {
@@ -22,6 +25,13 @@ export class EntitySaveComponent implements OnInit {
     this.entityService.entityDataSave(entity).subscribe(data => {
       console.log(data)
     })
+
+  }
+
+
+
+  closeStatus()
+  {
 
   }
 }
