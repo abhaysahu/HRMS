@@ -21,24 +21,18 @@ export class EntityService {
   entityDataSave(entity)
   {
     const token = sessionStorage.getItem('token')
-
-    console.log(token)
-
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
       'authorization': `bearer ${token}`
     })
 
-    return this.httpClient.post(environment.webapiUrl+'api/add/entity',entity, { headers: headers })
+    return this.httpClient.post<any>(environment.webapiUrl+'api/add/entity',entity, { headers: headers })
   } 
 
 
   getEntityData(): Observable<EntityList>
   {
     const token = sessionStorage.getItem('token')
-
-    console.log(token)
-
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
       'authorization': `bearer ${token}`
