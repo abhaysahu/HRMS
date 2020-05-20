@@ -88,9 +88,11 @@ export class StringMapListComponent implements OnInit {
     });
   }
 
-  getList(ctrl)
+  getList(event)
   {
-    this.objectTypeCode = ctrl.selectedIndex;
+    this.objectTypeCode = event.target.value
+
+    console.log(this.objectTypeCode)
 
     this.stringmapService.stringMapGetList(this.objectTypeCode).subscribe(resp =>{
       console.log(resp)
