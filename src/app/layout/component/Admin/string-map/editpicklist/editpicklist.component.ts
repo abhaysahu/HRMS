@@ -31,7 +31,7 @@ export class EditpicklistComponent implements OnInit {
   
   ) { 
 
-    console.log(data)
+    // console.log(data)
   }
 
   ngOnInit() {
@@ -48,13 +48,13 @@ export class EditpicklistComponent implements OnInit {
   submit(editpicklists)
   {
 
-    console.log(editpicklists.Id)
+  
     if(this.editpicklist.Id == "")
     {
-      console.log("yes")
-      console.log(editpicklists)
+    
+      // console.log(editpicklists)
       this.stringMapService.stringMapDataAdd(editpicklists).subscribe(resp=>{
-        console.log(resp)
+      
         if(resp.Success)
         {
           this.status=true;
@@ -71,7 +71,7 @@ export class EditpicklistComponent implements OnInit {
         if(error.status === 400)
         {
          this.message = error.message
-         console.log(this.message)
+         
         }
         else if(error.status === 401)
         {
@@ -90,12 +90,10 @@ export class EditpicklistComponent implements OnInit {
     }
     else
     {
-      // console.log(this.editpicklist)
       editpicklists.Id = this.editpicklist.Id
 
       console.log(editpicklists)
       this.stringMapService.stringMapDataUpdate(editpicklists).subscribe(resp=>{
-        console.log(resp)
         if(resp.Success)
         {
           this.status=true;
@@ -112,7 +110,6 @@ export class EditpicklistComponent implements OnInit {
         if(error.status === 400)
         {
          this.message = error.message
-         console.log(this.message)
         }
         else if(error.status === 401)
         {
