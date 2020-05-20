@@ -68,19 +68,22 @@ export class StringMapListComponent implements OnInit {
 
   ngOnInit() {
   }
+
   AddOrEditOrderItem(stringMapList)
   { 
 
-  
-    let typeCode = this.objectTypeCode
+
+    // console.log(typeCode)
 
     console.log(stringMapList)
+
     const dialogConfig = new MatDialogConfig();
     dialogConfig.autoFocus = true;
     dialogConfig.disableClose = true;
     dialogConfig.width="50%";
-    dialogConfig.data={stringMapList, typeCode}
+    dialogConfig.data={stringMapList}
     this.dialog.open(PopupComponent, dialogConfig).afterClosed().subscribe(res =>{
+     
       
     });
   }

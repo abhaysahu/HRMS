@@ -86,4 +86,36 @@ export class StringMapService {
   }
 
 
+  stringMapDataUpdate(data)
+  {
+    const token = sessionStorage.getItem('token')
+
+    console.log(token)
+
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'authorization': `bearer ${token}`
+    })
+
+    return this.httpClient.post<any>(environment.webapiUrl+'api/update/stringmap',data, { headers: headers })
+  } 
+
+
+  stringMapDataAdd(data)
+  {
+    const token = sessionStorage.getItem('token')
+
+    console.log(token)
+
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'authorization': `bearer ${token}`
+    })
+
+    return this.httpClient.post<any>(environment.webapiUrl+'api/add/stringmap',data, { headers: headers })
+  } 
+
+
+
+
 }

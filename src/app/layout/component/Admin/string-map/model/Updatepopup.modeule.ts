@@ -1,5 +1,5 @@
 export class UpdatePopup { 
-    id: string;
+    Id: string;
     Value:number;
     AttributeValue:string;
     AttributeName:string;

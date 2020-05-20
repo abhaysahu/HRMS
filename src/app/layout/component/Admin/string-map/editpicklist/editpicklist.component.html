@@ -1,5 +1,16 @@
 <div class="popup">
+	<div *ngIf="status" class="alert alert-primary" role="alert">
+		{{ message }}
+		 <!-- <a class="btn btn-primary" routerLink="/login">Go To Login Page</a> -->
+	</div>
+
 	<form #f="ngForm" (ngSubmit)="submit(f.value)" class="was-validated">
+
+		<!-- <input type="hidden" #Id="ngModel" [(ngModel)]="editpicklist.Id" name="Id" id="Id"> -->
+		<input type="hidden" #AttributeName="ngModel" [(ngModel)]="editpicklist.AttributeName" name="AttributeName" id="AttributeName">
+		<input type="hidden" #ObjectTypeCode="ngModel" [(ngModel)]="editpicklist.ObjectTypeCode" name="ObjectTypeCode" id="ObjectTypeCode"> 
+		<input type="hidden" #Description="ngModel" [(ngModel)]="editpicklist.Description" name="Description" id="Description"> 
+
 		<div class="form-row">
 
 			<div class="form-group col-md-6">
@@ -25,14 +36,14 @@
 					Name Is Required.
 				</div>
 			</div>
-
+<!-- 
 			<div class="form-group col-md-6">
 				<label for="ObjectTypeCode">Object Type Code</label>
 				<input type="text" class="form-control" #ObjectTypeCode="ngModel" [(ngModel)]="editpicklist.ObjectTypeCode" name="ObjectTypeCode" id="ObjectTypeCode" required>
 				<div class="invalid-feedback" *ngIf="ObjectTypeCode.touched && ObjectTypeCode.invalid">
 					Object Type Code Is Required.
 				</div>
-			</div>
+			</div> -->
 
 			<div class="form-group col-md-6">
 				<div style="padding-left: 20px;">
@@ -56,7 +67,7 @@
 		</div>
 		
 	
-		<button type="submit" class="btn btn-primary">Save</button>
+		<button type="submit" [disabled]="!f.valid" class="btn btn-primary">Save</button>
 		<button type="button" class="btn btn-danger" (click)="close()" style="margin-left: 10px;"><i class="fa fa-close"></i> Close</button>
 
 	</form>
