@@ -13,10 +13,14 @@ export class EntityListComponent implements OnInit {
 
   entity: EntityList[]=[]
 
+  indexs:any[]=[];
+
+
   status=false;
   message="";
 
   email="";
+
   aa:boolean=false;
   search="";
 
@@ -51,7 +55,8 @@ export class EntityListComponent implements OnInit {
           this.status=true;
           this.message = error.message;
        }
-})
+}
+)
 
 
   }

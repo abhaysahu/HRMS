@@ -70,7 +70,11 @@ import { SearchPipe } from './layout/component/Admin/entity/search.pipe';
 import { Popup } from './layout/component/Admin/string-map/model/popup.module';
 import { StringMapService } from './layout/component/Admin/string-map/service/string-map.service';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
+
+import { EditpicklistComponent } from './layout/component/Admin/string-map/editpicklist/editpicklist.component';
+
 import { PageNotFoundComponent } from './layout/component/page-not-found/page-not-found.component';
+
 
 
 
@@ -109,10 +113,12 @@ import { PageNotFoundComponent } from './layout/component/page-not-found/page-no
     EntitySaveComponent,
     EntityListComponent,
     PopupComponent,
+    EditpicklistComponent,
+   
 
-    SearchPipe,
-
+     SearchPipe,
     PageNotFoundComponent
+
   ],
   imports: [
     BrowserModule,
@@ -139,7 +145,8 @@ import { PageNotFoundComponent } from './layout/component/page-not-found/page-no
     BrowserAnimationsModule
 
   ],
-  entryComponents:[CommentsComponent, PopupComponent],
+  entryComponents:[CommentsComponent, EditpicklistComponent, PopupComponent],
+
   providers: [
      //{provide: LocationStrategy, useClass: HashLocationStrategy},
     LoginService, 

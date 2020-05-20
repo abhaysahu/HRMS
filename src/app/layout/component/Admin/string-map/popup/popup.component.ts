@@ -1,7 +1,13 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
-import { Popup } from '../model/popup.module';
+import { MAT_DIALOG_DATA, MatDialogRef, MatDialogConfig, MatDialog } from '@angular/material';
+
 import { StringMapService } from '../service/string-map.service';
+import { ListOfPopup } from '../model/listOfPopup.module';
+import { AppResponse } from 'src/app/models/appResponse';
+import { UpdatePopup } from '../model/Updatepopup.modeule';
+import { CommentsComponent } from '../../../Timesheet/comments/comments.component';
+import { EditpicklistComponent } from '../editpicklist/editpicklist.component';
+
 
 
 
@@ -12,17 +18,65 @@ import { StringMapService } from '../service/string-map.service';
 })
 export class PopupComponent implements OnInit {
 
-  Popup: Popup[]=[]
 
-  formData: Popup;
+  listOfPopup: ListOfPopup[]=[]
+
+  status=false;
+  message="";
+
+  updatePopup: UpdatePopup;
+ 
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public data,
     public dialogRef: MatDialogRef<PopupComponent>,
-    private stringmapService: StringMapService
+
+    private stringmapService: StringMapService,
+
+    private dialog: MatDialog
   ) { 
 
-    this.Popup = this.stringmapService.stringMapPopup
+
+    console.log(this.data)
+    let attributeName = this.data.stringMapList.AttributeName;
+    let objectTypeCode = this.data.typeCode;
+
+    console.log(attributeName)
+    console.log(objectTypeCode)
+
+    this.stringmapService.getDataOfPopup(attributeName, objectTypeCode).subscribe(resp => {
+      console.log(resp)
+      if(resp.Success)
+      {
+        this.listOfPopup = resp.Data
+        console.log(this.listOfPopup)
+      }
+      else
+      {
+        this.status=true;
+        this.message=resp.ErrorMessage;
+      }
+      
+    }
+    ,   (error: AppResponse) => {
+      if(error.status === 400)
+      {
+       this.message = error.message
+       console.log(this.message)
+      }
+      else if(error.status === 401)
+      {
+        this.status=true;
+        this.message = "Authorization has been denied for this request And You have to Login again."
+      }       
+       else
+       {
+          this.status=true;
+          this.message = error.message;
+       }
+}
+)
+    
   }
 
   ngOnInit() {
@@ -32,25 +86,70 @@ export class PopupComponent implements OnInit {
   {
     this.dialogRef.close();
   }
-  AddProject(){
 
-    this.formData = {        
-      Name:"",
-      Value:0,
-      Order:0,
-      Status:true
-    }
-    this.stringmapService.stringMapPopup.push(this.formData);
-    console.log(this.stringmapService.stringMapPopup)
-    
-  }
-
-
-  onSubmit(Popup)
+  UpDate(value,attributeValue,attributeName,sortOrder,description,isActive)
   {
-    console.log(this.stringmapService.stringMapPopup)
- 
+
+    // this.dialogRef.close();
+
+    let id = JSON.parse(sessionStorage.getItem('user')).Id
+
+    this.updatePopup = {
+      id:id,
+      Value:value,
+      AttributeValue:attributeValue,
+      AttributeName:attributeName,
+      SortOrder:sortOrder,
+      ObjectTypeCode:this.data.typeCode,
+      Description:description,
+      IsActive:isActive
+    }
+
+    console.log(this.updatePopup)
+
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.autoFocus = true;
+    dialogConfig.disableClose = true;
+    dialogConfig.width="50%";
+    dialogConfig.data=this.updatePopup
+    this.dialog.open(EditpicklistComponent, dialogConfig).afterClosed().subscribe(res =>{
+      
+    });
+  
+  }
+
+
+  AddProject(data)
+  {
+    console.log(data)
+
+    let id = JSON.parse(sessionStorage.getItem('user')).Id
+
+    this.updatePopup = {
+      id:id,
+      Value:null,
+      AttributeValue:null,
+      AttributeName:data.AttributeName,
+      SortOrder:null,
+      ObjectTypeCode:this.data.typeCode,
+      Description:data.Description,
+      IsActive:true
+    }
+
+    console.log(this.updatePopup)
+
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.autoFocus = true;
+    dialogConfig.disableClose = true;
+    dialogConfig.width="50%";
+    dialogConfig.data=this.updatePopup
+    this.dialog.open(EditpicklistComponent, dialogConfig).afterClosed().subscribe(res =>{
+      
+    });
+  
 
   }
+
+
 
 }

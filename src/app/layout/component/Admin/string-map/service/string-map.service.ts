@@ -5,13 +5,15 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Observable } from 'rxjs';
 import { StringMapList } from '../model/stringMapList.module';
+import { DropDownList } from '../model/dropdownLIst';
+import { ListOfPopup } from '../model/listOfPopup.module';
 
 @Injectable({
   providedIn: 'root'
 })
 export class StringMapService {
 
-  stringMapPopup: Popup[]=[]
+  stringMapPopup: any[]=[]
 
   constructor(
     private httpClient: HttpClient,
@@ -52,6 +54,36 @@ export class StringMapService {
   } 
 
 
+  getdropdownData(): Observable<DropDownList>
+  {
+    const token = sessionStorage.getItem('token')
+
+    console.log(token)
+
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'authorization': `bearer ${token}`
+    })
+
+    return this.httpClient.get<DropDownList>(environment.webapiUrl+'api/get/entity', { headers: headers })
+  
+  }
+
+  getDataOfPopup(attributeName, objectTypeCode):Observable<ListOfPopup>
+  {
+    const token = sessionStorage.getItem('token')
+
+    console.log(token)
+
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'authorization': `bearer ${token}`
+    })
+
+    return this.httpClient.get<ListOfPopup>(environment.webapiUrl+`api/get/StringMapByAttribute?attributeName=${attributeName}&objectTypeCode=${objectTypeCode}`, { headers: headers })
+
+
+  }
 
 
 }
