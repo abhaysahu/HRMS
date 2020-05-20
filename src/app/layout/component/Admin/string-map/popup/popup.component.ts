@@ -111,11 +111,43 @@ export class PopupComponent implements OnInit {
     dialogConfig.autoFocus = true;
     dialogConfig.disableClose = true;
     dialogConfig.width="50%";
-    dialogConfig.data={}
+    dialogConfig.data=this.updatePopup
     this.dialog.open(EditpicklistComponent, dialogConfig).afterClosed().subscribe(res =>{
       
     });
   
+  }
+
+
+  AddProject(data)
+  {
+    console.log(data)
+
+    let id = JSON.parse(sessionStorage.getItem('user')).Id
+
+    this.updatePopup = {
+      id:id,
+      Value:null,
+      AttributeValue:null,
+      AttributeName:data.AttributeName,
+      SortOrder:null,
+      ObjectTypeCode:this.data.typeCode,
+      Description:data.Description,
+      IsActive:true
+    }
+
+    console.log(this.updatePopup)
+
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.autoFocus = true;
+    dialogConfig.disableClose = true;
+    dialogConfig.width="50%";
+    dialogConfig.data=this.updatePopup
+    this.dialog.open(EditpicklistComponent, dialogConfig).afterClosed().subscribe(res =>{
+      
+    });
+  
+
   }
 
 

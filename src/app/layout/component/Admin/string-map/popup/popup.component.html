@@ -1,5 +1,5 @@
 <div class="popup">
-  <form #form="ngForm" (submit)="onSubmit(form.value)">
+  <form #form="ngForm" (submit)="AddProject(form.value)">
     <table class="table table-bordered">
       <thead>
         <tr>
@@ -28,14 +28,18 @@
               {{popup.IsActive}}
             </td>
             <td>
+              <input type="hidden" #AttributeName="ngModel" [(ngModel)]="popup.AttributeName" name="AttributeName" id="AttributeName">
+              <input type="hidden" #Description="ngModel" [(ngModel)]="popup.Description" name="Description" id="Description">
+              
               <button type="button" class="btn btn-primary" (click)="UpDate(popup.Value,popup.AttributeValue,popup.AttributeName,popup.SortOrder,popup.Description,popup.IsActive)">Add New</button>
             </td>
         </tr>
     
       </tbody>
     </table>
-    <button type="button" class="btn btn-primary" (click)="AddProject()">Add New</button>
-    <button type="submit" class="btn btn-primary" style="margin-left: 10px;">Update</button>
+    
+    <button type="submit" class="btn btn-primary">Add New</button>
+    <!-- <button type="submit" class="btn btn-primary" style="margin-left: 10px;">Update</button> -->
     <button type="button" class="btn btn-primary" (click)="close()" style="margin-left: 10px;"><i class="fa fa-close"></i> Close</button>
   </form>
 </div>
