@@ -9,30 +9,40 @@
           <th scope="col">Active Status</th>
         </tr>
       </thead>
-      <tbody>
-        <tr *ngFor="let popup of Popup; let i=index">
+      <tbody *ngIf="listOfPopup?.length != 0">
+        <tr *ngFor="let popup of listOfPopup; let i=index">
           <td>
             <div class="input-group">
-              <input #Name="ngModel" [(ngModel)]="popup[i].Name" name="Name" id="Name" type="text" class="form-control" placeholder="0.0" step="0.01" min="0" max="10" >                 
+              <input value="{{popup.AttributeValue}}" (input)="onAttribute($event.target.value,i)" name="AttributeValue" id="AttributeValue"  type="text" class="form-control">                 
+              <!-- <input value="{{popup.AttributeValue}}" #AttributeValue="ngModel" [(ngModel)]="popup.AttributeValue" id="AttributeValue" name="AttributeValue" id="Value" type="text" class="form-control">                  -->
+       
             </div>
           </td>
 
           <td>
             <div class="input-group">
-              <input #Value="ngModel" [(ngModel)]="popup[i].Value" name="Value" id="Value" type="number" class="form-control" placeholder="0.0" step="0.01" min="0" max="10" >                 
+              <input value="{{popup.Value}}" name="Value" id="Value" type="number" class="form-control" placeholder="0.0" step="0.01" min="0" max="10" >                 
+              <!-- <input value="{{popup.Value}}" #Value="ngModel" [(ngModel)]="popup.Value" name="Value" id="Value" type="number" class="form-control" placeholder="0.0" step="0.01" min="0" max="10" >                  -->
+              
             </div>
           </td>
 
           <td>
             <div class="input-group">
-              <input #Order="ngModel" [(ngModel)]="popup[i].Order" name="Order" id="Order" type="number" class="form-control" placeholder="0.0" step="0.01" min="0" max="10" >                 
+              <input value="{{popup.SortOrder}}" name="SortOrder" id="SortOrder" type="number" class="form-control">                 
+              <!-- <input value="{{popup.SortOrder}}" #SortOrder="ngModel" [(ngModel)]="popup.SortOrder" name="SortOrder" id="SortOrder" type="number" class="form-control" placeholder="0.0" step="0.01" min="0" max="10" >                  -->
+            
             </div>
           </td>
 
-          <td><input type="checkbox" #Status="ngModel" [(ngModel)]="popup[i].Status" name="Status" id="Status"></td>
+            <td>
+              <div class="input-group">
+                <input type="checkbox" value="{{popup.Status}}" name="Status" id="Status">
+                <!-- <input type="checkbox" #Status="ngModel" [(ngModel)]="popup.Status" name="Status" id="Status"> -->
+              </div>
+            </td>
         </tr>
-      
-        
+    
       </tbody>
     </table>
     <button type="button" class="btn btn-primary" (click)="AddProject()">Add New</button>

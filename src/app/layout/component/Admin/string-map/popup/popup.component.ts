@@ -2,6 +2,8 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
 import { Popup } from '../model/popup.module';
 import { StringMapService } from '../service/string-map.service';
+import { ListOfPopup } from '../model/listOfPopup.module';
+import { AppResponse } from 'src/app/models/appResponse';
 
 
 
@@ -12,7 +14,11 @@ import { StringMapService } from '../service/string-map.service';
 })
 export class PopupComponent implements OnInit {
 
-  Popup: Popup[]=[]
+
+  listOfPopup: ListOfPopup[]=[]
+
+  status=false;
+  message="";
 
   formData: Popup;
 
@@ -22,7 +28,47 @@ export class PopupComponent implements OnInit {
     private stringmapService: StringMapService
   ) { 
 
-    this.Popup = this.stringmapService.stringMapPopup
+
+    console.log(this.data)
+    let attributeName = this.data.stringMapList.AttributeName;
+    let objectTypeCode = this.data.typeCode;
+
+    console.log(attributeName)
+    console.log(objectTypeCode)
+
+    this.stringmapService.getDataOfPopup(attributeName, objectTypeCode).subscribe(resp => {
+      console.log(resp)
+      if(resp.Success)
+      {
+        this.listOfPopup = resp.Data
+        console.log(this.listOfPopup)
+      }
+      else
+      {
+        this.status=true;
+        this.message=resp.ErrorMessage;
+      }
+      
+    }
+    ,   (error: AppResponse) => {
+      if(error.status === 400)
+      {
+       this.message = error.message
+       console.log(this.message)
+      }
+      else if(error.status === 401)
+      {
+        this.status=true;
+        this.message = "Authorization has been denied for this request And You have to Login again."
+      }       
+       else
+       {
+          this.status=true;
+          this.message = error.message;
+       }
+}
+)
+    
   }
 
   ngOnInit() {
@@ -48,8 +94,17 @@ export class PopupComponent implements OnInit {
 
   onSubmit(Popup)
   {
-    console.log(this.stringmapService.stringMapPopup)
- 
+    console.log(Popup)
+  }
+
+  onAttribute(AttributeName, index)
+  {
+    console.log(AttributeName)
+    console.log(index)
+
+    console.log(this.listOfPopup[index])
+
+    
 
   }
 

@@ -19,9 +19,9 @@ export class StringMapSaveComponent implements OnInit {
   StringMapData(stringMap)
   {
     console.log(stringMap)
-    // this.stringMapService.stringMapDataSave(stringMap).subscribe(resp =>{
-    //   console.log(resp)
-    // })
+    this.stringMapService.stringMapDataSave(stringMap).subscribe(resp =>{
+      console.log(resp)
+    })
   }
 
 }

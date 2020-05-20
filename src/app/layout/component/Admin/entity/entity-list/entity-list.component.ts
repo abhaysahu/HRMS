@@ -55,7 +55,8 @@ export class EntityListComponent implements OnInit {
           this.status=true;
           this.message = error.message;
        }
-})
+}
+)
 
 
   }
