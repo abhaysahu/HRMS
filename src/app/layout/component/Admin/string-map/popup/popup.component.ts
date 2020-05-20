@@ -187,5 +187,11 @@ export class PopupComponent implements OnInit {
   }
 
 
+  closeStatus()
+  {
+    this.status=false;
+  }
+
+
 
 }

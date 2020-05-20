@@ -131,6 +131,11 @@ export class EditpicklistComponent implements OnInit {
 
        
   }
+
+  closeStatus()
+  {
+    this.status=false;
+  }
   
 
 }

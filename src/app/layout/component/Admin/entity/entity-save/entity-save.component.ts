@@ -31,7 +31,7 @@ export class EntitySaveComponent implements OnInit {
       if(resp.Success)
       {
         this.status=true;
-        this.message="Data is Added successful"
+        this.message="Data is Added successfully"
       }
       else
       {
