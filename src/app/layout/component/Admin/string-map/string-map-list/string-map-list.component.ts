@@ -23,7 +23,7 @@ export class StringMapListComponent implements OnInit {
 
   constructor(private dialog: MatDialog,
               private stringmapService: StringMapService,
-              ){
+              ){                
 
 
     this.stringmapService.getdropdownData().subscribe(resp =>{
