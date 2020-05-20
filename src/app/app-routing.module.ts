@@ -26,6 +26,7 @@ import { ProjectListComponent } from './layout/component/Admin/project/project-l
 import { StringMapSaveComponent } from './layout/component/Admin/string-map/string-map-save/string-map-save.component';
 import { StringMapListComponent } from './layout/component/Admin/string-map/string-map-list/string-map-list.component';
 import { SystemLogListComponent } from './layout/component/Admin/system-log/system-log-list/system-log-list.component';
+import { PageNotFoundComponent } from './layout/component/page-not-found/page-not-found.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
@@ -109,6 +110,9 @@ const routes: Routes = [
       {
         path: 'systemlog/list' , component: SystemLogListComponent,
       },
+      {
+        path: 'pagenotfound' , component: PageNotFoundComponent,
+      }
     ]
   }
   ];
