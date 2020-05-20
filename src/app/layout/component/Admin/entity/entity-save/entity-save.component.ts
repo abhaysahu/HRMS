@@ -25,9 +25,9 @@ export class EntitySaveComponent implements OnInit {
 
   EntityData(entity)
   {
-    console.log(entity)
+
     this.entityService.entityDataSave(entity).subscribe(resp => {
-      console.log(resp)
+     
       if(resp.Success)
       {
         this.status=true;
@@ -44,7 +44,7 @@ export class EntitySaveComponent implements OnInit {
       if(error.status === 400)
       {
        this.message = error.message
-       console.log(this.message)
+    
       }
       else if(error.status === 401)
       {

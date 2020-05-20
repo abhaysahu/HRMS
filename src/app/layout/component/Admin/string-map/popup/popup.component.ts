@@ -38,16 +38,13 @@ export class PopupComponent implements OnInit {
     private dialog: MatDialog
   ) { 
 
-    console.log(this.data)
     let attributeName = this.data.stringMapList.AttributeName;
     let objectTypeCode = this.data.stringMapList.ObjectTypeCode;
 
     this.stringmapService.getDataOfPopup(attributeName, objectTypeCode).subscribe(resp => {
-      console.log(resp)
       if(resp.Success)
       {
         this.listOfPopup = resp.Data
-        console.log(this.listOfPopup)
       }
       else
       {
@@ -60,7 +57,6 @@ export class PopupComponent implements OnInit {
       if(error.status === 400)
       {
        this.message = error.message
-       console.log(this.message)
       }
       else if(error.status === 401)
       {
@@ -100,7 +96,7 @@ export class PopupComponent implements OnInit {
       IsActive:isActive
     }
 
-    console.log(this.updatePopup)
+    // console.log(this.updatePopup)
 
     const dialogConfig = new MatDialogConfig();
     dialogConfig.autoFocus = true;
@@ -117,7 +113,7 @@ export class PopupComponent implements OnInit {
   AddProject(data)
   {
 
-    console.log(data)
+    // console.log(data)
 
     this.updatePopup = {
       Id:"",
@@ -129,8 +125,6 @@ export class PopupComponent implements OnInit {
       Description:"",
       IsActive:true
     }
-
-    console.log(this.updatePopup)
 
     const dialogConfig = new MatDialogConfig();
     dialogConfig.autoFocus = true;
@@ -148,16 +142,13 @@ export class PopupComponent implements OnInit {
 
   refresh()
   {
-    console.log(this.data)
     let attributeName = this.data.stringMapList.AttributeName;
     let objectTypeCode = this.data.stringMapList.ObjectTypeCode;
 
     this.stringmapService.getDataOfPopup(attributeName, objectTypeCode).subscribe(resp => {
-      console.log(resp)
       if(resp.Success)
       {
         this.listOfPopup = resp.Data
-        console.log(this.listOfPopup)
       }
       else
       {
@@ -170,7 +161,6 @@ export class PopupComponent implements OnInit {
       if(error.status === 400)
       {
        this.message = error.message
-       console.log(this.message)
       }
       else if(error.status === 401)
       {
