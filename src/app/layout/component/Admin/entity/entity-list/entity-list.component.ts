@@ -31,7 +31,6 @@ export class EntityListComponent implements OnInit {
       if(resp.Success)
       {
         this.entity = resp.Data
-        console.log(this.entity)
       }
       else
       {
@@ -43,7 +42,7 @@ export class EntityListComponent implements OnInit {
       if(error.status === 400)
       {
        this.message = error.message
-       console.log(this.message)
+      //  console.log(this.message)
       }
       else if(error.status === 401)
       {
@@ -65,15 +64,17 @@ export class EntityListComponent implements OnInit {
   }
 
 
-  Search(value)
-  {
-    console.log(value)
-  }
+
 
 
   setIndex(ii){
     this.aa=ii;
-    console.log("yes")
+  
+  }
+
+  closeStatus()
+  {
+    this.status=false;
   }
 
 }

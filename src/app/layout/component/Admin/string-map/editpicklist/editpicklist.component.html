@@ -1,6 +1,7 @@
 <div class="popup">
 	<div *ngIf="status" class="alert alert-primary" role="alert">
 		{{ message }}
+		<i class="fa fa-times-circle" (click)="closeStatus()"  aria-hidden="true"></i>
 		 <!-- <a class="btn btn-primary" routerLink="/login">Go To Login Page</a> -->
 	</div>
 

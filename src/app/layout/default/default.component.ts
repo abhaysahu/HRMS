@@ -16,14 +16,14 @@ export class DefaultComponent implements OnInit {
 
     if ((window.screen.width <= 540) && (this.status))
     {
-      console.log(this.status)
+      // console.log(this.status)
       this.siderBarOpen = false;
       this.status=false;
     }
 
     else
     {
-      console.log(this.status)
+      // console.log(this.status)
       this.siderBarOpen = true;
       this.status=true
     }
@@ -35,17 +35,17 @@ export class DefaultComponent implements OnInit {
    
     window.onresize = () => {
 
-      console.log(window.screen.width)
+      // console.log(window.screen.width)
     if ((window.screen.width <= 540) && (this.status))
     {
-      console.log(this.status)
+      // console.log(this.status)
       this.siderBarOpen = false;
       this.status=false;
     }
 
     else
     {
-      console.log(this.status)
+      // console.log(this.status)
       // this.siderBarOpen = true;
       this.status=true;
     }

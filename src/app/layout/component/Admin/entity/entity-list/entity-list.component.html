@@ -72,13 +72,12 @@
           <td>{{ entitys.IsMasterEntity }}</td>
           <td>{{ entitys.PrimaryAttribute }}</td>
           <td>{{ entitys.PrimaryKey }}</td>
-          <td><input type="text" class="form-control" value="{{i}}"   placeholder="Serach any fields"/></td>
+          <!-- <td><input type="text" class="form-control" value="{{i}}"   placeholder="Serach any fields"/></td> -->
         </tr>
         <tr>
-          <td>{{ i }}</td>
         </tr>
       </tbody>
-      <tbody *ngIf="i">
+      <tbody  *ngIf="entity?.length ==0">
         <tr>
           <td colspan="8" class="no-data-available">No matching records found</td>
         </tr>

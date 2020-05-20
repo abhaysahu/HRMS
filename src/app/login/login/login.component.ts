@@ -45,20 +45,18 @@ export class LoginComponent implements OnInit {
 
     form.grant_type = "password"
     
-
-    console.log(form)
  
     this.authService.login(form)    
       .subscribe((data: LoggedinUser) => {
-        console.log(data)
+       
           this.authService.manageSession(data);
           this.authService.loginStatus.emit(true);
           if (this.authService.redirectUrl) {
-            console.log("redirect url")
+       
             this.router.navigate([this.authService.redirectUrl]);
 
           } else {
-            console.log("")
+          
             this.router.navigate(['/dashboard']);
           }        
         },   (error: AppResponse) => {

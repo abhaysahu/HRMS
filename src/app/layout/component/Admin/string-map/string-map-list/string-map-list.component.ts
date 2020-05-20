@@ -25,13 +25,12 @@ export class StringMapListComponent implements OnInit {
               private stringmapService: StringMapService,
               ){                
 
-
     this.stringmapService.getdropdownData().subscribe(resp =>{
-      console.log(resp)
+   
       if(resp.Success)
       {
         this.dropdownList = resp.Data
-        console.log(this.dropdownList)
+       
       }
       else
       {
@@ -44,7 +43,7 @@ export class StringMapListComponent implements OnInit {
       if(error.status === 400)
       {
        this.message = error.message
-       console.log(this.message)
+       
       }
       else if(error.status === 401)
       {
@@ -72,10 +71,7 @@ export class StringMapListComponent implements OnInit {
   AddOrEditOrderItem(stringMapList)
   { 
 
-
-    // console.log(typeCode)
-
-    console.log(stringMapList)
+    //console.log(stringMapList)
 
     const dialogConfig = new MatDialogConfig();
     dialogConfig.autoFocus = true;
@@ -92,14 +88,14 @@ export class StringMapListComponent implements OnInit {
   {
     this.objectTypeCode = event.target.value
 
-    console.log(this.objectTypeCode)
+   
 
     this.stringmapService.stringMapGetList(this.objectTypeCode).subscribe(resp =>{
       console.log(resp)
       if(resp.Success)
       {
         this.stringMapList = resp.Data
-        console.log(this.stringMapList)
+        
       }
       else
       {
@@ -112,7 +108,7 @@ export class StringMapListComponent implements OnInit {
       if(error.status === 400)
       {
        this.message = error.message
-       console.log(this.message)
+    
       }
       else if(error.status === 401)
       {
@@ -127,4 +123,10 @@ export class StringMapListComponent implements OnInit {
     }
   )
   }
+
+  closeStatus()
+  {
+    this.status=false;
+  }
+
 }
