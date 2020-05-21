@@ -16,7 +16,9 @@ export class StringMapListComponent implements OnInit {
 
   stringMapList: StringMapList[]=[];
   dropdownList: DropDownList[]=[];
-  status=false;
+
+  successStatus=false;
+  dangerStatus=false;
   message="";
 
   objectTypeCode=0;
@@ -34,25 +36,31 @@ export class StringMapListComponent implements OnInit {
       }
       else
       {
-        this.status=true;
+        this.dangerStatus=true;
+        this.successStatus=false;
         this.message=resp.ErrorMessage;
+        this.message=resp.Message;
       }
       
     }
     ,   (error: AppResponse) => {
       if(error.status === 400)
       {
-       this.message = error.message
+        this.dangerStatus=true;
+        this.successStatus=false;
+        this.message = error.message
        
       }
       else if(error.status === 401)
       {
-        this.status=true;
+        this.dangerStatus=true;
+        this.successStatus=false;
         this.message = "Authorization has been denied for this request And You have to Login again."
       }       
        else
        {
-          this.status=true;
+          this.dangerStatus=true;
+          this.successStatus=false;
           this.message = error.message;
        }
 }
@@ -86,10 +94,8 @@ export class StringMapListComponent implements OnInit {
 
   getList(event)
   {
+    
     this.objectTypeCode = event.target.value
-
-   
-
     this.stringmapService.stringMapGetList(this.objectTypeCode).subscribe(resp =>{
       console.log(resp)
       if(resp.Success)
@@ -99,7 +105,8 @@ export class StringMapListComponent implements OnInit {
       }
       else
       {
-        this.status=true;
+        this.dangerStatus=true;
+        this.successStatus=false;
         this.message=resp.ErrorMessage;
       }
       
@@ -107,17 +114,21 @@ export class StringMapListComponent implements OnInit {
     ,   (error: AppResponse) => {
       if(error.status === 400)
       {
-       this.message = error.message
+        this.dangerStatus=true;
+        this.successStatus=false;
+        this.message = error.message;
     
       }
       else if(error.status === 401)
       {
-        this.status=true;
+        this.dangerStatus=true;
+        this.successStatus=false;
         this.message = "Authorization has been denied for this request And You have to Login again."
       }       
       else
       {
-        this.status=true;
+        this.dangerStatus=true;
+        this.successStatus=false;
         this.message = error.message;
       }
     }
@@ -126,7 +137,8 @@ export class StringMapListComponent implements OnInit {
 
   closeStatus()
   {
-    this.status=false;
+    this.dangerStatus=false;
+    this.successStatus=false;
   }
 
 }

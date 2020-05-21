@@ -10,12 +10,25 @@ import { AppResponse } from 'src/app/models/appResponse';
 })
 export class EntitySaveComponent implements OnInit {
 
-  entity: Entity[]=[];
+  entity: Entity;
 
-  status=false;
+  successStatus=false;
+  dangerStatus=false;
   message="";
 
   constructor(private entityService: EntityService) { 
+
+    this.entity = {
+        
+      Name: null,
+      LogicalName: null,
+      SchemaName: "dbo",
+      ObjectTypeCode: null,
+      Description: "",
+      IsMasterEntity: true,
+      PrimaryAttribute: null,
+      PrimaryKey: null,
+    }
     
   }
 
@@ -25,17 +38,38 @@ export class EntitySaveComponent implements OnInit {
 
   EntityData(entity)
   {
-
     this.entityService.entityDataSave(entity).subscribe(resp => {
      
       if(resp.Success)
       {
-        this.status=true;
+        this.successStatus=true;
+        this.dangerStatus=false;
         this.message="Data is Added successfully"
+
+        setTimeout(()=>
+        {    
+
+          this.successStatus=false;
+          this.dangerStatus=false;
+
+          this.entity = 
+          {
+            Name: null,
+            LogicalName: null,
+            SchemaName: "dbo",
+            ObjectTypeCode: null,
+            Description: "",
+            IsMasterEntity: true,
+            PrimaryAttribute: null,
+            PrimaryKey: null,
+          }
+      
+        }, 3000);
       }
       else
       {
-        this.status=true;
+        this.dangerStatus=true;
+        this.successStatus=false;
         this.message=resp.Message;
       }
       
@@ -43,29 +77,31 @@ export class EntitySaveComponent implements OnInit {
     ,   (error: AppResponse) => {
       if(error.status === 400)
       {
-       this.message = error.message
-    
+        this.dangerStatus=true;
+        this.successStatus=false;
+        this.message = error.message
       }
       else if(error.status === 401)
       {
-        this.status=true;
+        this.dangerStatus=true;
+        this.successStatus=false;
         this.message = "Authorization has been denied for this request And You have to Login again."
       }       
-       else
-       {
-          this.status=true;
-          this.message = error.message;
-       }
+      else
+      {
+        this.dangerStatus=true;
+        this.successStatus=false;
+        this.message = error.message;
+      }
 }
 )
 
 
   }
 
-
-
   closeStatus()
   {
-    this.status=false;
+    this.dangerStatus=false;
+    this.successStatus=false;
   }
 }

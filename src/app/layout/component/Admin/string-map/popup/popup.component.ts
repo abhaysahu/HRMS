@@ -21,7 +21,9 @@ export class PopupComponent implements OnInit {
 
   listOfPopup: ListOfPopup[]=[]
 
-  status=false;
+  successStatus=false;
+  dangerStatus=false;
+
   message="";
 
   updatePopup: UpdatePopup;
@@ -48,24 +50,30 @@ export class PopupComponent implements OnInit {
       }
       else
       {
-        this.status=true;
+        this.dangerStatus=true;
+        this.successStatus=false;
         this.message=resp.ErrorMessage;
+        this.message=resp.Message;
       }
       
     }
     ,   (error: AppResponse) => {
       if(error.status === 400)
       {
-       this.message = error.message
+        this.dangerStatus=true;
+        this.successStatus=false;
+        this.message = error.message
       }
       else if(error.status === 401)
       {
-        this.status=true;
+        this.dangerStatus=true;
+        this.successStatus=false;
         this.message = "Authorization has been denied for this request And You have to Login again."
       }       
        else
        {
-          this.status=true;
+          this.dangerStatus=true;
+          this.successStatus=false;
           this.message = error.message;
        }
 }
@@ -152,8 +160,10 @@ export class PopupComponent implements OnInit {
       }
       else
       {
-        this.status=true;
+        this.dangerStatus=true;
+        this.successStatus=false;
         this.message=resp.ErrorMessage;
+        this.message=resp.Message;
       }
       
     }
@@ -164,24 +174,23 @@ export class PopupComponent implements OnInit {
       }
       else if(error.status === 401)
       {
-        this.status=true;
+        this.dangerStatus=true;
+        this.successStatus=false;
         this.message = "Authorization has been denied for this request And You have to Login again."
       }       
        else
-       {
-          this.status=true;
-          this.message = error.message;
-       }
+      {
+        this.dangerStatus=true;
+        this.successStatus=false;
+        this.message = error.message;
+      }
 }
 )
   }
 
-
   closeStatus()
   {
-    this.status=false;
+    this.dangerStatus=true;
+    this.successStatus=false;
   }
-
-
-
 }
