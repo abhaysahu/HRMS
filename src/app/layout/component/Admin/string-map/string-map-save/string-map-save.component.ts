@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { StringMapService } from '../service/string-map.service';
 import { combineLatest } from 'rxjs';
 import { AppResponse } from 'src/app/models/appResponse';
+import { DropDownList } from '../model/dropdownLIst';
 
 @Component({
   selector: 'app-string-map-save',
@@ -11,11 +12,55 @@ import { AppResponse } from 'src/app/models/appResponse';
 export class StringMapSaveComponent implements OnInit {
 
   stringMap: any[]=[];
+  dropdownList: DropDownList[]=[];
 
-  status=false;
+  successStatus=false;
+  dangerStatus=false;
   message="";
 
-  constructor(private stringMapService: StringMapService) { }
+  constructor(private stringMapService: StringMapService) { 
+
+    this.stringMapService.getdropdownData().subscribe(resp =>{
+   
+      if(resp.Success)
+      {
+        this.dropdownList = resp.Data
+       
+      }
+      else
+      {
+        this.dangerStatus=true;
+        this.successStatus=false;
+        this.message=resp.ErrorMessage;
+        this.message=resp.Message;
+      }
+      
+    }
+    ,   (error: AppResponse) => {
+      if(error.status === 400)
+      {
+        this.dangerStatus=true;
+        this.successStatus=false;
+        this.message = error.message
+       
+      }
+      else if(error.status === 401)
+      {
+        this.dangerStatus=true;
+        this.successStatus=false;
+        this.message = "Authorization has been denied for this request And You have to Login again."
+      }       
+       else
+       {
+          this.dangerStatus=true;
+          this.successStatus=false;
+          this.message = error.message;
+       }
+}
+)
+
+
+  }
 
   ngOnInit() {
   }
@@ -23,16 +68,19 @@ export class StringMapSaveComponent implements OnInit {
   StringMapData(stringMap)
   {
 
+    console.log(stringMap)
     this.stringMapService.stringMapDataSave(stringMap).subscribe(resp =>{
-      console.log(resp)
+      // console.log(resp)
       if(resp.Success)
       {
-        this.status=true;
+        this.successStatus=true;
+        this.dangerStatus=false;
         this.message="Data is Added successfully"
       }
       else
       {
-        this.status=true;
+        this.dangerStatus=true;
+        this.successStatus=false;
         this.message=resp.Message;
       }
       
@@ -41,25 +89,28 @@ export class StringMapSaveComponent implements OnInit {
       if(error.status === 400)
       {
        this.message = error.message
-       console.log(this.message)
+      //  console.log(this.message)
       }
       else if(error.status === 401)
       {
-        this.status=true;
+        this.dangerStatus=true;
+        this.successStatus=false;
         this.message = "Authorization has been denied for this request And You have to Login again."
       }       
-       else
-       {
-          this.status=true;
-          this.message = error.message;
-       }
+      else
+      {
+        this.dangerStatus=true;
+        this.successStatus=false;
+        this.message = error.message;
+      }
     }
   )
 }
 
   closeStatus()
   {
-    this.status=false;
+    this.dangerStatus=false;
+    this.successStatus=false;
   }
 
 }

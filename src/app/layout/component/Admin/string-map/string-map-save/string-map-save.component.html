@@ -1,4 +1,10 @@
-<div *ngIf="status" class="alert alert-primary" role="alert">
+<div *ngIf="successStatus" class="alert alert-success" role="alert">
+  {{ message }}
+  <i class="fa fa-times-circle" (click)="closeStatus()"  aria-hidden="true"></i>
+   <!-- <a class="btn btn-primary" routerLink="/login">Go To Login Page</a> -->
+</div>
+
+<div *ngIf="dangerStatus" class="alert alert-danger" role="alert">
   {{ message }}
   <i class="fa fa-times-circle" (click)="closeStatus()"  aria-hidden="true"></i>
    <!-- <a class="btn btn-primary" routerLink="/login">Go To Login Page</a> -->
@@ -46,13 +52,15 @@
         <!---1-->
         <div class="form-group col-md-3">
           <label for="ObjectTypeCode">Object Type Code</label>
-          <input type="text" class="form-control" #ObjectTypeCode="ngModel" [(ngModel)]="stringMap.ObjectTypeCode" name="ObjectTypeCode" id="ObjectTypeCode" required>
+          <select class="custom-select" #ObjectTypeCode="ngModel" [(ngModel)]="stringMap.ObjectTypeCode" name="ObjectTypeCode" id="ObjectTypeCode"  id="selectEntity" required> 
+            <option>Select any option</option>
+            <option *ngFor="let dropdownLists of dropdownList" [value]="dropdownLists.ObjectTypeCode">{{dropdownLists.Name}}</option>
+          </select>
           <div class="invalid-feedback" *ngIf="ObjectTypeCode.touched && ObjectTypeCode.invalid">
             Object Type Code Is Required.
           </div>
         </div>
 
-        <!----->
         <div class="form-group col-md-3">
           <label for="AttributeName">Attribute Name</label>
           <input type="text" class="form-control" #AttributeName="ngModel" [(ngModel)]="stringMap.AttributeName" name="AttributeName" id="AttributeName" required>
@@ -91,11 +99,6 @@
             Name Is Required.
           </div>
         </div>
-
-      
-
-     
-
         
         <div class="form-group col-md-3">
           <div style="padding-left: 20px;">
@@ -116,13 +119,13 @@
         
         <div class="form-group col-md-3">
           <label for="Description">Description</label>
-          <textarea rows="2" class="form-control" #Description="ngModel" [(ngModel)]="stringMap.Description" name="Description" id="Description" required></textarea>
-          <div class="invalid-feedback" *ngIf="Description.touched && Description.invalid">
+          <textarea rows="2" class="form-control" #Description="ngModel" [(ngModel)]="stringMap.Description" name="Description" id="Description"></textarea>
+          <!-- <div class="invalid-feedback" *ngIf="Description.touched && Description.invalid">
             Description Is Required.
-          </div>              
+          </div>               -->
         </div>
       </div>
-      <button type="submit" class="btn btn-primary">Save</button>
+      <button type="submit" [disabled]="!f.valid" class="btn btn-primary">Save</button>
     </form>      
   </div>
 </div>

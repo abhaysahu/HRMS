@@ -1,14 +1,20 @@
-
-
 <div class="popup">
-  <div *ngIf="status" class="alert alert-primary" role="alert">
+  <div *ngIf="successStatus" class="alert alert-success" role="alert">
     {{ message }}
     <i class="fa fa-times-circle" (click)="closeStatus()"  aria-hidden="true"></i>
      <!-- <a class="btn btn-primary" routerLink="/login">Go To Login Page</a> -->
   </div>
+  
+  <div *ngIf="dangerStatus" class="alert alert-danger" role="alert">
+    {{ message }}
+    <i class="fa fa-times-circle" (click)="closeStatus()"  aria-hidden="true"></i>
+     <!-- <a class="btn btn-primary" routerLink="/login">Go To Login Page</a> -->
+  </div>
+
   <form #form="ngForm" (submit)="AddProject(form.value)">
-    <table class="table table-bordered">
-      <thead>
+    <table class="table table-hover overflow-auto" >
+      <!-- style="overflow-y: scroll;" -->
+      <thead class="thead-dark">
         <tr>
           <th scope="col">Text</th>
           <th scope="col" >Value</th>
@@ -36,8 +42,10 @@
             </td>
             <td>
               <input type="hidden" #AttributeName="ngModel" [(ngModel)]="popup.AttributeName" name="AttributeName" id="AttributeName">
+              
               <!-- <input type="hidden" #Description="ngModel" [(ngModel)]="popup.Description" name="Description" id="Description">
               <input type="hidden" #Id="ngModel" [(ngModel)]="popup.Id" name="Id" id="Id"> -->
+              
               <input type="hidden" #ObjectTypeCode="ngModel" [(ngModel)]="popup.ObjectTypeCode" name="ObjectTypeCode" id="ObjectTypeCode">
               
               <button type="button" class="btn btn-primary" (click)="UpDate(popup.Value,popup.AttributeValue,popup.AttributeName,popup.SortOrder,popup.Description,popup.IsActive,popup.Id,popup.ObjectTypeCode)">Edit</button>
@@ -49,6 +57,6 @@
     
     <button type="submit" class="btn btn-primary">Add New</button>
     <!-- <button type="submit" class="btn btn-primary" style="margin-left: 10px;">Update</button> -->
-    <button type="button" class="btn btn-primary" (click)="close()" style="margin-left: 10px;"><i class="fa fa-close"></i> Close</button>
+    <button type="button" class="btn btn-danger" (click)="close()" style="margin-left: 10px;"><i class="fa fa-close"></i> Close</button>
   </form>
 </div>

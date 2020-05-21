@@ -16,7 +16,9 @@ export class EntityListComponent implements OnInit {
   indexs:any[]=[];
 
 
-  status=false;
+  successStatus=false;
+  dangerStatus=false;
+
   message="";
 
   email="";
@@ -34,26 +36,31 @@ export class EntityListComponent implements OnInit {
       }
       else
       {
-          this.status=true;
+          this.dangerStatus=true;
+          this.successStatus=false;
           this.message=resp.ErrorMessage;
+          this.message=resp.Message;
       }
       
     },   (error: AppResponse) => {
       if(error.status === 400)
       {
-       this.message = error.message
-      //  console.log(this.message)
+        this.dangerStatus=true;
+        this.successStatus=false;
+        this.message = error.message
       }
       else if(error.status === 401)
       {
-        this.status=true;
+        this.dangerStatus=true;
+        this.successStatus=false;
         this.message = "Authorization has been denied for this request And You have to Login again."
       }       
-       else
-       {
-          this.status=true;
-          this.message = error.message;
-       }
+      else
+      {
+        this.dangerStatus=true;
+        this.successStatus=false;
+        this.message = error.message;
+      }
 }
 )
 
@@ -63,18 +70,14 @@ export class EntityListComponent implements OnInit {
   ngOnInit() {
   }
 
-
-
-
-
   setIndex(ii){
     this.aa=ii;
-  
   }
 
   closeStatus()
   {
-    this.status=false;
+    this.dangerStatus=false;
+    this.successStatus=false;
   }
 
 }

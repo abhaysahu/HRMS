@@ -1,4 +1,10 @@
-<div *ngIf="status" class="alert alert-primary" role="alert">
+<div *ngIf="successStatus" class="alert alert-success" role="alert">
+  {{ message }}
+  <i class="fa fa-times-circle" (click)="closeStatus()"  aria-hidden="true"></i>
+   <!-- <a class="btn btn-primary" routerLink="/login">Go To Login Page</a> -->
+</div>
+
+<div *ngIf="dangerStatus" class="alert alert-danger" role="alert">
   {{ message }}
   <i class="fa fa-times-circle" (click)="closeStatus()"  aria-hidden="true"></i>
    <!-- <a class="btn btn-primary" routerLink="/login">Go To Login Page</a> -->
@@ -44,7 +50,7 @@
         <div class="form-group mb-1">
           <label for="selectEntity">Select Entity</label>
         </div>
-        <div class="form-group col-md-4" *ngIf="dropdownList?.length != 0" >
+        <div class="form-group col-md-4" >
           <select class="custom-select"  id="selectEntity" (change)="getList($event)"> 
             <option value= "">Select any option</option>
             <option *ngFor="let dropdownLists of dropdownList" [value]="dropdownLists.ObjectTypeCode">{{dropdownLists.Name}}</option>

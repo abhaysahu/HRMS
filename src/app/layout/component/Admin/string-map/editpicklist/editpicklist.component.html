@@ -1,9 +1,15 @@
 <div class="popup">
-	<div *ngIf="status" class="alert alert-primary" role="alert">
-		{{ message }}
-		<i class="fa fa-times-circle" (click)="closeStatus()"  aria-hidden="true"></i>
-		 <!-- <a class="btn btn-primary" routerLink="/login">Go To Login Page</a> -->
-	</div>
+	<div *ngIf="successStatus" class="alert alert-success" role="alert">
+    {{ message }}
+    <i class="fa fa-times-circle" (click)="closeStatus()"  aria-hidden="true"></i>
+     <!-- <a class="btn btn-primary" routerLink="/login">Go To Login Page</a> -->
+  </div>
+  
+  <div *ngIf="dangerStatus" class="alert alert-danger" role="alert">
+    {{ message }}
+    <i class="fa fa-times-circle" (click)="closeStatus()"  aria-hidden="true"></i>
+     <!-- <a class="btn btn-primary" routerLink="/login">Go To Login Page</a> -->
+  </div>
 
 	<form #f="ngForm" (ngSubmit)="submit(f.value)" class="was-validated">
 
@@ -15,7 +21,7 @@
 		<div class="form-row">
 
 			<div class="form-group col-md-6">
-				<label for="AttributeValue">Attribute Value</label>
+				<label for="AttributeValue">Text</label>
 				<input type="text" class="form-control" #AttributeValue="ngModel" [(ngModel)]="editpicklist.AttributeValue" name="AttributeValue" id="AttributeValue" required>
 				<div class="invalid-feedback" *ngIf="AttributeValue.touched && AttributeValue.invalid">
 					Name Is Required.
