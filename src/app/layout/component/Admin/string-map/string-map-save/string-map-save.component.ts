@@ -70,7 +70,7 @@ export class StringMapSaveComponent implements OnInit {
 
     console.log(stringMap)
     this.stringMapService.stringMapDataSave(stringMap).subscribe(resp =>{
-      console.log(resp)
+      // console.log(resp)
       if(resp.Success)
       {
         this.successStatus=true;
@@ -89,7 +89,7 @@ export class StringMapSaveComponent implements OnInit {
       if(error.status === 400)
       {
        this.message = error.message
-       console.log(this.message)
+      //  console.log(this.message)
       }
       else if(error.status === 401)
       {

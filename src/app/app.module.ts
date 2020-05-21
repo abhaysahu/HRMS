@@ -148,7 +148,7 @@ import { PageNotFoundComponent } from './layout/component/page-not-found/page-no
   entryComponents:[CommentsComponent, EditpicklistComponent, PopupComponent],
 
   providers: [
-     {provide: LocationStrategy, useClass: HashLocationStrategy},
+     //{provide: LocationStrategy, useClass: HashLocationStrategy},
     LoginService, 
     AuthGuardService,
     EmployeeService,
