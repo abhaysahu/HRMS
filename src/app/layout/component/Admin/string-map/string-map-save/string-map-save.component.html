@@ -37,13 +37,32 @@
 <div class="card">
   <div class="card-header">
 
-   Add Pick List <span style="padding-left: 990px;"><a routerLink="/dashboard/picklist/list" ><i class="fa fa-plus-circle" ></i>  Pick List</a></span>
+   Add Pick List <span style="float: right;"><a routerLink="/dashboard/picklist/list" ><i class="fa fa-plus-circle" ></i>  Pick List</a></span>
 
   </div>
   <div class="card-body">
     <form #f="ngForm" (ngSubmit)="StringMapData(f.value)" class="was-validated">  
       <div class="form-row">
-        
+        <!---1-->
+        <div class="form-group col-md-3">
+          <label for="ObjectTypeCode">Object Type Code</label>
+          <input type="text" class="form-control" #ObjectTypeCode="ngModel" [(ngModel)]="stringMap.ObjectTypeCode" name="ObjectTypeCode" id="ObjectTypeCode" required>
+          <div class="invalid-feedback" *ngIf="ObjectTypeCode.touched && ObjectTypeCode.invalid">
+            Object Type Code Is Required.
+          </div>
+        </div>
+
+        <!----->
+        <div class="form-group col-md-3">
+          <label for="AttributeName">Attribute Name</label>
+          <input type="text" class="form-control" #AttributeName="ngModel" [(ngModel)]="stringMap.AttributeName" name="AttributeName" id="AttributeName" required>
+          <div class="invalid-feedback" *ngIf="AttributeName.touched && AttributeName.invalid">
+            AttributeValue Is Required.
+          </div>
+        </div>    
+
+
+
         <div class="form-group col-md-3">
           <label for="Value">Value</label>
           <input type="text" class="form-control" #Value="ngModel" [(ngModel)]="stringMap.Value" name="Value" id="Value" required>
@@ -51,6 +70,8 @@
             Value Is Required.
           </div>
         </div>
+
+
 
         <div class="form-group col-md-3">
           <label for="AttributeValue">Attribute Value</label>
@@ -61,13 +82,7 @@
         </div>
 
 
-        <div class="form-group col-md-3">
-          <label for="AttributeName">Attribute Name</label>
-          <input type="text" class="form-control" #AttributeName="ngModel" [(ngModel)]="stringMap.AttributeName" name="AttributeName" id="AttributeName" required>
-          <div class="invalid-feedback" *ngIf="AttributeName.touched && AttributeName.invalid">
-            AttributeValue Is Required.
-          </div>
-        </div>                  
+                     
 
         <div class="form-group col-md-3">
           <label for="SortOrder">Sort Order</label>
@@ -77,21 +92,9 @@
           </div>
         </div>
 
-        <div class="form-group col-md-3">
-          <label for="ObjectTypeCode">Object Type Code</label>
-          <input type="text" class="form-control" #ObjectTypeCode="ngModel" [(ngModel)]="stringMap.ObjectTypeCode" name="ObjectTypeCode" id="ObjectTypeCode" required>
-          <div class="invalid-feedback" *ngIf="ObjectTypeCode.touched && ObjectTypeCode.invalid">
-            Object Type Code Is Required.
-          </div>
-        </div>
+      
 
-        <div class="form-group col-md-3">
-          <label for="Description">Description</label>
-          <textarea rows="2" class="form-control" #Description="ngModel" [(ngModel)]="stringMap.Description" name="Description" id="Description" required></textarea>
-          <div class="invalid-feedback" *ngIf="Description.touched && Description.invalid">
-            Description Is Required.
-          </div>              
-        </div>
+     
 
         
         <div class="form-group col-md-3">
@@ -109,7 +112,15 @@
           <div class="invalid-feedback" *ngIf="IsActive.touched && IsActive.invalid">
             Master Entity Is Required.
           </div>
-        </div>            
+        </div>     
+        
+        <div class="form-group col-md-3">
+          <label for="Description">Description</label>
+          <textarea rows="2" class="form-control" #Description="ngModel" [(ngModel)]="stringMap.Description" name="Description" id="Description" required></textarea>
+          <div class="invalid-feedback" *ngIf="Description.touched && Description.invalid">
+            Description Is Required.
+          </div>              
+        </div>
       </div>
       <button type="submit" class="btn btn-primary">Save</button>
     </form>      

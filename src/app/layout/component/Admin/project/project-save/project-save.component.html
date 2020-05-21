@@ -30,7 +30,7 @@
 
 <div class="card">
   <div class="card-header">
-    Add Project
+    Add Project<span style="float: right;"><a routerLink="/dashboard/project/list" ><i class="fa fa-plus-circle" ></i> Project List</a></span>
   </div>
   <div class="card-body">
     <form  #form="ngForm" (submit)="onSubmit(form.value)" class="was-validated">  
