@@ -104,11 +104,11 @@
           <div style="padding-left: 20px;">
             <label for="IsActive">Is Active</label><br><br>
             <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" value="true" #IsActive="ngModel" [(ngModel)]="stringMap.IsActive" name="IsActive" required>
+              <input class="form-check-input" type="radio" [value]="true" #IsActive="ngModel" [(ngModel)]="stringMap.IsActive" name="IsActive" required>
               <label class="form-check-label" for="inlineRadio1">Yes</label>
             </div>
             <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" value="false" #IsActive="ngModel" [(ngModel)]="stringMap.IsActive" name="IsActive" required>
+              <input class="form-check-input" type="radio" [value]="false" #IsActive="ngModel" [(ngModel)]="stringMap.IsActive" name="IsActive" required>
               <label class="form-check-label" for="inlineRadio2">No</label>
             </div>
           </div>

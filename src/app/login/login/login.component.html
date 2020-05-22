@@ -3,47 +3,32 @@
   <p id="logo"><img src="../../../assets/images/logo.png" ></p>
   <h1>Login Here</h1><br>
   <form #f="ngForm" (ngSubmit)="login(f.value)">
-
-    <!--<p>User Name</p>
-    <div class="input-group" id="show_hide_password">
-
+    <p>User Name</p>
     <input type="hidden" value="password"  name="grant_type" #grant_type="ngModel" [(ngModel)]="formData.grant_type">
 
-    <input #userName="ngModel" [(ngModel)]="login.userName" name="userName" id="userName" type="text" placeholder="  Enter Username">
-    <div class="alert alert-danger" *ngIf="userName.touched && userName.invalid">
-      Product Full Name is Required.
+    <input type="text" #userName="ngModel" [(ngModel)]="login.userName" name="userName" id="userName" placeholder="Enter Username" class="form-control" required>
+    <div class="invalid-feedback" *ngIf="userName.touched && userName.invalid">
+      User Name Is Required.
     </div>
-</div>-->
-<p>User Name</p>
-<input type="hidden" value="password"  name="grant_type" #grant_type="ngModel" [(ngModel)]="formData.grant_type">
 
-    <input #userName="ngModel" [(ngModel)]="login.userName" name="userName" id="userName" type="text" placeholder="  Enter Username">
-    <div class="alert alert-danger" *ngIf="userName.touched && userName.invalid">
-      Product Full Name is Required.
-    </div>
-    
     <p>Password</p>
     <div class="input-group" id="show_hide_password">
-      <input  #password="ngModel" [(ngModel)]="login.password" name="password" id="password" type="Password" placeholder="Enter password" class="form-control" >
-      <!--<div class="input-group-addon">
-        <a href=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
-      </div>-->
-      <div class="input-group-prepend" style="height: 42px; color: transparent;">
-        <span class="input-group-text" style="background-color: transparent;  border: none;" id="validationTooltipUsernamePrepend"><i class="fa fa-eye-slash" aria-hidden="true"></i></span>
+      <input [type]="isTextFieldType ? 'text' : 'password'"  #password="ngModel" [(ngModel)]="login.password" name="password" id="password" placeholder="Enter password" class="form-control" required>
+      <div class="input-group-addon" *ngIf="!isTextFieldType">
+        <a (click)="togglePasswordFieldType()"><i class="fa fa-eye" aria-hidden="true"></i></a>
+      </div>
+
+      <div class="input-group-addon" *ngIf="isTextFieldType">
+        <a (click)="togglePasswordFieldType()"><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
       </div>
     </div>
-    <!--<input #password="ngModel" [(ngModel)]="login.password" name="password" id="password" type="Password" placeholder="Enter password">-->
 
-    <!--<div class="input-group-addon">
-      <i class="fa fa-eye-slash" aria-hidden="true"></i>
-    </div>-->
-    <div class="alert alert-danger" *ngIf="password.touched && password.invalid">
-      Product Full Name is Required.
-    </div>
+    <div class="invalid-feedback" *ngIf="password.touched && password.invalid">
+			Password Is Required.
+		</div>
 
    <input [disabled]="!f.valid" type="submit" value="Login">
-   <!--- <a href="#">Forget your password</a><br>
-    <a href="#">Don't have an account</a>-->
+   
   </form>
 </div>
 </body>

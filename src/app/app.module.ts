@@ -67,7 +67,6 @@ import { TokenizedInterceptor } from './TokenizedInterceptor/Tokenized-Intercept
 import { EntityService } from './layout/component/Admin/entity/service/entity.service';
 import { PopupComponent } from './layout/component/Admin/string-map/popup/popup.component';
 import { SearchPipe } from './layout/component/Admin/entity/search.pipe';
-import { Popup } from './layout/component/Admin/string-map/model/popup.module';
 import { StringMapService } from './layout/component/Admin/string-map/service/string-map.service';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 
