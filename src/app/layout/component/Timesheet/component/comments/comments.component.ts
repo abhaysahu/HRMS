@@ -1,7 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
-import { Comments } from '../model/comment.model';
-import { TimesheetService } from '../service/timesheet.service';
+import { Comments } from '../../model/comment.model';
+import { TimesheetService } from '../../service/timesheet.service';
 
 @Component({
   selector: 'app-comments',
