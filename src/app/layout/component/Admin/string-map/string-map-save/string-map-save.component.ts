@@ -3,6 +3,7 @@ import { StringMapService } from '../service/string-map.service';
 import { combineLatest } from 'rxjs';
 import { AppResponse } from 'src/app/models/appResponse';
 import { DropDownList } from '../model/dropdownLIst';
+import { savePickList } from '../model/savePickList';
 
 @Component({
   selector: 'app-string-map-save',
@@ -11,7 +12,17 @@ import { DropDownList } from '../model/dropdownLIst';
 })
 export class StringMapSaveComponent implements OnInit {
 
-  stringMap: any[]=[];
+  stringMap: savePickList={
+    Value:null,
+    AttributeValue:null,
+    AttributeName:null,
+    SortOrder:null,
+    ObjectTypeCode:null,
+    Description:null,
+    IsActive:true
+
+  }
+
   dropdownList: DropDownList[]=[];
 
   successStatus=false;
@@ -19,6 +30,8 @@ export class StringMapSaveComponent implements OnInit {
   message="";
 
   constructor(private stringMapService: StringMapService) { 
+
+    
 
     this.stringMapService.getdropdownData().subscribe(resp =>{
    

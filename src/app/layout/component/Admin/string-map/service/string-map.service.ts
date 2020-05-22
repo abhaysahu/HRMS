@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { Popup } from '../model/popup.module';
 import { Router } from '@angular/router';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';

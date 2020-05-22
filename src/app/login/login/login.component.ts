@@ -13,15 +13,10 @@ import { AppResponse } from 'src/app/models/appResponse';
 })
 export class LoginComponent implements OnInit {
 
-
-  // login: Login[]=[]
-
-
+  isTextFieldType: boolean;
 
   error: string;
-
   grant_type = "password"
-
   formData: any[]=[]
 
 
@@ -39,6 +34,11 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
+
+  togglePasswordFieldType(){
+    this.isTextFieldType = !this.isTextFieldType;
+
+  }
 
 
   login(form) {
