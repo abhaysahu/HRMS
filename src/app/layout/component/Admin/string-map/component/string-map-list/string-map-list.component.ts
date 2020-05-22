@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { PopupComponent } from '../popup/popup.component';
 import { MatDialog, MatDialogConfig } from '@angular/material';
-import { StringMapService } from '../service/string-map.service';
-import { StringMapList } from '../model/stringMapList.module';
+import { StringMapService } from '../../service/string-map.service';
+import { StringMapList } from '../../model/stringMapList.module';
 import { AppResponse } from 'src/app/models/appResponse';
-import { DropDownList } from '../model/dropdownLIst';
+import { DropDownList } from '../../model/dropdownLIst';
 
 
 @Component({

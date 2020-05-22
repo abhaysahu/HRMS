@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Entity } from '../model/entity';
-import { EntityService } from '../service/entity.service';
-import { EntityList } from '../model/entityList';
+import { Entity } from '../../model/entity';
+import { EntityService } from '../../service/entity.service';
+import { EntityList } from '../../model/entityList';
 import { AppResponse } from 'src/app/models/appResponse';
 
 @Component({
