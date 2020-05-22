@@ -3,19 +3,33 @@
   <p id="logo"><img src="../../../assets/images/logo.png" ></p>
   <h1>Login Here</h1><br>
   <form #f="ngForm" (ngSubmit)="login(f.value)">
-    <p>User Name</p>
+
+    <!--<p>User Name</p>
+    <div class="input-group" id="show_hide_password">
+
     <input type="hidden" value="password"  name="grant_type" #grant_type="ngModel" [(ngModel)]="formData.grant_type">
 
     <input #userName="ngModel" [(ngModel)]="login.userName" name="userName" id="userName" type="text" placeholder="  Enter Username">
     <div class="alert alert-danger" *ngIf="userName.touched && userName.invalid">
       Product Full Name is Required.
     </div>
+</div>-->
+<p>User Name</p>
+<input type="hidden" value="password"  name="grant_type" #grant_type="ngModel" [(ngModel)]="formData.grant_type">
 
+    <input #userName="ngModel" [(ngModel)]="login.userName" name="userName" id="userName" type="text" placeholder="  Enter Username">
+    <div class="alert alert-danger" *ngIf="userName.touched && userName.invalid">
+      Product Full Name is Required.
+    </div>
+    
     <p>Password</p>
     <div class="input-group" id="show_hide_password">
       <input  #password="ngModel" [(ngModel)]="login.password" name="password" id="password" type="Password" placeholder="Enter password" class="form-control" >
-      <div class="input-group-addon">
+      <!--<div class="input-group-addon">
         <a href=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
+      </div>-->
+      <div class="input-group-prepend" style="height: 42px; color: transparent;">
+        <span class="input-group-text" style="background-color: transparent;  border: none;" id="validationTooltipUsernamePrepend"><i class="fa fa-eye-slash" aria-hidden="true"></i></span>
       </div>
     </div>
     <!--<input #password="ngModel" [(ngModel)]="login.password" name="password" id="password" type="Password" placeholder="Enter password">-->
