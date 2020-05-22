@@ -6,10 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./expense-claim.component.css']
 })
 export class ExpenseClaimComponent implements OnInit {
+  Expenseclaim: any[] = [];
+
 
   constructor() { }
 
   ngOnInit() {
   }
-
+  onSubmit(expenseclaim) {
+    console.log(expenseclaim) 
+  }
 }
