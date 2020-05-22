@@ -157,5 +157,6 @@ import { PageNotFoundComponent } from './layout/component/page-not-found/page-no
     StringMapService,
   ],
   bootstrap: [AppComponent]
-})
+}) 
 export class AppModule { }
+ 
