@@ -34,14 +34,14 @@ import { DashboardComponent } from './layout/component/dashboard/dashboard.compo
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatSelectModule} from '@angular/material/select';
-import { EmployeeDetailsComponent } from './layout/component/employee/employee-details/employee-details.component';
-import { EmployeeListComponent } from './layout/component/employee/employee-list/employee-list.component';
+import { EmployeeDetailsComponent } from './layout/component/employee/component/employee-details/employee-details.component';
+import { EmployeeListComponent } from './layout/component/employee/component/employee-list/employee-list.component';
 import { MyAttendanceComponent } from './layout/component/Attendance-and-leaves/my-attendance/my-attendance.component';
 import { ApplyTimeAwayComponent } from './layout/component/Attendance-and-leaves/apply-time-away/apply-time-away.component';
 import { MyTimeAwayRequestsComponent } from './layout/component/Attendance-and-leaves/my-time-away-requests/my-time-away-requests.component';
 import { MyLeavesComponent } from './layout/component/Attendance-and-leaves/my-leaves/my-leaves.component';
-import { CreateEmployeeComponent } from './layout/component/employee/create-employee/create-employee.component';
-import { EditEmployeeComponent } from './layout/component/employee/edit-employee/edit-employee.component'; 
+import { CreateEmployeeComponent } from './layout/component/employee/component/create-employee/create-employee.component';
+import { EditEmployeeComponent } from './layout/component/employee/component/edit-employee/edit-employee.component'; 
 import { EmployeeService } from './layout/component/employee/services/employee.service';
 
 import { MyTimesheetComponent } from './layout/component/Timesheet/my-timesheet/my-timesheet.component';
