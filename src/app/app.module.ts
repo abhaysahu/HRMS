@@ -46,31 +46,31 @@ import { EmployeeService } from './layout/component/employee/services/employee.s
 
 import { MyTimesheetComponent } from './layout/component/Timesheet/my-timesheet/my-timesheet.component';
 import { TimesheetBankComponent } from './layout/component/Timesheet/timesheet-bank/timesheet-bank.component';
-import { MyServiceRequetsComponent } from './layout/component/Service-request/my-service-requets/my-service-requets.component';
-import { AddSRComponent } from './layout/component/Service-request/add-sr/add-sr.component';
+import { MyServiceRequetsComponent } from './layout/component/Service-request/component/my-service-requets/my-service-requets.component';
+import { AddSRComponent } from './layout/component/Service-request/component/add-sr/add-sr.component';
 import { CommentsComponent } from './layout/component/Timesheet/comments/comments.component';
 import { TimesheetService } from './layout/component/Timesheet/service/timesheet.service';
 import { AddAttendanceComponent } from './layout/component/Attendance-and-leaves/add-attendance/add-attendance.component';
 import { ExpenseClaimComponent } from './layout/component/Expense/expense-claim/expense-claim.component';
 import { ExpenseBankComponent } from './layout/component/Expense/expense-bank/expense-bank.component';
-import { StringMapSaveComponent } from './layout/component/Admin/string-map/string-map-save/string-map-save.component';
-import { StringMapListComponent } from './layout/component/Admin/string-map/string-map-list/string-map-list.component';
-import { ProjectSaveComponent } from './layout/component/Admin/project/project-save/project-save.component';
-import { ProjectListComponent } from './layout/component/Admin/project/project-list/project-list.component';
+import { StringMapSaveComponent } from './layout/component/Admin/string-map/component/string-map-save/string-map-save.component';
+import { StringMapListComponent } from './layout/component/Admin/string-map/component/string-map-list/string-map-list.component';
+import { ProjectSaveComponent } from './layout/component/Admin/project/component/project-save/project-save.component';
+import { ProjectListComponent } from './layout/component/Admin/project/component/project-list/project-list.component';
 import { SystemLogListComponent } from './layout/component/Admin/system-log/system-log-list/system-log-list.component';
-import { EntitySaveComponent } from './layout/component/Admin/entity/entity-save/entity-save.component';
-import { EntityListComponent } from './layout/component/Admin/entity/entity-list/entity-list.component';
+import { EntitySaveComponent } from './layout/component/Admin/entity/component/entity-save/entity-save.component';
+import { EntityListComponent } from './layout/component/Admin/entity/component/entity-list/entity-list.component';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { AuthService } from './service/auth.service';
 import { AuthGuardService } from './service/auth-guard.service';
 import { TokenizedInterceptor } from './TokenizedInterceptor/Tokenized-Interceptor';
 import { EntityService } from './layout/component/Admin/entity/service/entity.service';
-import { PopupComponent } from './layout/component/Admin/string-map/popup/popup.component';
+import { PopupComponent } from './layout/component/Admin/string-map/component/popup/popup.component';
 import { SearchPipe } from './layout/component/Admin/entity/search.pipe';
 import { StringMapService } from './layout/component/Admin/string-map/service/string-map.service';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 
-import { EditpicklistComponent } from './layout/component/Admin/string-map/editpicklist/editpicklist.component';
+import { EditpicklistComponent } from './layout/component/Admin/string-map/component/editpicklist/editpicklist.component';
 
 import { PageNotFoundComponent } from './layout/component/page-not-found/page-not-found.component';
 

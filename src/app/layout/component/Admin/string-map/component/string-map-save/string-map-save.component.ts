@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { StringMapService } from '../service/string-map.service';
+import { StringMapService } from '../../service/string-map.service';
 import { combineLatest } from 'rxjs';
 import { AppResponse } from 'src/app/models/appResponse';
-import { DropDownList } from '../model/dropdownLIst';
-import { savePickList } from '../model/savePickList';
+import { DropDownList } from '../../model/dropdownLIst';
+import { savePickList } from '../../model/savePickList';
 
 @Component({
   selector: 'app-string-map-save',
