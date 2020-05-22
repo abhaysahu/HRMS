@@ -1,35 +1,36 @@
 import { Component, OnInit } from '@angular/core';
-import { EmployeeService } from '../services/employee.service';
-import { Employee } from '../models/employee';
+import { EmployeeService } from '../../services/employee.service';
+import { Employee } from '../../models/employee';
+
+
 
 @Component({
-  selector: 'app-edit-employee',
-  templateUrl: './edit-employee.component.html',
-  styleUrls: ['./edit-employee.component.css']
+  selector: 'app-employee-details',
+  templateUrl: './employee-details.component.html',
+  styleUrls: ['./employee-details.component.css']
 })
-export class EditEmployeeComponent implements OnInit {
+export class EmployeeDetailsComponent implements OnInit {
 
-  copy = false
+  addressName:string;
+  
 
-  Employee: Employee
+  Employee: Employee;
 
-  constructor(private employeeService: EmployeeService) { 
+  constructor(private employeeService: EmployeeService) {
+
+    console.log(this.Employee)
+
     this.employeeService.getemployee().subscribe(resp=>{
       this.Employee = resp[0]
       console.log(this.Employee)
-      console.log(this.Employee.name)
-      
+      console.log(resp)
     })
 
-    console.log(this.Employee)
-  }
+
+   }
 
   ngOnInit() {
-  }
 
-  Basic(employee)
-  {
-    console.log(employee)
   }
 
   copyCurrentToPermanent(event) {
@@ -106,3 +107,4 @@ copyPermanentToEmergency(event) {
 }
 
 }
+
