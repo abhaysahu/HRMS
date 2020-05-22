@@ -34,45 +34,49 @@ import { DashboardComponent } from './layout/component/dashboard/dashboard.compo
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatSelectModule} from '@angular/material/select';
-import { EmployeeDetailsComponent } from './layout/component/employee/employee-details/employee-details.component';
-import { EmployeeListComponent } from './layout/component/employee/employee-list/employee-list.component';
-import { MyAttendanceComponent } from './layout/component/Attendance-and-leaves/my-attendance/my-attendance.component';
-import { ApplyTimeAwayComponent } from './layout/component/Attendance-and-leaves/apply-time-away/apply-time-away.component';
-import { MyTimeAwayRequestsComponent } from './layout/component/Attendance-and-leaves/my-time-away-requests/my-time-away-requests.component';
-import { MyLeavesComponent } from './layout/component/Attendance-and-leaves/my-leaves/my-leaves.component';
-import { CreateEmployeeComponent } from './layout/component/employee/create-employee/create-employee.component';
-import { EditEmployeeComponent } from './layout/component/employee/edit-employee/edit-employee.component'; 
+import { EmployeeDetailsComponent } from './layout/component/employee/component/employee-details/employee-details.component';
+import { EmployeeListComponent } from './layout/component/employee/component/employee-list/employee-list.component';
+import { MyAttendanceComponent } from './layout/component/Attendance-and-leaves/component/my-attendance/my-attendance.component';
+import { ApplyTimeAwayComponent } from './layout/component/Attendance-and-leaves/component/apply-time-away/apply-time-away.component';
+import { MyTimeAwayRequestsComponent } from './layout/component/Attendance-and-leaves/component/my-time-away-requests/my-time-away-requests.component';
+import { MyLeavesComponent } from './layout/component/Attendance-and-leaves/component/my-leaves/my-leaves.component';
+import { CreateEmployeeComponent } from './layout/component/employee/component/create-employee/create-employee.component';
+import { EditEmployeeComponent } from './layout/component/employee/component/edit-employee/edit-employee.component'; 
 import { EmployeeService } from './layout/component/employee/services/employee.service';
 
-import { MyTimesheetComponent } from './layout/component/Timesheet/my-timesheet/my-timesheet.component';
-import { TimesheetBankComponent } from './layout/component/Timesheet/timesheet-bank/timesheet-bank.component';
-import { MyServiceRequetsComponent } from './layout/component/Service-request/my-service-requets/my-service-requets.component';
-import { AddSRComponent } from './layout/component/Service-request/add-sr/add-sr.component';
-import { CommentsComponent } from './layout/component/Timesheet/comments/comments.component';
+import { MyTimesheetComponent } from './layout/component/Timesheet/component/my-timesheet/my-timesheet.component';
+import { TimesheetBankComponent } from './layout/component/Timesheet/component/timesheet-bank/timesheet-bank.component';
+import { MyServiceRequetsComponent } from './layout/component/Service-request/component/my-service-requets/my-service-requets.component';
+import { AddSRComponent } from './layout/component/Service-request/component/add-sr/add-sr.component';
+import { CommentsComponent } from './layout/component/Timesheet/component/comments/comments.component';
 import { TimesheetService } from './layout/component/Timesheet/service/timesheet.service';
-import { AddAttendanceComponent } from './layout/component/Attendance-and-leaves/add-attendance/add-attendance.component';
-import { ExpenseClaimComponent } from './layout/component/Expense/expense-claim/expense-claim.component';
-import { ExpenseBankComponent } from './layout/component/Expense/expense-bank/expense-bank.component';
-import { StringMapSaveComponent } from './layout/component/Admin/string-map/string-map-save/string-map-save.component';
-import { StringMapListComponent } from './layout/component/Admin/string-map/string-map-list/string-map-list.component';
-import { ProjectSaveComponent } from './layout/component/Admin/project/project-save/project-save.component';
-import { ProjectListComponent } from './layout/component/Admin/project/project-list/project-list.component';
+import { AddAttendanceComponent } from './layout/component/Attendance-and-leaves/component/add-attendance/add-attendance.component';
+import { ExpenseClaimComponent } from './layout/component/Expense/component/expense-claim/expense-claim.component';
+import { ExpenseBankComponent } from './layout/component/Expense/component/expense-bank/expense-bank.component';
+import { StringMapSaveComponent } from './layout/component/Admin/string-map/component/string-map-save/string-map-save.component';
+import { StringMapListComponent } from './layout/component/Admin/string-map/component/string-map-list/string-map-list.component';
+import { ProjectSaveComponent } from './layout/component/Admin/project/component/project-save/project-save.component';
+import { ProjectListComponent } from './layout/component/Admin/project/component/project-list/project-list.component';
 import { SystemLogListComponent } from './layout/component/Admin/system-log/system-log-list/system-log-list.component';
-import { EntitySaveComponent } from './layout/component/Admin/entity/entity-save/entity-save.component';
-import { EntityListComponent } from './layout/component/Admin/entity/entity-list/entity-list.component';
+import { EntitySaveComponent } from './layout/component/Admin/entity/component/entity-save/entity-save.component';
+import { EntityListComponent } from './layout/component/Admin/entity/component/entity-list/entity-list.component';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { AuthService } from './service/auth.service';
 import { AuthGuardService } from './service/auth-guard.service';
 import { TokenizedInterceptor } from './TokenizedInterceptor/Tokenized-Interceptor';
 import { EntityService } from './layout/component/Admin/entity/service/entity.service';
-import { PopupComponent } from './layout/component/Admin/string-map/popup/popup.component';
+import { PopupComponent } from './layout/component/Admin/string-map/component/popup/popup.component';
 import { SearchPipe } from './layout/component/Admin/entity/search.pipe';
 import { StringMapService } from './layout/component/Admin/string-map/service/string-map.service';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 
-import { EditpicklistComponent } from './layout/component/Admin/string-map/editpicklist/editpicklist.component';
+import { EditpicklistComponent } from './layout/component/Admin/string-map/component/editpicklist/editpicklist.component';
 
 import { PageNotFoundComponent } from './layout/component/page-not-found/page-not-found.component';
+import { ServiceRequestsService } from './layout/component/Service-request/service/service-requests.service';
+import { ExpenseService } from './layout/component/Expense/service/expense.service';
+import { ProjectService } from './layout/component/Admin/project/service/project.service';
+import { SystemLogService } from './layout/component/Admin/system-log/service/system-log.service';
 
 
 
@@ -155,6 +159,11 @@ import { PageNotFoundComponent } from './layout/component/page-not-found/page-no
     AuthService,
     EntityService,
     StringMapService,
+    ServiceRequestsService,
+    ExpenseService,
+    ProjectService,
+    SystemLogService
+    
   ],
   bootstrap: [AppComponent]
 })

@@ -1,11 +1,10 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef, MatDialogConfig, MatDialog } from '@angular/material';
 
-import { StringMapService } from '../service/string-map.service';
-import { ListOfPopup } from '../model/listOfPopup.module';
+import { StringMapService } from '../../service/string-map.service';
+import { ListOfPopup } from '../../model/listOfPopup.module';
 import { AppResponse } from 'src/app/models/appResponse';
-import { UpdatePopup } from '../model/Updatepopup.modeule';
-import { CommentsComponent } from '../../../Timesheet/comments/comments.component';
+import { UpdatePopup } from '../../model/Updatepopup.modeule';
 import { EditpicklistComponent } from '../editpicklist/editpicklist.component';
 
 

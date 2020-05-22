@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material';
 import { CommentsComponent } from '../comments/comments.component';
-import { TimesheetService } from '../service/timesheet.service';
-import { Timesheet } from '../model/timesheet.model';
+import { TimesheetService } from '../../service/timesheet.service';
+import { Timesheet } from '../../model/timesheet.model';
 
 @Component({
   selector: 'app-my-timesheet',

@@ -1,7 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
-import { UpdatePopup } from '../model/Updatepopup.modeule';
-import { StringMapService } from '../service/string-map.service';
+import { UpdatePopup } from '../../model/Updatepopup.modeule';
+import { StringMapService } from '../../service/string-map.service';
 import { AppResponse } from 'src/app/models/appResponse';
 
 
