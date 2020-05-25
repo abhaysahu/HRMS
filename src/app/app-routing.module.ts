@@ -27,6 +27,8 @@ import { StringMapSaveComponent } from './layout/component/Admin/string-map/comp
 import { StringMapListComponent } from './layout/component/Admin/string-map/component/string-map-list/string-map-list.component';
 import { SystemLogListComponent } from './layout/component/Admin/system-log/system-log-list/system-log-list.component';
 import { PageNotFoundComponent } from './layout/component/page-not-found/page-not-found.component';
+import { EmployerListComponent } from './layout/component/Admin/employer/component/employer-list/employer-list.component';
+import { EmployerSaveComponent } from './layout/component/Admin/employer/component/employer-save/employer-save.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
@@ -112,6 +114,12 @@ const routes: Routes = [
       },
       {
         path: 'pagenotfound' , component: PageNotFoundComponent,
+      },
+      {
+        path: 'employer/list', component: EmployerListComponent
+      },
+      {
+        path: 'employer/save', component: EmployerSaveComponent
       }
     ]
   }
