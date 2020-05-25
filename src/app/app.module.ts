@@ -78,6 +78,8 @@ import { SystemLogService } from './layout/component/Admin/system-log/service/sy
 import { AttendanceService } from './layout/component/Attendance-and-leaves/service/attendance.service';
 import { ExpenseService } from './layout/component/Expense/service/expense.service';
 import { ServiceRequestsService } from './layout/component/Service-request/service/service-requests.service';
+import { EmployerListComponent } from './layout/component/Admin/employer/component/employer-list/employer-list.component';
+import { EmployerSaveComponent } from './layout/component/Admin/employer/component/employer-save/employer-save.component';
 
 
 
@@ -121,7 +123,9 @@ import { ServiceRequestsService } from './layout/component/Service-request/servi
    
 
      SearchPipe,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    EmployerListComponent,
+    EmployerSaveComponent
 
   ],
   imports: [
