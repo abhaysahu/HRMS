@@ -80,6 +80,7 @@ import { ExpenseService } from './layout/component/Expense/service/expense.servi
 import { ServiceRequestsService } from './layout/component/Service-request/service/service-requests.service';
 import { EmployerListComponent } from './layout/component/Admin/employer/component/employer-list/employer-list.component';
 import { EmployerSaveComponent } from './layout/component/Admin/employer/component/employer-save/employer-save.component';
+import { EmployerSearchPipe } from './layout/component/Admin/employer/employer-search.pipe';
 
 
 
@@ -120,12 +121,13 @@ import { EmployerSaveComponent } from './layout/component/Admin/employer/compone
     EntityListComponent,
     PopupComponent,
     EditpicklistComponent,
-   
-
-     SearchPipe,
     PageNotFoundComponent,
     EmployerListComponent,
-    EmployerSaveComponent
+    EmployerSaveComponent,
+    
+
+    SearchPipe,
+    EmployerSearchPipe
 
   ],
   imports: [
