@@ -32,6 +32,7 @@ export class EmployerService {
   getEmployerData(): Observable<EmployerList>
   {
     const token = sessionStorage.getItem('token')
+    
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
       'authorization': `bearer ${token}`

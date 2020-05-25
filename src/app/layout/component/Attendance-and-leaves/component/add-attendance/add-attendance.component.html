@@ -1,101 +1,81 @@
-<!--<section class="content-header z-depth-1">
-  <div class="header-icon">
-      <i class="fa fa-clock-o"></i>
-  </div>
-  <div class="header-title">
-      <h1>Add Attendance</h1>
-      <small>Add Attendance Record</small>
-      <ul class="link hidden-xs">
-          <li><a href="index-2.html"><i class="fa fa-home"></i>Home</a></li>
-          <li><a href="datatable.html">Add Attendance Record</a></li>
-      </ul>
-      <ul class="breadcrumb" style="background-color: transparent;">
-        <li class="breadcrumb-item"><a href="#"><i class="fa fa-home"></i>  Home</a></li>
-        <li class="breadcrumb-item"><a href="#">Add Attendance</a></li>
-      </ul>
-  </div>
-</section>-->
-<!-------->
 <div class="col">
-  <div class="row my-row" >
+  <div class="row my-row">
     <div class="col my-col">
-       <ul class="breadcrumb" style="background-color: transparent;">
-        <li class="breadcrumb-item " >
-            <span class="icon">
-            <i class="fa fa-clock-o"></i></span>  
-            <span class="heading" style="color: black; background-color: transparent;">Add Attendance</span></li>
-           
+      <ul class="breadcrumb" style="background-color: transparent;">
+        <li class="breadcrumb-item ">
+          <span class="icon">
+            <i class="fa fa-clock-o"></i></span>
+          <span class="heading" style="color: black; background-color: transparent;">Add Attendance</span></li>
+
       </ul>
     </div>
-<div class="col my-col">
-  <div class="a">
-      <ul class="breadcrumb" style="background-color: transparent;">
-        <li class="breadcrumb-item"><a routerLink="/dashboard">
-          <i class="fa fa-home"></i> Home</a></li>
-        <li class="breadcrumb-item"><a routerLink="/dashboard/addattendance">Add Attendance</a></li>
-      </ul>
-  </div>
-</div>
+    <div class="col my-col">
+      <div class="a">
+        <ul class="breadcrumb" style="background-color: transparent;">
+          <li class="breadcrumb-item"><a routerLink="/dashboard">
+              <i class="fa fa-home"></i> Home</a></li>
+          <li class="breadcrumb-item"><a routerLink="/dashboard/addattendance">Add Attendance</a></li>
+        </ul>
+      </div>
+    </div>
   </div>
   <div class="row my-row">
-    <div class="col my-col1"> 
-    Add Attendance Record
-  </div>
+    <div class="col my-col1">
+      Add Attendance Record
+    </div>
   </div>
 </div>
+
 <div class="card">
   <div class="card-header">
     Add Attendance
   </div>
   <div class="card-body">
-    <form #form="ngForm" (submit)="onSubmit(form.value)" class="was-validated"> 
+    <form #form="ngForm" (submit)="onSubmit(form.value)" class="was-validated">
       <div class="form-row">
-      <div class="form-group col-md-4">
-        <label for="date">Date</label>
-        <div class="form-group">
-          <input type="date"  max="3000-12-31" #date="ngModel" [(ngModel)]="Addattendance.date" name="date" id="date" required
-                min="1000-01-01" class="form-control">                                                              
-                <div class="invalid-feedback" *ngIf="date.touched && date.invalid">
-                  Date is required.
-                </div>
+        <div class="form-group col-md-4">
+          <label for="date">Date</label>
+          <div class="form-group">
+            <input type="date" max="3000-12-31" #date="ngModel" [(ngModel)]="Addattendance.date" name="date" id="date" required min="1000-01-01" class="form-control">
+            <div class="invalid-feedback" *ngIf="date.touched && date.invalid">
+              Date is required.
+            </div>
+          </div>
         </div>
-      </div>
       </div><br>
-      <!----table -->
+      
+
       <div style="overflow-x: scroll;">
-      <table class="table table-bordered">
-        <thead>
-          <tr>
-            <th scope="col">Employee Name/Id</th>
-            <th scope="col">In Time</th>
-            <th scope="col">Out Time</th> 
-            <th scope="col">On Leave</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Employee 1</td>
-            <td><input type="time" id="myTime" value="00:00"></td>
-            <td><input type="time" id="myTime" value="00:00"></td>
-            <td>
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-                <label class="form-check-label" for="inlineRadio1">Yes</label>
-              </div>
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                <label class="form-check-label" for="inlineRadio2">No</label>
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th scope="col">Employee Name/Id</th>
+              <th scope="col">In Time</th>
+              <th scope="col">Out Time</th>
+              <th scope="col">On Leave</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Employee 1</td>
+              <td><input type="time" id="myTime" value="00:00"></td>
+              <td><input type="time" id="myTime" value="00:00"></td>
+              <td>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                  <label class="form-check-label" for="inlineRadio1">Yes</label>
                 </div>
-            </td>
-          </tr>
-        
-        </tbody>
-      </table>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                  <label class="form-check-label" for="inlineRadio2">No</label>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
       <button type="button" class="btn btn-primary">Save</button>
-      <button type="submit" class="btn btn-primary" style="margin-left: 15px;">Submit</button>
-    
-
+      <button type="submit" [disabled]="!f.valid" class="btn btn-primary" style="margin-left: 15px;">Submit</button>
     </form>
-    </div>
-    </div>
+  </div>
+</div>

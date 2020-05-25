@@ -1,3 +1,16 @@
+<div *ngIf="successStatus" class="alert alert-success" role="alert">
+  {{ message }}
+  <i class="fa fa-times-circle" (click)="closeStatus()"  aria-hidden="true"></i>
+   <!-- <a class="btn btn-primary" routerLink="/login">Go To Login Page</a> -->
+</div>
+
+<div *ngIf="dangerStatus" class="alert alert-danger" role="alert">
+  {{ message }}
+  <i class="fa fa-times-circle" (click)="closeStatus()"  aria-hidden="true"></i>
+   <!-- <a class="btn btn-primary" routerLink="/login">Go To Login Page</a> -->
+</div>
+
+
 <div class="col">
   <div class="row my-row" >
     <div class="col my-col">
@@ -5,7 +18,7 @@
         <li class="breadcrumb-item " >
             <span class="icon">
             <i class="fa fa-briefcase"></i></span>  
-            <span class="heading" style="color: black; background-color: transparent;">Employee List</span></li>
+            <span class="heading" style="color: black; background-color: transparent;">Employer List</span></li>
            
       </ul>
     </div>
@@ -14,7 +27,7 @@
       <ul class="breadcrumb" style="background-color: transparent;">
         <li class="breadcrumb-item"><a routerLink="/dashboard">
           <i class="fa fa-home"></i> Home</a></li>
-        <li class="breadcrumb-item"><a routerLink="/dashboard/employer/list">Employee List</a></li>
+        <li class="breadcrumb-item"><a routerLink="/dashboard/employer/list">Employer List</a></li>
         <li class="breadcrumb-item"><a routerLink="/dashboard/employer/save">New Employer</a></li>
 
       </ul>
@@ -23,38 +36,43 @@
   </div> 
   <div class="row my-row">
     <div class="col my-col1">
-    Employee List Record
-  </div>
+      Employer List Record
+    </div>
   </div>
 </div>
 <div class="card">
   <div class="card-header">
-    Employee List <span style="float: right;"><a routerLink="/dashboard/employer/save" ><i class="fa fa-plus-circle" ></i> New Employee</a></span>
+    Employer List <span style="float: right;"><a routerLink="/dashboard/employer/save" ><i class="fa fa-plus-circle" ></i> New Employer</a></span>
   </div>
   <div class="card-body" style="overflow-x: scroll;">
+
+    <input type="text" class="form-control" [(ngModel)]="email" placeholder="Serach any fields"/>
+
+    <br>
+    
     <table class="table table-bordered">
       <thead>
         <tr>
           <th scope="col">Legal Name</th>
           <th scope="col">Trade Name</th>
           <th scope="col">Logo Path</th>
-         
-
-
+          <th scope="col">Created On</th>
 
         </tr>
       </thead>
-      <tbody>
-        <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-         
-          
+      <tbody *ngIf="employerList?.length != 0">
+        <tr *ngFor="let employerLists of employerList | employerSearch:email; let i = index">
+          <td>{{ employerLists.LegalName }}</td>
+          <td>{{ employerLists.TradeName }}</td>
+          <td>{{ employerLists.LogoPath }}</td>
+          <td>{{ employerLists.CreatedOn }}</td>
         </tr>
-        
-       
       </tbody>
+      <tbody  *ngIf="entity?.length ==0">
+        <tr>
+          <td colspan="3" class="no-data-available">No matching records found</td>
+        </tr>
+      <tbody>
     </table>
-    </div>
-    </div>
+  </div>
+</div>
