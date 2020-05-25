@@ -3,7 +3,7 @@ export interface Entity {
     Name: string;
     LogicalName: string;
     SchemaName: string;
-    ObjectTypeCode: number;
+    // ObjectTypeCode: number;
     Description: string;
     IsMasterEntity: boolean;
     PrimaryAttribute: string;
