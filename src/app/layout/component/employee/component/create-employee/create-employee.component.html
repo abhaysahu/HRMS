@@ -1,6 +1,18 @@
  <!-- This componenet is use for to create the new employee and then redirect to the edited component where user or HR
 both are edited the other in formation  -->
 
+<div *ngIf="successStatus" class="alert alert-success" role="alert">
+  {{ message }}
+  <i class="fa fa-times-circle" (click)="closeStatus()"  aria-hidden="true"></i>
+   <!-- <a class="btn btn-primary" routerLink="/login">Go To Login Page</a> -->
+</div>
+
+<div *ngIf="dangerStatus" class="alert alert-danger" role="alert">
+  {{ message }}
+  <i class="fa fa-times-circle" (click)="closeStatus()"  aria-hidden="true"></i>
+   <!-- <a class="btn btn-primary" routerLink="/login">Go To Login Page</a> -->
+</div>
+
 <section class="content-header z-depth-1">
   <div class="header-icon">
       <i class="fa fa-table"></i>
@@ -68,16 +80,14 @@ both are edited the other in formation  -->
                           min="1000-01-01" class="form-control" required>
                     <div class="invalid-feedback" *ngIf="dateOfConfirmation.touched && dateOfConfirmation.invalid">
                       Date Of Confirmation Is Required.
-                    </div>  
+                    </div>   
                 </div>
 
                 <div class="form-group col-md-4">
                   <label for="division">Division</label>
                   <select class="custom-select" #division="ngModel" [(ngModel)]="Employee.division" name="division" id="division" required>
-                    <option value=""></option>  
-                    <option value="One">One</option>
-                    <option value="Two">Two</option>
-                    <option value="Three">Three</option>
+                    <option>Select any option</option>
+                    <option *ngFor="let dropdownLists of dropdownListOfDivision" [value]="dropdownLists.ObjectTypeCode">{{dropdownLists.Name}}</option>
                   </select>
                   <div class="invalid-feedback" *ngIf="division.touched && division.invalid">
                   	Select One Division, It Is Required.
@@ -88,10 +98,8 @@ both are edited the other in formation  -->
                 <div class="form-group col-md-4">
                   <label for="department">Department</label>
                   <select class="custom-select" #department="ngModel" [(ngModel)]="Employee.department" name="department" id="department" required>
-                    <option selected>Choose...</option>
-                    <option value="One">One</option>
-                    <option value="Two">Two</option>
-                    <option value="Three">Three</option>
+                    <option>Select any option</option>
+                    <option *ngFor="let dropdownLists of dropdownListOfDepartment" [value]="dropdownLists.ObjectTypeCode">{{dropdownLists.Name}}</option>
                   </select>
                   <div class="invalid-feedback" *ngIf="department.touched && department.invalid">
                     Select One Department, It Is Required.
@@ -101,10 +109,9 @@ both are edited the other in formation  -->
                 <div class="form-group col-md-4">
                   <label for="designation">Designation</label>
                   <select class="custom-select" #designation="ngModel" [(ngModel)]="Employee.designation" name="designation" id="designation" required>
-                    <option selected>Choose...</option>
-                    <option value="One">One</option>
-                    <option value="Two">Two</option>
-                    <option value="Three">Three</option>
+                    <option>Select any option</option>
+                    <option *ngFor="let dropdownLists of dropdownListOfDesignation" [value]="dropdownLists.ObjectTypeCode">{{dropdownLists.Name}}</option>
+                  
                   </select>
                   <div class="invalid-feedback" *ngIf="designation.touched && designation.invalid">
                     Select One Designation, It Is Required.
@@ -154,11 +161,9 @@ both are edited the other in formation  -->
                 <div class="form-group col-md-4">
                   <label for="maritalStatus">Marital Status</label>
                   <select class="custom-select" #maritalStatus="ngModel" [(ngModel)]="Employee.maritalStatus" name="maritalStatus" id="maritalStatus" required>
-                    <option selected>Choose...</option>
-                    <option value="Single">Single</option>
-                    <option value="Married">Married</option>
-                    <option value="Widowed">Widowed</option>
-                    <option value="Divorced">Divorced</option>
+                    <option>Select any option</option>
+                    <option *ngFor="let dropdownLists of dropdownListOfMaritalStatus" [value]="dropdownLists.ObjectTypeCode">{{dropdownLists.Name}}</option>
+                  
                   </select>
                   <div class="invalid-feedback" *ngIf="maritalStatus.touched && maritalStatus.invalid">
                     Marital Status Is Required.
@@ -168,10 +173,9 @@ both are edited the other in formation  -->
                 <div class="form-group col-md-4">
                   <label for="gender">Gender</label>
                   <select class="custom-select" #gender="ngModel" [(ngModel)]="Employee.gender" name="gender" id="gender" required>
-                    <option selected>Choose...</option>
-                    <option value="Male">Male</option>
-                    <option value="Female">Female</option>
-                    <option value="Other">Others</option>
+                    <option>Select any option</option>
+                    <option *ngFor="let dropdownLists of dropdownListOfGender" [value]="dropdownLists.ObjectTypeCode">{{dropdownLists.Name}}</option>
+                  
                   </select>
                   <div class="invalid-feedback" *ngIf="gender.touched && gender.invalid">
                     Select Your Gender, It Is Required.
