@@ -10,9 +10,8 @@ export class EmployerSearchPipe implements PipeTransform {
       return value;
     }
     return value.filter((val) => {
-      let rVal = (val.LegalName.toLocaleLowerCase().includes(args)) ||
-                 (val.TradeName.toLocaleLowerCase().includes(args)) ||
-                 (val.SchemaName.toLocaleLowerCase().includes(args));
+      let rVal = (val.LegalName.toLocaleLowerCase().includes(args.toLocaleLowerCase())) ||
+                 (val.TradeName.toLocaleLowerCase().includes(args.toLocaleLowerCase()));
       return rVal;
     })
 

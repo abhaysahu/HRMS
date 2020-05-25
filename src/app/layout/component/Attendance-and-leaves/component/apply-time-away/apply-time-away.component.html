@@ -1,42 +1,30 @@
-<!--<section class="content-header z-depth-1">
-  <div class="header-icon">
-      <i class="fa fa-briefcase"></i>
-  </div>
-  <div class="header-title">
-      <h1>Apply Time Away From Work</h1>
-      <small>Apply Time Away From Work Record</small>
-      <ul class="link hidden-xs">
-          <li><a href="index-2.html"><i class="fa fa-home"></i>Home</a></li>
-          <li><a href="datatable.html">Apply Time Away From Work</a></li>
-      </ul>
-  </div>
-</section>-->
 <div class="col">
-  <div class="row my-row" >
+  <div class="row my-row">
     <div class="col my-col">
-       <ul class="breadcrumb" style="background-color: transparent;">
-        <li class="breadcrumb-item " >
-            <span class="icon">
-            <i class="fa fa-briefcase"></i></span>  
-            <span class="heading" style="color: black; background-color: transparent;">Apply Time Away From Work
-            </span></li>
-           
+      <ul class="breadcrumb" style="background-color: transparent;">
+        <li class="breadcrumb-item ">
+          <span class="icon">
+            <i class="fa fa-briefcase"></i></span>
+          <span class="heading" style="color: black; background-color: transparent;">Apply Time Away From Work
+          </span></li>
+
       </ul>
     </div>
-<div class="col my-col">
-  <div class="a">
-      <ul class="breadcrumb" style="background-color: transparent;">
-        <li class="breadcrumb-item"><a routerLink="/dashboard">
-          <i class="fa fa-home"></i> Home</a></li>
-        <li class="breadcrumb-item"><a routerLink="/dashboard/applytimeawayfromwork">Apply Time Away From Work</a></li>
-      </ul>
-  </div>
-</div>
+    <div class="col my-col">
+      <div class="a">
+        <ul class="breadcrumb" style="background-color: transparent;">
+          <li class="breadcrumb-item"><a routerLink="/dashboard">
+              <i class="fa fa-home"></i> Home</a></li>
+          <li class="breadcrumb-item"><a routerLink="/dashboard/applytimeawayfromwork">Apply Time Away From Work</a>
+          </li>
+        </ul>
+      </div>
+    </div>
   </div>
   <div class="row my-row">
     <div class="col my-col1">
       Apply Time Away From Work Record
-  </div> 
+    </div>
   </div>
 </div>
 
@@ -46,227 +34,235 @@
     Apply Time Away From Work
   </div>
   <div class="card-body">
-    <form #form="ngForm" (submit)="onSubmit(form.value)" class="was-validated">  
+    <form #form="ngForm" (submit)="onSubmit(form.value)" class="was-validated">
       <div class="form">
         <div class="form-row">
+          <div class="form-group col-md-4">
+            <label for="applyFor">Apply For</label>
+
+            <select class="custom-select" #applyFor="ngModel" [(ngModel)]="Attendance.applyFor" name="applyFor" id="applyFor" required>
+              <option selected>Leave</option>
+              <option value="1">Working Out Of Office</option>
+              <option value="2">Work From Home</option>
+              <option value="3">Attendance Modification</option>
+              <option value="4">Earning Compensatory</option>
+              <option value="5">Short Leave</option>
+            </select>
+            <div class="invalid-feedback" *ngIf="applyFor.touched && applyFor.invalid">
+              Apply For is required.
+            </div>
+          </div>
+
+
+          <div class="form-group col-md-4">
+            <label for="from">From</label>
+            <div class="form-group">
+              <input type="date" max="3000-12-31" #from="ngModel" [(ngModel)]="Attendance.from" name="from" id="from"
+                required min="1000-01-01" class="form-control">
+              <div class="invalid-feedback" *ngIf="from.touched && from.invalid">
+                From is required.
+              </div>
+            </div>
+
+
+
+          </div>
+
+          <div class="form-group col-md-4">
+            <label for="to">To</label>
+            <div class="form-group">
+              <input type="date" max="3000-12-31" #to="ngModel" [(ngModel)]="Attendance.to" name="to" id="to" required
+                min="1000-01-01" class="form-control">
+              <div class="invalid-feedback" *ngIf="to.touched && to.invalid">
+                To is required.
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group col-md-2">
+            <label for="noofdays">No. Of Days</label>
+            <input type="number" #noOfDays="ngModel" [(ngModel)]="Attendance.noOfDays" name="noOfDays" id="noOfDays"
+              class="form-control" placeholder="0" step="" min="0" max="10" required>
+            <div class="invalid-feedback" *ngIf="noOfDays.touched && noOfDays.invalid">
+              No Of Days is required.
+            </div>
+          </div><br>
+
+
+          <div class="form-check">
+            <label for="halfDays">Half Days</label><br>
+            <input type="checkbox" #halfDays="ngModel" [(ngModel)]="Attendance.halfDays" name="halfDays" id="halfDays"
+              value="option1" aria-label="...">
+
+          </div>
+        </div>
+        <div>
+          <label for="leavesummary">Leave Sumarry</label>
+
+          <table class="table table-bordered">
+            <thead>
+              <tr class="table-header">
+                <th scope="col"></th>
+                <th scope="col">GL</th>
+                <th scope="col">FL</th>
+                <th scope="col">Comp</th>
+                <th scope="col">Others(BL/PL)</th>
+
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row" class="table-header">B/F</th>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+                <td>Abc</td>
+              </tr>
+              <tr>
+                <th scope="row" class="table-header">Entitlement(CY)</th>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+                <td>Abc</td>
+              </tr>
+              <tr>
+                <th scope="row" class="table-header">Availed(CY)</th>
+                <td>Larry the Bird</td>
+                <td>@twitter</td>
+                <td>@fat</td>
+                <td>Abc</td>
+
+              </tr>
+              <tr>
+                <th scope="row" class="table-header">Applied(CY)</th>
+                <td>Larry the Bird</td>
+                <td>@twitter</td>
+                <td>@fat</td>
+                <td>Abc</td>
+
+              </tr>
+              <tr>
+                <th scope="row" class="table-header">Balance(CY)</th>
+                <td>Larry the Bird</td>
+                <td>@twitter</td>
+                <td>@fat</td>
+                <td>Abc</td>
+
+              </tr>
+            </tbody>
+          </table>
+        </div>
         <div class="form-group col-md-4">
-          <label for="applyFor">Apply For</label>
-          
-          <select class="custom-select" #applyFor="ngModel" [(ngModel)]="Attendance.applyFor" name="applyFor" id="applyFor" required> 
-            <option selected>Leave</option>
-            <option value="1">Working Out Of Office</option>
-            <option value="2">Work From Home</option>
-            <option value="3">Attendance Modification</option>
-            <option value="4">Earning Compensatory</option>
-            <option value="5">Short Leave</option>
+          <label for="applyUnder">Apply Under</label>
+
+          <select class="custom-select" #applyUnder="ngModel" [(ngModel)]="Attendance.applyUnder" name="applyUnder"
+            id="applyUnder" required>
+            <option selected>Select</option>
+            <option value="1">General Leave</option>
+            <option value="2">Floating Leave</option>
+            <option value="3">Compensatory Off</option>
+            <option value="4">Berevement Leave</option>
 
           </select>
-          <div class="invalid-feedback" *ngIf="applyFor.touched && applyFor.invalid">
-            Apply For is required.
+          <div class="invalid-feedback" *ngIf="applyUnder.touched && applyUnder.invalid">
+            Apply Under is required.
           </div>
         </div>
 
 
-        <div class="form-group col-md-4">
-          <label for="from">From</label>
-          <div class="form-group">
-            <input type="date" max="3000-12-31" #from="ngModel" [(ngModel)]="Attendance.from" name="from" id="from" required
-                  min="1000-01-01" class="form-control">                                                                        
-                  <div class="invalid-feedback" *ngIf="from.touched && from.invalid">
-                    From is required.
-                  </div>
-          </div>
-          
-          
-          
-        </div>
-
-        <div class="form-group col-md-4">
-          <label for="to">To</label>
-          <div class="form-group">
-            <input type="date"  max="3000-12-31" #to="ngModel" [(ngModel)]="Attendance.to" name="to" id="to" required
-                  min="1000-01-01" class="form-control">                                                              
-                  <div class="invalid-feedback" *ngIf="to.touched && to.invalid">
-                    To is required.
-                  </div>
-          </div>
-        </div>
-
-        <div class="form-group col-md-2">
-          <label for="noofdays">No. Of Days</label>
-          <input type="number" #noOfDays="ngModel" [(ngModel)]="Attendance.noOfDays" name="noOfDays" id="noOfDays" class="form-control" placeholder="0" step="" min="0" max="10" required>  
-          <div class="invalid-feedback" *ngIf="noOfDays.touched && noOfDays.invalid">
-            No Of Days is required.
-          </div>
-        </div><br>
-
+        <label for="category">Category</label>
 
         <div class="form-check">
-          <label for="halfDays">Half Days</label><br>
-          <input  type="checkbox" #halfDays="ngModel" [(ngModel)]="Attendance.halfDays" name="halfDays" id="halfDays" value="option1" aria-label="...">
-          
+          <label class="form-check-label">
+            <input type="radio" #personalLeave="ngModel" [(ngModel)]="Attendance.personalLeave" name="personalLeave"
+              id="personalLeave" class="form-check-input">Personal Leave
+          </label>
         </div>
+        <div class="form-check-inline">
+          <label class="form-check-label">
+            <input type="radio" #sickLeave="ngModel" [(ngModel)]="Attendance.sickLeave" name="sickLeave" id="sickLeave"
+              class="form-check-input">Sick Leave
+          </label>
+        </div><br>
+        <div class="form-check-inline ">
+          <label class="form-check-label">
+            <input type="radio" #emergencyLeave="ngModel" [(ngModel)]="Attendance.emergencyLeave" name="emergencyLeave"
+              id="emergencyLeave" class="form-check-input">Emergency Leave
+          </label>
         </div>
-       <div>
-        <label for="leavesummary">Leave Sumarry</label>
+        <br><br>
+        <div class="form-group col-md-6">
+          <div class="form-group">
+            <label for="reasonofLeave">Reason Of Leave</label>
 
-        <table class="table table-bordered">
-          <thead>
-            <tr class="table-header" >
-              <th scope="col" ></th>
-              <th scope="col">GL</th>
-              <th scope="col">FL</th>
-              <th scope="col">Comp</th>
-              <th scope="col">Others(BL/PL)</th>
-
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th scope="row" class="table-header">B/F</th>
-              <td>Jacob</td>
-              <td>Thornton</td>
-              <td>@fat</td>
-              <td>Abc</td>
-            </tr>
-            <tr >
-              <th scope="row" class="table-header">Entitlement(CY)</th>
-              <td>Jacob</td>
-              <td>Thornton</td>
-              <td>@fat</td>
-              <td>Abc</td>
-            </tr>
-            <tr>
-              <th scope="row" class="table-header">Availed(CY)</th>
-              <td >Larry the Bird</td>
-              <td>@twitter</td>
-              <td>@fat</td>
-              <td>Abc</td>
-
-            </tr>
-            <tr>
-              <th scope="row" class="table-header">Applied(CY)</th>
-              <td >Larry the Bird</td>
-              <td>@twitter</td>
-              <td>@fat</td>
-              <td>Abc</td>
-
-            </tr>
-            <tr>
-              <th scope="row" class="table-header">Balance(CY)</th>
-              <td >Larry the Bird</td>
-              <td>@twitter</td>
-              <td>@fat</td>
-              <td>Abc</td>
-
-            </tr>
-          </tbody>
-        </table>
-       </div>
-       <div class="form-group col-md-4">
-        <label for="applyUnder">Apply Under</label>
-        
-        <select class="custom-select" #applyUnder="ngModel" [(ngModel)]="Attendance.applyUnder" name="applyUnder" id="applyUnder" required>     
-          <option selected>Select</option>
-          <option value="1">General Leave</option>
-          <option value="2">Floating Leave</option>
-          <option value="3">Compensatory Off</option>
-          <option value="4">Berevement Leave</option>
-
-        </select>
-        <div class="invalid-feedback" *ngIf="applyUnder.touched && applyUnder.invalid">
-          Apply Under is required.
-        </div>
-      </div>
-
-
-      <label for="category">Category</label>
-
-      <div class="form-check">
-        <label class="form-check-label">
-          <input type="radio" #personalLeave="ngModel" [(ngModel)]="Attendance.personalLeave" name="personalLeave" id="personalLeave" class="form-check-input" >Personal Leave
-        </label>
-      </div>
-      <div class="form-check-inline">
-        <label class="form-check-label">
-          <input type="radio" #sickLeave="ngModel" [(ngModel)]="Attendance.sickLeave" name="sickLeave" id="sickLeave" class="form-check-input" >Sick Leave
-        </label>
-      </div><br>
-      <div class="form-check-inline ">
-        <label class="form-check-label">
-          <input type="radio" #emergencyLeave="ngModel" [(ngModel)]="Attendance.emergencyLeave" name="emergencyLeave" id="emergencyLeave" class="form-check-input"  >Emergency Leave
-        </label>
-      </div>
-      <br><br>
-      <div class="form-group col-md-6">
-        <div class="form-group">
-          <label for="reasonofLeave">Reason Of Leave</label>
-
-          <textarea class="form-control"  rows="5" #reasonOfLeave="ngModel" [(ngModel)]="Attendance.reasonOfLeave" name="reasonOfLeave" id="reasonOfLeave" required></textarea>
-          <div class="invalid-feedback" *ngIf="reasonOfLeave.touched && reasonOfLeave.invalid">
-            Reason Of Leave is required.
+            <textarea class="form-control" rows="5" #reasonOfLeave="ngModel" [(ngModel)]="Attendance.reasonOfLeave"
+              name="reasonOfLeave" id="reasonOfLeave" required></textarea>
+            <div class="invalid-feedback" *ngIf="reasonOfLeave.touched && reasonOfLeave.invalid">
+              Reason Of Leave is required.
+            </div>
           </div>
-        </div>
-      </div><br>
-      <div class="form-group col-md-6">
-        <div class="form-group">
-          <label for="remarks">Remarks</label>
-          <textarea class="form-control"  rows="3" #remarks="ngModel" [(ngModel)]="Attendance.remarks" name="remarks" id="remarks" required></textarea>   <!-- you have to add one word here. go and check ant input field of create componet and find that word -->
-          <div class="invalid-feedback" *ngIf="remarks.touched && remarks.invalid">
+        </div><br>
+        <div class="form-group col-md-6">
+          <div class="form-group">
+            <label for="remarks">Remarks</label>
+            <textarea class="form-control" rows="3" #remarks="ngModel" [(ngModel)]="Attendance.remarks" name="remarks"
+              id="remarks" required></textarea>
+            <!-- you have to add one word here. go and check ant input field of create componet and find that word -->
+            <div class="invalid-feedback" *ngIf="remarks.touched && remarks.invalid">
               Remarks are required.
             </div>
+          </div>
+
+        </div><br>
+        <div>
+          <label>I have informed the RM about my leave/s</label><br>
+          <div class="form-check-inline">
+            <label class="form-check-label">
+              <input type="radio" class="form-check-input" name="optradio">Yes
+            </label>
+          </div>
+          <div class="form-check-inline">
+            <label class="form-check-label">
+              <input type="radio" class="form-check-input" name="optradio">No
+            </label>
+          </div>
+        </div><br>
+        <div class="form-group col-md-4">
+          <label for="approvalName">Approval Name</label>
+
+          <select class="custom-select" #approvalName="ngModel" [(ngModel)]="Attendance.approvalName"
+            name="approvalName" id="approvalName" id="approvalName" required>
+            <option selected>Select</option>
+            <option value="1">General Leave</option>
+            <option value="2">Floating Leave</option>
+            <option value="3">Compensatory Off</option>
+            <option value="4">Berevement Leave</option>
+
+
+
+          </select>
+          <div class="invalid-feedback" *ngIf="approvalName.touched && approvalName.invalid">
+            Approval Name is required.
+          </div>
+        </div>
+        <div style="margin-left: 400px;">
+          <button type="submit" [disabled]="!f.valid" class="btn btn-primary">Submit</button>
+
+          <button type="button" class="btn btn-primary" style="margin-left: 10px;">Cancel</button>
+
         </div>
 
-      </div><br>
-      <div>
-        <label>I have informed the RM about my leave/s</label><br>
-        <div class="form-check-inline">
-          <label class="form-check-label">
-            <input type="radio" class="form-check-input" name="optradio">Yes
-          </label>
-        </div>
-        <div class="form-check-inline">
-          <label class="form-check-label">
-            <input type="radio" class="form-check-input" name="optradio">No
-          </label>
-        </div>
-      </div><br>
-      <div class="form-group col-md-4">
-        <label for="approvalName">Approval Name</label>
-        
-        <select class="custom-select" #approvalName="ngModel" [(ngModel)]="Attendance.approvalName" name="approvalName" id="approvalName" id="approvalName" required>
-          <option selected>Select</option>
-          <option value="1">General Leave</option>
-          <option value="2">Floating Leave</option>
-          <option value="3">Compensatory Off</option>
-          <option value="4">Berevement Leave</option>
 
 
 
-        </select>
-        <div class="invalid-feedback" *ngIf="approvalName.touched && approvalName.invalid">
-          Approval Name is required.
-        </div>
+
+
+
+
+
+
+
       </div>
-      <div style="margin-left: 400px;">
-      <button type="submit" class="btn btn-primary">Submit</button>
-      
-      <button type="button" class="btn btn-primary" style="margin-left: 10px;">Cancel</button>
-
-        </div>
-
-
-       
-
-      
-        
-
-       
-
-        
-
-      </div>   
     </form>
-    </div>
-    </div>
-
+  </div>
+</div>
