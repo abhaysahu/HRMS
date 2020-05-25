@@ -6,10 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./employer-save.component.css']
 })
 export class EmployerSaveComponent implements OnInit {
+  Employer: any[] = [];
+
 
   constructor() { }
 
   ngOnInit() {
   }
-
+  onSubmit(employer) {
+    console.log(employer)  
+  }
 }
+ 

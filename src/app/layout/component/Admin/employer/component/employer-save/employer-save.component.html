@@ -33,29 +33,40 @@
     Add Employee<span style="float: right;"><a routerLink="/dashboard/employer/list" ><i class="fa fa-plus-circle" ></i> Employee List</a></span>
   </div>
   <div class="card-body">
-    <form>  
+    <form  #form="ngForm" (submit)="onSubmit(form.value)" class="was-validated">  
       <div class="form-row">
         <div class="form-group col-md-4">
 
         <label for="legalName">Legal Name</label>
-        <!--<input type="text" class="form-control" id="legalName">-->
-        <textarea class="form-control" rows="3" id="legalName" ></textarea>
+        <input type="text" class="form-control"  #LegalName="ngModel" [(ngModel)]="Employer.LegalName" name="LegalName"  id="LegalName" maxlength="200"  required>
+        <div class="invalid-feedback" *ngIf="LegalName.touched && LegalName.invalid">
+          LegalName is required.
+        </div>
+
        </div>
 
        <div class="form-group col-md-4">
 
-        <label for="tradeName">Trade Name</label>
-        <!--<input type="text" class="form-control" id="legalName">-->
-        <textarea class="form-control" rows="3" id="tradeName" ></textarea>
+        <label for="TradeName">Trade Name</label>
+        <input type="text" class="form-control" #TradeName="ngModel" [(ngModel)]="Employer.TradeName" name="TradeName"  id="TradeName" maxlength="200"  required>
+        <div class="invalid-feedback" *ngIf="TradeName.touched && TradeName.invalid">
+          TradeName is required.
+        </div>
+
        </div>
        <div class="form-group col-md-4">
 
         <label for="pathLogo">Path Logo</label>
-        <!--<input type="text" class="form-control" id="legalName">-->
-        <textarea class="form-control" rows="3" id="pathLogo" ></textarea>
+        <input type="text" class="form-control" #PathLogo="ngModel" [(ngModel)]="Employer.PathLogo" name="Employer"  id="Employer" maxlength="200"  required>
+        <div class="invalid-feedback" *ngIf="PathLogo.touched && PathLogo.invalid">
+          PathLogo is required.
+        </div>
+
       </div>
 
 
         </div>
+        <button type="submit"   class="btn btn-primary">Save</button>
+
         </form>
         </div>
