@@ -13,7 +13,7 @@ export class SearchPipe implements PipeTransform {
                  (val.LogicalName.toLocaleLowerCase().includes(args)) ||
                  (val.SchemaName.toLocaleLowerCase().includes(args)) ||
                 //  (val.ObjectTypeCode.toLocaleLowerCase().includes(args)) ||
-                 (val.Description.toLocaleLowerCase().includes(args)) ||
+                //  (val.Description.toLocaleLowerCase().includes(args)) ||
                 //  (val.IsMasterEntity.toLocaleLowerCase().includes(args)) ||
                  (val.PrimaryAttribute.toLocaleLowerCase().includes(args)) ||
                  (val.PrimaryKey.toLocaleLowerCase().includes(args));
