@@ -4,6 +4,19 @@ import { EntityService } from '../../service/entity.service';
 import { EntityList } from '../../model/entityList';
 import { AppResponse } from 'src/app/models/appResponse';
 
+
+export class Entitys { 
+
+  Name: string
+  LogicalName: string
+  SchemaName: string
+  ObjectTypeCode: number
+  Description: string
+  IsMasterEntity: boolean
+  PrimaryAttribute: string
+  PrimaryKey: string
+}
+
 @Component({
   selector: 'app-entity-list',
   templateUrl: './entity-list.component.html',
@@ -14,7 +27,7 @@ export class EntityListComponent implements OnInit {
   // entity: EntityList[]=[]
   ascNumberSort = true;
   indexs:any[]=[];
-  entity:any[]=[];
+  entity:Entitys[]=[];
   
   sortIcon1="fa fa-sort"
   sortIcon2="fa fa-sort"
@@ -38,16 +51,16 @@ export class EntityListComponent implements OnInit {
 
   constructor(private entityService: EntityService) { 
 
-    this.entity=[{
-      Name: null,
-      LogicalName: null,
-      SchemaName: null,
-      ObjectTypeCode: null,
-      Description: null,
-      IsMasterEntity: null,
-      PrimaryAttribute: null,
-      PrimaryKey: null,
-    }]
+    // this.entity=[{
+    //   Name: null,
+    //   LogicalName: null,
+    //   SchemaName: null,
+    //   ObjectTypeCode: null,
+    //   Description: null,
+    //   IsMasterEntity: null,
+    //   PrimaryAttribute: null,
+    //   PrimaryKey: null,
+    // }]
 
     
 
