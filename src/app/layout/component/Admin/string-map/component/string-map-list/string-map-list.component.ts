@@ -6,19 +6,27 @@ import { StringMapList } from '../../model/stringMapList.module';
 import { AppResponse } from 'src/app/models/appResponse';
 import { DropDownList } from '../../model/dropdownLIst';
 
+export class stringMapList  { 
+
+  EntityName:string;
+  AttributeName:string;
+  CountStringMap:number;
+}
+
 
 @Component({
   selector: 'app-string-map-list',
   templateUrl: './string-map-list.component.html',
   styleUrls: ['./string-map-list.component.css']
 })
+
+
 export class StringMapListComponent implements OnInit {
 
-  stringMapList: any[]=[]
+  stringMapList: stringMapList[]=[]
   dropdownList: DropDownList[]=[];
   ascNumberSort = true;
   indexs:any[]=[];
-  stringMap:any[]=[];
   
   sortIcon1="fa fa-sort"
   sortIcon2="fa fa-sort"
@@ -39,13 +47,6 @@ export class StringMapListComponent implements OnInit {
   constructor(private dialog: MatDialog,
               private stringmapService: StringMapService,
               ){  
-                this.stringMapList=[{
-                  EntityName: null,
-                  AttributeName: null,
-                  CountStringMap: null,
-                }]
-            
-
 
     this.stringmapService.getdropdownData().subscribe(resp =>{
    
@@ -203,12 +204,12 @@ export class StringMapListComponent implements OnInit {
       if(this.ascNumberSort) 
       {
         this.sortIcon3="fa fa-sort-desc"
-        this.stringMapList=this.stringMapList.sort((a,b)=>a.CountStringMap.localeCompare(b.CountStringMap)); // For ascending sort
+        this.stringMapList=this.stringMapList.sort((a,b)=>a.CountStringMap - b.CountStringMap); // For ascending sort
       } 
       else 
       {
         this.sortIcon3="fa fa-sort-asc"
-        this.stringMapList=this.stringMapList.sort((a,b)=>b.CountStringMap.localeCompare(a.CountStringMap)); // For descending sort
+        this.stringMapList=this.stringMapList.sort((a,b)=>b.CountStringMap - a.CountStringMap); // For descending sort
       }
     }
 
