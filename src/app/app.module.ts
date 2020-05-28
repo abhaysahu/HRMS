@@ -81,6 +81,7 @@ import { ServiceRequestsService } from './layout/component/Service-request/servi
 import { EmployerListComponent } from './layout/component/Admin/employer/component/employer-list/employer-list.component';
 import { EmployerSaveComponent } from './layout/component/Admin/employer/component/employer-save/employer-save.component';
 import { EmployerSearchPipe } from './layout/component/Admin/employer/employer-search.pipe';
+import { AddAttendanceSearchPipe } from './layout/component/Attendance-and-leaves/pipe/add-attendance-search.pipe';
 
 
 
@@ -127,7 +128,8 @@ import { EmployerSearchPipe } from './layout/component/Admin/employer/employer-s
     
 
     SearchPipe,
-    EmployerSearchPipe
+    EmployerSearchPipe,
+    AddAttendanceSearchPipe
 
   ],
   imports: [

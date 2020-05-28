@@ -31,7 +31,7 @@
     Add Attendance
   </div>
   <div class="card-body">
-    <form #form="ngForm">
+    
       <div class="form-row">
         <div class="form-group col-md-4">
           <label for="date">Date</label>
@@ -41,6 +41,8 @@
         </div>
       </div><br>
 
+      <input type="text" class="form-control" [(ngModel)]="email" placeholder="Serach any fields"/>
+      <br>
 
       <div style="overflow-x: scroll;">
         <table class="table table-bordered">
@@ -55,7 +57,7 @@
             </tr>
           </thead>
           <tbody *ngIf="Addattendance?.length != 0">
-            <tr *ngFor="let addAttendances of Addattendance; let i = index">
+            <tr *ngFor="let addAttendances of Addattendance | addAttendanceSearch:email; let i = index">
 
               <td>{{ addAttendances.Name }}</td>
               <td>
@@ -119,6 +121,6 @@
       </div>
       <button type="button" (click)="Save()" class="btn btn-primary">Save</button>
       <button type="submit" class="btn btn-primary" style="margin-left: 15px;">Submit</button>
-    </form>
+  
   </div>
 </div>

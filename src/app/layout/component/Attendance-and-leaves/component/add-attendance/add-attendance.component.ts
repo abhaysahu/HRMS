@@ -9,6 +9,8 @@ import { AttendanceService } from '../../service/attendance.service';
 export class AddAttendanceComponent implements OnInit {
   Addattendance: any[] = [];
 
+  email="";
+
 
 
   constructor(private attendanceService: AttendanceService) { 
