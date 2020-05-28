@@ -1,0 +1,46 @@
+{
+    "data": [
+      {
+        "id": 1,
+        "Name": "abhay sahu",
+        "Intime": "10:00",
+        "OutTime": "20:00",
+        "Status": 1
+      },
+      {
+        "id": 2,
+        "Name": "pooja sahu",
+        "Intime": "10:00",
+        "OutTime": "20:00",
+        "Status": 1
+      },
+      {
+        "id": 3,
+        "Name": "aastha jain",
+        "Intime": "10:00",
+        "OutTime": "20:00",
+        "Status": 1
+      },
+      {
+        "id": 4,
+        "Name": "Harshita",
+        "Intime": "10:00",
+        "OutTime": "20:00",
+        "Status": 1
+      },
+      {
+        "id": 5,
+        "Name": "aarti sahu",
+        "Intime": "10:00",
+        "OutTime": "20:00",
+        "Status": 1
+      },
+      {
+        "id": 6,
+        "Name": "neru sahu",
+        "Intime": "10:00",
+        "OutTime": "20:00",
+        "Status": 1
+      }
+    ]
+}
