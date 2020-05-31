@@ -164,6 +164,47 @@
                   </select>
                 </div>
 
+               <!---- <div class="form-group col-md-3">
+                  <label for="aadharCardNumber">Aadhar Card Number</label><br>
+                  <input type="text" class="form-control" #aadharCardNumber="ngModel" [(ngModel)]="Employee.aadharCardNumber" id="aadharCardNumber" name="aadharCardNumber" min="0000000000" max="999999999999999" readonly>
+                </div>
+
+                <div class="form-group col-md-3">
+                  <label for="panCard">PAN #</label><br>
+                  <input type="text" class="form-control" #panCard="ngModel" [(ngModel)]="Employee.panCard" id="panCard" name="panCard" min="0000000000" max="999999999999999" readonly>
+                </div>
+
+                <div class="form-group col-md-3">
+                  <label for="uanCard">UAN #</label><br>
+                  <input type="text"  class="form-control" #uanCard="ngModel" [(ngModel)]="Employee.uanCard" id="uanCard" name="uanCard" min="0000000000" max="999999999999999" readonly>
+                </div>
+
+                <div class="form-group col-md-3">
+                  <label for="pfCard">PF #</label><br>
+                  <input type="text" class="form-control" #pfCard="ngModel" [(ngModel)]="Employee.pfCard" id="pfCard" name="pfCard" min="0000000000" max="999999999999999" readonly>
+                </div>-->
+
+              </div>
+              
+              <!-- <button type="submit" class="btn btn-primary">Save</button> -->
+            </form>
+            
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header" id="headingTwo">
+          <h2 class="mb-0">
+            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+              KYC Details
+            </button>
+          </h2>
+        </div>
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+          <div class="card-body">
+              <form #f="ngForm" (ngSubmit)="Current(f.value)" class="was-validated">
+              <div class="form-row">
                 <div class="form-group col-md-3">
                   <label for="aadharCardNumber">Aadhar Card Number</label><br>
                   <input type="text" class="form-control" #aadharCardNumber="ngModel" [(ngModel)]="Employee.aadharCardNumber" id="aadharCardNumber" name="aadharCardNumber" min="0000000000" max="999999999999999" readonly>
@@ -183,26 +224,31 @@
                   <label for="pfCard">PF #</label><br>
                   <input type="text" class="form-control" #pfCard="ngModel" [(ngModel)]="Employee.pfCard" id="pfCard" name="pfCard" min="0000000000" max="999999999999999" readonly>
                 </div>
+                
 
+                
               </div>
-              
-              <!-- <button type="submit" class="btn btn-primary">Save</button> -->
+
+
+            
+              <button type="submit" class="btn btn-primary">Save</button>
             </form>
             
           </div>
         </div>
       </div>
+      <!---->
 
     
       <div class="card">
-        <div class="card-header" id="headingTwo">
+        <div class="card-header" id="headingThree">
           <h2 class="mb-0">
-            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
               Current Contact Details
             </button>
           </h2>
         </div>
-        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
           <div class="card-body">
               <form #f="ngForm" (ngSubmit)="Current(f.value)" class="was-validated">
               <div class="form-row">
@@ -276,16 +322,17 @@
           </div>
         </div>
       </div>
+      <!---->
 
       <div class="card">
-        <div class="card-header" id="headingThree">
+        <div class="card-header" id="headingFour">
           <h2 class="mb-0">
-            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseThree">
               Permanent Contact Details
             </button>
           </h2>
         </div>
-        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+        <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
           <div class="card-body">
 
       
@@ -371,14 +418,14 @@
       </div>
 
         <div class="card">
-        <div class="card-header" id="headingfour">
+        <div class="card-header" id="headingFive">
           <h2 class="mb-0">
-            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapsefour" aria-expanded="false" aria-controls="collapseThree">
+            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseThree">
               Emergency Contact Details
             </button>
           </h2>
         </div>
-        <div id="collapsefour" class="collapse" aria-labelledby="headingfour" data-parent="#accordionExample">
+        <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordionExample">
           <div class="card-body">
 
             <div class="form-row shift">
