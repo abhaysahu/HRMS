@@ -58,12 +58,30 @@ both are edited the other in formation  -->
           <div class="card-body">
               <form #f="ngForm" (ngSubmit)="Basic(f.value)" class="was-validated">
               <div class="form-row">
+
                 <div class="form-group col-md-4">
-                  <label for="name">Full Name</label>
-                  <input #name="ngModel" [(ngModel)]="Employee.name" name="name" id="name" type="text" class="form-control" placeholder="Employee Name" required>
-                  <div class="invalid-feedback" *ngIf="name.touched && name.invalid">
+                  <label for="FullName">Full Name</label>
+                  <input #FullName="ngModel" [(ngModel)]="Employee.FullName" name="FullName" id="FullName" type="text" class="form-control" placeholder="Employee Name" required>
+                  <div class="invalid-feedback" *ngIf="FullName.touched && FullName.invalid">
                     Full Name is Required.
                   </div>
+                </div>
+
+                <div class="form-group col-md-4">
+                  <label for="PersonalEmail">Personal Email</label>
+                  <input type="text" class="form-control" #PersonalEmail="ngModel" [(ngModel)]="Employee.PersonalEmail" name="PersonalEmail" id="PersonalEmail" placeholder="Personal Email ID" required>
+                  <div class="invalid-feedback" *ngIf="PersonalEmail.touched && PersonalEmail.invalid">
+                    Email Is Required.
+                  </div>  
+                </div>
+
+
+                <div class="form-group col-md-4">
+                  <label for="OfficialEmail">Official Email</label>
+                  <input type="text" class="form-control" #OfficialEmail="ngModel" [(ngModel)]="Employee.OfficialEmail" name="OfficialEmail" id="OfficialEmail" required>
+                  <div class="invalid-feedback" *ngIf="OfficialEmail.touched && OfficialEmail.invalid">
+                    Email Is Required.
+                  </div>  
                 </div>
 
                 <!-- <div class="form-group col-md-4">
@@ -78,24 +96,25 @@ both are edited the other in formation  -->
 
 
                 <div class="form-group col-md-4">
-                  <label for="dateOfJoining">Date Of Joining</label>
-                    <input type="date" max="3000-12-31"  #dateOfJoining="ngModel" [(ngModel)]="Employee.dateOfJoining" name="dateOfJoining" id="dateOfJoining"
+                  <label for="DateOfJoining">Date Of Joining</label>
+                    <input type="date" max="3000-12-31"  #DateOfJoining="ngModel" [(ngModel)]="Employee.DateOfJoining" name="DateOfJoining" id="DateOfJoining"
                           min="1000-01-01" class="form-control" required>
-										<div class="invalid-feedback" *ngIf="dateOfJoining.touched && dateOfJoining.invalid">
+										<div class="invalid-feedback" *ngIf="DateOfJoining.touched && DateOfJoining.invalid">
 											Date of Joining is Required.
 										</div>                  
                 </div>
 
-                <div class="form-group col-md-4">
+                <!-- <div class="form-group col-md-4">
                   <label for="dateOfConfirmation">Date Of Confirmation</label>
                     <input type="date" max="3000-12-31" #dateOfConfirmation="ngModel" [(ngModel)]="Employee.dateOfConfirmation" name="dateOfConfirmation" id="dateOfConfirmation"
                           min="1000-01-01" class="form-control" required>
                     <div class="invalid-feedback" *ngIf="dateOfConfirmation.touched && dateOfConfirmation.invalid">
                       Date Of Confirmation Is Required.
                     </div>   
-                </div>
+                </div> -->
+                
 
-                <div class="form-group col-md-4">
+                <!-- <div class="form-group col-md-4">
                   <label for="division">Division</label>
                   <select class="custom-select" #division="ngModel" [(ngModel)]="Employee.division" name="division" id="division" required>
                     <option>Select any option</option>
@@ -104,60 +123,53 @@ both are edited the other in formation  -->
                   <div class="invalid-feedback" *ngIf="division.touched && division.invalid">
                   	Select One Division, It Is Required.
                   </div>  
-                </div>
+                </div> -->
 
               
                 <div class="form-group col-md-4">
-                  <label for="department">Department</label>
-                  <select class="custom-select" #department="ngModel" [(ngModel)]="Employee.department" name="department" id="department" required>
+                  <label for="Department">Department</label>
+                  <select class="custom-select" type="number" #Department="ngModel" [(ngModel)]="Employee.Department" name="Department" id="Department" required>
                     <option>Select any option</option>
-                    <option *ngFor="let dropdownLists of dropdownListOfDepartment" [value]="dropdownLists.Value">{{dropdownLists.Text}}</option>
+                    <option *ngFor="let dropdownLists of dropdownListOfDepartment" [value]=dropdownLists.Value>{{dropdownLists.Text}}</option>
                   </select>
-                  <div class="invalid-feedback" *ngIf="department.touched && department.invalid">
+                  <div class="invalid-feedback" *ngIf="Department.touched && Department.invalid">
                     Select One Department, It Is Required.
                   </div>  
                 </div>
 
                 <div class="form-group col-md-4">
-                  <label for="designation">Designation</label>
-                  <select class="custom-select" #designation="ngModel" [(ngModel)]="Employee.designation" name="designation" id="designation" required>
+                  <label for="Designation">Designation</label>
+                  <select class="custom-select" type="number" #Designation="ngModel" [(ngModel)]="Employee.Designation" name="Designation" id="Designation" required>
                     <option>Select any option</option>
-                    <option *ngFor="let dropdownLists of dropdownListOfDesignation" [value]="dropdownLists.Value">{{dropdownLists.Text}}</option>
+                    <option *ngFor="let dropdownLists of dropdownListOfDesignation" [value]=dropdownLists.Value>{{dropdownLists.Text}}</option>
                   
                   </select>
-                  <div class="invalid-feedback" *ngIf="designation.touched && designation.invalid">
+                  <div class="invalid-feedback" *ngIf="Designation.touched && Designation.invalid">
                     Select One Designation, It Is Required.
                   </div>  
                 </div>
 
                 <div class="form-group col-md-4">
-                  <label for="grade">Grade</label>
-                  <input type="number" #grade="ngModel" [(ngModel)]="Employee.grade" name="grade" id="grade" class="form-control" placeholder="1.0" step="0.01" min="0" max="10" required>
-                  <div class="invalid-feedback" *ngIf="grade.touched && grade.invalid">
+                  <label for="Grade">Grade</label>
+                  <input type="number" #Grade="ngModel" [(ngModel)]="Employee.Grade" name="Grade" id="Grade" class="form-control" placeholder="1.0" step="0.01" min="0" max="10" required>
+                  <div class="invalid-feedback" *ngIf="Grade.touched && Grade.invalid">
                     Grade is Required.
                   </div>  
                 </div>
 
-                <div class="form-group col-md-4">
-                  <label for="email">E-mail</label>
-                  <input type="text" class="form-control" #email="ngModel" [(ngModel)]="Employee.email" name="email" id="email" required>
-                  <div class="invalid-feedback" *ngIf="email.touched && email.invalid">
-                    Email Is Required.
-                  </div>  
-                </div>
 
                 <div class="form-group col-md-4">
-                  <label for="highQualification">High Qualification</label>
-                  <input type="text" class="form-control"#highQualification="ngModel" [(ngModel)]="Employee.highQualification" name="highQualification" id="highQualification" required>
-                  <div class="invalid-feedback" *ngIf="highQualification.touched && highQualification.invalid">
+                  <label for="HighestQualification">High Qualification</label>
+                  <input type="text" class="form-control"#HighestQualification="ngModel" [(ngModel)]="Employee.HighestQualification" name="HighestQualification" id="HighestQualification" required>
+                  <div class="invalid-feedback" *ngIf="HighestQualification.touched && HighestQualification.invalid">
                     High Qualification Is Required.
                   </div> 
                 </div>
                 
                 <div class="form-group col-md-4">
-                  <label for="totalExperiece">Total Experience(yrs)</label><br>
-                  <input type="number" id="totalExperiece" class="form-control" #totalExperiece="ngModel" [(ngModel)]="Employee.totalExperiece" name="totalExperiece" id="totalExperiece" min="1" max="20" required>
-                  <div class="invalid-feedback" *ngIf="totalExperiece.touched && totalExperiece.invalid">
+                  <label for="PriorExperience">Total Experience(yrs)</label><br>
+                  <input type="number" id="PriorExperience" class="form-control" #PriorExperience="ngModel" [(ngModel)]="Employee.PriorExperience" name="PriorExperience" id="PriorExperience" min="1" max="20" required>
+                  <div class="invalid-feedback" *ngIf="PriorExperience.touched && PriorExperience.invalid">
                     Total Experience Is Required.
                   </div>
                 </div>
@@ -171,64 +183,62 @@ both are edited the other in formation  -->
                 </div> -->
 
                 <div class="form-group col-md-4">
-                  <label for="maritalStatus">Marital Status</label>
-                  <select class="custom-select" #maritalStatus="ngModel" [(ngModel)]="Employee.maritalStatus" name="maritalStatus" id="maritalStatus" required>
+                  <label for="MaritalStatus">Marital Status</label>
+                  <select type="number" class="custom-select" #MaritalStatus="ngModel" [(ngModel)]="Employee.MaritalStatus" name="MaritalStatus" id="MaritalStatus" required>
                     <option>Select any option</option>
-                    <option *ngFor="let dropdownLists of dropdownListOfMaritalStatus" [value]="dropdownLists.Value">{{dropdownLists.Text}}</option>
+                    <option *ngFor="let dropdownLists of dropdownListOfMaritalStatus" [value]=dropdownLists.Value>{{dropdownLists.Text}}</option>
                   
                   </select>
-                  <div class="invalid-feedback" *ngIf="maritalStatus.touched && maritalStatus.invalid">
+                  <div class="invalid-feedback" *ngIf="MaritalStatus.touched && MaritalStatus.invalid">
                     Marital Status Is Required.
                   </div>
                 </div>
 
                 <div class="form-group col-md-4">
-                  <label for="gender">Gender</label>
-                  <select class="custom-select" #gender="ngModel" [(ngModel)]="Employee.gender" name="gender" id="gender" required>
+                  <label for="Gender">Gender</label>
+                  <select type="number" class="custom-select" #Gender="ngModel" [(ngModel)]="Employee.Gender" name="Gender" id="Gender" required>
                     <option>Select any option</option>
-                    <option *ngFor="let dropdownLists of dropdownListOfGender" [value]="dropdownLists.Value">{{dropdownLists.Text}}</option>
+                    <option *ngFor="let dropdownLists of dropdownListOfGender" [value]=dropdownLists.Value>{{dropdownLists.Text}}</option>
                   
                   </select>
-                  <div class="invalid-feedback" *ngIf="gender.touched && gender.invalid">
+                  <div class="invalid-feedback" *ngIf="Gender.touched && Gender.invalid">
                     Select Your Gender, It Is Required.
                   </div>
                 </div>
 
+
                 <div class="form-group col-md-4">
-                  <label for="aadharCardNumber">Aadhar Card Number</label><br>
-                  <input type="text" class="form-control" #aadharCardNumber="ngModel" [(ngModel)]="Employee.aadharCardNumber" id="aadharCardNumber" name="aadharCardNumber" min="0000000000" max="999999999999999" required>
-                  <div class="invalid-feedback" *ngIf="aadharCardNumber.touched">
-                    Aadhar Card Number Is Required.
+                  <label for="PrimaryManagerId">PrimaryManagerId</label>
+                  <select type="text" class="custom-select" #PrimaryManagerId="ngModel" [(ngModel)]="Employee.PrimaryManagerId" name="PrimaryManagerId" id="PrimaryManagerId" required>
+                    <option value="">Select any option</option>
+                    <option *ngFor="let dropdownLists of dropdownListOfUser" [value]=dropdownLists.Id>{{dropdownLists.FullName}}</option>
+                  
+                  </select>
+                  <div class="invalid-feedback" *ngIf="PrimaryManagerId.touched && PrimaryManagerId.invalid">
+                    Select Your Gender, It Is Required.
                   </div>
                 </div>
 
+
                 <div class="form-group col-md-4">
-                  <label for="panCard">PAN #</label><br>
-                  <input type="text" class="form-control" #panCard="ngModel" [(ngModel)]="Employee.panCard" id="panCard" name="panCard" min="0000000000" max="999999999999999" required>
-                  <div class="invalid-feedback" *ngIf="panCard.touched && panCard.invalid">
-                    PAN Number Is Required.
+                  <label for="EmployeeStatus">Employee Status</label>
+                  <select type="number" class="custom-select" #EmployeeStatus="ngModel" [(ngModel)]="Employee.EmployeeStatus" name="EmployeeStatus" id="EmployeeStatus" required>
+                    <option value="">Select any option</option>
+                    <option *ngFor="let dropdownLists of dropdownListOfStatus" [value]=dropdownLists.Value>{{dropdownLists.Text}}</option>
+                  
+                  </select>
+                  <div class="invalid-feedback" *ngIf="EmployeeStatus.touched && EmployeeStatus.invalid">
+                    Select Your Gender, It Is Required.
                   </div>
                 </div>
 
-                <div class="form-group col-md-4">
-                  <label for="uanCard">UAN #</label><br>
-                  <input type="text"  class="form-control" #uanCard="ngModel" [(ngModel)]="Employee.uanCard" id="uanCard" name="uanCard" min="0000000000" max="999999999999999" required>
-                  <div class="invalid-feedback" *ngIf="uanCard.touched && uanCard.invalid">
-                    UAN Number Is Required.
-                  </div>
-                </div>
-
-                <div class="form-group col-md-4">
-                  <label for="pfCard">PF #</label><br>
-                  <input type="text" class="form-control" #pfCard="ngModel" [(ngModel)]="Employee.pfCard" id="pfCard" name="pfCard" min="0000000000" max="999999999999999" required>
-                  <div class="invalid-feedback" *ngIf="pfCard.touched && pfCard.invalid">
-                    PF Number Is Required.
-                  </div>
-                </div>
 
               </div>
               
               <button type="submit" [disabled]="!f.valid" class="btn btn-primary">Save</button>
+
+              <button (click)="printPage()" class="btn btn-primary">print</button>
+              
             </form>
             
           </div>

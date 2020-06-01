@@ -86,6 +86,11 @@ export class CommentsComponent implements OnInit {
   }
 
 
+  // printPage(){
+  //   window.print()
+  // }
+
+
   
 
 }
