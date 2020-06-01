@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { DropDown } from '../models/dropDown';
 import { environment } from 'src/environments/environment';
+import { EmployeeData } from '../models/EmployeeData';
 
 @Injectable({
   providedIn: 'root'
@@ -11,9 +12,9 @@ export class EmployeeService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getemployee()
+  getemployee(): Observable<EmployeeData>
   {
-    return this.httpClient.get('assets/emplyee_details.json');
+    return this.httpClient.get<EmployeeData>('assets/emplyee_details.json');
   }
 
 
