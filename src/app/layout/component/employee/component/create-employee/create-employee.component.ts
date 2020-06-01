@@ -294,11 +294,11 @@ export class CreateEmployeeComponent implements OnInit {
   }
 
 
-        onPrintInvoice() {
-          console.log("yes")
-          const invoiceIds = ['1'];
-          this.printService
-            .printDocument('invoice', invoiceIds);
+ onPrintInvoice() {
+   console.log("yes")
+   const invoiceIds = ['1'];
+   this.printService
+  .printDocument('invoice', invoiceIds);
         }
 
   closeStatus() {
