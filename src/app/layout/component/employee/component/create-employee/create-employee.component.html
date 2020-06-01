@@ -236,8 +236,9 @@ both are edited the other in formation  -->
               </div>
               
               <button type="submit" [disabled]="!f.valid" class="btn btn-primary">Save</button>
+              <button (click)="onPrintInvoice()" class="btn btn-primary" style="margin-left: 10px;">Print</button>
 
-              <button (click)="printPage()" class="btn btn-primary">print</button>
+             <!----<button (click)="printPage()" class="btn btn-primary">print</button>-->
               
             </form>
             

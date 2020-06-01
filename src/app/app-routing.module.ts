@@ -29,11 +29,20 @@ import { SystemLogListComponent } from './layout/component/Admin/system-log/syst
 import { PageNotFoundComponent } from './layout/component/page-not-found/page-not-found.component';
 import { EmployerListComponent } from './layout/component/Admin/employer/component/employer-list/employer-list.component';
 import { EmployerSaveComponent } from './layout/component/Admin/employer/component/employer-save/employer-save.component';
+import { PrintLayoutComponent } from './layout/component/employee/component/create-employee/print-layout/print-layout.component';
+import { InvoiceComponent } from './layout/component/employee/component/create-employee/invoice/invoice.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
   {path: 'login', component: LoginComponent},
   {path: 'navbar', component: NavBarComponent},
+  { path: 'print',
+    outlet: 'print',
+    component: PrintLayoutComponent,
+    children: [
+      { path: 'invoice/:invoiceIds', component: InvoiceComponent }
+    ]
+  },
   {
     path: 'dashboard', component: DefaultComponent, 
     //canActivate: [AuthGuardService],
@@ -120,7 +129,8 @@ const routes: Routes = [
       },
       {
         path: 'employer/save', component: EmployerSaveComponent
-      }
+      },
+      
     ]
   }
   ];

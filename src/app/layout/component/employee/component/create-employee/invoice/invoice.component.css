@@ -1,0 +1,17 @@
+.invoice {
+    page-break-after: always;
+  }
+  
+  .invoice:last-child {
+    page-break-after: avoid;
+  }
+  
+  h1{
+      padding-left: 220px;
+      text-decoration: underline;
+  }
+  
+  ul{
+      list-style-type: square;
+      font-size: 40px;
+  }
