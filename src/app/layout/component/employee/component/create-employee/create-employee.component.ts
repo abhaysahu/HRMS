@@ -28,51 +28,9 @@ export class CreateEmployeeComponent implements OnInit {
   constructor(private router: Router, private employeeService: EmployeeService) {
 
 
-    this.employeeService.listOfDivision().subscribe(resp =>{
-
-      console.log(resp)
-   
-      if(resp.Success)
-      {
-        this.dropdownListOfDivision = resp.Data
-      }
-      else
-      {
-        this.dangerStatus=true;
-        this.successStatus=false;
-        this.message=resp.ErrorMessage;
-        this.message=resp.Message;
-      }
-      
-    }
-    ,   (error: AppResponse) => {
-      if(error.status === 400)
-      {
-        this.dangerStatus=true;
-        this.successStatus=false;
-        this.message = error.message
-       
-      }
-      else if(error.status === 401)
-      {
-        this.dangerStatus=true;
-        this.successStatus=false;
-        this.message = "Authorization has been denied for this request And You have to Login again."
-        setTimeout(()=>
-          {    
-            this.router.navigate(['/login']);
-          }, 3000);
-      }       
-      else
-      {
-        this.dangerStatus=true;
-        this.successStatus=false;
-        this.message = error.message;
-      }
-    }
-  )
-
+    
   this.employeeService.listOfDepartment().subscribe(resp =>{
+    console.log(resp)
    
     if(resp.Success)
     {
@@ -117,6 +75,7 @@ export class CreateEmployeeComponent implements OnInit {
 
 
 this.employeeService.listOfDesignation().subscribe(resp =>{
+  console.log(resp)
    
   if(resp.Success)
   {
@@ -159,6 +118,7 @@ this.employeeService.listOfDesignation().subscribe(resp =>{
 )
 
 this.employeeService.listOfMaritalStatus().subscribe(resp =>{
+  console.log(resp)
    
   if(resp.Success)
   {
@@ -202,6 +162,7 @@ this.employeeService.listOfMaritalStatus().subscribe(resp =>{
 
 
 this.employeeService.listOfGender().subscribe(resp =>{
+  console.log(resp)
    
   if(resp.Success)
   {

@@ -17,6 +17,21 @@ export class EmployeeService {
   }
 
 
+  // allDropDownList(): Observable<DropDown>
+  // {
+  //   const token = sessionStorage.getItem('token')
+
+  //   const headers = new HttpHeaders({
+  //     'Content-Type': 'application/json',
+  //     'authorization': `bearer ${token}`
+  //   })
+
+  //   return this.httpClient.get<DropDown>(environment.webapiUrl+'api/get/entity', { headers: headers })
+  // }
+
+
+
+
   listOfDivision(): Observable<DropDown>
   {
     const token = sessionStorage.getItem('token')
@@ -26,7 +41,7 @@ export class EmployeeService {
       'authorization': `bearer ${token}`
     })
 
-    return this.httpClient.get<DropDown>(environment.webapiUrl+'api/get/entity', { headers: headers })
+    return this.httpClient.get<DropDown>(environment.webapiUrl+'api/get/PickList?attributeName=StatusCode&objectTypeCode=9', { headers: headers })
   }
   
 
@@ -39,7 +54,7 @@ export class EmployeeService {
       'authorization': `bearer ${token}`
     })
 
-    return this.httpClient.get<DropDown>(environment.webapiUrl+'api/get/entity', { headers: headers })
+    return this.httpClient.get<DropDown>(environment.webapiUrl+'api/get/PickList?attributeName=Department&objectTypeCode=9', { headers: headers })
   }
 
 
@@ -52,7 +67,7 @@ export class EmployeeService {
       'authorization': `bearer ${token}`
     })
 
-    return this.httpClient.get<DropDown>(environment.webapiUrl+'api/get/entity', { headers: headers })
+    return this.httpClient.get<DropDown>(environment.webapiUrl+'api/get/PickList?attributeName=Designation&objectTypeCode=9', { headers: headers })
   }
   
 
@@ -65,7 +80,7 @@ export class EmployeeService {
       'authorization': `bearer ${token}`
     })
 
-    return this.httpClient.get<DropDown>(environment.webapiUrl+'api/get/entity', { headers: headers })
+    return this.httpClient.get<DropDown>(environment.webapiUrl+'api/get/PickList?attributeName=MaritalStatus&objectTypeCode=9', { headers: headers })
   }
 
 
@@ -78,8 +93,7 @@ export class EmployeeService {
       'authorization': `bearer ${token}`
     })
 
-    return this.httpClient.get<DropDown>(environment.webapiUrl+'api/get/entity', { headers: headers })
+    return this.httpClient.get<DropDown>(environment.webapiUrl+'api/get/PickList?attributeName=Gender&objectTypeCode=9', { headers: headers })
   }
-
 
 }

@@ -15,6 +15,11 @@ export class LoginComponent implements OnInit {
 
   isTextFieldType: boolean;
 
+  successStatus=false;
+  dangerStatus=false;
+
+  message="";
+
   error: string;
   grant_type = "password"
   formData: any[]=[]
@@ -48,47 +53,59 @@ export class LoginComponent implements OnInit {
  
     this.authService.login(form)    
       .subscribe((data: LoggedinUser) => {
+        console.log(data)
        
           this.authService.manageSession(data);
           this.authService.loginStatus.emit(true);
-          if (this.authService.redirectUrl) {
-       
-            this.router.navigate([this.authService.redirectUrl]);
+          if (this.authService.redirectUrl) 
+          {
+            this.dangerStatus=false;
+            this.successStatus=true;
+            this.message="You are Login successfully"
+            setTimeout(()=>
+            {    
+              this.router.navigate([this.authService.redirectUrl]);
+      
+            }, 3000);  
 
-          } else {
-          
-            this.router.navigate(['/dashboard']);
-          }        
+          } 
+          else 
+          {  
+            this.dangerStatus=false;
+            this.successStatus=true;
+            this.message="You are Login successfully"
+            setTimeout(()=>
+            {    
+              this.router.navigate(['/dashboard']);
+            }, 3000); 
+          }  
+
         },   (error: AppResponse) => {
+
+          console.log(error.status)
              if(error.status === 400)
              {
-              this.error = "Either user name or password is incorrect!";
-              console.log(this.error)
-             }       
+              this.dangerStatus=true;
+              this.successStatus=false;
+              this.message = "Either user name or password is incorrect!";
+             }  
               else
-                   this.error = error.message;
+              {
+                this.dangerStatus=true;
+                this.successStatus=false;
+                this.message = error.message;
+              }
+              
        });
   }
 
 
 
+  closeStatus()
+  {
+    this.successStatus = false;
+    this.dangerStatus = false;
+  }
 
-
-
-
-  // login(login) 
-  // {
-
-  //   this.loginServices.checklogin(login).subscribe(data => {
-  //     if(data[0])                                                        
-  //     {
-  //       console.log(data)
-  //       localStorage.setItem('pobara_user_id', data[0].uuid);             
-  //       this.router.navigate(['/dashboard']);         
-        
-  //     }
-  //   })
-
-  // }
 
 }

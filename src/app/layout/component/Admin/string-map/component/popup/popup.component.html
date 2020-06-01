@@ -28,7 +28,17 @@
           <td>{{ popup.AttributeValue }}</td>
           <td>{{ popup.Value }}</td>
           <td>{{ popup.SortOrder }}</td>
-          <td>{{ popup.IsActive }}</td>
+          <td>
+            <!-- {{ popup.IsActive }} -->
+
+
+            <div *ngIf="popup.IsActive; then thenBlock else elseBlock"></div>
+            <ng-template #thenBlock>Yes</ng-template>
+            <ng-template #elseBlock>No</ng-template>
+
+
+
+          </td>
           <td>
             <input type="hidden" #AttributeName="ngModel" [(ngModel)]="popup.AttributeName" name="AttributeName" id="AttributeName">
 
