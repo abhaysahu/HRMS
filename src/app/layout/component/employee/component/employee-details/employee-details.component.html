@@ -74,7 +74,7 @@
                 <div class="form-group col-md-4">
                   <label for="DateOfJoining">Date Of Joining</label>
                   <div class="form-group">
-                    <input type="date" max="3000-12-31"  #DateOfJoining="ngModel" [(ngModel)]="Employee.DateOfJoining" name="DateOfJoining" id="DateOfJoining"
+                    <input type="text" max="3000-12-31"  #DateOfJoining="ngModel" [(ngModel)]="Employee.DateOfJoining" name="DateOfJoining" id="DateOfJoining"
                           min="1000-01-01" class="form-control" readonly>
                   </div>                  
                 </div>
@@ -90,86 +90,62 @@
               
                 <div class="form-group col-md-4">
                   <label for="Department">Department</label>
-                  <input type="text" class="form-control" #Department="ngModel" [(ngModel)]="Employee.Department" name="Department" id="Department" placeholder="Employee Code" readonly>
+                  <input type="text" class="form-control" #Department="ngModel" [(ngModel)]="Employee.Department.Text" name="Department" id="Department" placeholder="Department" readonly>
                 </div>
 
+
+
+                <div class="form-group col-md-4">
+                  <label for="Designation">Designation</label>
+                  <input type="text" class="form-control" #Designation="ngModel" [(ngModel)]="Employee.Designation.Text" name="Designation" id="Designation" placeholder="Designation" readonly>
+
+                </div>
+
+                <div class="form-group col-md-4">
+                  <label for="Grade">Grade</label>
+                  <input type="number" #Grade="ngModel" [(ngModel)]="Employee.Grade" name="Grade" id="Grade" class="form-control" placeholder="1.0" step="0.01" min="0" max="10" readonly>
+                </div>
+
+                <div class="form-group col-md-4">
+                  <label for="PersonalEmail">Personal Email</label>
+                  <input type="text" class="form-control" #PersonalEmail="ngModel" [(ngModel)]="Employee.PersonalEmail" name="PersonalEmail" id="PersonalEmail" readonly>
+                </div>
+
+                <div class="form-group col-md-4">
+                  <label for="OfficialEmail">Official Email</label>
+                  <input type="text" class="form-control" #OfficialEmail="ngModel" [(ngModel)]="Employee.OfficialEmail" name="OfficialEmail" id="OfficialEmail" readonly>
+                </div>
+
+                <div class="form-group col-md-4">
+                  <label for="HighestQualification">High Qualification</label>
+                  <input type="text" class="form-control"#HighestQualification="ngModel" [(ngModel)]="Employee.HighestQualification" name="HighestQualification" id="HighestQualification" readonly>
+                </div>
                 
-
                 <div class="form-group col-md-4">
-                  <label for="designation">Designation</label>
-                  <select class="custom-select" #designation="ngModel" [(ngModel)]="Employee.designation" name="designation" id="designation" disabled="disabled">
-                    <option selected>Choose...</option>
-                    <option value="One">One</option>
-                    <option value="Two">Two</option>
-                    <option value="Three">Three</option>
-                  </select>
+                  <label for="PriorExperience">Total Experience(yrs)</label><br>
+                  <input type="number" id="PriorExperience" class="form-control" #PriorExperience="ngModel" [(ngModel)]="Employee.PriorExperience" name="PriorExperience" id="PriorExperience" min="1" max="20" readonly>
                 </div>
 
-                <div class="form-group col-md-4">
-                  <label for="grade">Grade</label>
-                  <input type="number" #grade="ngModel" [(ngModel)]="Employee.grade" name="grade" id="grade" class="form-control" placeholder="1.0" step="0.01" min="0" max="10" readonly>
-                </div>
-
-                <div class="form-group col-md-4">
-                  <label for="email">E-mail</label>
-                  <input type="text" class="form-control" #email="ngModel" [(ngModel)]="Employee.email" name="email" id="email" readonly>
-                </div>
-
-                <div class="form-group col-md-4">
-                  <label for="highQualification">High Qualification</label>
-                  <input type="text" class="form-control"#highQualification="ngModel" [(ngModel)]="Employee.highQualification" name="highQualification" id="highQualification" readonly>
-                </div>
-                
-                <div class="form-group col-md-4">
-                  <label for="totalExperiece">Total Experience(yrs)</label><br>
-                  <input type="number" id="totalExperiece" class="form-control" #totalExperiece="ngModel" [(ngModel)]="Employee.totalExperiece" name="totalExperiece" id="totalExperiece" min="1" max="20" readonly>
-                </div>
-
-                <div class="form-group col-md-4">
+                <!-- <div class="form-group col-md-4">
                   <label for="experienceIn">Experience in Pobara</label>
                   <input type="text" class="form-control" #experienceIn="ngModel" [(ngModel)]="Employee.experienceIn" name="experienceIn" id="experienceIn" readonly>
+                </div> -->
+
+                <div class="form-group col-md-4">
+                  <label for="MaritalStatus">Marital Status</label>
+                  <input type="text" class="form-control" #MaritalStatus="ngModel" [(ngModel)]="Employee.MaritalStatus.Text" name="MaritalStatus" id="MaritalStatus" readonly>
                 </div>
 
                 <div class="form-group col-md-4">
-                  <label for="maritalStatus">Marital Status</label>
-                  <select class="custom-select" #maritalStatus="ngModel" [(ngModel)]="Employee.maritalStatus" name="maritalStatus" id="maritalStatus" disabled="disabled">
-                    <option selected>Choose...</option>
-                    <option value="Single">Single</option>
-                    <option value="Married">Married</option>
-                    <option value="Widowed">Widowed</option>
-                    <option value="Divorced">Divorced</option>
-                  </select>
+                  <label for="Gender">Gender</label>
+                  <input type="text" class="form-control" #Gender="ngModel" [(ngModel)]="Employee.Gender.Text" name="Gender" id="Gender" readonly>
                 </div>
 
                 <div class="form-group col-md-4">
-                  <label for="gender">Gender</label>
-                  <select class="custom-select" #gender="ngModel" [(ngModel)]="Employee.gender" name="gender" id="gender" disabled="disabled">
-                    <option selected>Choose...</option>
-                    <option value="Male">Male</option>
-                    <option value="Female">Female</option>
-                    <option value="Other">Others</option>
-                  </select>
+                  <label for="Status">Status</label>
+                  <input type="text" class="form-control" #Status="ngModel" [(ngModel)]="Employee.Status.Text" name="Status" id="Status" readonly>
                 </div>
 
-               <!---- <div class="form-group col-md-3">
-                  <label for="aadharCardNumber">Aadhar Card Number</label><br>
-                  <input type="text" class="form-control" #aadharCardNumber="ngModel" [(ngModel)]="Employee.aadharCardNumber" id="aadharCardNumber" name="aadharCardNumber" min="0000000000" max="999999999999999" readonly>
-                </div>
-
-                <div class="form-group col-md-3">
-                  <label for="panCard">PAN #</label><br>
-                  <input type="text" class="form-control" #panCard="ngModel" [(ngModel)]="Employee.panCard" id="panCard" name="panCard" min="0000000000" max="999999999999999" readonly>
-                </div>
-
-                <div class="form-group col-md-3">
-                  <label for="uanCard">UAN #</label><br>
-                  <input type="text"  class="form-control" #uanCard="ngModel" [(ngModel)]="Employee.uanCard" id="uanCard" name="uanCard" min="0000000000" max="999999999999999" readonly>
-                </div>
-
-                <div class="form-group col-md-3">
-                  <label for="pfCard">PF #</label><br>
-                  <input type="text" class="form-control" #pfCard="ngModel" [(ngModel)]="Employee.pfCard" id="pfCard" name="pfCard" min="0000000000" max="999999999999999" readonly>
-                </div>-->
 
               </div>
               
