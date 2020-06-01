@@ -294,17 +294,8 @@ export class CreateEmployeeComponent implements OnInit {
   }
 
 
-  // printPage()
-  // {
-  //   const dialogConfig = new MatDialogConfig();
-  //   dialogConfig.autoFocus = true;
-  //   dialogConfig.disableClose = true;
-  //   dialogConfig.width="50%";
-  //   dialogConfig.data={}
-  //   this.dialog.open(CommentsComponent, dialogConfig).afterClosed().subscribe(res =>{
-  //   });
-  // }
         onPrintInvoice() {
+          console.log("yes")
           const invoiceIds = ['1'];
           this.printService
             .printDocument('invoice', invoiceIds);
