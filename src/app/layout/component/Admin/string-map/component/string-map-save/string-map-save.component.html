@@ -51,7 +51,8 @@
         <div class="form-group col-md-3">
           <label for="ObjectTypeCode">Object Type Code</label>
           <select class="custom-select" #ObjectTypeCode="ngModel" [(ngModel)]="stringMap.ObjectTypeCode" name="ObjectTypeCode" id="ObjectTypeCode"  id="selectEntity" required> 
-            <option>Select any option</option>
+            <option>Select any option</option>  
+            
             <option *ngFor="let dropdownLists of dropdownList" [value]="dropdownLists.ObjectTypeCode">{{dropdownLists.Name}}</option>
           </select>
           <div class="invalid-feedback" *ngIf="ObjectTypeCode.touched && ObjectTypeCode.invalid">
