@@ -99,7 +99,7 @@ both are edited the other in formation  -->
                   <label for="division">Division</label>
                   <select class="custom-select" #division="ngModel" [(ngModel)]="Employee.division" name="division" id="division" required>
                     <option>Select any option</option>
-                    <option *ngFor="let dropdownLists of dropdownListOfDivision" [value]="dropdownLists.ObjectTypeCode">{{dropdownLists.Name}}</option>
+                    <option *ngFor="let dropdownLists of dropdownListOfDivision" [value]="dropdownLists.Value">{{dropdownLists.Text}}</option>
                   </select>
                   <div class="invalid-feedback" *ngIf="division.touched && division.invalid">
                   	Select One Division, It Is Required.
@@ -111,7 +111,7 @@ both are edited the other in formation  -->
                   <label for="department">Department</label>
                   <select class="custom-select" #department="ngModel" [(ngModel)]="Employee.department" name="department" id="department" required>
                     <option>Select any option</option>
-                    <option *ngFor="let dropdownLists of dropdownListOfDepartment" [value]="dropdownLists.ObjectTypeCode">{{dropdownLists.Name}}</option>
+                    <option *ngFor="let dropdownLists of dropdownListOfDepartment" [value]="dropdownLists.Value">{{dropdownLists.Text}}</option>
                   </select>
                   <div class="invalid-feedback" *ngIf="department.touched && department.invalid">
                     Select One Department, It Is Required.
@@ -122,7 +122,7 @@ both are edited the other in formation  -->
                   <label for="designation">Designation</label>
                   <select class="custom-select" #designation="ngModel" [(ngModel)]="Employee.designation" name="designation" id="designation" required>
                     <option>Select any option</option>
-                    <option *ngFor="let dropdownLists of dropdownListOfDesignation" [value]="dropdownLists.ObjectTypeCode">{{dropdownLists.Name}}</option>
+                    <option *ngFor="let dropdownLists of dropdownListOfDesignation" [value]="dropdownLists.Value">{{dropdownLists.Text}}</option>
                   
                   </select>
                   <div class="invalid-feedback" *ngIf="designation.touched && designation.invalid">
@@ -174,7 +174,7 @@ both are edited the other in formation  -->
                   <label for="maritalStatus">Marital Status</label>
                   <select class="custom-select" #maritalStatus="ngModel" [(ngModel)]="Employee.maritalStatus" name="maritalStatus" id="maritalStatus" required>
                     <option>Select any option</option>
-                    <option *ngFor="let dropdownLists of dropdownListOfMaritalStatus" [value]="dropdownLists.ObjectTypeCode">{{dropdownLists.Name}}</option>
+                    <option *ngFor="let dropdownLists of dropdownListOfMaritalStatus" [value]="dropdownLists.Value">{{dropdownLists.Text}}</option>
                   
                   </select>
                   <div class="invalid-feedback" *ngIf="maritalStatus.touched && maritalStatus.invalid">
@@ -186,7 +186,7 @@ both are edited the other in formation  -->
                   <label for="gender">Gender</label>
                   <select class="custom-select" #gender="ngModel" [(ngModel)]="Employee.gender" name="gender" id="gender" required>
                     <option>Select any option</option>
-                    <option *ngFor="let dropdownLists of dropdownListOfGender" [value]="dropdownLists.ObjectTypeCode">{{dropdownLists.Name}}</option>
+                    <option *ngFor="let dropdownLists of dropdownListOfGender" [value]="dropdownLists.Value">{{dropdownLists.Text}}</option>
                   
                   </select>
                   <div class="invalid-feedback" *ngIf="gender.touched && gender.invalid">

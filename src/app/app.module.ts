@@ -160,7 +160,7 @@ import { AddAttendanceSearchPipe } from './layout/component/Attendance-and-leave
   entryComponents:[CommentsComponent, EditpicklistComponent, PopupComponent],
 
   providers: [
-     //{provide: LocationStrategy, useClass: HashLocationStrategy},
+     {provide: LocationStrategy, useClass: HashLocationStrategy},
     LoginService, 
     AuthGuardService,
     EmployeeService,
