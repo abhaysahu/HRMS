@@ -9,19 +9,13 @@ export class PrintService {
 
   constructor(private router: Router) { }
 
-  printDocument(documentName: string, documentData: string[]) {
-    this.isPrinting = true;
-    this.router.navigate(['/',
-      { outlets: {
-        'print': ['print', documentName, documentData.join()]
-      }}]);
-  }
 
   onDataReady() {
+    console.log("onDataReady")
     setTimeout(() => {
       window.print();
-      this.isPrinting = false;
-      this.router.navigate([{ outlets: { print: null }}]);
+      console.log("edit")
+      this.router.navigate(['/dashboard/employee/details']);
     });
   }
 }

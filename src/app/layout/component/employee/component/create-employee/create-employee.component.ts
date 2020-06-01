@@ -296,11 +296,9 @@ export class CreateEmployeeComponent implements OnInit {
 
  onPrintInvoice() {
    console.log("yes")
-   const invoiceIds = ['1'];
-   this.printService
-  .printDocument('invoice', invoiceIds);
-        }
+   this.router.navigate(['/print/print/1']);
 
+ }
   closeStatus() {
     this.dangerStatus = false;
     this.successStatus = false;
