@@ -35,7 +35,9 @@ import { InvoiceComponent } from './layout/component/employee/component/create-e
 const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
   {path: 'login', component: LoginComponent},
+
   {path: 'navbar', component: NavBarComponent},
+  
   { path: 'print',
     outlet: 'print',
     component: PrintLayoutComponent,
