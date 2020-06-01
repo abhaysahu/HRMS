@@ -84,6 +84,7 @@ import { EmployerSearchPipe } from './layout/component/Admin/employer/employer-s
 import { AddAttendanceSearchPipe } from './layout/component/Attendance-and-leaves/pipe/add-attendance-search.pipe';
 import { PrintLayoutComponent } from './layout/component/employee/component/create-employee/print-layout/print-layout.component';
 import { InvoiceComponent } from './layout/component/employee/component/create-employee/invoice/invoice.component';
+import { PrintService } from './layout/component/employee/services/print.service';
 
 
 
@@ -177,6 +178,7 @@ import { InvoiceComponent } from './layout/component/employee/component/create-e
     AttendanceService,
     ExpenseService,
     ServiceRequestsService,
+    PrintService
   ],
   bootstrap: [AppComponent]
 }) 

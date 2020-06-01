@@ -33,17 +33,19 @@ import { PrintLayoutComponent } from './layout/component/employee/component/crea
 import { InvoiceComponent } from './layout/component/employee/component/create-employee/invoice/invoice.component';
 
 const routes: Routes = [
-  { path: 'print',
-  outlet: 'print',
-  component: PrintLayoutComponent,
-  children: [
-    { path: 'invoice/:invoiceIds', component: InvoiceComponent }
-  ]
-},
+  
   {path: '', redirectTo: 'login', pathMatch: 'full'},
   {path: 'login', component: LoginComponent},
 
   {path: 'navbar', component: NavBarComponent},
+
+  { path: 'print',
+  // outlet: 'print',
+  component: PrintLayoutComponent,
+  children: [
+    { path: 'print/:id', component: InvoiceComponent }
+  ]
+},
   
  
   {
