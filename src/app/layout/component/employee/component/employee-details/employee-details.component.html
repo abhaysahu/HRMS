@@ -56,57 +56,44 @@
               <form #f="ngForm">
               <div class="form-row">
                 <div class="form-group col-md-4">
-                  <label for="name">name</label>
-                  <input #name="ngModel" [(ngModel)]="Employee.name" name="name" id="name" type="text" class="form-control" placeholder="Employee Name" readonly>
+                  <label for="FullName">Full Name</label>
+                  <input #FullName="ngModel" [(ngModel)]="Employee.FullName" name="FullName" id="FullName" type="text" class="form-control" placeholder="Employee Name" readonly>
                 </div>
 
                 <div class="form-group col-md-4">
-                  <label for="loginid">LoginId</label>
-                  <input #loginid="ngModel" [(ngModel)]="Employee.loginid" name="loginid" id="loginid" type="text" class="form-control" placeholder="Login ID" readonly>
+                  <label for="LoginId">LoginId</label>
+                  <input #LoginId="ngModel" [(ngModel)]="Employee.LoginId" name="LoginId" id="LoginId" type="text" class="form-control" placeholder="Login ID" readonly>
                 </div>
 
                 <div class="form-group col-md-4">
-                  <label for="empCode">Emp Code</label>
-                  <input #empCode="ngModel" [(ngModel)]="Employee.empCode" name="empCode" id="empCode" type="text" class="form-control" placeholder="Employee Code" readonly>
+                  <label for="EmpCode">Emp Code</label>
+                  <input #EmpCode="ngModel" [(ngModel)]="Employee.EmpCode" name="EmpCode" id="EmpCode" type="text" class="form-control" placeholder="Employee Code" readonly>
                 </div>
 
 
                 <div class="form-group col-md-4">
-                  <label for="dateOfJoining">Date Of Joining</label>
+                  <label for="DateOfJoining">Date Of Joining</label>
                   <div class="form-group">
-                    <input type="text" max="3000-12-31"  #dateOfJoining="ngModel" [(ngModel)]="Employee.dateOfJoining" name="dateOfJoining" id="dateOfJoining"
+                    <input type="date" max="3000-12-31"  #DateOfJoining="ngModel" [(ngModel)]="Employee.DateOfJoining" name="DateOfJoining" id="DateOfJoining"
                           min="1000-01-01" class="form-control" readonly>
                   </div>                  
                 </div>
 
                 <div class="form-group col-md-4">
-                  <label for="dateOfConfirmation">Date Of Confirmation</label>
+                  <label for="DateOfConfirmation">Date Of Confirmation</label>
                   <div class="form-group">
-                    <input type="text" max="3000-12-31" #dateOfConfirmation="ngModel" [(ngModel)]="Employee.dateOfConfirmation" name="dateOfConfirmation" id="dateOfConfirmation"
+                    <input type="text" max="3000-12-31" #DateOfConfirmation="ngModel" [(ngModel)]="Employee.DateOfConfirmation" name="DateOfConfirmation" id="DateOfConfirmation"
                           min="1000-01-01" class="form-control" readonly>
                   </div>
                 </div>
 
-                <div class="form-group col-md-4">
-                  <label for="division">Division</label>
-                  <select class="custom-select" #division="ngModel" [(ngModel)]="Employee.division" name="division" id="division" disabled="disabled">
-                    <option value=""></option>  
-                    <option value="One">One</option>
-                    <option value="Two">Two</option>
-                    <option value="Three">Three</option>
-                  </select>
-                </div>
-
               
                 <div class="form-group col-md-4">
-                  <label for="department">Department</label>
-                  <select class="custom-select" #department="ngModel" [(ngModel)]="Employee.department" name="department" id="department" disabled="disabled">
-                    <option selected>Choose...</option>
-                    <option value="One">One</option>
-                    <option value="Two">Two</option>
-                    <option value="Three">Three</option>
-                  </select>
+                  <label for="Department">Department</label>
+                  <input type="text" class="form-control" #Department="ngModel" [(ngModel)]="Employee.Department" name="Department" id="Department" placeholder="Employee Code" readonly>
                 </div>
+
+                
 
                 <div class="form-group col-md-4">
                   <label for="designation">Designation</label>
