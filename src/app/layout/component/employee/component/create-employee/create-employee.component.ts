@@ -6,6 +6,7 @@ import { AppResponse } from 'src/app/models/appResponse';
 import { MatDialog, MatDialogConfig } from '@angular/material';
 import { CommentsComponent } from '../../../Timesheet/component/comments/comments.component';
 import { PrintService } from '../../services/print.service';
+import { PrintPopupComponent } from './print-popup/print-popup.component';
 
 
 @Component({
@@ -267,6 +268,7 @@ export class CreateEmployeeComponent implements OnInit {
         this.successStatus = true;
         this.dangerStatus = false;
         this.message = 'Data is Added successfully';
+        console.log(resp)
       } else {
         this.dangerStatus = true;
         this.successStatus = false;
@@ -294,9 +296,34 @@ export class CreateEmployeeComponent implements OnInit {
   }
 
 
- onPrintInvoice() {
-   console.log("yes")
-   this.router.navigate(['/print/print/1']);
+ onPrint() {
+  //  console.log("yes")
+  //  this.printService.printData.FullName="abhaysahu"
+  //  this.printService.printData.LoginId="asahu"
+  //  this.printService.printData.Password="abhayhmasdhb"
+
+   
+
+  //  this.router.navigate(['/print/print/1']);
+
+  // const invoiceIds = ['101', '102'];
+  //   this.printService
+  //     .printDocument('invoice', invoiceIds);
+
+  
+
+
+  const dialogConfig = new MatDialogConfig();
+    dialogConfig.autoFocus = true;
+    dialogConfig.disableClose = true;
+    dialogConfig.width="50%";
+    dialogConfig.height="99%";
+    dialogConfig.data={}
+    this.dialog.open(PrintPopupComponent, dialogConfig).afterClosed().subscribe(res =>{
+      
+    });
+
+
 
  }
   closeStatus() {

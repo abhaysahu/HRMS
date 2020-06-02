@@ -7,15 +7,29 @@ import {Router} from '@angular/router';
 export class PrintService {
   isPrinting = false;
 
+  printData={
+    FullName:"",
+    LoginId:"",
+    Password:""
+  }
+
   constructor(private router: Router) { }
 
+  // printDocument(documentName: string, documentData: string[]) {
+  //   this.isPrinting = true;
+  //   this.router.navigate(['/',
+  //     { outlets: {
+  //       'print': ['print', documentName, documentData.join()]
+  //     }}]);
+  // }
 
-  onDataReady() {
-    console.log("onDataReady")
-    setTimeout(() => {
-      window.print();
-      console.log("edit")
-      this.router.navigate(['/dashboard/employee/details']);
-    });
-  }
+
+
+  // onDataReady() {
+  //   setTimeout(() => {
+  //     // this.router.navigate(['/dashboard/employee/details']);
+  //     // window.print();
+
+  //   });
+  // }
 }
