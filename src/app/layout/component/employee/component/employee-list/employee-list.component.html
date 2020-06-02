@@ -49,30 +49,31 @@
   <div class="card-body">
 
 <div style="overflow-x: scroll;">
-  <table class="content" datatable [dtOptions]="dtOptions"  style="width:100%">
+  <table class="content"  style="width:100%">
     <thead>
       <tr>
+        <th>S.No.</th>
         <th>Emp Code</th>
         <th>Employee Name</th>
         <th>Designation</th>
-        <th>Employment Status</th>
-        <th>Job Ttile</th>
-        <th>Location</th>
         <th>Departments</th>
+        <th>Personal Email</th>
+        <th>Employment Status</th>
         <th>Edit</th>
         
       </tr>
     </thead>
-    <tbody *ngIf="persons?.length != 0">
-        <tr *ngFor="let person of persons">
-            <td>{{ person.id }}</td>
-            <td>{{ person.firstName }}</td>
-            <td>{{ person.lastName }}</td>
-            <td>{{ person.id }}</td>
-            <td>{{ person.firstName }}</td>
-            <td>{{ person.lastName }}</td>
-            <td>{{ person.id }}</td>
-            <td><a [routerLink]="['/dashboard/edit/employee/', person.id]"><i class="material-icons" style="color: green;">&#xE254;</i>  </a></td>
+    <!-- *ngIf="persons?.length != 0 " -->
+    <tbody  *ngFor="let person of persons let i = index">
+        <tr *ngIf="person.EmpCode!=100001">
+            <td>{{ i }}</td>
+            <td>{{ person.EmpCode }}</td>
+            <td>{{ person.FullName }}</td>
+            <td>{{ person.Designation.Text }}</td>
+            <td>{{ person.Department.Text }}</td>
+            <td>{{ person.PersonalEmail }}</td>
+            <td>{{ person.Status.Text }}</td>
+            <td><a [routerLink]="['/dashboard/edit/employee/', person.Id]"><i class="material-icons" style="color: green;">&#xE254;</i>  </a></td>
         </tr>
     </tbody>
     <tbody *ngIf="persons?.length == 0">

@@ -117,7 +117,7 @@ both are edited the other in formation  -->
                 <!-- <div class="form-group col-md-4">
                   <label for="division">Division</label>
                   <select class="custom-select" #division="ngModel" [(ngModel)]="Employee.division" name="division" id="division" required>
-                    <option>Select any option</option>
+                    
                     <option *ngFor="let dropdownLists of dropdownListOfDivision" [value]="dropdownLists.Value">{{dropdownLists.Text}}</option>
                   </select>
                   <div class="invalid-feedback" *ngIf="division.touched && division.invalid">
@@ -129,7 +129,7 @@ both are edited the other in formation  -->
                 <div class="form-group col-md-4">
                   <label for="Department">Department</label>
                   <select class="custom-select" type="number" #Department="ngModel" [(ngModel)]="Employee.Department" name="Department" id="Department" required>
-                    <option>Select any option</option>
+                    
                     <option *ngFor="let dropdownLists of dropdownListOfDepartment" [value]=dropdownLists.Value>{{dropdownLists.Text}}</option>
                   </select>
                   <div class="invalid-feedback" *ngIf="Department.touched && Department.invalid">
@@ -140,7 +140,7 @@ both are edited the other in formation  -->
                 <div class="form-group col-md-4">
                   <label for="Designation">Designation</label>
                   <select class="custom-select" type="number" #Designation="ngModel" [(ngModel)]="Employee.Designation" name="Designation" id="Designation" required>
-                    <option>Select any option</option>
+                    
                     <option *ngFor="let dropdownLists of dropdownListOfDesignation" [value]=dropdownLists.Value>{{dropdownLists.Text}}</option>
                   
                   </select>
@@ -151,8 +151,12 @@ both are edited the other in formation  -->
 
                 <div class="form-group col-md-4">
                   <label for="Grade">Grade</label>
-                  <input type="number" #Grade="ngModel" [(ngModel)]="Employee.Grade" name="Grade" id="Grade" class="form-control" placeholder="1.0" step="0.01" min="0" max="10" required>
-                  <div class="invalid-feedback" *ngIf="Grade.touched && Grade.invalid">
+                  <select type="number" class="custom-select" #Grade="ngModel" [(ngModel)]="Employee.Grade" name="Grade" id="Grade" required>
+                    
+                    <option *ngFor="let dropdownLists of dropdownListOfGrade" [value]=dropdownLists.Value>{{dropdownLists.Text}}</option>
+                  
+                  </select>
+                   <div class="invalid-feedback" *ngIf="Grade.touched && Grade.invalid">
                     Grade is Required.
                   </div>  
                 </div>
@@ -185,7 +189,7 @@ both are edited the other in formation  -->
                 <div class="form-group col-md-4">
                   <label for="MaritalStatus">Marital Status</label>
                   <select type="number" class="custom-select" #MaritalStatus="ngModel" [(ngModel)]="Employee.MaritalStatus" name="MaritalStatus" id="MaritalStatus" required>
-                    <option>Select any option</option>
+                    
                     <option *ngFor="let dropdownLists of dropdownListOfMaritalStatus" [value]=dropdownLists.Value>{{dropdownLists.Text}}</option>
                   
                   </select>
@@ -197,7 +201,7 @@ both are edited the other in formation  -->
                 <div class="form-group col-md-4">
                   <label for="Gender">Gender</label>
                   <select type="number" class="custom-select" #Gender="ngModel" [(ngModel)]="Employee.Gender" name="Gender" id="Gender" required>
-                    <option>Select any option</option>
+                    
                     <option *ngFor="let dropdownLists of dropdownListOfGender" [value]=dropdownLists.Value>{{dropdownLists.Text}}</option>
                   
                   </select>

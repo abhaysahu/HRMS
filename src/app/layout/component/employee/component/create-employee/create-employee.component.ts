@@ -24,6 +24,8 @@ export class CreateEmployeeComponent implements OnInit {
   dropdownListOfMaritalStatus: any[] = [];
   dropdownListOfGender: any[] = [];
   dropdownListOfStatus: any[] = [];
+  dropdownListOfGrade: any[] = [];
+
 
 
   dangerStatus = false;
@@ -33,6 +35,47 @@ export class CreateEmployeeComponent implements OnInit {
 
   constructor(private router: Router, private employeeService: EmployeeService, private dialog: MatDialog,
               public printService: PrintService) {
+
+
+
+
+                
+    this.employeeService.employeeGrade().subscribe(resp => {
+      console.log(resp);
+     
+      if (resp.Success) {
+        this.dropdownListOfGrade = resp.Data;
+      } else {
+        this.dangerStatus = true;
+        this.successStatus = false;
+        this.message = resp.ErrorMessage;
+        this.message = resp.Message;
+      }
+      
+    }
+    ,   (error: AppResponse) => {
+      if (error.status === 400) {
+        this.dangerStatus = true;
+        this.successStatus = false;
+        this.message = error.message;
+       
+      } else if (error.status === 401) {
+        this.dangerStatus = true;
+        this.successStatus = false;
+        this.message = 'Authorization has been denied for this request And You have to Login again.';
+        setTimeout(() => {    
+              this.router.navigate(['/login']);
+            }, 3000);
+      } else {
+        this.dangerStatus = true;
+        this.successStatus = false;
+        this.message = error.message;
+      }
+    }
+  );
+  
+
+
 
 
 

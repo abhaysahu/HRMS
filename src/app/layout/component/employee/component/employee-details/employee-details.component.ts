@@ -3,6 +3,8 @@ import { EmployeeService } from '../../services/employee.service';
 import { Employee } from '../../models/employee';
 import { EmployeeData } from '../../models/EmployeeData';
 import { testing } from '../../models/testing';
+import { AppResponse } from 'src/app/models/appResponse';
+import { Router } from '@angular/router';
 
 
 
@@ -15,100 +17,65 @@ export class EmployeeDetailsComponent implements OnInit {
 
   addressName:string;
   
+  Employee: any={}
 
-  Employee: any={
+  Status=false
 
-    FullName: null,
-    PersonalEmail: null,
-    LoginId: null,
-    EmpCode: null,
-    DateOfJoining: null,
-    DateOfConfirmation: null,
-    OfficialEmail: null,
-    Department: {
-        Value: null,
-        Text: null
-    },
-    Designation: {
-        Value: null,
-        Text: null
-    },
-    Grade: null,
-    HighestQualification: null,
-    PriorExperience: null,
-    MaritalStatus: {
-        Value: null,
-        Text: null
-    },
-    Gender: {
-        Value: null,
-        Text: null
-    },
-    PrimaryManager: {
-        Id: null,
-        Name: null
-    },
-    TriggerChangePwd: true,
-    Status: {
-        Value: 1,
-        Text: null
-    },
-    Id: null,
-    CreatedOn: null,
-    CreatedOnUtc: null,
-    UpdatedOn: null,
-    UpdatedOnUtc: null,
-    CreatedBy: {
-        Id: null,
-        Name: null
-    },
-    UpdatedBy: null,
+  dangerStatus = false;
+  successStatus = false;
+  message = '';
+  id;
 
-    aadharCardNumber: null,
-    panCard: null,
-    uanCard: null,
-    pfCard: null,
-
-
-    addressName: null,
-    addressNumber:null,
-    currentAddressLine1: null,
-    currentAddressLine2: null,
-    currentCity: null,
-    currentState: null,
-    currentZip:215487,
-    
-    
-    permanentName: null,
-    permanentNumber:961762594511,
-    permanentAddressLine1: null,
-    permanentAddressLine2: null,
-    permanentCity: null,
-    permanentState: null,
-    permanentZip:null,
-   
-    emergencyName: null,
-    emergencyNumber:961762594522,
-    emergencyAddressLine1: null,
-    emergencyAddressLine2: null,
-    emergencyCity: null,
-    emergencyState: null,
-    emergencyZip:21548722,
-
-  }
-
-  constructor(private employeeService: EmployeeService) {
-
-
+  constructor(private employeeService: EmployeeService, private router: Router) {
 
     console.log(this.Employee)
 
-    this.employeeService.getemployee().subscribe(resp=>{
-      console.log(resp)
-      this.Employee = resp.Data[0]
-      console.log(this.Employee)
-      console.log(resp)
-    })
+    this.Employee=this.employeeService.Employee
+
+    this.id = "53a845f3-c35f-4d07-a0b4-c0aa719cd0ae"
+
+
+
+    this.employeeService.getParticularEmployee(this.id).subscribe(resp => {
+      console.log(resp);
+     
+      if (resp.Success) {
+        this.Employee = resp.Data;
+        var date = this.Employee.DateOfJoining
+        var answer=date.substr(0,10)
+        this.Employee.DateOfJoining=answer
+        this.Status=true
+        
+      } else {
+        this.dangerStatus = true;
+        this.successStatus = false;
+        this.message = resp.ErrorMessage;
+        this.message = resp.Message;
+      }
+      
+    }
+    ,   (error: AppResponse) => {
+      if (error.status === 400) {
+        this.dangerStatus = true;
+        this.successStatus = false;
+        this.message = error.message;
+       
+      } else if (error.status === 401) {
+        this.dangerStatus = true;
+        this.successStatus = false;
+        this.message = 'Authorization has been denied for this request And You have to Login again.';
+        setTimeout(() => {    
+              this.router.navigate(['/login']);
+            }, 3000);
+      } else {
+        this.dangerStatus = true;
+        this.successStatus = false;
+        this.message = error.message;
+      }
+    }
+  );
+  
+
 
 
    }

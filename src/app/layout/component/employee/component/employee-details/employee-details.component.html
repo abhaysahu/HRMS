@@ -40,7 +40,7 @@
 
 <div class="card">
   <h5 class="card-header">Details</h5>
-  <div class="card-body">
+  <div class="card-body" *ngIf="Status">
     <div class="accordion" id="accordionExample">
 
       <div class="card">
@@ -57,17 +57,17 @@
               <div class="form-row">
                 <div class="form-group col-md-4">
                   <label for="FullName">Full Name</label>
-                  <input #FullName="ngModel" [(ngModel)]="Employee.FullName" name="FullName" id="FullName" type="text" class="form-control" placeholder="Employee Name" readonly>
+                  <input #FullName="ngModel" [(ngModel)]="Employee.FullName" name="FullName" id="FullName" type="text" class="form-control"  readonly>
                 </div>
 
                 <div class="form-group col-md-4">
                   <label for="LoginId">LoginId</label>
-                  <input #LoginId="ngModel" [(ngModel)]="Employee.LoginId" name="LoginId" id="LoginId" type="text" class="form-control" placeholder="Login ID" readonly>
+                  <input #LoginId="ngModel" [(ngModel)]="Employee.LoginId" name="LoginId" id="LoginId" type="text" class="form-control"  readonly>
                 </div>
 
                 <div class="form-group col-md-4">
                   <label for="EmpCode">Emp Code</label>
-                  <input #EmpCode="ngModel" [(ngModel)]="Employee.EmpCode" name="EmpCode" id="EmpCode" type="text" class="form-control" placeholder="Employee Code" readonly>
+                  <input #EmpCode="ngModel" [(ngModel)]="Employee.EmpCode" name="EmpCode" id="EmpCode" type="text" class="form-control" readonly>
                 </div>
 
 
@@ -90,20 +90,20 @@
               
                 <div class="form-group col-md-4">
                   <label for="Department">Department</label>
-                  <input type="text" class="form-control" #Department="ngModel" [(ngModel)]="Employee.Department.Text" name="Department" id="Department" placeholder="Department" readonly>
+                  <input type="text" class="form-control" #Department="ngModel" [(ngModel)]="Employee.Department.Text" name="Department" id="Department" readonly>
                 </div>
 
 
 
                 <div class="form-group col-md-4">
                   <label for="Designation">Designation</label>
-                  <input type="text" class="form-control" #Designation="ngModel" [(ngModel)]="Employee.Designation.Text" name="Designation" id="Designation" placeholder="Designation" readonly>
+                  <input type="text" class="form-control" #Designation="ngModel" [(ngModel)]="Employee.Designation.Text" name="Designation" id="Designation" readonly>
 
                 </div>
 
                 <div class="form-group col-md-4">
                   <label for="Grade">Grade</label>
-                  <input type="number" #Grade="ngModel" [(ngModel)]="Employee.Grade" name="Grade" id="Grade" class="form-control" placeholder="1.0" step="0.01" min="0" max="10" readonly>
+                  <input type="text" #Grade="ngModel" [(ngModel)]="Employee.Grade.Text" name="Grade" id="Grade" class="form-control" readonly>
                 </div>
 
                 <div class="form-group col-md-4">
@@ -156,7 +156,7 @@
         </div>
       </div>
 
-      <div class="card">
+      <!-- <div class="card">
         <div class="card-header" id="headingTwo">
           <h2 class="mb-0">
             <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
@@ -199,11 +199,11 @@
             
           </div>
         </div>
-      </div>
+      </div> -->
       <!---->
 
     
-      <div class="card">
+      <!-- <div class="card">
         <div class="card-header" id="headingThree">
           <h2 class="mb-0">
             <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
@@ -284,10 +284,10 @@
             
           </div>
         </div>
-      </div>
+      </div> -->
       <!---->
 
-      <div class="card">
+      <!-- <div class="card">
         <div class="card-header" id="headingFour">
           <h2 class="mb-0">
             <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseThree">
@@ -299,7 +299,7 @@
           <div class="card-body">
 
       
-            <!-- this is use to copy the current address into permanent address -->
+            
 
             <div class="form-group form-check">
               <input type="checkbox" class="form-check-input" id="exampleCheck1" (change)="copyCurrentToPermanent($event)">
@@ -378,9 +378,9 @@
             
           </div>
         </div>
-      </div>
+      </div> -->
 
-        <div class="card">
+        <!-- <div class="card">
         <div class="card-header" id="headingFive">
           <h2 class="mb-0">
             <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseThree">
@@ -392,12 +392,12 @@
           <div class="card-body">
 
             <div class="form-row shift">
-              <!-- this is use to copy the current address into emergency address -->
+           
                 <div class="form-group form-check col-md-6">
                   <input type="checkbox" class="form-check-input" id="exampleCheck1" (change)="copyCurrentToEmergency($event)">
                   <label class="form-check-label" for="exampleCheck1">Same As Current Address</label>
                 </div>
-                <!-- this is use to copy the permanent address into emergecy address -->
+
                 <div class="form-group form-check col-md-6">
                   <input type="checkbox" class="form-check-input" id="exampleCheck1" (change)="copyPermanentToEmergency($event)">
                   <label class="form-check-label" for="exampleCheck1">Same As Permanent Address</label>
@@ -476,7 +476,7 @@
             
           </div>
         </div>
-      </div>
+      </div> -->
     </div>
     
   </div>
