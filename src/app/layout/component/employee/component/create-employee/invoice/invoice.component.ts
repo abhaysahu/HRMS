@@ -17,13 +17,24 @@ export class InvoiceComponent implements OnInit {
               private router: Router,
               private printService: PrintService) {
 
+                console.log(this.printService.printData)
+
                 this.id = this.route.snapshot.paramMap.get('id');
-                console.log(this.id)
+                // console.log(this.id)
 
   }
 
   ngOnInit() {
-    this.printService.onDataReady()
+    // this.printService.onDataReady()
+
+    setTimeout(() => {
+      
+      window.print();
+      this.router.navigate(['/dashboard/employee/details']);
+
+    });
+
+   
   }
 
 }

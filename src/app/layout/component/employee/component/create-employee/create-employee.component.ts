@@ -296,7 +296,15 @@ export class CreateEmployeeComponent implements OnInit {
 
  onPrintInvoice() {
    console.log("yes")
+   this.printService.printData.FullName="abhaysahu"
+   this.printService.printData.LoginId="asahu"
+   this.printService.printData.Password="abhayhmasdhb"
+
    this.router.navigate(['/print/print/1']);
+
+  // const invoiceIds = ['101', '102'];
+  //   this.printService
+  //     .printDocument('invoice', invoiceIds);
 
  }
   closeStatus() {
