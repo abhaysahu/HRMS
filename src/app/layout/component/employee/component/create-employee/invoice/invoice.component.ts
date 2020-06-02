@@ -26,15 +26,6 @@ export class InvoiceComponent implements OnInit {
 
   ngOnInit() {
     // this.printService.onDataReady()
-
-    setTimeout(() => {
-      
-      window.print();
-      this.router.navigate(['/dashboard/employee/details']);
-
-    });
-
-   
   }
 
 }

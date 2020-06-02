@@ -85,6 +85,7 @@ import { AddAttendanceSearchPipe } from './layout/component/Attendance-and-leave
 import { PrintLayoutComponent } from './layout/component/employee/component/create-employee/print-layout/print-layout.component';
 import { InvoiceComponent } from './layout/component/employee/component/create-employee/invoice/invoice.component';
 import { PrintService } from './layout/component/employee/services/print.service';
+import { PrintPopupComponent } from './layout/component/employee/component/create-employee/print-popup/print-popup.component';
 
 
 
@@ -134,7 +135,8 @@ import { PrintService } from './layout/component/employee/services/print.service
     EmployerSearchPipe,
     AddAttendanceSearchPipe,
     PrintLayoutComponent,
-    InvoiceComponent
+    InvoiceComponent,
+    PrintPopupComponent
 
   ],
   imports: [
@@ -162,7 +164,7 @@ import { PrintService } from './layout/component/employee/services/print.service
     BrowserAnimationsModule
 
   ],
-  entryComponents:[CommentsComponent, EditpicklistComponent, PopupComponent],
+  entryComponents:[CommentsComponent, EditpicklistComponent, PopupComponent, PrintPopupComponent],
 
   providers: [
      {provide: LocationStrategy, useClass: HashLocationStrategy},
