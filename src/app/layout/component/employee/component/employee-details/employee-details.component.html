@@ -216,7 +216,7 @@
               <form #f="ngForm" (ngSubmit)="Current(f.value)" class="was-validated">
               <div class="form-row">
                 <div class="form-group col-md-6">
-                  <label for="addressName">Address Name</label>
+                  <label for="addressName">Contact Name</label>
                   <input type="text" class="form-control" #addressName="ngModel" [(ngModel)]="Employee.addressName" name="addressName" id="addressName" required>
 									<div class="invalid-feedback" *ngIf="addressName.touched && addressName.invalid">
 									  Name Of Address Is Required.
@@ -224,7 +224,7 @@
 								</div>
 
                 <div class="form-group col-md-6">
-                  <label for="addressNumber">Number</label>
+                  <label for="addressNumber">Contact Number</label>
                   <input type="number" class="form-control" #addressNumber="ngModel" [(ngModel)]="Employee.addressNumber" name="addressNumber" id="addressNumber" required>
 									<div class="invalid-feedback" *ngIf="addressNumber.touched && addressNumber.invalid">
 										NUmber Is Required.
@@ -310,7 +310,7 @@
               <form #f="ngForm" (ngSubmit)="Permanent(f.value)" class="was-validated">
               <div class="form-row">
                 <div class="form-group col-md-6">
-                  <label for="permanentName">Address Name</label>
+                  <label for="permanentName">Contact Name</label>
                   <input type="text" class="form-control" #permanentName="ngModel" [(ngModel)]="Employee.permanentName" name="permanentName" id="permanentName" required>
 									<div class="invalid-feedback" *ngIf="permanentName.touched && permanentName.invalid">
 										Permanent Name Is Required.
@@ -318,7 +318,7 @@
 								</div>
 
                 <div class="form-group col-md-6">
-                  <label for="permanentNumber">number</label>
+                  <label for="permanentNumber">Contact Number</label>
                   <input type="number" class="form-control" #permanentNumber="ngModel" [(ngModel)]="Employee.permanentNumber" name="permanentNumber" id="permanentNumber" required>
 									<div class="invalid-feedback" *ngIf="permanentNumber.touched && permanentNumber.invalid">
 										Permanent Number Is Required.
@@ -408,7 +408,7 @@
               <form #f="ngForm" (ngSubmit)="Emergency(f.value)" class="was-validated">
               <div class="form-row">
                 <div class="form-group col-md-6">
-                  <label for="emergencyName">Address Name</label>
+                  <label for="emergencyName">Contact Name</label>
                   <input type="next" class="form-control" #emergencyName="ngModel" [(ngModel)]="Employee.emergencyName" name="emergencyName" id="emergencyName" required>
 									<div class="invalid-feedback" *ngIf="emergencyName.touched && emergencyName.invalid">
 										Address Name Is Required.
@@ -416,7 +416,7 @@
 								</div>
 
                 <div class="form-group col-md-6">
-                  <label for="emergencyNumber">number</label>
+                  <label for="emergencyNumber">Contact Number</label>
                   <input type="number" class="form-control" #emergencyNumber="ngModel" [(ngModel)]="Employee.emergencyNumber" name="emergencyNumber" id="emergencyNumber" required>
 									<div class="invalid-feedback" *ngIf="emergencyNumber.touched && emergencyNumber.invalid">
 										Emergency Number Is Required.

@@ -86,6 +86,7 @@ import { PrintLayoutComponent } from './layout/component/employee/component/crea
 import { InvoiceComponent } from './layout/component/employee/component/create-employee/invoice/invoice.component';
 import { PrintService } from './layout/component/employee/services/print.service';
 import { PrintPopupComponent } from './layout/component/employee/component/create-employee/print-popup/print-popup.component';
+import { ListEmployeePipe } from './layout/component/employee/list-employee.pipe';
 
 
 
@@ -129,14 +130,15 @@ import { PrintPopupComponent } from './layout/component/employee/component/creat
     PageNotFoundComponent,
     EmployerListComponent,
     EmployerSaveComponent,
+    PrintLayoutComponent,
+    InvoiceComponent,
+    PrintPopupComponent,
     
 
     SearchPipe,
     EmployerSearchPipe,
     AddAttendanceSearchPipe,
-    PrintLayoutComponent,
-    InvoiceComponent,
-    PrintPopupComponent
+    ListEmployeePipe
 
   ],
   imports: [
