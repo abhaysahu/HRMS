@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { DataTableDirective } from 'angular-datatables';
 import { LoginService } from 'src/app/login/services/login.service';
+import { EmployeeService } from '../../services/employee.service';
 
 
 class Person {
@@ -29,44 +30,53 @@ export class EmployeeListComponent implements OnInit {
   datatableElement: DataTableDirective;
 
   dtOptions: DataTables.Settings = {};
-  persons: Person[];
 
-  constructor(private http: HttpClient, private loginService: LoginService) {}
+  persons: any[]=[]
 
-  ngOnInit(): void {
-    const that = this;
+  constructor(private http: HttpClient, private loginService: LoginService, private employeeService: EmployeeService
+    ) {
 
-    this.dtOptions = {
-      pagingType: 'full_numbers',
-      pageLength: 5,
-      serverSide: true,
-      processing: true,
-      searching: true,
-      search: false,
-      info:true,
-
-      // paging: false,
-      // dom: '<"bottom"i>rt<"bottom"flp><"clear">',
-      
-      ajax: (dataTablesParameters: any, callback) => {
-        this.loginService.getDate(dataTablesParameters)
+      this.employeeService.getUser()
         .subscribe(resp => {
 
           console.log(resp)
 
-            that.persons = resp.data;
+            this.persons = resp.Data;
 
             console.log(this.persons)
 
-            callback({
-              recordsTotal: resp.recordsTotal,
-              recordsFiltered: resp.recordsFiltered,
-              data: []
-            });
           });
-      },
-      columns: [{ data: 'id' }, { data: 'firstName' }, { data: 'lastName' },{ data: 'id' }, { data: 'firstName' }, { data: 'lastName' },{ data: 'id' }, { data: 'firstName' }]
-    };
+
+    }
+
+  ngOnInit(): void {
+    // const that = this;
+
+    // this.dtOptions = {
+    //   pagingType: 'full_numbers',
+    //   pageLength: 5,
+    //   serverSide: true,
+ 
+    //   searching: true,
+    //   search: false,
+    //   info:true,
+      
+
+      
+    //   ajax: (dataTablesParameters: any) => {
+    //     this.employeeService.getUser()
+    //     .subscribe(resp => {
+
+    //       console.log(resp)
+
+    //         that.persons = resp.Data;
+
+    //         console.log(this.persons)
+
+    //       });
+    //   },
+    // };
+    
   }
 
   // ngAfterViewInit(): void {
