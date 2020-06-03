@@ -51,17 +51,6 @@ export class EntityListComponent implements OnInit {
 
   constructor(private entityService: EntityService) { 
 
-    // this.entity=[{
-    //   Name: null,
-    //   LogicalName: null,
-    //   SchemaName: null,
-    //   ObjectTypeCode: null,
-    //   Description: null,
-    //   IsMasterEntity: null,
-    //   PrimaryAttribute: null,
-    //   PrimaryKey: null,
-    // }]
-
     
 
     this.entityService.getEntityData().subscribe(resp =>{

@@ -9,14 +9,14 @@ export class SearchPipe implements PipeTransform {
       return value;
     }
     return value.filter((val) => {
-      let rVal = (val.Name.toLocaleLowerCase().includes(args)) ||
-                 (val.LogicalName.toLocaleLowerCase().includes(args)) ||
-                 (val.SchemaName.toLocaleLowerCase().includes(args)) ||
+      let rVal = (val.Name.toLocaleLowerCase().includes(args.toLocaleLowerCase())) ||
+                 (val.LogicalName.toLocaleLowerCase().includes(args.toLocaleLowerCase())) ||
+                 (val.SchemaName.toLocaleLowerCase().includes(args.toLocaleLowerCase())) ||
                 //  (val.ObjectTypeCode.toLocaleLowerCase().includes(args)) ||
                 //  (val.Description.toLocaleLowerCase().includes(args)) ||
                 //  (val.IsMasterEntity.toLocaleLowerCase().includes(args)) ||
-                 (val.PrimaryAttribute.toLocaleLowerCase().includes(args)) ||
-                 (val.PrimaryKey.toLocaleLowerCase().includes(args));
+                 (val.PrimaryAttribute.toLocaleLowerCase().includes(args.toLocaleLowerCase())) ||
+                 (val.PrimaryKey.toLocaleLowerCase().includes(args.toLocaleLowerCase()));
 
       return rVal;
     })
