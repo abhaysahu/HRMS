@@ -188,4 +188,64 @@ export class EmployeeService {
   } 
 
 
+  UserEditDetails(RegardingObjectId, AddressType): Observable<DropDown>
+  {
+    const token = sessionStorage.getItem('token')
+
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'authorization': `bearer ${token}`
+    })
+
+    return this.httpClient.get<DropDown>(environment.webapiUrl+`api/search/address?regardingObjectId=${RegardingObjectId}&addressType=${AddressType}`, { headers: headers })
+  }
+
+
+  listOfCountry(): Observable<DropDown>
+  {
+    const token = sessionStorage.getItem('token')
+
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'authorization': `bearer ${token}`
+    })
+
+    return this.httpClient.get<DropDown>(environment.webapiUrl+'api/get/lookup?objectTypeCode=6', { headers: headers })
+  }
+
+  listOfState(): Observable<DropDown>
+  {
+    const token = sessionStorage.getItem('token')
+
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'authorization': `bearer ${token}`
+    })
+
+    return this.httpClient.get<DropDown>(environment.webapiUrl+'api/get/lookup?objectTypeCode=7', { headers: headers })
+  }
+
+
+  UserAddressSave(address)
+  {
+    const token = sessionStorage.getItem('token')
+
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'authorization': `bearer ${token}`
+    })
+
+    return this.httpClient.post<any>(environment.webapiUrl+'api/add/address',address, { headers: headers })
+  } 
+
+
+
+
+
+
+
+
+
+
+
 }

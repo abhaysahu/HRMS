@@ -55,12 +55,11 @@
   <table class="content"  style="width:100%">
     <thead>
       <tr>
-        <th>S.No.</th>
         <th (click)="sortFilter(1)">Emp Code <i class={{sortIcon1}} aria-hidden="true"></i> </th>
-        <th (click)="sortFilter(2)">Employee Name <i class={{sortIcon2}} aria-hidden="true"></i> </th>
+        <th (click)="sortFilter(2)">Full Name <i class={{sortIcon2}} aria-hidden="true"></i> </th>
         <th (click)="sortFilter(3)">Designation <i class={{sortIcon3}} aria-hidden="true"></i> </th>
-        <th (click)="sortFilter(4)">Departments <i class={{sortIcon4}} aria-hidden="true"></i> </th>
-        <th (click)="sortFilter(5)">Personal Email <i class={{sortIcon5}} aria-hidden="true"></i> </th>
+        <th (click)="sortFilter(4)">Department <i class={{sortIcon4}} aria-hidden="true"></i> </th>
+        <th (click)="sortFilter(5)">Email <i class={{sortIcon5}} aria-hidden="true"></i> </th>
         <th (click)="sortFilter(6)">Employment Status <i class={{sortIcon6}} aria-hidden="true"></i> </th>
         <th>Edit</th>
         
@@ -69,7 +68,6 @@
     <!-- *ngIf="persons?.length != 0 " -->
     <tbody  *ngFor="let person of persons | listEmployee:email; let i = index">
         <tr *ngIf="person.EmpCode!=100001">
-            <td>{{ i }}</td>
             <td>{{ person.EmpCode }}</td>
             <td>{{ person.FullName }}</td>
             <td>{{ person.Designation.Text }}</td>

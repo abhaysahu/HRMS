@@ -73,12 +73,8 @@ export class CreateEmployeeComponent implements OnInit {
       }
     }
   );
+
   
-
-
-
-
-
 
     this.employeeService.employeeStatus().subscribe(resp => {
       console.log(resp);

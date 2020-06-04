@@ -14,6 +14,17 @@ export class EditEmployeeComponent implements OnInit {
   copy = false
 
   Employee: any={}
+  permanentAddress: any={}
+  currentAddress: any={}
+  officeAddress: any={}
+  emergencyAddress: any={}
+  
+
+  dropdownListOfCountry: any[] = [];
+  dropdownListOfState: any[] = [];
+
+
+  dropdownListOfAddressType: any[] = [];
 
   Status=false
 
@@ -28,7 +39,7 @@ export class EditEmployeeComponent implements OnInit {
 
     this.id = this.route.snapshot.paramMap.get('id');
 
-
+    // get Employee data
 
     this.employeeService.getParticularEmployee(this.id).subscribe(resp => {
       console.log(resp);
@@ -68,7 +79,286 @@ export class EditEmployeeComponent implements OnInit {
       }
     }
   );
+
+
+  // get list of Conuntry for add or update the Address
+
+  this.employeeService.listOfCountry().subscribe(resp => {
+    console.log(resp);
+   
+    if (resp.Success) {
+      this.dropdownListOfCountry = resp.Data;
+    } else {
+      this.dangerStatus = true;
+      this.successStatus = false;
+      this.message = resp.ErrorMessage;
+      this.message = resp.Message;
+    }
+    
+  }
+  ,   (error: AppResponse) => {
+    if (error.status === 400) {
+      this.dangerStatus = true;
+      this.successStatus = false;
+      this.message = error.message;
+     
+    } else if (error.status === 401) {
+      this.dangerStatus = true;
+      this.successStatus = false;
+      this.message = 'Authorization has been denied for this request And You have to Login again.';
+      setTimeout(() => {    
+            this.router.navigate(['/login']);
+          }, 3000);
+    } else {
+      this.dangerStatus = true;
+      this.successStatus = false;
+      this.message = error.message;
+    }
+  }
+);
+
+
+// get list of Conuntry for add or update the Address
+
+this.employeeService.listOfState().subscribe(resp => {
+  console.log(resp);
+ 
+  if (resp.Success) {
+    this.dropdownListOfState = resp.Data;
+  } else {
+    this.dangerStatus = true;
+    this.successStatus = false;
+    this.message = resp.ErrorMessage;
+    this.message = resp.Message;
+  }
   
+}
+,   (error: AppResponse) => {
+  if (error.status === 400) {
+    this.dangerStatus = true;
+    this.successStatus = false;
+    this.message = error.message;
+   
+  } else if (error.status === 401) {
+    this.dangerStatus = true;
+    this.successStatus = false;
+    this.message = 'Authorization has been denied for this request And You have to Login again.';
+    setTimeout(() => {    
+          this.router.navigate(['/login']);
+        }, 3000);
+  } else {
+    this.dangerStatus = true;
+    this.successStatus = false;
+    this.message = error.message;
+  }
+}
+);
+
+
+  // Get permanent Address 
+
+  this.employeeService.UserEditDetails(this.id,1).subscribe(resp =>{
+    if(resp.Success)
+    {
+      if(resp.Data==null)
+      {
+        console.log("yes")
+        this.permanentAddress = []
+      }
+      else
+      {
+        this.permanentAddress = resp.Data[0]
+        this.permanentAddress.CountryId = this.permanentAddress.Country.Id
+        this.permanentAddress.StateProvinceId = this.permanentAddress.StateProvince.Id
+        console.log(this.permanentAddress)
+      }
+      
+    }
+    else
+    {
+      this.dangerStatus=true;
+      this.successStatus=false;
+      this.message=resp.ErrorMessage;
+    }
+    
+  }
+  ,   (error: AppResponse) => {
+    if(error.status === 400)
+    {
+      this.dangerStatus=true;
+      this.successStatus=false;
+      this.message = error.message;
+  
+    }
+    else if(error.status === 401)
+    {
+      this.dangerStatus=true;
+      this.successStatus=false;
+      this.message = "Authorization has been denied for this request And You have to Login again."
+    }       
+    else
+    {
+      this.dangerStatus=true;
+      this.successStatus=false;
+      this.message = error.message;
+    }
+  }
+)
+
+
+//  Get Current Address
+
+this.employeeService.UserEditDetails(this.id,2).subscribe(resp =>{
+  if(resp.Success)
+  {
+    if(resp.Data==null)
+    {
+      console.log("yes")
+      this.currentAddress = []
+    }
+    else
+    {
+      this.currentAddress = resp.Data[0]
+      this.currentAddress.CountryId = this.currentAddress.Country.Id
+      this.currentAddress.StateProvinceId = this.currentAddress.StateProvince.Id
+      console.log(this.permanentAddress)
+    }
+    
+  }
+  else
+  {
+    this.dangerStatus=true;
+    this.successStatus=false;
+    this.message=resp.ErrorMessage;
+  }
+  
+}
+,   (error: AppResponse) => {
+  if(error.status === 400)
+  {
+    this.dangerStatus=true;
+    this.successStatus=false;
+    this.message = error.message;
+
+  }
+  else if(error.status === 401)
+  {
+    this.dangerStatus=true;
+    this.successStatus=false;
+    this.message = "Authorization has been denied for this request And You have to Login again."
+  }       
+  else
+  {
+    this.dangerStatus=true;
+    this.successStatus=false;
+    this.message = error.message;
+  }
+}
+)
+
+
+// get office Address
+
+
+this.employeeService.UserEditDetails(this.id,3).subscribe(resp =>{
+  if(resp.Success)
+  {
+    if(resp.Data==null)
+    {
+      console.log("yes")
+      this.officeAddress = []
+    }
+    else
+    {
+      this.officeAddress = resp.Data[0]
+      this.officeAddress.CountryId = this.officeAddress.Country.Id
+      this.officeAddress.StateProvinceId = this.officeAddress.StateProvince.Id
+      console.log(this.officeAddress)
+    }
+    
+  }
+  else
+  {
+    this.dangerStatus=true;
+    this.successStatus=false;
+    this.message=resp.ErrorMessage;
+  }
+  
+}
+,   (error: AppResponse) => {
+  if(error.status === 400)
+  {
+    this.dangerStatus=true;
+    this.successStatus=false;
+    this.message = error.message;
+
+  }
+  else if(error.status === 401)
+  {
+    this.dangerStatus=true;
+    this.successStatus=false;
+    this.message = "Authorization has been denied for this request And You have to Login again."
+  }       
+  else
+  {
+    this.dangerStatus=true;
+    this.successStatus=false;
+    this.message = error.message;
+  }
+}
+)
+
+// emergency
+
+this.employeeService.UserEditDetails(this.id,4).subscribe(resp =>{
+  if(resp.Success)
+  {
+    if(resp.Data==null)
+    {
+      console.log("yes")
+      this.emergencyAddress = []
+    }
+    else
+    {
+      this.emergencyAddress = resp.Data[0]
+      this.emergencyAddress.CountryId = this.emergencyAddress.Country.Id
+      this.emergencyAddress.StateProvinceId = this.emergencyAddress.StateProvince.Id
+      console.log(this.emergencyAddress)
+    }
+    
+  }
+  else
+  {
+    this.dangerStatus=true;
+    this.successStatus=false;
+    this.message=resp.ErrorMessage;
+  }
+  
+}
+,   (error: AppResponse) => {
+  if(error.status === 400)
+  {
+    this.dangerStatus=true;
+    this.successStatus=false;
+    this.message = error.message;
+
+  }
+  else if(error.status === 401)
+  {
+    this.dangerStatus=true;
+    this.successStatus=false;
+    this.message = "Authorization has been denied for this request And You have to Login again."
+  }       
+  else
+  {
+    this.dangerStatus=true;
+    this.successStatus=false;
+    this.message = error.message;
+  }
+}
+)
+
+
 
   }
 
@@ -79,6 +369,158 @@ export class EditEmployeeComponent implements OnInit {
   {
     console.log(employee)
   }
+
+  // save and update the the permanent address
+
+  Permanent(permanent)
+  {
+    permanent.AddressType  = 1;
+    permanent.RegardingObjectId = this.id;
+    permanent.Email=""
+	  permanent.Company=""
+
+    console.log(permanent)
+
+    this.employeeService.UserAddressSave(permanent).subscribe(resp =>{
+      // console.log(resp)
+      if(resp.Success)
+      {
+        this.successStatus=true;
+        this.dangerStatus=false;
+        this.message="Data is Added successfully"
+      }
+      else
+      {
+        this.dangerStatus=true;
+        this.successStatus=false;
+        this.message=resp.Message;
+      }
+      
+    }
+    ,   (error: AppResponse) => {
+      if(error.status === 400)
+      {
+       this.message = error.message
+      //  console.log(this.message)
+      }
+      else if(error.status === 401)
+      {
+        this.dangerStatus=true;
+        this.successStatus=false;
+        this.message = "Authorization has been denied for this request And You have to Login again."
+      }       
+      else
+      {
+        this.dangerStatus=true;
+        this.successStatus=false;
+        this.message = error.message;
+      }
+    }
+  )
+    
+  }
+
+
+  Current(current)
+  {
+    current.AddressType  = 2;
+    current.RegardingObjectId = this.id;
+    current.Email=""
+	  current.Company=""
+
+    console.log(current)
+
+    this.employeeService.UserAddressSave(current).subscribe(resp =>{
+      // console.log(resp)
+      if(resp.Success)
+      {
+        this.successStatus=true;
+        this.dangerStatus=false;
+        this.message="Data is Added successfully"
+      }
+      else
+      {
+        this.dangerStatus=true;
+        this.successStatus=false;
+        this.message=resp.Message;
+      }
+      
+    }
+    ,   (error: AppResponse) => {
+      if(error.status === 400)
+      {
+       this.message = error.message
+      //  console.log(this.message)
+      }
+      else if(error.status === 401)
+      {
+        this.dangerStatus=true;
+        this.successStatus=false;
+        this.message = "Authorization has been denied for this request And You have to Login again."
+      }       
+      else
+      {
+        this.dangerStatus=true;
+        this.successStatus=false;
+        this.message = error.message;
+      }
+    }
+  )
+
+  }
+
+
+  Office(office)
+  {
+    office.AddressType  = 2;
+    office.RegardingObjectId = this.id;
+    office.Email=""
+	  office.Company=""
+
+    console.log(office)
+
+    this.employeeService.UserAddressSave(office).subscribe(resp =>{
+      // console.log(resp)
+      if(resp.Success)
+      {
+        this.successStatus=true;
+        this.dangerStatus=false;
+        this.message="Data is Added successfully"
+      }
+      else
+      {
+        this.dangerStatus=true;
+        this.successStatus=false;
+        this.message=resp.Message;
+      }
+      
+    }
+    ,   (error: AppResponse) => {
+      if(error.status === 400)
+      {
+       this.message = error.message
+      //  console.log(this.message)
+      }
+      else if(error.status === 401)
+      {
+        this.dangerStatus=true;
+        this.successStatus=false;
+        this.message = "Authorization has been denied for this request And You have to Login again."
+      }       
+      else
+      {
+        this.dangerStatus=true;
+        this.successStatus=false;
+        this.message = error.message;
+      }
+    }
+  )
+
+  }
+
+
+
+
 
 //   copyCurrentToPermanent(event) {
 //     console.log(event.target.checked)
