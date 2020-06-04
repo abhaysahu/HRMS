@@ -336,12 +336,17 @@ export class CreateEmployeeComponent implements OnInit {
 
 
  onPrint() {
-  //  console.log("yes")
-  //  this.printService.printData.FullName="abhaysahu"
-  //  this.printService.printData.LoginId="asahu"
-  //  this.printService.printData.Password="abhayhmasdhb"
+   console.log("yes")
+   this.printService.printData.FullName="abhaysahu"
+   this.printService.printData.LoginId="asahu"
+   this.printService.printData.Password="abhayhmasdhb"
 
-   
+   let print={
+    FullName:"abhaysahu",
+    LoginId:"asahu",
+    Password:"abhayhmasdhb"
+    
+  }
 
   //  this.router.navigate(['/print/print/1']);
 
@@ -357,7 +362,7 @@ export class CreateEmployeeComponent implements OnInit {
     dialogConfig.disableClose = true;
     dialogConfig.width="50%";
     dialogConfig.height="99%";
-    dialogConfig.data={}
+    dialogConfig.data={print}
     this.dialog.open(PrintPopupComponent, dialogConfig).afterClosed().subscribe(res =>{
       
     });
