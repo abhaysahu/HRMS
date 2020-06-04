@@ -16,6 +16,11 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit() {
+
+    var date1 =  JSON.parse(sessionStorage.getItem('user')).expires
+    console.log(date1)
+
+    
   }
 
 }
