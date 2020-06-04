@@ -472,7 +472,7 @@ this.employeeService.UserEditDetails(this.id,4).subscribe(resp =>{
 
   Office(office)
   {
-    office.AddressType  = 2;
+    office.AddressType  = 3;
     office.RegardingObjectId = this.id;
     office.Email=""
 	  office.Company=""
@@ -480,6 +480,56 @@ this.employeeService.UserEditDetails(this.id,4).subscribe(resp =>{
     console.log(office)
 
     this.employeeService.UserAddressSave(office).subscribe(resp =>{
+      // console.log(resp)
+      if(resp.Success)
+      {
+        this.successStatus=true;
+        this.dangerStatus=false;
+        this.message="Data is Added successfully"
+      }
+      else
+      {
+        this.dangerStatus=true;
+        this.successStatus=false;
+        this.message=resp.Message;
+      }
+      
+    }
+    ,   (error: AppResponse) => {
+      if(error.status === 400)
+      {
+       this.message = error.message
+      //  console.log(this.message)
+      }
+      else if(error.status === 401)
+      {
+        this.dangerStatus=true;
+        this.successStatus=false;
+        this.message = "Authorization has been denied for this request And You have to Login again."
+      }       
+      else
+      {
+        this.dangerStatus=true;
+        this.successStatus=false;
+        this.message = error.message;
+      }
+    }
+  )
+
+  }
+
+
+  Emergency(emergency)
+  {
+    emergency.AddressType  = 4;
+    emergency.RegardingObjectId = this.id;
+    emergency.Email=""
+    emergency.Company=""
+    
+
+    console.log(emergency)
+
+    this.employeeService.UserAddressSave(emergency).subscribe(resp =>{
       // console.log(resp)
       if(resp.Success)
       {
