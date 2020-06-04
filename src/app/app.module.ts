@@ -169,7 +169,7 @@ import { ListEmployeePipe } from './layout/component/employee/list-employee.pipe
   entryComponents:[CommentsComponent, EditpicklistComponent, PopupComponent, PrintPopupComponent],
 
   providers: [
-     {provide: LocationStrategy, useClass: HashLocationStrategy},
+     //{provide: LocationStrategy, useClass: HashLocationStrategy},
     LoginService, 
     AuthGuardService,
     EmployeeService,

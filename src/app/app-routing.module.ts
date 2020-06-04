@@ -31,6 +31,7 @@ import { EmployerListComponent } from './layout/component/Admin/employer/compone
 import { EmployerSaveComponent } from './layout/component/Admin/employer/component/employer-save/employer-save.component';
 import { PrintLayoutComponent } from './layout/component/employee/component/create-employee/print-layout/print-layout.component';
 import { InvoiceComponent } from './layout/component/employee/component/create-employee/invoice/invoice.component';
+import { AuthGuardService } from './service/auth-guard.service';
 
 const routes: Routes = [
   
@@ -50,90 +51,112 @@ const routes: Routes = [
  
   {
     path: 'dashboard', component: DefaultComponent, 
-    //canActivate: [AuthGuardService],
+      //canActivate: [AuthGuardService],
 
     children: [
       {
-      path: '', component: DashboardComponent, 
-      //canActivate: [AuthGuardService]
+        path: '', component: DashboardComponent, 
+        //canActivate: [AuthGuardService]
       },
-
       {
         path: 'employee/details', component: EmployeeDetailsComponent, 
         //canActivate: [AuthGuardService]
       },
       {
         path: 'employee/list', component: EmployeeListComponent,
-      //canActivate: [AuthGuardService],
+        //canActivate: [AuthGuardService],
       },
       {
-        path: 'create/new/employee', component:CreateEmployeeComponent
+        path: 'create/new/employee', component:CreateEmployeeComponent,
+        //canActivate: [AuthGuardService],
       },
       {
-        path: 'edit/employee/:id',component:EditEmployeeComponent
+        path: 'edit/employee/:id',component:EditEmployeeComponent,
+        //canActivate: [AuthGuardService],
       },
       {
         path: 'myattendance', component: MyAttendanceComponent,
+        //canActivate: [AuthGuardService],
       },
       {
         path: 'applytimeaway', component: ApplyTimeAwayComponent,
+        //canActivate: [AuthGuardService],
       },
       {
         path: 'mytimeawayrequests', component: MyTimeAwayRequestsComponent,
+        //canActivate: [AuthGuardService],
       },
       {
         path: 'myleaves', component: MyLeavesComponent,
+        //canActivate: [AuthGuardService],
       },
       {
         path: 'mytimesheet', component: MyTimesheetComponent,
+        //canActivate: [AuthGuardService],
       },
       {
         path: 'timesheetbank', component: TimesheetBankComponent,
+        //canActivate: [AuthGuardService],
       },
       {
         path: 'myservicerequests', component: MyServiceRequetsComponent,
+        //canActivate: [AuthGuardService],
       },
       {
         path: 'addsr', component: AddSRComponent,
+        //canActivate: [AuthGuardService],
       },
       {
         path: 'addattendance', component: AddAttendanceComponent,
+        //canActivate: [AuthGuardService],
       },
       {
         path: 'expenseclaim' , component: ExpenseClaimComponent,
+        //canActivate: [AuthGuardService],
       },
       {
         path: 'expensebank' , component: ExpenseBankComponent,
+        //canActivate: [AuthGuardService],
       },
       {
         path: 'entity/list' , component: EntityListComponent,
+        //canActivate: [AuthGuardService],
       },
       {
         path: 'entity/save' , component: EntitySaveComponent,
+        //canActivate: [AuthGuardService],
       },
       {
         path: 'project/save' , component: ProjectSaveComponent,
+        //canActivate: [AuthGuardService],
       },
       {
         path: 'project/list' , component: ProjectListComponent,
+        //canActivate: [AuthGuardService],
       },
       {
         path: 'picklist/save' , component: StringMapSaveComponent,
+        //canActivate: [AuthGuardService],
       },
       {
         path: 'picklist/list' , component: StringMapListComponent,
+        //canActivate: [AuthGuardService],
       },
       {
         path: 'systemlog/list' , component: SystemLogListComponent,
+        //canActivate: [AuthGuardService],
       },
       {
         path: 'pagenotfound' , component: PageNotFoundComponent,
+        //canActivate: [AuthGuardService],
       },
       {
-        path: 'employer/list', component: EmployerListComponent
+        path: 'employer/list', component: EmployerListComponent,
+        //canActivate: [AuthGuardService],
       },
       {
-        path: 'employer/save', component: EmployerSaveComponent
+        path: 'employer/save', component: EmployerSaveComponent,
+        //canActivate: [AuthGuardService],
       },
       
     ],
