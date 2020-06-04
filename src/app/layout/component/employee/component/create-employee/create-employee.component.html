@@ -78,7 +78,7 @@ both are edited the other in formation  -->
 
                 <div class="form-group col-md-4">
                   <label for="OfficialEmail">Official Email</label>
-                  <input type="text" class="form-control" #OfficialEmail="ngModel" [(ngModel)]="Employee.OfficialEmail" name="OfficialEmail" id="OfficialEmail" required>
+                  <input type="text" class="form-control" #OfficialEmail="ngModel" [(ngModel)]="Employee.OfficialEmail" name="OfficialEmail" id="OfficialEmail">
                   <div class="invalid-feedback" *ngIf="OfficialEmail.touched && OfficialEmail.invalid">
                     Email Is Required.
                   </div>  
@@ -164,7 +164,7 @@ both are edited the other in formation  -->
 
                 <div class="form-group col-md-4">
                   <label for="HighestQualification">High Qualification</label>
-                  <input type="text" class="form-control"#HighestQualification="ngModel" [(ngModel)]="Employee.HighestQualification" name="HighestQualification" id="HighestQualification" required>
+                  <input type="text" class="form-control"#HighestQualification="ngModel" [(ngModel)]="Employee.HighestQualification" name="HighestQualification" id="HighestQualification">
                   <div class="invalid-feedback" *ngIf="HighestQualification.touched && HighestQualification.invalid">
                     High Qualification Is Required.
                   </div> 
@@ -172,7 +172,7 @@ both are edited the other in formation  -->
                 
                 <div class="form-group col-md-4">
                   <label for="PriorExperience">Total Experience(yrs)</label><br>
-                  <input type="number" id="PriorExperience" class="form-control" #PriorExperience="ngModel" [(ngModel)]="Employee.PriorExperience" name="PriorExperience" id="PriorExperience" min="1" max="20" required>
+                  <input type="number" id="PriorExperience" class="form-control" #PriorExperience="ngModel" [(ngModel)]="Employee.PriorExperience" name="PriorExperience" id="PriorExperience" min="1" max="20">
                   <div class="invalid-feedback" *ngIf="PriorExperience.touched && PriorExperience.invalid">
                     Total Experience Is Required.
                   </div>
@@ -213,7 +213,7 @@ both are edited the other in formation  -->
 
                 <div class="form-group col-md-4">
                   <label for="PrimaryManagerId">PrimaryManagerId</label>
-                  <select type="text" class="custom-select" #PrimaryManagerId="ngModel" [(ngModel)]="Employee.PrimaryManagerId" name="PrimaryManagerId" id="PrimaryManagerId" required>
+                  <select type="text" class="custom-select" #PrimaryManagerId="ngModel" [(ngModel)]="Employee.PrimaryManagerId" name="PrimaryManagerId" id="PrimaryManagerId">
                     <option value="">Select any option</option>
                     <option *ngFor="let dropdownLists of dropdownListOfUser" [value]=dropdownLists.Id>{{dropdownLists.FullName}}</option>
                   
