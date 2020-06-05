@@ -41,15 +41,15 @@
       <!-- <div class="mycontent-left"> -->
 
 
-        <form>
+        <form #form="ngForm" (submit)="Search(form.value)">
           <div class="form-inline">
 
             Product name  <i class="fa fa-question-circle" style="color: rgb(23, 163, 184);"></i>
 
 
             <div class="search-div">
-            <input type="text"  name="search" class="search-box">
-            <button type="button" class="btn btn-info"><i class="fa fa-search"></i>  Search</button>
+            <input type="text" #search="ngModel" [(ngModel)]="search.search"  id="search" name="search"  class="search-box">
+            <button type="submit" class="btn btn-info"><i class="fa fa-search"></i>  Search</button>
           </div>
           </div>
       </form><br><br>
@@ -59,42 +59,24 @@
             <th scope="col">Product Name</th>
             <th scope="col">Published</th>
           </tr>
-          <tr>
-            <td>(MoQ-500)ZOPAS 9w LED Bulb With 2 years Warranty (900 Lumens)</td>
-            <td><i class="fa fa-times" aria-hidden="true" style="color: red; font-size: 30px;"></i>
-            </td>
-            <!-- <td ><span class="add"><i class="fa fa-file-o" aria-hidden="true"> Add </i> -->
-              <td width="14%"><button type="button" class="btn btn-info"> Add</button>
-              </td>
-
-
-          </tr>
-          <tr>
-            <td>(MoQ-500)ZOPAS 9w LED Bulb With 2 years Warranty (900 Lumens)</td>
-            <td><i class="fa fa-times" aria-hidden="true" style="color: red; font-size: 30px;"></i>
-            </td>
-            <!-- <td ><span class="add"><i class="fa fa-file-o" aria-hidden="true"> Add </i> -->
-              <td width="14%"><button type="button" class="btn btn-info"> Add</button>
-              </td>
-
-
-          </tr>
-          <tr>
-            <td>(MoQ-500)ZOPAS 9w LED Bulb With 2 years Warranty (900 Lumens)</td>
-            <td><i class="fa fa-times" aria-hidden="true" style="color: red; font-size: 30px;"></i>
-            </td>
-            <!-- <td ><span class="add"><i class="fa fa-file-o" aria-hidden="true"> Add </i> -->
-              <td width="14%"><button type="button" class="btn btn-info"> Add</button>
-              </td>
-
-
-          </tr>
         </thead>
         <tbody>
+          <tr *ngFor="let rewardLists of rewardList">
+            <td>{{rewardLists.Name}}</td>
+            <td>
+              <div *ngIf="rewardLists.Published; then thenBlock else elseBlock"></div>
+              <ng-template #thenBlock><i class="fa fa-check" aria-hidden="true" style="color: green; font-size: 30px;"></i></ng-template>
+              <ng-template #elseBlock><i class="fa fa-times" aria-hidden="true" style="color: red; font-size: 30px;"></i></ng-template>
+            </td>
+            <!-- <td ><span class="add"><i class="fa fa-file-o" aria-hidden="true"> Add </i> -->
+              <td width="14%"><button type="button" class="btn btn-info"> Add</button>
+              </td>
+          </tr>
+
         </tbody>
       </table>
      
-      <!-- </div> -->
+     
     </div>
     <div id="vertical-line"></div>
     <div class="col my-col">
@@ -107,26 +89,14 @@
             <th scope="col">Product Name</th>
             <th scope="col">Active</th>
           </tr>
-          <tr>
-            <td>(MoQ-500)ZOPAS 9w LED Bulb With 2 years Warranty (900 Lumens)</td>
-            <td><input type="checkbox" id="defaultCheck" name="example2" checked></td>
-            <p>Delete</p>
-            <!-- <td ><span class="add"><i class="fa fa-file-o" aria-hidden="true"> Add </i> -->
-
-
-          </tr>
-          <tr>
-            <td>(MoQ-500)ZOPAS 9w LED Bulb With 2 years Warranty (900 Lumens)</td>
-            <td><input type="checkbox" id="defaultCheck" name="example2"></td>
-            <p>Delete</p>
-
-           
-             
-
-
-          </tr>
         </thead>
         <tbody>
+          <tr *ngFor="let rewardLists of rewardList">
+            <td>{{rewardLists.Name}}</td>
+            <td style="font-size: 30px;"><input type="checkbox" id="defaultCheck" name="Published" [checked]="rewardLists.Published"></td>
+            <p>Delete</p>
+          </tr>
+
         </tbody>
       </table>
     </div>
