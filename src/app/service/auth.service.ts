@@ -65,6 +65,7 @@ export class AuthService {
     sessionStorage.removeItem('token');
     sessionStorage.removeItem('refresh');
     sessionStorage.removeItem('user');
+    
     this.router.navigate(['/login']);
     this.loginStatus.emit(false);
   }

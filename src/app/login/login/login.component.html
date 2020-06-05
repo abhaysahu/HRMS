@@ -15,9 +15,9 @@
 <div class="login">
   <p id="logo"><img src="../../../assets/images/logo.png" ></p>
   <h1>Login Here</h1><br>
-  <form #f="ngForm" (ngSubmit)="login(f.value)">
+  <form #f="ngForm" (ngSubmit)="Login(f.value)">
     <p>User Name</p>
-    <input type="hidden" value="password"  name="grant_type" #grant_type="ngModel" [(ngModel)]="formData.grant_type">
+    <input type="hidden" value="password"  name="grant_type" #grant_type="ngModel" [(ngModel)]="login.grant_type">
 
     <input type="text" #userName="ngModel" [(ngModel)]="login.userName" name="userName" id="userName" placeholder="Enter Username" class="form-control" required>
     <div class="invalid-feedback" *ngIf="userName.touched && userName.invalid">

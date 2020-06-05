@@ -40,19 +40,11 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent},
 
   {path: 'navbar', component: NavBarComponent},
-
-  { path: 'print',
-  // outlet: 'print',
-  component: PrintLayoutComponent,
-  children: [
-    { path: 'print/:id', component: InvoiceComponent }
-  ]
-},
   
  
   {
     path: 'dashboard', component: DefaultComponent, 
-      //canActivate: [AuthGuardService],
+      canActivate: [AuthGuardService],
 
     children: [
       {
@@ -161,6 +153,9 @@ const routes: Routes = [
       },
       {
         path: 'rewardskip', component: RewardSkipComponent,
+      },
+      {
+        path: 'test/rewardskip', component: InvoiceComponent
       }
       
     ],
