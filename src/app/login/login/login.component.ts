@@ -22,7 +22,8 @@ export class LoginComponent implements OnInit {
 
   error: string;
   grant_type = "password"
-  formData: any[]=[]
+  login: any[]=[]
+  
 
 
 
@@ -46,7 +47,7 @@ export class LoginComponent implements OnInit {
   }
 
 
-  login(form) {
+  Login(form) {
 
     form.grant_type = "password"
     
@@ -66,7 +67,7 @@ export class LoginComponent implements OnInit {
             {    
               this.router.navigate([this.authService.redirectUrl]);
       
-            }, 3000);  
+            }, 1500);  
 
           } 
           else 

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {PrintService} from '../../../services/print.service';
+import { RewardSkipService } from 'src/app/layout/component/reward-skip/service/reward-skip.service';
+import { AppResponse } from 'src/app/models/appResponse';
 
 @Component({
   selector: 'app-invoice',
@@ -8,24 +10,68 @@ import {PrintService} from '../../../services/print.service';
   styleUrls: ['./invoice.component.css']
 })
 export class InvoiceComponent implements OnInit {
-  invoiceIds: string[];
-  invoiceDetails: Promise<any>[];
 
-  id
+  search: any[]=[];
+  rewardList:any[]=[];
 
-  constructor(private route: ActivatedRoute,
-              private router: Router,
-              private printService: PrintService) {
+  successStatus=false;
+  dangerStatus=false;
 
-                console.log(this.printService.printData)
+  message="";
 
-                this.id = this.route.snapshot.paramMap.get('id');
-                // console.log(this.id)
+  email="";
 
-  }
+  constructor(private rewardservice: RewardSkipService) { }
 
   ngOnInit() {
-    // this.printService.onDataReady()
   }
+
+
+  Search(search)
+  {
+    console.log(search.search)
+    let parameter = search.search 
+
+    this.rewardservice.getrewardSkipData(parameter).subscribe(resp =>{
+      
+      if(resp.Success)
+      {
+        this.rewardList = resp.Data
+        console.log(this.rewardList)
+      }
+      else
+      {
+          this.dangerStatus=true;
+          this.successStatus=false;
+          this.message=resp.ErrorMessage;
+          this.message=resp.Message;
+      }
+      
+    },   (error: AppResponse) => {
+      if(error.status === 400)
+      {
+        this.dangerStatus=true;
+        this.successStatus=false;
+        this.message = error.message
+      }
+      else if(error.status === 401)
+      {
+        this.dangerStatus=true;
+        this.successStatus=false;
+        this.message = "Authorization has been denied for this request And You have to Login again."
+      }       
+      else
+      {
+        this.dangerStatus=true;
+        this.successStatus=false;
+        this.message = error.message;
+      }
+}
+)
+
+
+  }
+
+  
 
 }
