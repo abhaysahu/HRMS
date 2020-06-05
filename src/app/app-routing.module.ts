@@ -32,6 +32,7 @@ import { EmployerSaveComponent } from './layout/component/Admin/employer/compone
 import { PrintLayoutComponent } from './layout/component/employee/component/create-employee/print-layout/print-layout.component';
 import { InvoiceComponent } from './layout/component/employee/component/create-employee/invoice/invoice.component';
 import { AuthGuardService } from './service/auth-guard.service';
+import { RewardSkipComponent } from './layout/component/reward-skip/reward-skip.component';
 
 const routes: Routes = [
   
@@ -158,6 +159,9 @@ const routes: Routes = [
         path: 'employer/save', component: EmployerSaveComponent,
         //canActivate: [AuthGuardService],
       },
+      {
+        path: 'rewardskip', component: RewardSkipComponent,
+      }
       
     ],
 
