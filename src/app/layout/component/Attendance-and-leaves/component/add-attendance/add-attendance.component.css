@@ -1,0 +1,210 @@
+/*.content-header {
+    position: relative;
+    padding: 15px 30px;
+    background-color: #f2f2f2;
+    border-bottom: 1px solid #fff;
+    
+
+    box-shadow: 0 0 20px rgba(0,0, 0, 0.15);
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+    border-collapse: collapse;
+}
+.content-header .header-icon {
+    font-size: 45px;
+    color: #4b4b79;
+    width: 65px;
+    float: left;
+    margin-top: -4px;
+    line-height: 0;
+}
+
+.content-header .header-title {
+    margin-left: 62px;
+}
+.content-header .header-title h1 {
+    margin: 0;
+    font-size: 24px;
+}
+.content-header .header-title small {
+    font-size: 14px;
+    display: inline-block;
+    padding-left: 4px;
+    font-weight: 600;
+    color: #555;
+}
+
+.breadcrumb{
+    float: right;
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 12px;
+    position: absolute;
+    bottom: 20px;
+    right: 30px;
+    top: 18px;
+    border-radius: 0;
+    font-weight: 600;
+
+}*/
+
+/*.header-title .link {
+    float: right;
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 12px;
+    position: absolute;
+    bottom: 20px;
+    right: 30px;
+    top: 18px;
+    border-radius: 0;
+    font-weight: 600;
+}
+
+.link>.active {
+    color: #26a69a;
+    font-weight: 700;
+}
+ul.link {
+    padding: 10px 16px;
+    list-style: none;
+    font-size: 17px;
+}
+ul.link li {
+    display: inline;
+}
+ul.link li+li:before {
+    padding: 8px;
+    color: black;
+    content: "/\00a0";
+}
+
+ul.link li a:hover {
+    color: #01447e;
+    text-decoration: underline;
+}
+ul.link li > a > i.fa {
+    font-size: 14px;
+    padding-right: 2px;
+}*/
+
+/*.card{
+
+    box-shadow: 0 0 20px rgba(0,0, 0, 0.20);
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+    border-collapse: collapse;
+    
+
+}*/
+/*.my-row {
+	border: transparent;
+}
+.my-col {
+	border: transparent;
+}
+.a{
+    float: right;
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 12px;
+    position: absolute;
+    bottom: 20px;
+    right: 30px;
+    top: -3px;
+    border-radius: 0;
+    font-weight: 600;
+
+}
+
+.heading{
+    margin: 0;
+    font-size: 24px;
+}
+.icon{
+    font-size: 45px;
+    color: #4b4b79;
+    width: 65px;
+    float: left;
+    margin-top: -4px;
+    line-height: 0;
+
+}
+.my-col1{
+	font-size: 14px;
+    display: inline-block;
+    padding-left: 95px;
+    font-weight: 600;
+    color: #555;
+    bottom: 35px;
+}
+.my-container{
+    position: relative;
+   /* padding: 15px 30px;*/
+   /* background-color: #f2f2f2;
+    border-bottom: 1px solid #fff;
+    
+
+    box-shadow: 0 0 20px rgba(0,0, 0, 0.15);
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+    border-collapse: collapse;
+    height: 20%;
+    margin-left: 5px;
+
+}*/
+.card{
+
+    box-shadow: 0 0 20px rgba(0,0, 0, 0.20);
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+    border-collapse: collapse;
+    
+
+}
+.my-row {
+	border: transparent;
+}
+.my-col {
+	border: transparent;
+}
+.a{
+    float: right;
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 12px;
+    position: absolute;
+    bottom: 20px;
+    right: 30px;
+    top: -3px;
+    border-radius: 0;
+    font-weight: 600;
+
+}
+
+.heading{
+    margin: 0;
+    font-size: 24px;
+}
+.icon{
+    font-size: 32px;
+    color: #4b4b79;
+    width: 65px;
+    float: left;
+    margin-top: -4px;
+    line-height: 0;
+
+}
+.my-col1{
+	font-size: 14px;
+    display: inline-block;
+    padding-left: 95px;
+    font-weight: 600;
+    color: #555;
+    bottom: 35px;
+}
+
+
+label{
+    font-weight: bold;
+}

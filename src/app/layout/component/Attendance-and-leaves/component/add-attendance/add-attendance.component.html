@@ -1,0 +1,126 @@
+<div class="col">
+  <div class="row my-row">
+    <div class="col my-col">
+      <ul class="breadcrumb" style="background-color: transparent;">
+        <li class="breadcrumb-item ">
+          <span class="icon">
+            <i class="fa fa-clock-o"></i></span>
+          <span class="heading" style="color: black; background-color: transparent;">Add Attendance</span></li>
+
+      </ul>
+    </div>
+    <div class="col my-col">
+      <div class="a">
+        <ul class="breadcrumb" style="background-color: transparent;">
+          <li class="breadcrumb-item"><a routerLink="/dashboard">
+              <i class="fa fa-home"></i> Home</a></li>
+          <li class="breadcrumb-item"><a routerLink="/dashboard/addattendance">Add Attendance</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="row my-row">
+    <div class="col my-col1">
+      Add Attendance Record
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header">
+    Add Attendance
+  </div>
+  <div class="card-body">
+    
+      <div class="form-row">
+        <div class="form-group col-md-4">
+          <label for="date">Date</label>
+          <div class="form-group">
+            <input type="date" max="3000-12-31" #date="ngModel" [(ngModel)]="Addattendance.date" name="date" id="date" min="1000-01-01" class="form-control">
+          </div>
+        </div>
+      </div><br>
+
+      <input type="text" class="form-control" [(ngModel)]="email" placeholder="Serach any fields"/>
+      <br>
+
+      <div style="overflow-x: scroll;">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th scope="col">Employee Name/Id</th>
+              <th scope="col">Attendance</th>
+              <th scope="col">In Time</th>
+              <th scope="col">Out Time</th>
+              <th scope="col">Status</th>
+              <th scope="col">Index</th>
+            </tr>
+          </thead>
+          <tbody *ngIf="Addattendance?.length != 0">
+            <tr *ngFor="let addAttendances of Addattendance | addAttendanceSearch:email; let i = index">
+
+              <td>{{ addAttendances.Name }}</td>
+              <td>
+                <select class="custom-select" id="Attendance" value={{addAttendances.Status}} (change)="Statuschange($event.target.value,i)">
+                  <option selected>Select Status</option>
+                  <option value="1">Present</option>
+                  <option value="2">Half Day</option>
+                  <option value="3">Leave</option>
+                  <option value="4">Absent</option>
+                </select>
+              </td>
+                <td *ngIf="addAttendances.Status==1">
+                  <input type="time" value={{addAttendances.Intime}} (change)="InTimechange($event.target.value,i)">
+                </td>
+                <td *ngIf="addAttendances.Status==1">
+                  <input type="time" value={{addAttendances.OutTime}} (change)="OutTimechange($event.target.value,i)">
+                </td>
+
+                <td *ngIf="addAttendances.Status==2">
+                  <input type="time" value={{addAttendances.Intime}} (change)="InTimechange($event.target.value,i)">
+                </td>
+                <td *ngIf="addAttendances.Status==2">
+                  <input type="time" value={{addAttendances.OutTime}} (change)="OutTimechange($event.target.value,i)">
+                </td>
+
+                <td *ngIf="addAttendances.Status==3">
+                  <input type="time" value={{addAttendances.Intime}} disabled>
+                </td>
+                <td *ngIf="addAttendances.Status==3">
+                  <input type="time" value={{addAttendances.OutTime}} disabled>
+                </td>
+
+                <td *ngIf="addAttendances.Status==4">
+                  <input type="time" value={{addAttendances.Intime}} disabled>
+                </td>
+                <td *ngIf="addAttendances.Status==4">
+                  <input type="time" value={{addAttendances.OutTime}} disabled>
+                </td>
+
+              <!-- <td>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" [value]=addAttendances.Leave name="Leave">
+                  <label class="form-check-label" for="inlineRadio1">Yes</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" value=addAttendances.Leave name="Leave">
+                  <label class="form-check-label" for="inlineRadio2">No</label>
+                </div>
+              </td> -->
+
+              <td>
+                {{addAttendances.Status}}
+              </td>
+              
+              <td>
+                {{ i }}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <button type="button" (click)="Save()" class="btn btn-primary">Save</button>
+      <button type="submit" class="btn btn-primary" style="margin-left: 15px;">Submit</button>
+  
+  </div>
+</div>

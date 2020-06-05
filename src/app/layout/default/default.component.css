@@ -2,10 +2,12 @@
     display: flex;
     flex-direction: column;
     height: 100%;
+    
 }
 
 mat-drawer{
-    width: 270px;
+    width: 230px;
+    background: #212529;
 }
 
 mat-drawer-container {
@@ -15,10 +17,25 @@ mat-drawer-container {
 
 mat-drawer-content {
     padding: 20px;
+}
 
-    /* overflow-x: hidden;
-    overflow-y: auto;
-    color: #374767;
-    background-color: #d5d8da; */
+
+
+@media(max-width: 540px){
+
+    #mat-drawer{
+        transform: translateX(230px);
+    }
+
+
+
+	/* #sidebar{margin-left: -250px;}
+	#sidebar.active{
+		margin-left: 0px;
+	}
+	#sidebarCollapse span{
+		display: none;
+	} */
+
 
 }

@@ -1,0 +1,30 @@
+<div class="commentbox">
+<h4 class="dispaly-4">Comment</h4>
+<hr>
+<form #form="ngForm" (submit)="onSubmit(form.value)">
+  <div class="form-row">
+    
+    <div class="form-group col-md-2">
+      <input type="hidden"  name="commentId" #commentId="ngModel" [(ngModel)]="formData.commentId">
+      <label>Hours</label>
+      <input name="hour" #hour="ngModel" [(ngModel)]="formData.hour" type="number" class="form-control" placeholder="16.00" step="0.01" min="0" max="10">
+    </div> <br><br>
+
+    <div class="form-group col-md-6">
+      <label>Description</label>
+      <textarea name="comment" #comment="ngModel" [(ngModel)]="formData.comment" class="form-control" rows="3"></textarea>
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <button type="submit" class="btn btn-dark"><i class="fa fa-database"></i> Submit</button>
+
+    <button type="button" class="btn btn-outline-dark ml-1" (click)="close()" ><i class="fa fa-close"></i> Close</button>
+    <!-- <button (click)="printPage()" class="btn btn-primary">print</button> -->
+
+    
+  </div>
+</form>
+
+</div>
+

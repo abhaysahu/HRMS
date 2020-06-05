@@ -1,0 +1,93 @@
+
+{
+    "Success": true,
+    "ErrorMessage": null,
+    "Data": [
+        {
+            "FullName": "abhay sahu",
+            "PersonalEmail": "sahua545@gmail.com",
+            "LoginId": "asahu23",
+            "EmpCode": "100005",
+            "DateOfJoining": "2020-07-02T00:00:00",
+            "DateOfConfirmation": "2020-07-02T00:00:00",
+            "OfficialEmail": "sahua545@pobara.com",
+            "Department": {
+                "Value": 2,
+                "Text": "Saler"
+            },
+            "Designation": {
+                "Value": 3,
+                "Text": "Sr. Executive"
+            },
+            "Grade": 2,
+            "HighestQualification": "MBA",
+            "PriorExperience": 6.0,
+            "MaritalStatus": {
+                "Value": 2,
+                "Text": "Married"
+            },
+            "Gender": {
+                "Value": 2,
+                "Text": "Female"
+            },
+            "PrimaryManager": {
+                "Id": "72fecddb-fcfa-4afb-a8ec-7c0a3839e7c5",
+                "Name": "Jitendra Sahu"
+            },
+            "TriggerChangePwd": true,
+            "Status": {
+                "Value": 1,
+                "Text": "Active"
+            },
+            "Id": "45f7ac0d-daf5-487f-b2d6-d83382acf411",
+            "CreatedOn": "2020-06-01T14:53:21.64",
+            "CreatedOnUtc": "2020-06-01T09:23:21.64",
+            "UpdatedOn": null,
+            "UpdatedOnUtc": null,
+            "CreatedBy": {
+                "Id": "72fecddb-fcfa-4afb-a8ec-7c0a3839e7c5",
+                "Name": null
+            },
+            "UpdatedBy": null,
+
+            "aadharCardNumber": "2456 2587 4895",
+            "panCard": "APJD5548S",
+            "uanCard": "2548 4584",
+            "pfCard": "2548 48785",
+
+
+
+            "addressName": "Aastha Jain",
+            "addressNumber":1234567890,
+            "currentAddressLine1": "shubhash colny",
+            "currentAddressLine2": "NearIDBI bank",
+            "currentCity": "Bhopal",
+            "currentState": "MP",
+            "currentZip":215487,
+            
+            
+            "permanentName": "abhay sahu 1",
+            "permanentNumber":961762594511,
+            "permanentAddressLine1": "shubhash colny 1",
+            "permanentAddressLine2": "near IDBI bank 1",
+            "permanentCity": "Guna 1",
+            "permanentState": "MP",
+            "permanentZip":21548711,
+           
+            "emergencyName": "abhay sahu 2",
+            "emergencyNumber":961762594522,
+            "emergencyAddressLine1": "shubhash colny 2",
+            "emergencyAddressLine2": "near IDBI bank 2",
+            "emergencyCity": "Guna 2",
+            "emergencyState": "MP",
+            "emergencyZip":21548722
+        }
+    ],
+    "RecordCount": 1
+}
+
+
+
+
+             
+                        

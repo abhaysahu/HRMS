@@ -1,0 +1,97 @@
+<div *ngIf="successStatus" class="alert alert-success" role="alert">
+  {{ message }}
+  <i class="fa fa-times-circle" (click)="closeStatus()"  aria-hidden="true"></i>
+   <!-- <a class="btn btn-primary" routerLink="/login">Go To Login Page</a> -->
+</div>
+
+<div *ngIf="dangerStatus" class="alert alert-danger" role="alert">
+  {{ message }}
+  <i class="fa fa-times-circle" (click)="closeStatus()"  aria-hidden="true"></i>
+   <!-- <a class="btn btn-primary" routerLink="/login">Go To Login Page</a> -->
+</div>
+
+<div class="col">
+  <div class="row my-row" >
+    <div class="col my-col">
+       <ul class="breadcrumb" style="background-color: transparent;">
+        <li class="breadcrumb-item " >
+            <span class="icon">
+            <i class="fa fa-briefcase"></i></span>  
+            <span class="heading" style="color: black; background-color: transparent;"> Entity List</span></li>
+           
+      </ul>
+    </div>
+<div class="col my-col">
+  <div class="a">
+      <ul class="breadcrumb" style="background-color: transparent;">
+        <li class="breadcrumb-item"><a routerLink="/dashboard">
+          <i class="fa fa-home"></i> Home</a></li>
+        <li class="breadcrumb-item"><a routerLink="/dashboard/entity/list"> Entity List</a></li>
+        <li class="breadcrumb-item"><a routerLink="/dashboard/entity/save"> Entity Save</a></li>
+
+      </ul>
+  </div>
+</div>
+  </div>
+  <div class="row my-row">
+    <div class="col my-col1">
+     Entity List Record
+  </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header">
+    Entity List <span style="float: right;"><a routerLink="/dashboard/entity/save" ><i class="fa fa-plus-circle" ></i> New Entity</a></span>
+  </div>
+  <div class="card-body" style="overflow-x: scroll;">
+
+    <!-- <form class="form-inline" #f="ngForm" (ngsubmit)="Search(f.value)">
+      <input class="form-control mr-sm-2" type="text" #Search="ngModel" [(ngModel)]="Search" name="Search" placeholder="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form> -->
+
+    <input type="text" class="form-control" [(ngModel)]="email" placeholder="Serach any fields"/>
+
+    <br> 
+
+    <table class="table table-bordered">
+      <thead>
+        <tr style="cursor: pointer;">
+          <th scope="col" (click)="sortFilter(1)">Name <i class={{sortIcon1}} aria-hidden="true"></i> </th>
+          <th scope="col" (click)="sortFilter(2)">Logical Name <i class="{{sortIcon2}}" aria-hidden="true"></i> </th>
+          <th scope="col" (click)="sortFilter(3)">Schema Name <i class="{{sortIcon3}}" aria-hidden="true"></i> </th>
+          <th scope="col" (click)="sortFilter(4)">Object Type Code <i class="{{sortIcon4}}" aria-hidden="true"></i> </th>
+          <th scope="col" (click)="sortFilter(5)">Description <i class="{{sortIcon5}}" aria-hidden="true"></i> </th>
+          <th scope="col" (click)="sortFilter(6)">Is Master Entity <i class="{{sortIcon6}}" aria-hidden="true"></i> </th>
+          <th scope="col" (click)="sortFilter(7)">Primary Attribute <i class="{{sortIcon7}}" aria-hidden="true"></i> </th>
+          <th scope="col" (click)="sortFilter(8)">Primary Key <i class="{{sortIcon8}}" aria-hidden="true"></i> </th>
+        </tr> 
+      </thead>
+      <tbody *ngIf="entity?.length != 0">
+        <tr *ngFor="let entitys of entity | entitysEmailFilter:email; let i = index">
+          <td>{{ entitys.Name }}</td>
+          <td>{{ entitys.LogicalName }}</td>
+          <td>{{ entitys.SchemaName }}</td>
+          <td>{{ entitys.ObjectTypeCode }}</td>
+          <td>{{ entitys.Description }}</td>
+          <td>{{ entitys.IsMasterEntity }}</td>
+          <td>{{ entitys.PrimaryAttribute }}</td>
+          <td>{{ entitys.PrimaryKey }}</td>
+          <!-- <td><input type="text" class="form-control" value="{{i}}"   placeholder="Serach any fields"/></td> -->
+        </tr>
+        <tr>
+        </tr>
+      </tbody>
+      <tbody  *ngIf="entity?.length ==0">
+        <tr>
+          <td colspan="8" class="no-data-available">No matching records found</td>
+        </tr>
+      <tbody>
+    </table>
+  </div>
+</div>
+
+
+
+

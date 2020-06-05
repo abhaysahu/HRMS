@@ -1,0 +1,131 @@
+<div *ngIf="successStatus" class="alert alert-success" role="alert">
+  {{ message }}
+  <i class="fa fa-times-circle" (click)="closeStatus()"  aria-hidden="true"></i>
+   <!-- <a class="btn btn-primary" routerLink="/login">Go To Login Page</a> -->
+</div>
+
+<div *ngIf="dangerStatus" class="alert alert-danger" role="alert">
+  {{ message }}
+  <i class="fa fa-times-circle" (click)="closeStatus()"  aria-hidden="true"></i>
+   <!-- <a class="btn btn-primary" routerLink="/login">Go To Login Page</a> -->
+</div>
+
+
+<div class="col">
+  <div class="row my-row" >
+    <div class="col my-col">
+       <ul class="breadcrumb" style="background-color: transparent;">
+        <li class="breadcrumb-item " >
+            <span class="icon">
+            <i class="fa fa-briefcase"></i></span>  
+            <span class="heading" style="color: black; background-color: transparent;">Add Entity</span></li>
+           
+      </ul>
+    </div>
+<div class="col my-col">
+  <div class="a">
+      <ul class="breadcrumb" style="background-color: transparent;">
+        <li class="breadcrumb-item"><a routerLink="/dashboard">
+          <i class="fa fa-home"></i> Home</a></li>
+        <li class="breadcrumb-item"><a routerLink="/dashboard/entity/save">Add Entity</a></li>
+        <li class="breadcrumb-item"><a routerLink="/dashboard/entity/list">Entity List</a></li>
+
+      </ul>
+  </div>
+</div>
+  </div>
+  <div class="row my-row">
+    <div class="col my-col1">
+    Add Entity Record
+  </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header"> 
+    Add Entity<span style="float: right;"><a routerLink="/dashboard/entity/list" ><i class="fa fa-plus-circle" ></i> Entity List</a></span>
+  </div>
+  <div class="card-body">
+    <form #f="ngForm" (ngSubmit)="EntityData(f.value)" class="was-validated">  
+      <div class="form-row">
+
+        <div class="form-group col-md-3">
+          <label for="Name">Name</label>
+          <input type="text" class="form-control" #Name="ngModel" [(ngModel)]="entity.Name" name="Name" id="Name" required>
+          <div class="invalid-feedback" *ngIf="Name.touched && Name.invalid">
+            Name Is Required.
+          </div>
+        </div>
+
+        <div class="form-group col-md-3">
+          <label for="LogicalName">Logical Name</label>
+          <input type="text" class="form-control" #LogicalName="ngModel" [(ngModel)]="entity.LogicalName" name="LogicalName" id="LogicalName" required>
+          <div class="invalid-feedback" *ngIf="LogicalName.touched && LogicalName.invalid">
+            Logical Name Is Required.
+          </div>
+        </div>
+
+        <div class="form-group col-md-3">
+          <label for="SchemaName">Schema Name</label>
+          <input type="text" class="form-control" #SchemaName="ngModel" value="dbo" [(ngModel)]="entity.SchemaName" name="SchemaName" id="SchemaName" required>
+          <div class="invalid-feedback" *ngIf="SchemaName.touched && SchemaName.invalid">
+            Schema Name Is Required.
+          </div>  
+        </div>
+
+           <!---<div class="form-group col-md-3">
+
+              <label for="ObjectTypeCode">Object Type Code</label>
+              <input type="number" class="form-control" #ObjectTypeCode="ngModel" [(ngModel)]="entity.ObjectTypeCode" name="ObjectTypeCode" id="ObjectTypeCode" required >
+              <div class="invalid-feedback" *ngIf="ObjectTypeCode.touched && ObjectTypeCode.invalid">
+                Object Type Code Is Required.
+              </div>
+            </div>-->
+
+        <div class="form-group col-md-3">
+          <label for="Description">Description</label>
+          <textarea class="form-control" rows="2" #Description="ngModel" [(ngModel)]="entity.Description" name="Description" id="Description"></textarea>
+          <!-- <div class="invalid-feedback" *ngIf="Description.touched && Description.invalid">
+            Description Is Required.
+          </div> -->
+        </div>
+ 
+        <div class="form-group col-md-3">
+          <div style="padding-left: 20px;">
+            <label for="IsMasterEntity">Is Master Entity</label><br><br>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" [value]="true" #IsMasterEntity="ngModel" [(ngModel)]="entity.IsMasterEntity" name="IsMasterEntity" required>
+              <label class="form-check-label" for="inlineRadio1">Yes</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" [value]="false" #IsMasterEntity="ngModel" [(ngModel)]="entity.IsMasterEntity" name="IsMasterEntity" required>
+              <label class="form-check-label" for="inlineRadio2">No</label>
+            </div>
+          </div>
+          <div class="invalid-feedback" *ngIf="IsMasterEntity.touched && IsMasterEntity.invalid">
+            Master Entity Is Required.
+          </div>
+        </div>
+
+        <div class="form-group col-md-3">
+          <label for="PrimaryAttribute">Primary Attribute</label>
+          <input type="text" class="form-control" #PrimaryAttribute="ngModel" [(ngModel)]="entity.PrimaryAttribute" name="PrimaryAttribute" id="PrimaryAttribute" required >
+          <div class="invalid-feedback" *ngIf="PrimaryAttribute.touched && PrimaryAttribute.invalid">
+            Primary Attribute Is Required.
+          </div>
+        </div>
+
+        <div class="form-group col-md-3">
+          <label for="PrimaryKey">Primary Key</label>
+          <input type="text" class="form-control" #PrimaryKey="ngModel" [(ngModel)]="entity.PrimaryKey" name="PrimaryKey" id="PrimaryKey" required>
+          <div class="invalid-feedback" *ngIf="PrimaryKey.touched && PrimaryKey.invalid">
+            Primary Key Is Required.
+          </div>
+        </div>
+      </div>
+                    
+      <button type="submit" [disabled]="!f.valid" class="btn btn-primary">Save</button>
+    </form>
+                    
+  </div>
+</div>

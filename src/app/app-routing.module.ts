@@ -1,8 +1,175 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './login/login/login.component';
+import { NavBarComponent } from './layout/common/nav-bar/nav-bar.component';
+import { DefaultComponent } from './layout/default/default.component';
+import { DashboardComponent } from './layout/component/dashboard/dashboard.component';
+import { EmployeeDetailsComponent } from './layout/component/employee/component/employee-details/employee-details.component';
+import { EmployeeListComponent } from './layout/component/employee/component/employee-list/employee-list.component';
+import { CreateEmployeeComponent } from './layout/component/employee/component/create-employee/create-employee.component';
+import { EditEmployeeComponent } from './layout/component/employee/component/edit-employee/edit-employee.component';
+import { MyAttendanceComponent } from './layout/component/Attendance-and-leaves/component/my-attendance/my-attendance.component';
+import { ApplyTimeAwayComponent } from './layout/component/Attendance-and-leaves/component/apply-time-away/apply-time-away.component';
+import { MyTimeAwayRequestsComponent } from './layout/component/Attendance-and-leaves/component/my-time-away-requests/my-time-away-requests.component';
+import { MyLeavesComponent } from './layout/component/Attendance-and-leaves/component/my-leaves/my-leaves.component';
+import { MyTimesheetComponent } from './layout/component/Timesheet/component/my-timesheet/my-timesheet.component';
+import { TimesheetBankComponent } from './layout/component/Timesheet/component/timesheet-bank/timesheet-bank.component';
+import { MyServiceRequetsComponent } from './layout/component/Service-request/component/my-service-requets/my-service-requets.component';
+import { AddSRComponent } from './layout/component/Service-request/component/add-sr/add-sr.component';
+import { AddAttendanceComponent } from './layout/component/Attendance-and-leaves/component/add-attendance/add-attendance.component';
+import { ExpenseClaimComponent } from './layout/component/Expense/component/expense-claim/expense-claim.component';
+import { ExpenseBankComponent } from './layout/component/Expense/component/expense-bank/expense-bank.component';
+import { EntityListComponent } from './layout/component/Admin/entity/component/entity-list/entity-list.component';
+import { EntitySaveComponent } from './layout/component/Admin/entity/component/entity-save/entity-save.component';
+import { ProjectSaveComponent } from './layout/component/Admin/project/component/project-save/project-save.component';
+import { ProjectListComponent } from './layout/component/Admin/project/component/project-list/project-list.component';
+import { StringMapSaveComponent } from './layout/component/Admin/string-map/component/string-map-save/string-map-save.component';
+import { StringMapListComponent } from './layout/component/Admin/string-map/component/string-map-list/string-map-list.component';
+import { SystemLogListComponent } from './layout/component/Admin/system-log/system-log-list/system-log-list.component';
+import { PageNotFoundComponent } from './layout/component/page-not-found/page-not-found.component';
+import { EmployerListComponent } from './layout/component/Admin/employer/component/employer-list/employer-list.component';
+import { EmployerSaveComponent } from './layout/component/Admin/employer/component/employer-save/employer-save.component';
+import { PrintLayoutComponent } from './layout/component/employee/component/create-employee/print-layout/print-layout.component';
+import { InvoiceComponent } from './layout/component/employee/component/create-employee/invoice/invoice.component';
+import { AuthGuardService } from './service/auth-guard.service';
+import { RewardSkipComponent } from './layout/component/reward-skip/component/reward-skip.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  
+  {path: '', redirectTo: 'login', pathMatch: 'full'},
+  {path: 'login', component: LoginComponent},
+
+  {path: 'navbar', component: NavBarComponent},
+
+  { path: 'print',
+  // outlet: 'print',
+  component: PrintLayoutComponent,
+  children: [
+    { path: 'print/:id', component: InvoiceComponent }
+  ]
+},
+  
+ 
+  {
+    path: 'dashboard', component: DefaultComponent, 
+      //canActivate: [AuthGuardService],
+
+    children: [
+      {
+        path: '', component: DashboardComponent, 
+        //canActivate: [AuthGuardService]
+      },
+      {
+        path: 'employee/details', component: EmployeeDetailsComponent, 
+        //canActivate: [AuthGuardService]
+      },
+      {
+        path: 'employee/list', component: EmployeeListComponent,
+        //canActivate: [AuthGuardService],
+      },
+      {
+        path: 'create/new/employee', component:CreateEmployeeComponent,
+        //canActivate: [AuthGuardService],
+      },
+      {
+        path: 'edit/employee/:id',component:EditEmployeeComponent,
+        //canActivate: [AuthGuardService],
+      },
+      {
+        path: 'myattendance', component: MyAttendanceComponent,
+        //canActivate: [AuthGuardService],
+      },
+      {
+        path: 'applytimeaway', component: ApplyTimeAwayComponent,
+        //canActivate: [AuthGuardService],
+      },
+      {
+        path: 'mytimeawayrequests', component: MyTimeAwayRequestsComponent,
+        //canActivate: [AuthGuardService],
+      },
+      {
+        path: 'myleaves', component: MyLeavesComponent,
+        //canActivate: [AuthGuardService],
+      },
+      {
+        path: 'mytimesheet', component: MyTimesheetComponent,
+        //canActivate: [AuthGuardService],
+      },
+      {
+        path: 'timesheetbank', component: TimesheetBankComponent,
+        //canActivate: [AuthGuardService],
+      },
+      {
+        path: 'myservicerequests', component: MyServiceRequetsComponent,
+        //canActivate: [AuthGuardService],
+      },
+      {
+        path: 'addsr', component: AddSRComponent,
+        //canActivate: [AuthGuardService],
+      },
+      {
+        path: 'addattendance', component: AddAttendanceComponent,
+        //canActivate: [AuthGuardService],
+      },
+      {
+        path: 'expenseclaim' , component: ExpenseClaimComponent,
+        //canActivate: [AuthGuardService],
+      },
+      {
+        path: 'expensebank' , component: ExpenseBankComponent,
+        //canActivate: [AuthGuardService],
+      },
+      {
+        path: 'entity/list' , component: EntityListComponent,
+        //canActivate: [AuthGuardService],
+      },
+      {
+        path: 'entity/save' , component: EntitySaveComponent,
+        //canActivate: [AuthGuardService],
+      },
+      {
+        path: 'project/save' , component: ProjectSaveComponent,
+        //canActivate: [AuthGuardService],
+      },
+      {
+        path: 'project/list' , component: ProjectListComponent,
+        //canActivate: [AuthGuardService],
+      },
+      {
+        path: 'picklist/save' , component: StringMapSaveComponent,
+        //canActivate: [AuthGuardService],
+      },
+      {
+        path: 'picklist/list' , component: StringMapListComponent,
+        //canActivate: [AuthGuardService],
+      },
+      {
+        path: 'systemlog/list' , component: SystemLogListComponent,
+        //canActivate: [AuthGuardService],
+      },
+      {
+        path: 'pagenotfound' , component: PageNotFoundComponent,
+        //canActivate: [AuthGuardService],
+      },
+      {
+        path: 'employer/list', component: EmployerListComponent,
+        //canActivate: [AuthGuardService],
+      },
+      {
+        path: 'employer/save', component: EmployerSaveComponent,
+        //canActivate: [AuthGuardService],
+      },
+      {
+        path: 'rewardskip', component: RewardSkipComponent,
+      }
+      
+    ],
+
+   
+    
+  },
+  
+  ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

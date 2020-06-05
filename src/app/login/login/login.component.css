@@ -7,8 +7,10 @@ body{
 }
 .login{
     width: 320px;
-    height: 420px;
-    background: rgb(188,188,204);
+    height: 440px;
+    background: #efffef;
+    box-shadow: 0 10px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19) !important;
+
     top: 50%;
     left: 50%;
     position: absolute;
@@ -40,7 +42,7 @@ h1{
     background: transparent;
     outline: none;
     height: 40px;
-    color: #fff;
+    /*color: #fff;*/
     font-size: 16px;
 }
 .login input[type="submit"]
@@ -72,4 +74,11 @@ h1{
 {
     color: #ffc107;
 
+}
+
+#logo img{
+    height: 110px;
+    width: 210px;
+   margin-top: -60px;
+   margin-left: 20px;
 }

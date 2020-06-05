@@ -1,0 +1,141 @@
+  <!--- <div class="header-icon">
+      <i class="fa fa-briefcase"></i>
+  </div>-->
+  <!--<div class="header-title">-->
+     <!--- <h1>Add SR</h1>
+      <small>Add SR Record</small>-->
+      <!--<ul class="link hidden-xs">
+          <li><a href="index-2.html"><i class="fa fa-home"></i>Home</a></li>
+          <li><a href="datatable.html">Add SR</a></li>
+      </ul>-->
+      <!----<section class="container" data-toggle="collapse">
+
+      <ul class="breadcrumb">
+        <li class="breadcrumb-item " >
+            <span class="icon">
+            <i class="fa fa-briefcase"></i></span>  
+            <span class="heading" style="color: black;">Add SR</span></li>
+           
+      </ul>
+      code for breadcrumb
+     <div class="a">
+      <ul class="breadcrumb" style="background-color: transparent;">
+        <li class="breadcrumb-item"><a href="#">
+          <i class="fa fa-home"></i> Home</a></li>
+        <li class="breadcrumb-item"><a href="#">Add Sr</a></li>
+      </ul>
+      </div>
+      
+  </div>
+    </section>-->
+    <!------my code -->
+    <div class="col">
+      <div class="row my-row" >
+        <div class="col my-col">
+           <ul class="breadcrumb" style="background-color: transparent;">
+            <li class="breadcrumb-item " >
+                <span class="icon">
+                <i class="fa fa-clock-o"></i></span>  
+                <span class="heading" style="color: black; background-color: transparent;">Add SR</span></li>
+               
+          </ul>
+        </div>
+    <div class="col my-col">
+      <div class="a">
+          <ul class="breadcrumb" style="background-color: transparent;">
+            <li class="breadcrumb-item"><a routerLink="/dashboard">
+              <i class="fa fa-home"></i> Home</a></li>
+            <li class="breadcrumb-item" ><a routerLink="/dashboard/addsr">Add SR</a></li>
+          </ul>
+      </div>
+    </div>
+      </div>
+      <div class="row my-row">
+        <div class="col my-col1"> 
+        ADD SR Record
+      </div>
+      </div>
+    </div>
+    
+
+<div class="card">
+  <div class="card-header">
+    Add SR
+  </div>
+  <div class="card-body">
+    <form #form="ngForm" (submit)="onSubmit(form.value)" class="was-validated">
+      <div class="form-row">
+      <div class="form-group col-md-4">
+        <label for="function">Function</label>
+        
+        <select class="custom-select" #function="ngModel" [(ngModel)]="Sr.function" name="function" id="function" required>
+          <option selected>Select</option>
+          <option value="1">Working Out Of Office</option>
+          <option value="2">Work From Home</option>
+          <option value="3">Attendance Modification</option>
+          <option value="4">Earning Compensatory</option>
+          <option value="5">Short Leave</option>
+    
+    
+    
+        </select>
+        <div class="invalid-feedback" *ngIf="function.touched && function.invalid">
+          Function is required.
+        </div>
+      </div>
+
+      <div class="form-group col-md-4">
+        <label for="subFunction">Subfunction</label>
+        
+        <select class="custom-select" #subFunction="ngModel" [(ngModel)]="Sr.subFunction" name="subFfunction" id="subFunction" required >
+          <option selected>Select</option>
+          <option value="1">Working Out Of Office</option>
+          <option value="2">Work From Home</option>
+          <option value="3">Attendance Modification</option>
+          <option value="4">Earning Compensatory</option>
+          <option value="5">Short Leave</option>
+    
+    
+    
+        </select>
+        <div class="invalid-feedback" *ngIf="subFunction.touched && subFunction.invalid">
+          Subfunction is required.
+        </div>
+      </div>
+      <div class="form-group col-md-4">
+        <label for="priority">Priority</label>
+        
+        <select class="custom-select" #priority="ngModel" [(ngModel)]="Sr.priority" name="priority" id="priority" required>
+          <option selected>Select</option>
+          <option value="1">Working Out Of Office</option>
+          <option value="2">Work From Home</option>
+          <option value="3">Attendance Modification</option>
+          <option value="4">Earning Compensatory</option>
+          <option value="5">Short Leave</option>
+    
+    
+    
+        </select>
+        <div class="invalid-feedback" *ngIf="priority.touched && priority.invalid">
+          Priority is required.
+        </div>
+      </div>
+      <div class="form-group col-md-6">
+        <div class="form-group">
+          <label for="description">Description</label>
+
+          <textarea class="form-control" #description="ngModel" [(ngModel)]="Sr.description" name="description" id="description"  rows="3" required></textarea>
+          <div class="invalid-feedback" *ngIf="description.touched && description.invalid">
+            Description is required.
+          </div>
+        </div>
+
+      </div>
+      </div>
+      <button type="submit" class="btn btn-primary" style="margin-left: 15px;">Submit</button>
+
+
+    </form>
+    
+      </div>
+      </div>

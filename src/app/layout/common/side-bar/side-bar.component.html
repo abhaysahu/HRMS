@@ -6,7 +6,7 @@
 
 
         <ul class="list-unstyled components">
-            <p>CORE</p>
+            <p></p>
             <!--<li class="active">
                 <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">HOME</a>
                 <ul class="collapse list-unstyled" id="homeSubmenu">
@@ -22,35 +22,28 @@
                 </ul>
             </li>-->
             <li>
-                <a href="#"><span class="material-icons" style="font-size: 18px;">
-                    dashboard DASHBOARD
-                    </span></a>
-            </li>
-            <hr>
-            <p>INTERFACE</p>
+               <a routerLink="/dashboard" style="font-size: 16px;"><i class="fa fa-window-maximize" ></i>  Dashboard</a>
+            </li><hr>
             <li>
-                <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><span class="material-icons" style="font-size: 18px;">
-                    accessibility
-                    EMPLOYEE</span></a>
-                <ul class="collapse list-unstyled" id="homeSubmenu">
+                <a href="#page2Submenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" style="font-size: 16px;"><i class="fa fa-address-book"></i>  Employee</a>
+                <ul class="collapse list-unstyled" id="page2Submenu" data-accordion="false">
                     <li>
                         <a routerLink="/dashboard/employee/details" style="color:rgb(127,131,135);">Emplopyee Details</a>
                     </li>
                     <li>
                         <a routerLink="/dashboard/employee/list" style="color:rgb(127,131,135);">Emplopyee List</a>
                     </li>
-                    <hr>
                 </ul>
-                <hr>
-            </li>
-            <p>INTERFACE</p>
+            </li><hr>
+
             <li>
-                <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><span class="material-icons" style="font-size: 16px;">
-                    assignment ATTENDANCE <br>AND LEAVES
-                    </span></a>
+                <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" style="font-size: 16px;"><i class="fa fa-server"></i>  Attendance & Leaves</a>
                 <ul class="collapse list-unstyled" id="pageSubmenu">
                     <li>
                         <a routerLink="/dashboard/myattendance" style="color:rgb(127,131,135);">My Attendance</a>
+                    </li>
+                    <li>
+                        <a routerLink="/dashboard/addattendance" style="color:rgb(127,131,135);">Add Attendance</a>
                     </li>
                     <li>
                         <a routerLink="/dashboard/applytimeaway" style="color:rgb(127,131,135);">Apply Time Away</a>
@@ -61,31 +54,87 @@
                     <li>
                         <a routerLink="/dashboard/myleaves" style="color:rgb(127,131,135);">My Leaves</a>
                     </li>
-                    <hr>
                 </ul>
-                <hr>
-            </li>
-            <p>ADDONS</p>
+            </li><hr>
+
             <li>
-                <a href="#">Charts</a>
-            </li>
+                <a href="#page1Submenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" style="font-size: 16px;"><i class="fa fa-calendar"></i>  Timesheet</a>
+                <ul class="collapse list-unstyled" id="page1Submenu">
+                    <li>
+                        <a routerLink="/dashboard/mytimesheet" style="color:rgb(127,131,135);">My TimeSheet</a>
+                    </li>
+                    <li>
+                        <a routerLink="/dashboard/timesheetbank" style="color:rgb(127,131,135);">Timesheet Bank</a>
+                    </li>
+                   
+                   
+                </ul>
+            </li><hr>
+
             <li>
-                <a href="#">Tables</a>
-            </li>
+                <a href="#page3Submenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" style="font-size: 16px;"><i class="fa fa-check-square"></i>  Service Request</a>
+                <ul class="collapse list-unstyled" id="page3Submenu">
+                    <li>
+                        <a routerLink="/dashboard/myservicerequests" style="color:rgb(127,131,135);">My Service Requests</a>
+                    </li>
+                    <li>
+                        <a routerLink="/dashboard/addsr" style="color:rgb(127,131,135);">Add SR</a>
+                    </li>
+                   
+                   
+                </ul>
+            </li><hr>
+
+           <li>
+                <a href="#page4Submenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" style="font-size: 16px;"><i class="fa fa-folder-open"></i>  Expense</a>
+                <ul class="collapse list-unstyled" id="page4Submenu">
+                    <li>
+                        <a routerLink="/dashboard/expenseclaim" style="color:rgb(127,131,135);">Expense Claim</a>
+                    </li>
+                    <li>
+                        <a routerLink="/dashboard/expensebank" style="color:rgb(127,131,135);">Expense Bank</a>
+                    </li>
+                   
+                   
+                </ul>
+            </li><hr>
+            <li>
+                <a href="#page5Submenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" style="font-size: 16px;"><i class="fa fa-user-circle"></i>  Admin</a>
+                <ul class="collapse list-unstyled" id="page5Submenu">
+                    <li>
+                        <a routerLink="/dashboard/entity/list" style="color:rgb(127,131,135);">Entity</a>
+                    </li>
+                    <li>
+                        <a routerLink="/dashboard/picklist/list" style="color:rgb(127,131,135);">Pick List</a>
+                    </li>
+                    <li>
+                        <a routerLink="/dashboard/employer/list" style="color:rgb(127,131,135);">Employer</a>
+                    </li>
+                    <li>
+                        <a routerLink="/dashboard/project/list" style="color:rgb(127,131,135);">Project</a>
+                    </li>
+                    <li>
+                        <a routerLink="/dashboard/systemlog/list" style="color:rgb(127,131,135);">System Log</a>
+                    </li>
+                   
+                   
+                </ul>
+            </li><hr style="background-color: white;">
+            <li>
+                <a href="#page6Submenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" style="font-size: 16px;"><i class="fa fa-calendar"></i>  Pobara</a>
+                <ul class="collapse list-unstyled" id="page6Submenu">
+                    <li>
+                        <a routerLink="/dashboard/rewardskip" style="color:rgb(127,131,135);">Reward Skip</a>
+                    </li>
+                   
+                </ul>
+            </li><hr>
+     
+
+            
         </ul>
-        <!--<ul class="list-unstyled CTAs">
-            <li>
-                <a href="#" class="download">Download code</a>
-            </li>
-            <li>
-                <a href="#" class="article">article</a>
-            </li>
-        </ul>-->
+        
     </nav>
-   
-    
-
-
  </div>
 
  

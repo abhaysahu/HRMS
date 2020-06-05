@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Login } from '../models/login';
 import { LoginService } from 'src/app/login/services/login.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { LoggedinUser } from 'src/app/models/loggedInUser';
+import { AuthService } from 'src/app/service/auth.service';
+import { AppResponse } from 'src/app/models/appResponse';
 
 @Component({
   selector: 'app-login',
@@ -10,8 +13,16 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
+  isTextFieldType: boolean;
 
-  login: Login[]=[]
+  successStatus=false;
+  dangerStatus=false;
+
+  message="";
+
+  error: string;
+  grant_type = "password"
+  formData: any[]=[]
 
 
 
@@ -19,24 +30,82 @@ export class LoginComponent implements OnInit {
     private loginServices: LoginService,
     private router: Router,
     private route: ActivatedRoute,
-    ) { }
+    private authService: AuthService
+    ) {
+
+
+     }
 
   ngOnInit() {
   }
 
-  save(login) //this is for login or check that the username and password is right or not
-  {
 
-    this.loginServices.checklogin(login).subscribe(data => {
-      if(data[0])                                                        //user is login or not 
-      {
-        console.log(data)
-        localStorage.setItem('pobara_user_id', data[0].uuid);             //this is store the uuid of user into localStorage.
-        this.router.navigate(['/dashboard']);         
-        
-      }
-    })
+  togglePasswordFieldType(){
+    this.isTextFieldType = !this.isTextFieldType;
 
   }
+
+
+  login(form) {
+
+    form.grant_type = "password"
+    
+ 
+    this.authService.login(form)    
+      .subscribe((data: LoggedinUser) => {
+        console.log(data)
+       
+          this.authService.manageSession(data);
+          this.authService.loginStatus.emit(true);
+          if (this.authService.redirectUrl) 
+          {
+            this.dangerStatus=false;
+            this.successStatus=true;
+            this.message="You are Login successfully"
+            setTimeout(()=>
+            {    
+              this.router.navigate([this.authService.redirectUrl]);
+      
+            }, 3000);  
+
+          } 
+          else 
+          {  
+            this.dangerStatus=false;
+            this.successStatus=true;
+            this.message="You are Login successfully"
+            setTimeout(()=>
+            {    
+              this.router.navigate(['/dashboard']);
+            }, 3000); 
+          }  
+
+        },   (error: AppResponse) => {
+
+          console.log(error.status)
+             if(error.status === 400)
+             {
+              this.dangerStatus=true;
+              this.successStatus=false;
+              this.message = "Either user name or password is incorrect!";
+             }  
+              else
+              {
+                this.dangerStatus=true;
+                this.successStatus=false;
+                this.message = error.message;
+              }
+              
+       });
+  }
+
+
+
+  closeStatus()
+  {
+    this.successStatus = false;
+    this.dangerStatus = false;
+  }
+
 
 }

@@ -17,11 +17,13 @@ export class NavBarComponent implements OnInit {
   toggleSideBar() {
     this.toggleSideBarForMe.emit();
 
+    
+
     setTimeout(() => {
       window.dispatchEvent(
         new Event('resize')
       );
-    }, 300);
+    }, 100);
 
 }
 
