@@ -1,6 +1,9 @@
-.my-container{
-    border: transparent ;
-}
+/*.my-container{
+    border: 2px solid black ;
+    display: grid;  
+     /*grid-template-rows: 50px 50px;*/
+    
+/* } */
 
 .my-row{
     border: transparent;
@@ -8,6 +11,7 @@
 
 .my-col{
     border: transparent;
+
 }
 .mycontent-left {
     border-right: 3px solid black;
@@ -97,11 +101,15 @@ p{
     bottom: 35px;
 }
 
-
-label{
-    font-weight: bold;
-}
-
-.table-header{
-    background-color: #ddd;
-}
+table {
+    /*table-layout: fixed;*/
+    /* width: 100%; */
+  }
+  /*td {
+    width: 100% ;
+  }*/
+/* table,
+td,
+th {
+  border-collapse: collapse;
+} */

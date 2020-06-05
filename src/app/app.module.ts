@@ -87,7 +87,8 @@ import { InvoiceComponent } from './layout/component/employee/component/create-e
 import { PrintService } from './layout/component/employee/services/print.service';
 import { PrintPopupComponent } from './layout/component/employee/component/create-employee/print-popup/print-popup.component';
 import { ListEmployeePipe } from './layout/component/employee/list-employee.pipe';
-import { RewardSkipComponent } from './layout/component/reward-skip/reward-skip.component';
+import { RewardSkipComponent } from './layout/component/reward-skip/component/reward-skip.component';
+import { RewardSkipService } from './layout/component/reward-skip/service/reward-skip.service';
 
 
 
@@ -184,7 +185,8 @@ import { RewardSkipComponent } from './layout/component/reward-skip/reward-skip.
     AttendanceService,
     ExpenseService,
     ServiceRequestsService,
-    PrintService
+    PrintService,
+    RewardSkipService
   ],
   bootstrap: [AppComponent]
 }) 
