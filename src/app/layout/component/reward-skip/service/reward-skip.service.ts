@@ -17,6 +17,21 @@ export class RewardSkipService {
 
 
 
+  getAllRewardSkipData(): Observable<ListOfReward>
+  {
+    const token = sessionStorage.getItem('token')
+
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'authorization': `bearer ${token}`
+    })
+
+    return this.httpClient.get<ListOfReward>(environment.webapiUrl+'api/get/ProductToSkipForReward', { headers: headers })
+  
+  }
+
+
+
   getrewardSkipData(search): Observable<ListOfReward>
   {
     const token = sessionStorage.getItem('token')
@@ -31,6 +46,49 @@ export class RewardSkipService {
   }
 
 
+
+  upDateRewardData(Product)
+  {
+    const token = sessionStorage.getItem('token')
+    console.log(Product)
+
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'authorization': `bearer ${token}`
+    })
+
+    return this.httpClient.post<any>(environment.webapiUrl+'api/update/ProductToSkipForReward',Product, { headers: headers })
+  } 
+
+
+
+
+  AddRewardData(Product)
+  {
+    const token = sessionStorage.getItem('token')
+    console.log(Product)
+
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'authorization': `bearer ${token}`
+    })
+
+    return this.httpClient.post<any>(environment.webapiUrl+'api/add/ProductToSkipForReward',Product, { headers: headers })
+  } 
+
+
+  DeleteRewardData(Product)
+  {
+    const token = sessionStorage.getItem('token')
+    console.log(Product)
+
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'authorization': `bearer ${token}`
+    })
+
+    return this.httpClient.post<any>(environment.webapiUrl+'api/delete/hrms',Product, { headers: headers })
+  } 
 
 
 
