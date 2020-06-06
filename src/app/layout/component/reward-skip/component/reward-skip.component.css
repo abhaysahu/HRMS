@@ -86,7 +86,7 @@ p{
 .icon{
     font-size: 32px;
     color: #4b4b79;
-    width: 65px;
+    
     float: left;
     margin-top: -4px;
     line-height: 0;
@@ -101,15 +101,3 @@ p{
     bottom: 35px;
 }
 
-table {
-    /*table-layout: fixed;*/
-    /* width: 100%; */
-  }
-  /*td {
-    width: 100% ;
-  }*/
-/* table,
-td,
-th {
-  border-collapse: collapse;
-} */

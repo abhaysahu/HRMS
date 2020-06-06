@@ -1,3 +1,16 @@
+<div *ngIf="successStatus" class="alert alert-success" role="alert">
+  {{ message }}
+  <i class="fa fa-times-circle" (click)="closeStatus()"  aria-hidden="true"></i>
+   <!-- <a class="btn btn-primary" routerLink="/login">Go To Login Page</a> -->
+</div>
+
+<div *ngIf="dangerStatus" class="alert alert-danger" role="alert">
+  {{ message }}
+  <i class="fa fa-times-circle" (click)="closeStatus()"  aria-hidden="true"></i>
+   <!-- <a class="btn btn-primary" routerLink="/login">Go To Login Page</a> -->
+</div>
+
+
 <div class="col">
   <div class="row my-row">
     <div class="col my-col">
@@ -62,15 +75,15 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let rewardLists of rewardList">
-            <td width="50%">{{rewardLists.Name}}</td>
+          <tr *ngFor="let rewardLists of rewardListForPobara">
+            <td width="80%">{{rewardLists.Name}}</td>
             <td>
               <div *ngIf="rewardLists.Published; then thenBlock else elseBlock"></div>
               <ng-template #thenBlock><i class="fa fa-check" aria-hidden="true" style="color: green; font-size: 30px;"></i></ng-template>
               <ng-template #elseBlock><i class="fa fa-times" aria-hidden="true" style="color: red; font-size: 30px;"></i></ng-template>
             </td>
             <!-- <td ><span class="add"><i class="fa fa-file-o" aria-hidden="true"> Add </i> -->
-              <td width="10%"><button type="button" class="btn btn-info"> Add</button>
+              <td width="10%"><button type="button" (click)="AddProduct(rewardLists.Id,rewardLists.Name)" class="btn btn-info"> Add</button>
               </td>
           </tr>
 
@@ -97,10 +110,10 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let rewardLists of rewardList">
-            <td width="55%" >{{rewardLists.Name}}</td>
-            <td style="font-size: 30px;"><input type="checkbox" id="defaultCheck" name="Published" [checked]="rewardLists.Published"></td>
-            <td width="10%"><button type="button" class="btn btn-danger"> Delete</button>
+          <tr *ngFor="let rewardLists of rewardListForHRMS; let i = index">
+            <td width="80%" >{{rewardLists.Name}}</td>
+            <td><input type="checkbox" id="defaultCheck" name="IsActive" (change)="updateTheStatus($event,rewardLists.ProductId,i)" [checked]="rewardLists.IsActive"></td>
+            <td width="10%"><button type="button" (click)="DeleteProduct(rewardLists.ProductId)" class="btn btn-danger"> Delete</button>
             </td>
           </tr>
 

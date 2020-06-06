@@ -89,6 +89,7 @@ import { PrintPopupComponent } from './layout/component/employee/component/creat
 import { ListEmployeePipe } from './layout/component/employee/list-employee.pipe';
 import { RewardSkipComponent } from './layout/component/reward-skip/component/reward-skip.component';
 import { RewardSkipService } from './layout/component/reward-skip/service/reward-skip.service';
+import { AddRewardComponent } from './layout/component/reward-skip/component/add-reward/add-reward.component';
 
 
 
@@ -141,7 +142,8 @@ import { RewardSkipService } from './layout/component/reward-skip/service/reward
     EmployerSearchPipe,
     AddAttendanceSearchPipe,
     ListEmployeePipe,
-    RewardSkipComponent
+    RewardSkipComponent,
+    AddRewardComponent
 
   ],
   imports: [
@@ -169,7 +171,7 @@ import { RewardSkipService } from './layout/component/reward-skip/service/reward
     BrowserAnimationsModule
 
   ],
-  entryComponents:[CommentsComponent, EditpicklistComponent, PopupComponent, PrintPopupComponent],
+  entryComponents:[CommentsComponent, EditpicklistComponent, PopupComponent, PrintPopupComponent, AddRewardComponent],
 
   providers: [
      //{provide: LocationStrategy, useClass: HashLocationStrategy},
