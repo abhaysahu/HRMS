@@ -13,6 +13,8 @@ import { MatSidenavModule,
      MatFormFieldModule,
     MatFormFieldControl } from '@angular/material';
 
+import { ToastrModule } from 'ngx-toastr';
+
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -168,7 +170,14 @@ import { AddRewardComponent } from './layout/component/reward-skip/component/add
     MatButtonModule,
     MatIconModule,
     CKEditorModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(
+    //   {
+    //   timeOut: 2000,
+    //   positionClass: 'toast-bottom-right'
+    // }
+    )
+    
 
   ],
   entryComponents:[CommentsComponent, EditpicklistComponent, PopupComponent, PrintPopupComponent, AddRewardComponent],

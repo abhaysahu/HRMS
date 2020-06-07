@@ -1,24 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
 
+@import '~ngx-toastr/toastr.css';
+
 
 
 html, body { height: 100%;  margin: 0;
     padding: 0;}
-/* 
- @media print {
-    .isPrinting > * { display: none; }
-    .isPrinting app-print-layout { display: block; }
-  } */
 
+    #toast-container > div {
+      opacity:1;
+  }
 
-  /* @media print {
-   :not(.printMe) {
-     visibility: hidden;
-   }
- }
- 
- @media print {
-   .printMe {
-     visibility: visible
-   }
- } */
+  

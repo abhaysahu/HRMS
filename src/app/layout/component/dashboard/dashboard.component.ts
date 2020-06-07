@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/service/auth.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-dashboard',
@@ -8,7 +9,7 @@ import { AuthService } from 'src/app/service/auth.service';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor(private authService: AuthService) { 
+  constructor(private authService: AuthService,private toastr: ToastrService) { 
 
     // this.authService.getdata().subscribe(data => {
     //   console.log(data)
@@ -21,6 +22,15 @@ export class DashboardComponent implements OnInit {
     console.log(date1)
 
     
+  }
+
+
+  showSuccess() {
+    console.log("yes")
+    this.toastr.success('Hello world!', 'abhay sahu', {
+      progressBar: true, 
+      timeOut: 5000
+    });
   }
 
 }
