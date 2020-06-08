@@ -4,6 +4,7 @@ import { EntityService } from '../../service/entity.service';
 import { EntityList } from '../../model/entityList';
 import { AppResponse } from 'src/app/models/appResponse';
 import { CustomToastrService } from 'src/app/service/customToastr.service';
+import { ErrorHandlingService } from 'src/app/service/error-handling.service';
 
 
 export class Entitys { 
@@ -50,7 +51,10 @@ export class EntityListComponent implements OnInit {
   aa:boolean=false;
   search="";
 
-  constructor(private entityService: EntityService, private customToastrService: CustomToastrService) { 
+  constructor(private entityService: EntityService, 
+    private customToastrService: CustomToastrService,
+    private errorHandlingService: ErrorHandlingService
+    ) { 
 
     
 
@@ -71,30 +75,9 @@ export class EntityListComponent implements OnInit {
       }
       
     },   (error: AppResponse) => {
-      if(error.status === 400)
-      {
-        // this.dangerStatus=true;
-        // this.successStatus=false;
-        this.message = error.message
-        this.customToastrService.GetErrorToastr(this.message, "Entity List Status", 5000)
+      
+      this.errorHandlingService.errorStatus(error,"Login Status")
 
-      }
-      else if(error.status === 401)
-      {
-        // this.dangerStatus=true;
-        // this.successStatus=false;
-        this.message = "Authorization has been denied for this request And You have to Login again."
-        this.customToastrService.GetErrorToastr(this.message, "Entity List Status", 5000)
-
-      }       
-      else
-      {
-        // this.dangerStatus=true;
-        // this.successStatus=false;
-        this.message = error.message;
-        this.customToastrService.GetErrorToastr(this.message, "Entity List Status", 5000)
-
-      }
 }
 )
 

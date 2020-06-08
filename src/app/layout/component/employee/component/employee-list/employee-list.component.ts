@@ -4,6 +4,7 @@ import { DataTableDirective } from 'angular-datatables';
 import { LoginService } from 'src/app/login/services/login.service';
 import { EmployeeService } from '../../services/employee.service';
 import { AppResponse } from 'src/app/models/appResponse';
+import { ErrorHandlingService } from 'src/app/service/error-handling.service';
 
 
 class Person {
@@ -49,7 +50,11 @@ export class EmployeeListComponent implements OnInit {
   message="";
   email="";
 
-  constructor(private http: HttpClient, private loginService: LoginService, private employeeService: EmployeeService
+  constructor(private http: HttpClient, 
+    private loginService: LoginService, 
+    private employeeService: EmployeeService,
+    private errorHandlingService: ErrorHandlingService
+
     ) {
 
       this.employeeService.getUser().subscribe(resp =>{
@@ -67,24 +72,8 @@ export class EmployeeListComponent implements OnInit {
         }
         
       },   (error: AppResponse) => {
-        if(error.status === 400)
-        {
-          this.dangerStatus=true;
-          this.successStatus=false;
-          this.message = error.message
-        }
-        else if(error.status === 401)
-        {
-          this.dangerStatus=true;
-          this.successStatus=false;
-          this.message = "Authorization has been denied for this request And You have to Login again."
-        }       
-        else
-        {
-          this.dangerStatus=true;
-          this.successStatus=false;
-          this.message = error.message;
-        }
+        this.errorHandlingService.errorStatus(error,"List Employee Status")
+
   }
   )
   

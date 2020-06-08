@@ -4,6 +4,7 @@ import { UpdatePopup } from '../../model/Updatepopup.modeule';
 import { StringMapService } from '../../service/string-map.service';
 import { AppResponse } from 'src/app/models/appResponse';
 import { CustomToastrService } from 'src/app/service/customToastr.service';
+import { ErrorHandlingService } from 'src/app/service/error-handling.service';
 
 
 @Component({
@@ -28,7 +29,9 @@ export class EditpicklistComponent implements OnInit {
     public dialogRef: MatDialogRef<EditpicklistComponent>,
 
     private stringMapService: StringMapService,
-    private customToastrService: CustomToastrService
+    private customToastrService: CustomToastrService,
+    private errorHandlingService: ErrorHandlingService
+
 
     
   
@@ -81,30 +84,9 @@ export class EditpicklistComponent implements OnInit {
         
       }
       ,   (error: AppResponse) => {
-        if(error.status === 400)
-        {
-          // this.dangerStatus=true;
-          // this.successStatus=false;
-          this.message = error.message
-          this.customToastrService.GetErrorToastr(this.message, "Edit PickList Status", 5000)
 
-        }
-        else if(error.status === 401)
-        {
-          // this.dangerStatus=true;
-          // this.successStatus=false;
-          this.message = "Authorization has been denied for this request And You have to Login again."
-          this.customToastrService.GetErrorToastr(this.message, "Edit PickList Status", 5000)
+        this.errorHandlingService.errorStatus(error,"Login Status")
 
-        }       
-         else
-        {
-          // this.dangerStatus=true;
-          // this.successStatus=false;
-          this.message = error.message;
-          this.customToastrService.GetErrorToastr(this.message, "Edit PickList Status", 5000)
-
-        }
   }
   )
 
@@ -141,30 +123,8 @@ export class EditpicklistComponent implements OnInit {
         
       }
       ,   (error: AppResponse) => {
-        if(error.status === 400)
-        {
-          // this.dangerStatus=true;
-          // this.successStatus=false;
-          this.message = error.message
-          this.customToastrService.GetErrorToastr(this.message, "Edit PickList Status", 5000)
+              this.errorHandlingService.errorStatus(error,"Login Status")
 
-        }
-        else if(error.status === 401)
-        {
-          // this.dangerStatus=true;
-          // this.successStatus=false;
-          this.message = "Authorization has been denied for this request And You have to Login again."
-          this.customToastrService.GetErrorToastr(this.message, "Edit PickList Status", 5000)
-
-        }       
-        else
-        {
-          // this.dangerStatus=true;
-          // this.successStatus=false;
-          this.message = error.message;
-          this.customToastrService.GetErrorToastr(this.message, "Edit PickList Status", 5000)
-
-        }
   }
   )  
     }
