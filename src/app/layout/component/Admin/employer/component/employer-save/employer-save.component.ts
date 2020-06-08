@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Employer } from '../../models/employer';
 import { EmployerService } from '../../service/employer.service';
 import { AppResponse } from 'src/app/models/appResponse';
+import { CustomToastrService } from 'src/app/service/customToastr.service';
 
 @Component({
   selector: 'app-employer-save',
@@ -12,13 +13,13 @@ export class EmployerSaveComponent implements OnInit {
 
   Employer: Employer;
 
-  successStatus=false;
-  dangerStatus=false;
+  // successStatus=false;
+  // dangerStatus=false;
   message="";
   id="";
 
 
-  constructor(private employerService: EmployerService) {
+  constructor(private employerService: EmployerService, private customToastrService: CustomToastrService) {
 
     this.id = JSON.parse(sessionStorage.getItem('user')).Id;
 
@@ -44,15 +45,18 @@ export class EmployerSaveComponent implements OnInit {
      
       if(resp.Success)
       {
-        this.successStatus=true;
-        this.dangerStatus=false;
+        // this.successStatus=true;
+        // this.dangerStatus=false;
         this.message="Data is Added successfully"
+
+        this.customToastrService.GetSuccessToastr(this.message, "Employer Save Status", 5000)
+
 
         setTimeout(()=>
         {    
 
-          this.successStatus=false;
-          this.dangerStatus=false;
+          // this.successStatus=false;
+          // this.dangerStatus=false;
 
           this.Employer = {
 
@@ -62,34 +66,42 @@ export class EmployerSaveComponent implements OnInit {
             CreatedBy: this.id
           }
       
-        }, 3000);
+        }, 5000);
       }
       else
       {
-        this.dangerStatus=true;
-        this.successStatus=false;
+        // this.dangerStatus=true;
+        // this.successStatus=false;
         this.message=resp.Message;
+        this.customToastrService.GetErrorToastr(this.message, "Employer Save Status", 5000)
+
       }
       
     }
     ,   (error: AppResponse) => {
       if(error.status === 400)
       {
-        this.dangerStatus=true;
-        this.successStatus=false;
+        // this.dangerStatus=true;
+        // this.successStatus=false;
         this.message = error.message
+        this.customToastrService.GetErrorToastr(this.message, "Employer Save Status", 5000)
+
       }
       else if(error.status === 401)
       {
-        this.dangerStatus=true;
-        this.successStatus=false;
+        // this.dangerStatus=true;
+        // this.successStatus=false;
         this.message = "Authorization has been denied for this request And You have to Login again."
+        this.customToastrService.GetErrorToastr(this.message, "Employer Save Status", 5000)
+
       }       
       else
       {
-        this.dangerStatus=true;
-        this.successStatus=false;
+        // this.dangerStatus=true;
+        // this.successStatus=false;
         this.message = error.message;
+        this.customToastrService.GetErrorToastr(this.message, "Employer Save Status", 5000)
+
       }
 }
 )

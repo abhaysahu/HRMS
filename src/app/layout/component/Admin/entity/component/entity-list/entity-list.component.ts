@@ -3,6 +3,7 @@ import { Entity } from '../../model/entity';
 import { EntityService } from '../../service/entity.service';
 import { EntityList } from '../../model/entityList';
 import { AppResponse } from 'src/app/models/appResponse';
+import { CustomToastrService } from 'src/app/service/customToastr.service';
 
 
 export class Entitys { 
@@ -39,8 +40,8 @@ export class EntityListComponent implements OnInit {
   sortIcon8="fa fa-sort"
 
 
-  successStatus=false;
-  dangerStatus=false;
+  // successStatus=false;
+  // dangerStatus=false;
 
   message="";
 
@@ -49,44 +50,50 @@ export class EntityListComponent implements OnInit {
   aa:boolean=false;
   search="";
 
-  constructor(private entityService: EntityService) { 
+  constructor(private entityService: EntityService, private customToastrService: CustomToastrService) { 
 
     
 
     this.entityService.getEntityData().subscribe(resp =>{
-      console.log(resp)
+   
       if(resp.Success)
       {
         this.entity = resp.Data
-        console.log(this.entity)
-        
       }
       else
       {
-          this.dangerStatus=true;
-          this.successStatus=false;
+          // this.dangerStatus=true;
+          // this.successStatus=false;
           this.message=resp.ErrorMessage;
           this.message=resp.Message;
+          this.customToastrService.GetErrorToastr(this.message, "Entity List Status", 5000)
+
       }
       
     },   (error: AppResponse) => {
       if(error.status === 400)
       {
-        this.dangerStatus=true;
-        this.successStatus=false;
+        // this.dangerStatus=true;
+        // this.successStatus=false;
         this.message = error.message
+        this.customToastrService.GetErrorToastr(this.message, "Entity List Status", 5000)
+
       }
       else if(error.status === 401)
       {
-        this.dangerStatus=true;
-        this.successStatus=false;
+        // this.dangerStatus=true;
+        // this.successStatus=false;
         this.message = "Authorization has been denied for this request And You have to Login again."
+        this.customToastrService.GetErrorToastr(this.message, "Entity List Status", 5000)
+
       }       
       else
       {
-        this.dangerStatus=true;
-        this.successStatus=false;
+        // this.dangerStatus=true;
+        // this.successStatus=false;
         this.message = error.message;
+        this.customToastrService.GetErrorToastr(this.message, "Entity List Status", 5000)
+
       }
 }
 )
@@ -242,8 +249,8 @@ export class EntityListComponent implements OnInit {
 
   closeStatus()
   {
-    this.dangerStatus=false;
-    this.successStatus=false;
+    // this.dangerStatus=false;
+    // this.successStatus=false;
   }
 
 }

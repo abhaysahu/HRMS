@@ -5,6 +5,7 @@ import { StringMapService } from '../../service/string-map.service';
 import { StringMapList } from '../../model/stringMapList.module';
 import { AppResponse } from 'src/app/models/appResponse';
 import { DropDownList } from '../../model/dropdownLIst';
+import { CustomToastrService } from 'src/app/service/customToastr.service';
 
 export class stringMapList  { 
 
@@ -38,14 +39,17 @@ export class StringMapListComponent implements OnInit {
   search="";
 
 
-  successStatus=false;
-  dangerStatus=false;
+  // successStatus=false;
+  // dangerStatus=false;
+
   message="";
+
 
   objectTypeCode=0;
 
   constructor(private dialog: MatDialog,
               private stringmapService: StringMapService,
+              private customToastrService: CustomToastrService
               ){  
 
     this.stringmapService.getdropdownData().subscribe(resp =>{
@@ -57,32 +61,41 @@ export class StringMapListComponent implements OnInit {
       }
       else
       {
-        this.dangerStatus=true;
-        this.successStatus=false;
+        // this.dangerStatus=true;
+        // this.successStatus=false;
         this.message=resp.ErrorMessage;
         this.message=resp.Message;
+        this.customToastrService.GetErrorToastr(this.message, "StringMap List Status", 5000)
+
+        
       }
       
     }
     ,   (error: AppResponse) => {
       if(error.status === 400)
       {
-        this.dangerStatus=true;
-        this.successStatus=false;
+        // this.dangerStatus=true;
+        // this.successStatus=false;
         this.message = error.message
+        this.customToastrService.GetErrorToastr(this.message, "StringMap List Status", 5000)
+
        
       }
       else if(error.status === 401)
       {
-        this.dangerStatus=true;
-        this.successStatus=false;
+        // this.dangerStatus=true;
+        // this.successStatus=false;
         this.message = "Authorization has been denied for this request And You have to Login again."
+        this.customToastrService.GetErrorToastr(this.message, "StringMap List Status", 5000)
+
       }       
        else
        {
-          this.dangerStatus=true;
-          this.successStatus=false;
+          // this.dangerStatus=true;
+          // this.successStatus=false;
           this.message = error.message;
+          this.customToastrService.GetErrorToastr(this.message, "StringMap List Status", 5000)
+
        }
 }
 )
@@ -127,31 +140,39 @@ export class StringMapListComponent implements OnInit {
       }
       else
       {
-        this.dangerStatus=true;
-        this.successStatus=false;
+        // this.dangerStatus=true;
+        // this.successStatus=false;
         this.message=resp.ErrorMessage;
+        this.customToastrService.GetErrorToastr(this.message, "StringMap List Status", 5000)
+
       }
       
     }
     ,   (error: AppResponse) => {
       if(error.status === 400)
       {
-        this.dangerStatus=true;
-        this.successStatus=false;
+        // this.dangerStatus=true;
+        // this.successStatus=false;
         this.message = error.message;
+        this.customToastrService.GetErrorToastr(this.message, "StringMap List Status", 5000)
+
     
       }
       else if(error.status === 401)
       {
-        this.dangerStatus=true;
-        this.successStatus=false;
+        // this.dangerStatus=true;
+        // this.successStatus=false;
         this.message = "Authorization has been denied for this request And You have to Login again."
+        this.customToastrService.GetErrorToastr(this.message, "StringMap List Status", 5000)
+
       }       
       else
       {
-        this.dangerStatus=true;
-        this.successStatus=false;
+        // this.dangerStatus=true;
+        // this.successStatus=false;
         this.message = error.message;
+        this.customToastrService.GetErrorToastr(this.message, "StringMap List Status", 5000)
+
       }
     }
   )
@@ -159,8 +180,8 @@ export class StringMapListComponent implements OnInit {
 
   closeStatus()
   {
-    this.dangerStatus=false;
-    this.successStatus=false;
+    // this.dangerStatus=false;
+    // this.successStatus=false;
   }
 
 

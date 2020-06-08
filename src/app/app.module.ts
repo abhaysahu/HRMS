@@ -92,6 +92,8 @@ import { ListEmployeePipe } from './layout/component/employee/list-employee.pipe
 import { RewardSkipComponent } from './layout/component/reward-skip/component/reward-skip.component';
 import { RewardSkipService } from './layout/component/reward-skip/service/reward-skip.service';
 import { AddRewardComponent } from './layout/component/reward-skip/component/add-reward/add-reward.component';
+import { CustomToastrService } from './service/customToastr.service';
+import { ErrorHandlingService } from './service/error-handling.service';
 
 
 
@@ -172,10 +174,10 @@ import { AddRewardComponent } from './layout/component/reward-skip/component/add
     CKEditorModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(
-    //   {
-    //   timeOut: 2000,
-    //   positionClass: 'toast-bottom-right'
-    // }
+      {
+       
+      }
+      
     )
     
 
@@ -197,7 +199,9 @@ import { AddRewardComponent } from './layout/component/reward-skip/component/add
     ExpenseService,
     ServiceRequestsService,
     PrintService,
-    RewardSkipService
+    RewardSkipService,
+    CustomToastrService,
+    ErrorHandlingService
   ],
   bootstrap: [AppComponent]
 }) 
