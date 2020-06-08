@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { DropDown } from '../models/dropDown';
 import { environment } from 'src/environments/environment';
 import { EmployeeData } from '../models/EmployeeData';
+import { ErrorHandlingService } from 'src/app/service/error-handling.service';
 
 @Injectable({
   providedIn: 'root'
@@ -62,7 +63,8 @@ export class EmployeeService {
     UpdatedBy: null,
   }
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient,    private errorHandlingService: ErrorHandlingService
+    ) { }
 
   getemployee(): Observable<EmployeeData>
   {
@@ -72,12 +74,15 @@ export class EmployeeService {
 
   getParticularEmployee(id): Observable<DropDown>
   {
-    const token = sessionStorage.getItem('token')
+    // const token = sessionStorage.getItem('token')
 
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'authorization': `bearer ${token}`
-    })
+    // const headers = new HttpHeaders({
+    //   'Content-Type': 'application/json',
+    //   'authorization': `bearer ${token}`
+    // })
+
+    const headers = this.errorHandlingService.getauthorization()
+
 
     return this.httpClient.get<DropDown>(environment.webapiUrl+`api/user/${id}`, { headers: headers })
   }
@@ -86,12 +91,15 @@ export class EmployeeService {
 
   getUser(): Observable<DropDown>
   {
-    const token = sessionStorage.getItem('token')
+    // const token = sessionStorage.getItem('token')
 
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'authorization': `bearer ${token}`
-    })
+    // const headers = new HttpHeaders({
+    //   'Content-Type': 'application/json',
+    //   'authorization': `bearer ${token}`
+    // })
+
+    const headers = this.errorHandlingService.getauthorization()
+
 
     return this.httpClient.get<DropDown>(environment.webapiUrl+'api/get/employee', { headers: headers })
   }
@@ -99,12 +107,15 @@ export class EmployeeService {
 
   employeeGrade(): Observable<DropDown>
   {
-    const token = sessionStorage.getItem('token')
+    // const token = sessionStorage.getItem('token')
 
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'authorization': `bearer ${token}`
-    })
+    // const headers = new HttpHeaders({
+    //   'Content-Type': 'application/json',
+    //   'authorization': `bearer ${token}`
+    // })
+
+    const headers = this.errorHandlingService.getauthorization()
+
 
     return this.httpClient.get<DropDown>(environment.webapiUrl+'api/get/PickList?attributeName=Grade&objectTypeCode=9', { headers: headers })
   }
@@ -112,12 +123,15 @@ export class EmployeeService {
 
   employeeStatus(): Observable<DropDown>
   {
-    const token = sessionStorage.getItem('token')
+    // const token = sessionStorage.getItem('token')
 
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'authorization': `bearer ${token}`
-    })
+    // const headers = new HttpHeaders({
+    //   'Content-Type': 'application/json',
+    //   'authorization': `bearer ${token}`
+    // })
+
+    const headers = this.errorHandlingService.getauthorization()
+
 
     return this.httpClient.get<DropDown>(environment.webapiUrl+'api/get/PickList?attributeName=StatusCode&objectTypeCode=9', { headers: headers })
   }
@@ -125,12 +139,15 @@ export class EmployeeService {
 
   listOfDepartment(): Observable<DropDown>
   {
-    const token = sessionStorage.getItem('token')
+    // const token = sessionStorage.getItem('token')
 
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'authorization': `bearer ${token}`
-    })
+    // const headers = new HttpHeaders({
+    //   'Content-Type': 'application/json',
+    //   'authorization': `bearer ${token}`
+    // })
+
+    const headers = this.errorHandlingService.getauthorization()
+
 
     return this.httpClient.get<DropDown>(environment.webapiUrl+'api/get/PickList?attributeName=Department&objectTypeCode=9', { headers: headers })
   }
@@ -138,12 +155,15 @@ export class EmployeeService {
 
   listOfDesignation(): Observable<DropDown>
   {
-    const token = sessionStorage.getItem('token')
+    // const token = sessionStorage.getItem('token')
 
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'authorization': `bearer ${token}`
-    })
+    // const headers = new HttpHeaders({
+    //   'Content-Type': 'application/json',
+    //   'authorization': `bearer ${token}`
+    // })
+
+    const headers = this.errorHandlingService.getauthorization()
+
 
     return this.httpClient.get<DropDown>(environment.webapiUrl+'api/get/PickList?attributeName=Designation&objectTypeCode=9', { headers: headers })
   }
@@ -151,12 +171,15 @@ export class EmployeeService {
 
   listOfMaritalStatus(): Observable<DropDown>
   {
-    const token = sessionStorage.getItem('token')
+    // const token = sessionStorage.getItem('token')
 
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'authorization': `bearer ${token}`
-    })
+    // const headers = new HttpHeaders({
+    //   'Content-Type': 'application/json',
+    //   'authorization': `bearer ${token}`
+    // })
+
+    const headers = this.errorHandlingService.getauthorization()
+
 
     return this.httpClient.get<DropDown>(environment.webapiUrl+'api/get/PickList?attributeName=MaritalStatus&objectTypeCode=9', { headers: headers })
   }
@@ -164,12 +187,15 @@ export class EmployeeService {
 
   listOfGender(): Observable<DropDown>
   {
-    const token = sessionStorage.getItem('token')
+    // const token = sessionStorage.getItem('token')
 
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'authorization': `bearer ${token}`
-    })
+    // const headers = new HttpHeaders({
+    //   'Content-Type': 'application/json',
+    //   'authorization': `bearer ${token}`
+    // })
+
+    const headers = this.errorHandlingService.getauthorization()
+
 
     return this.httpClient.get<DropDown>(environment.webapiUrl+'api/get/PickList?attributeName=Gender&objectTypeCode=9', { headers: headers })
   }
@@ -177,12 +203,15 @@ export class EmployeeService {
 
   UserDataSave(user)
   {
-    const token = sessionStorage.getItem('token')
+    // const token = sessionStorage.getItem('token')
 
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'authorization': `bearer ${token}`
-    })
+    // const headers = new HttpHeaders({
+    //   'Content-Type': 'application/json',
+    //   'authorization': `bearer ${token}`
+    // })
+
+    const headers = this.errorHandlingService.getauthorization()
+
 
     return this.httpClient.post<any>(environment.webapiUrl+'api/add/user',user, { headers: headers })
   } 
@@ -190,12 +219,15 @@ export class EmployeeService {
 
   UserEditDetails(RegardingObjectId, AddressType): Observable<DropDown>
   {
-    const token = sessionStorage.getItem('token')
+    // const token = sessionStorage.getItem('token')
 
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'authorization': `bearer ${token}`
-    })
+    // const headers = new HttpHeaders({
+    //   'Content-Type': 'application/json',
+    //   'authorization': `bearer ${token}`
+    // })
+
+
+    const headers = this.errorHandlingService.getauthorization()
 
     return this.httpClient.get<DropDown>(environment.webapiUrl+`api/search/address?regardingObjectId=${RegardingObjectId}&addressType=${AddressType}`, { headers: headers })
   }
@@ -203,24 +235,30 @@ export class EmployeeService {
 
   listOfCountry(): Observable<DropDown>
   {
-    const token = sessionStorage.getItem('token')
+    // const token = sessionStorage.getItem('token')
 
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'authorization': `bearer ${token}`
-    })
+    // const headers = new HttpHeaders({
+    //   'Content-Type': 'application/json',
+    //   'authorization': `bearer ${token}`
+    // })
+
+    const headers = this.errorHandlingService.getauthorization()
+
 
     return this.httpClient.get<DropDown>(environment.webapiUrl+'api/get/lookup?objectTypeCode=6', { headers: headers })
   }
 
   listOfState(): Observable<DropDown>
   {
-    const token = sessionStorage.getItem('token')
+    // const token = sessionStorage.getItem('token')
 
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'authorization': `bearer ${token}`
-    })
+    // const headers = new HttpHeaders({
+    //   'Content-Type': 'application/json',
+    //   'authorization': `bearer ${token}`
+    // })
+
+    const headers = this.errorHandlingService.getauthorization()
+
 
     return this.httpClient.get<DropDown>(environment.webapiUrl+'api/get/lookup?objectTypeCode=7', { headers: headers })
   }
@@ -228,12 +266,15 @@ export class EmployeeService {
 
   UserAddressSave(address)
   {
-    const token = sessionStorage.getItem('token')
+    // const token = sessionStorage.getItem('token')
 
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'authorization': `bearer ${token}`
-    })
+    // const headers = new HttpHeaders({
+    //   'Content-Type': 'application/json',
+    //   'authorization': `bearer ${token}`
+    // })
+
+    const headers = this.errorHandlingService.getauthorization()
+
 
     return this.httpClient.post<any>(environment.webapiUrl+'api/add/address',address, { headers: headers })
   } 

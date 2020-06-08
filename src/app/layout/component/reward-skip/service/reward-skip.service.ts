@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { ListOfReward } from '../models/listOfReward';
+import { ErrorHandlingService } from 'src/app/service/error-handling.service';
 
 @Injectable({
   providedIn: 'root'
@@ -12,19 +13,24 @@ export class RewardSkipService {
 
   constructor(
     private httpClient: HttpClient,
-    private router: Router
+    private router: Router,
+    private errorHandlingService: ErrorHandlingService
+
   ) { }
 
 
 
   getAllRewardSkipData(): Observable<ListOfReward>
   {
-    const token = sessionStorage.getItem('token')
+    // const token = sessionStorage.getItem('token')
 
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'authorization': `bearer ${token}`
-    })
+    // const headers = new HttpHeaders({
+    //   'Content-Type': 'application/json',
+    //   'authorization': `bearer ${token}`
+    // })
+
+    const headers = this.errorHandlingService.getauthorization()
+
 
     return this.httpClient.get<ListOfReward>(environment.webapiUrl+'api/get/ProductToSkipForReward', { headers: headers })
   
@@ -34,12 +40,15 @@ export class RewardSkipService {
 
   getrewardSkipData(search): Observable<ListOfReward>
   {
-    const token = sessionStorage.getItem('token')
+    // const token = sessionStorage.getItem('token')
 
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'authorization': `bearer ${token}`
-    })
+    // const headers = new HttpHeaders({
+    //   'Content-Type': 'application/json',
+    //   'authorization': `bearer ${token}`
+    // })
+
+    const headers = this.errorHandlingService.getauthorization()
+
 
     return this.httpClient.get<ListOfReward>(environment.webapiUrl+`api/search/pobaraproducts?searchKeyword=${search}`, { headers: headers })
   
@@ -49,13 +58,16 @@ export class RewardSkipService {
 
   upDateRewardData(Product)
   {
-    const token = sessionStorage.getItem('token')
-    console.log(Product)
+    // const token = sessionStorage.getItem('token')
+    // console.log(Product)
 
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'authorization': `bearer ${token}`
-    })
+    // const headers = new HttpHeaders({
+    //   'Content-Type': 'application/json',
+    //   'authorization': `bearer ${token}`
+    // })
+
+    const headers = this.errorHandlingService.getauthorization()
+
 
     return this.httpClient.post<any>(environment.webapiUrl+'api/update/ProductToSkipForReward',Product, { headers: headers })
   } 

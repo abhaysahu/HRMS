@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { CustomToastrService } from './customToastr.service';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +10,23 @@ export class ErrorHandlingService {
 
   message=""
 
-  constructor(private customToastrService: CustomToastrService) { }
+  constructor(private customToastrService: CustomToastrService,
+    private httpClient: HttpClient,
+    private router: Router
+    ) { }
+
+
+  getauthorization()
+  {
+    const token = sessionStorage.getItem('token')
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'authorization': `bearer ${token}`
+    })
+
+    return headers
+  }
+
 
 
   errorStatus(error, status)

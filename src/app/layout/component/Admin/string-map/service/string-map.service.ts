@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
 import { StringMapList } from '../model/stringMapList.module';
 import { DropDownList } from '../model/dropdownLIst';
 import { ListOfPopup } from '../model/listOfPopup.module';
+import { ErrorHandlingService } from 'src/app/service/error-handling.service';
 
 @Injectable({
   providedIn: 'root'
@@ -16,19 +17,23 @@ export class StringMapService {
 
   constructor(
     private httpClient: HttpClient,
-    private router: Router
+    private router: Router,
+    private errorHandlingService: ErrorHandlingService
+
   ) { }
 
 
 
   stringMapGetList(objectTypeCode): Observable<StringMapList>
   {
-    const token = sessionStorage.getItem('token')
+    // const token = sessionStorage.getItem('token')
 
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'authorization': `bearer ${token}`
-    })
+    // const headers = new HttpHeaders({
+    //   'Content-Type': 'application/json',
+    //   'authorization': `bearer ${token}`
+    // })
+
+    const headers = this.errorHandlingService.getauthorization()
 
     return this.httpClient.get<StringMapList>(environment.webapiUrl+`api/get/StringMapByEntityGroupedByAttribute?objectTypeCode=${objectTypeCode}`, { headers: headers })
 
@@ -38,12 +43,14 @@ export class StringMapService {
 
   stringMapDataSave(entity)
   {
-    const token = sessionStorage.getItem('token')
+    // const token = sessionStorage.getItem('token')
 
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'authorization': `bearer ${token}`
-    })
+    // const headers = new HttpHeaders({
+    //   'Content-Type': 'application/json',
+    //   'authorization': `bearer ${token}`
+    // })
+
+    const headers = this.errorHandlingService.getauthorization()
 
     return this.httpClient.post<any>(environment.webapiUrl+'api/add/stringmap',entity, { headers: headers })
   } 
@@ -51,12 +58,14 @@ export class StringMapService {
 
   getdropdownData(): Observable<DropDownList>
   {
-    const token = sessionStorage.getItem('token')
+    // const token = sessionStorage.getItem('token')
 
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'authorization': `bearer ${token}`
-    })
+    // const headers = new HttpHeaders({
+    //   'Content-Type': 'application/json',
+    //   'authorization': `bearer ${token}`
+    // })
+
+    const headers = this.errorHandlingService.getauthorization()
 
     return this.httpClient.get<DropDownList>(environment.webapiUrl+'api/get/entity', { headers: headers })
   
@@ -64,12 +73,14 @@ export class StringMapService {
 
   getDataOfPopup(attributeName, objectTypeCode):Observable<ListOfPopup>
   {
-    const token = sessionStorage.getItem('token')
+    // const token = sessionStorage.getItem('token')
 
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'authorization': `bearer ${token}`
-    })
+    // const headers = new HttpHeaders({
+    //   'Content-Type': 'application/json',
+    //   'authorization': `bearer ${token}`
+    // })
+
+    const headers = this.errorHandlingService.getauthorization()
 
     return this.httpClient.get<ListOfPopup>(environment.webapiUrl+`api/get/StringMapByAttribute?attributeName=${attributeName}&objectTypeCode=${objectTypeCode}`, { headers: headers })
 
@@ -79,12 +90,14 @@ export class StringMapService {
 
   stringMapDataUpdate(data)
   {
-    const token = sessionStorage.getItem('token')
+    // const token = sessionStorage.getItem('token')
 
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'authorization': `bearer ${token}`
-    })
+    // const headers = new HttpHeaders({
+    //   'Content-Type': 'application/json',
+    //   'authorization': `bearer ${token}`
+    // })
+
+    const headers = this.errorHandlingService.getauthorization()
 
     return this.httpClient.post<any>(environment.webapiUrl+'api/update/stringmap',data, { headers: headers })
   } 
@@ -92,12 +105,14 @@ export class StringMapService {
 
   stringMapDataAdd(data)
   {
-    const token = sessionStorage.getItem('token')
+    // const token = sessionStorage.getItem('token')
 
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'authorization': `bearer ${token}`
-    })
+    // const headers = new HttpHeaders({
+    //   'Content-Type': 'application/json',
+    //   'authorization': `bearer ${token}`
+    // })
+
+    const headers = this.errorHandlingService.getauthorization()
 
     return this.httpClient.post<any>(environment.webapiUrl+'api/add/stringmap',data, { headers: headers })
   } 
