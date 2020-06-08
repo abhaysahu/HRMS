@@ -60,7 +60,7 @@ export class LoginComponent implements OnInit {
  
     this.authService.login(form)    
       .subscribe((data: LoggedinUser) => {
-        console.log(data)
+        console.log(data) 
        
           this.authService.manageSession(data);
           this.authService.loginStatus.emit(true);

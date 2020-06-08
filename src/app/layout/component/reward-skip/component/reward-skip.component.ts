@@ -3,6 +3,7 @@ import { RewardSkipService } from '../service/reward-skip.service';
 import { AppResponse } from 'src/app/models/appResponse';
 import { MatDialog, MatDialogConfig } from '@angular/material';
 import { AddRewardComponent } from './add-reward/add-reward.component';
+import { ErrorHandlingService } from 'src/app/service/error-handling.service';
 
 @Component({
   selector: 'app-reward-skip',
@@ -22,7 +23,10 @@ export class RewardSkipComponent implements OnInit {
 
   email="";
 
-  constructor(private rewardservice: RewardSkipService,private dialog: MatDialog,) { 
+  constructor(private rewardservice: RewardSkipService,
+    private dialog: MatDialog,
+    private errorHandlingService: ErrorHandlingService
+    ) { 
 
 
       this.rewardservice.getAllRewardSkipData().subscribe(resp =>{
@@ -41,24 +45,8 @@ export class RewardSkipComponent implements OnInit {
       }
       
     },   (error: AppResponse) => {
-      if(error.status === 400)
-      {
-        this.dangerStatus=true;
-        this.successStatus=false;
-        this.message = error.message
-      }
-      else if(error.status === 401)
-      {
-        this.dangerStatus=true;
-        this.successStatus=false;
-        this.message = "Authorization has been denied for this request And You have to Login again."
-      }       
-      else
-      {
-        this.dangerStatus=true;
-        this.successStatus=false;
-        this.message = error.message;
-      }
+      this.errorHandlingService.errorStatus(error,"List Employee Status")
+
 }
 )
 
@@ -90,24 +78,8 @@ export class RewardSkipComponent implements OnInit {
       }
       
     },   (error: AppResponse) => {
-      if(error.status === 400)
-      {
-        this.dangerStatus=true;
-        this.successStatus=false;
-        this.message = error.message
-      }
-      else if(error.status === 401)
-      {
-        this.dangerStatus=true;
-        this.successStatus=false;
-        this.message = "Authorization has been denied for this request And You have to Login again."
-      }       
-      else
-      {
-        this.dangerStatus=true;
-        this.successStatus=false;
-        this.message = error.message;
-      }
+      this.errorHandlingService.errorStatus(error,"Reward Skip Status")
+
 }
 )
 
@@ -165,23 +137,8 @@ export class RewardSkipComponent implements OnInit {
       
     }
     ,   (error: AppResponse) => {
-      if(error.status === 400)
-      {
-       this.message = error.message
-      //  console.log(this.message)
-      }
-      else if(error.status === 401)
-      {
-        this.dangerStatus=true;
-        this.successStatus=false;
-        this.message = "Authorization has been denied for this request And You have to Login again."
-      }       
-      else
-      {
-        this.dangerStatus=true;
-        this.successStatus=false;
-        this.message = error.message;
-      }
+      this.errorHandlingService.errorStatus(error,"Reward Skip Status")
+
     }
   )
       
@@ -221,23 +178,8 @@ export class RewardSkipComponent implements OnInit {
       
     }
     ,   (error: AppResponse) => {
-      if(error.status === 400)
-      {
-       this.message = error.message
-      //  console.log(this.message)
-      }
-      else if(error.status === 401)
-      {
-        this.dangerStatus=true;
-        this.successStatus=false;
-        this.message = "Authorization has been denied for this request And You have to Login again."
-      }       
-      else
-      {
-        this.dangerStatus=true;
-        this.successStatus=false;
-        this.message = error.message;
-      }
+      this.errorHandlingService.errorStatus(error,"Reward Skip Status")
+
     }
   )
     
@@ -287,24 +229,7 @@ export class RewardSkipComponent implements OnInit {
       
     }
     ,   (error: AppResponse) => {
-      if(error.status === 400)
-      {
-        this.dangerStatus=true;
-        this.successStatus=false;
-        this.message = error.message
-      }
-      else if(error.status === 401)
-      {
-        this.dangerStatus=true;
-        this.successStatus=false;
-        this.message = "Authorization has been denied for this request And You have to Login again."
-      }       
-      else
-      {
-        this.dangerStatus=true;
-        this.successStatus=false;
-        this.message = error.message;
-      }
+      this.errorHandlingService.errorStatus(error,"Reward Skip Status")
 }
 )
 

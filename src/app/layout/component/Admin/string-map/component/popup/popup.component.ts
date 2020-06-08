@@ -8,6 +8,7 @@ import { UpdatePopup } from '../../model/Updatepopup.modeule';
 import { CommentsComponent } from '../../../../Timesheet/component/comments/comments.component';
 import { EditpicklistComponent } from '../editpicklist/editpicklist.component';
 import { CustomToastrService } from 'src/app/service/customToastr.service';
+import { ErrorHandlingService } from 'src/app/service/error-handling.service';
 
 
 @Component({
@@ -35,7 +36,9 @@ export class PopupComponent implements OnInit {
     public dialogRef: MatDialogRef<PopupComponent>,
     private stringmapService: StringMapService,
     private dialog: MatDialog,
-    private customToastrService: CustomToastrService
+    private customToastrService: CustomToastrService,
+    private errorHandlingService: ErrorHandlingService
+
   ) 
   { 
 
@@ -59,31 +62,9 @@ export class PopupComponent implements OnInit {
       
     }
     ,   (error: AppResponse) => {
-      if(error.status === 400)
-      {
-        // this.dangerStatus=true;
-        // this.successStatus=false;
-        this.message = error.message
-        this.customToastrService.GetErrorToastr(this.message, "Login Status", 5000)
 
-      }
-      else if(error.status === 401)
-      {
-        // this.dangerStatus=true;
-        // this.successStatus=false;
-        this.message = "Authorization has been denied for this request And You have to Login again."
-        this.customToastrService.GetErrorToastr(this.message, "Login Status", 5000)
-
-      }       
-       else
-       {
-          // this.dangerStatus=true;
-          // this.successStatus=false;
-          this.message = error.message;
-          this.customToastrService.GetErrorToastr(this.message, "Login Status", 5000)
-
-       }
-}
+      this.errorHandlingService.errorStatus(error,"Login Status")
+    }
 )
     
   }
@@ -177,28 +158,8 @@ export class PopupComponent implements OnInit {
       
     }
     ,   (error: AppResponse) => {
-      if(error.status === 400)
-      {
-       this.message = error.message
-       this.customToastrService.GetErrorToastr(this.message, "Login Status", 5000)
+            this.errorHandlingService.errorStatus(error,"Login Status")
 
-      }
-      else if(error.status === 401)
-      {
-        // this.dangerStatus=true;
-        // this.successStatus=false;
-        this.message = "Authorization has been denied for this request And You have to Login again."
-        this.customToastrService.GetErrorToastr(this.message, "Login Status", 5000)
-
-      }       
-       else
-      {
-        // this.dangerStatus=true;
-        // this.successStatus=false;
-        this.message = error.message;
-        this.customToastrService.GetErrorToastr(this.message, "Login Status", 5000)
-
-      }
 }
 )
   }

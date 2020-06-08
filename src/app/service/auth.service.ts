@@ -61,6 +61,7 @@ export class AuthService {
  
   
   public logout(): void {
+
     this.redirectUrl = document.location.pathname;
     sessionStorage.removeItem('token');
     sessionStorage.removeItem('refresh');
@@ -68,7 +69,9 @@ export class AuthService {
     
     this.router.navigate(['/login']);
     this.loginStatus.emit(false);
+    
   }
+
 
 
   getdata(): Observable<any> {

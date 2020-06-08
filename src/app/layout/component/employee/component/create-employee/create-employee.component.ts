@@ -7,6 +7,7 @@ import { MatDialog, MatDialogConfig } from '@angular/material';
 import { CommentsComponent } from '../../../Timesheet/component/comments/comments.component';
 import { PrintService } from '../../services/print.service';
 import { PrintPopupComponent } from './print-popup/print-popup.component';
+import { ErrorHandlingService } from 'src/app/service/error-handling.service';
 
 
 @Component({
@@ -34,8 +35,14 @@ export class CreateEmployeeComponent implements OnInit {
   redirectId;
 
 
-  constructor(private router: Router, private employeeService: EmployeeService, private dialog: MatDialog,
-              public printService: PrintService) {
+  constructor(
+    private router: Router, 
+    private employeeService: EmployeeService, 
+    private dialog: MatDialog,
+    public printService: PrintService,
+    private errorHandlingService: ErrorHandlingService
+    
+    ) {
 
 
 
@@ -55,23 +62,9 @@ export class CreateEmployeeComponent implements OnInit {
       
     }
     ,   (error: AppResponse) => {
-      if (error.status === 400) {
-        this.dangerStatus = true;
-        this.successStatus = false;
-        this.message = error.message;
-       
-      } else if (error.status === 401) {
-        this.dangerStatus = true;
-        this.successStatus = false;
-        this.message = 'Authorization has been denied for this request And You have to Login again.';
-        setTimeout(() => {    
-              this.router.navigate(['/login']);
-            }, 3000);
-      } else {
-        this.dangerStatus = true;
-        this.successStatus = false;
-        this.message = error.message;
-      }
+
+            this.errorHandlingService.errorStatus(error,"Create Employee Status")
+
     }
   );
 
@@ -91,23 +84,9 @@ export class CreateEmployeeComponent implements OnInit {
       
     }
     ,   (error: AppResponse) => {
-      if (error.status === 400) {
-        this.dangerStatus = true;
-        this.successStatus = false;
-        this.message = error.message;
-       
-      } else if (error.status === 401) {
-        this.dangerStatus = true;
-        this.successStatus = false;
-        this.message = 'Authorization has been denied for this request And You have to Login again.';
-        setTimeout(() => {    
-              this.router.navigate(['/login']);
-            }, 3000);
-      } else {
-        this.dangerStatus = true;
-        this.successStatus = false;
-        this.message = error.message;
-      }
+
+      this.errorHandlingService.errorStatus(error,"Create Employee Status")
+
     }
   );
   
@@ -128,23 +107,9 @@ export class CreateEmployeeComponent implements OnInit {
       
     }
     ,   (error: AppResponse) => {
-      if (error.status === 400) {
-        this.dangerStatus = true;
-        this.successStatus = false;
-        this.message = error.message;
-       
-      } else if (error.status === 401) {
-        this.dangerStatus = true;
-        this.successStatus = false;
-        this.message = 'Authorization has been denied for this request And You have to Login again.';
-        setTimeout(() => {    
-              this.router.navigate(['/login']);
-            }, 3000);
-      } else {
-        this.dangerStatus = true;
-        this.successStatus = false;
-        this.message = error.message;
-      }
+
+        this.errorHandlingService.errorStatus(error,"Create Employee Status")
+
     }
   );
   
@@ -166,23 +131,9 @@ export class CreateEmployeeComponent implements OnInit {
     
   }
   ,   (error: AppResponse) => {
-    if (error.status === 400) {
-      this.dangerStatus = true;
-      this.successStatus = false;
-      this.message = error.message;
-     
-    } else if (error.status === 401) {
-      this.dangerStatus = true;
-      this.successStatus = false;
-      this.message = 'Authorization has been denied for this request And You have to Login again.';
-      setTimeout(() => {    
-            this.router.navigate(['/login']);
-          }, 3000);
-    } else {
-      this.dangerStatus = true;
-      this.successStatus = false;
-      this.message = error.message;
-    }
+
+    this.errorHandlingService.errorStatus(error,"Create Employee Status")
+
   }
 );
 
@@ -202,23 +153,9 @@ export class CreateEmployeeComponent implements OnInit {
   
 }
 ,   (error: AppResponse) => {
-  if (error.status === 400) {
-    this.dangerStatus = true;
-    this.successStatus = false;
-    this.message = error.message;
-   
-  } else if (error.status === 401) {
-    this.dangerStatus = true;
-    this.successStatus = false;
-    this.message = 'Authorization has been denied for this request And You have to Login again.';
-    setTimeout(() => {    
-            this.router.navigate(['/login']);
-          }, 3000);
-  } else {
-    this.dangerStatus = true;
-    this.successStatus = false;
-    this.message = error.message;
-  }
+    
+    this.errorHandlingService.errorStatus(error,"Create Employee Status")
+
 }
 );
 
@@ -236,23 +173,9 @@ export class CreateEmployeeComponent implements OnInit {
   
 }
 ,   (error: AppResponse) => {
-  if (error.status === 400) {
-    this.dangerStatus = true;
-    this.successStatus = false;
-    this.message = error.message;
-   
-  } else if (error.status === 401) {
-    this.dangerStatus = true;
-    this.successStatus = false;
-    this.message = 'Authorization has been denied for this request And You have to Login again.';
-    setTimeout(() => {    
-            this.router.navigate(['/login']);
-          }, 3000);
-  } else {
-    this.dangerStatus = true;
-    this.successStatus = false;
-    this.message = error.message;
-  }
+
+  this.errorHandlingService.errorStatus(error,"Create Employee Status")
+
 }
 );
 
@@ -271,23 +194,9 @@ export class CreateEmployeeComponent implements OnInit {
   
 }
 ,   (error: AppResponse) => {
-  if (error.status === 400) {
-    this.dangerStatus = true;
-    this.successStatus = false;
-    this.message = error.message;
-   
-  } else if (error.status === 401) {
-    this.dangerStatus = true;
-    this.successStatus = false;
-    this.message = 'Authorization has been denied for this request And You have to Login again.';
-    setTimeout(() => {    
-            this.router.navigate(['/login']);
-          }, 3000);
-  } else {
-    this.dangerStatus = true;
-    this.successStatus = false;
-    this.message = error.message;
-  }
+              
+    this.errorHandlingService.errorStatus(error,"Create Employee Status")
+
 }
 );
 
@@ -321,20 +230,9 @@ export class CreateEmployeeComponent implements OnInit {
       
     }
     ,   (error: AppResponse) => {
-      if (error.status === 400) {
-       this.message = error.message;
-       this.dangerStatus = true;
-       this.successStatus = false;
-       console.log(this.message);
-      } else if (error.status === 401) {
-        this.dangerStatus = true;
-        this.successStatus = false;
-        this.message = 'Authorization has been denied for this request And You have to Login again.';
-      } else {
-        this.dangerStatus = true;
-        this.successStatus = false;
-        this.message = error.message;
-      }
+
+        this.errorHandlingService.errorStatus(error,"Create Employee Status")
+
     }
   );
   }

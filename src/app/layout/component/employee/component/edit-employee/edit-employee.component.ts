@@ -3,6 +3,7 @@ import { EmployeeService } from '../../services/employee.service';
 import { Employee } from '../../models/employee';
 import { AppResponse } from 'src/app/models/appResponse';
 import { Router, ActivatedRoute } from '@angular/router';
+import { ErrorHandlingService } from 'src/app/service/error-handling.service';
 
 @Component({
   selector: 'app-edit-employee',
@@ -33,7 +34,12 @@ export class EditEmployeeComponent implements OnInit {
   message = '';
   id
 
-  constructor(private employeeService: EmployeeService, private router: Router,private route: ActivatedRoute,) { 
+  constructor(private employeeService: EmployeeService,
+     private router: Router,
+     private route: ActivatedRoute,
+     private errorHandlingService: ErrorHandlingService
+
+     ) { 
 
     this.Employee=this.employeeService.Employee
 
@@ -60,23 +66,8 @@ export class EditEmployeeComponent implements OnInit {
       
     }
     ,   (error: AppResponse) => {
-      if (error.status === 400) {
-        this.dangerStatus = true;
-        this.successStatus = false;
-        this.message = error.message;
-       
-      } else if (error.status === 401) {
-        this.dangerStatus = true;
-        this.successStatus = false;
-        this.message = 'Authorization has been denied for this request And You have to Login again.';
-        setTimeout(() => {    
-              this.router.navigate(['/login']);
-            }, 3000);
-      } else {
-        this.dangerStatus = true;
-        this.successStatus = false;
-        this.message = error.message;
-      }
+
+      this.errorHandlingService.errorStatus(error,"Edit Employee Status")
     }
   );
 
@@ -97,23 +88,9 @@ export class EditEmployeeComponent implements OnInit {
     
   }
   ,   (error: AppResponse) => {
-    if (error.status === 400) {
-      this.dangerStatus = true;
-      this.successStatus = false;
-      this.message = error.message;
-     
-    } else if (error.status === 401) {
-      this.dangerStatus = true;
-      this.successStatus = false;
-      this.message = 'Authorization has been denied for this request And You have to Login again.';
-      setTimeout(() => {    
-            this.router.navigate(['/login']);
-          }, 3000);
-    } else {
-      this.dangerStatus = true;
-      this.successStatus = false;
-      this.message = error.message;
-    }
+
+    this.errorHandlingService.errorStatus(error,"Edit Employee Status")
+
   }
 );
 
@@ -134,23 +111,9 @@ this.employeeService.listOfState().subscribe(resp => {
   
 }
 ,   (error: AppResponse) => {
-  if (error.status === 400) {
-    this.dangerStatus = true;
-    this.successStatus = false;
-    this.message = error.message;
-   
-  } else if (error.status === 401) {
-    this.dangerStatus = true;
-    this.successStatus = false;
-    this.message = 'Authorization has been denied for this request And You have to Login again.';
-    setTimeout(() => {    
-          this.router.navigate(['/login']);
-        }, 3000);
-  } else {
-    this.dangerStatus = true;
-    this.successStatus = false;
-    this.message = error.message;
-  }
+
+       this.errorHandlingService.errorStatus(error,"Edit Employee Status")
+
 }
 );
 
@@ -183,25 +146,8 @@ this.employeeService.listOfState().subscribe(resp => {
     
   }
   ,   (error: AppResponse) => {
-    if(error.status === 400)
-    {
-      this.dangerStatus=true;
-      this.successStatus=false;
-      this.message = error.message;
-  
-    }
-    else if(error.status === 401)
-    {
-      this.dangerStatus=true;
-      this.successStatus=false;
-      this.message = "Authorization has been denied for this request And You have to Login again."
-    }       
-    else
-    {
-      this.dangerStatus=true;
-      this.successStatus=false;
-      this.message = error.message;
-    }
+          this.errorHandlingService.errorStatus(error,"Edit Employee Status")
+
   }
 )
 
@@ -234,25 +180,8 @@ this.employeeService.UserEditDetails(this.id,2).subscribe(resp =>{
   
 }
 ,   (error: AppResponse) => {
-  if(error.status === 400)
-  {
-    this.dangerStatus=true;
-    this.successStatus=false;
-    this.message = error.message;
+  this.errorHandlingService.errorStatus(error,"Edit Employee Status")
 
-  }
-  else if(error.status === 401)
-  {
-    this.dangerStatus=true;
-    this.successStatus=false;
-    this.message = "Authorization has been denied for this request And You have to Login again."
-  }       
-  else
-  {
-    this.dangerStatus=true;
-    this.successStatus=false;
-    this.message = error.message;
-  }
 }
 )
 
@@ -286,25 +215,8 @@ this.employeeService.UserEditDetails(this.id,3).subscribe(resp =>{
   
 }
 ,   (error: AppResponse) => {
-  if(error.status === 400)
-  {
-    this.dangerStatus=true;
-    this.successStatus=false;
-    this.message = error.message;
+  this.errorHandlingService.errorStatus(error,"Edit Employee Status")
 
-  }
-  else if(error.status === 401)
-  {
-    this.dangerStatus=true;
-    this.successStatus=false;
-    this.message = "Authorization has been denied for this request And You have to Login again."
-  }       
-  else
-  {
-    this.dangerStatus=true;
-    this.successStatus=false;
-    this.message = error.message;
-  }
 }
 )
 
@@ -336,25 +248,8 @@ this.employeeService.UserEditDetails(this.id,4).subscribe(resp =>{
   
 }
 ,   (error: AppResponse) => {
-  if(error.status === 400)
-  {
-    this.dangerStatus=true;
-    this.successStatus=false;
-    this.message = error.message;
+  this.errorHandlingService.errorStatus(error,"Edit Employee Status")
 
-  }
-  else if(error.status === 401)
-  {
-    this.dangerStatus=true;
-    this.successStatus=false;
-    this.message = "Authorization has been denied for this request And You have to Login again."
-  }       
-  else
-  {
-    this.dangerStatus=true;
-    this.successStatus=false;
-    this.message = error.message;
-  }
 }
 )
 
@@ -398,23 +293,8 @@ this.employeeService.UserEditDetails(this.id,4).subscribe(resp =>{
       
     }
     ,   (error: AppResponse) => {
-      if(error.status === 400)
-      {
-       this.message = error.message
-      //  console.log(this.message)
-      }
-      else if(error.status === 401)
-      {
-        this.dangerStatus=true;
-        this.successStatus=false;
-        this.message = "Authorization has been denied for this request And You have to Login again."
-      }       
-      else
-      {
-        this.dangerStatus=true;
-        this.successStatus=false;
-        this.message = error.message;
-      }
+      this.errorHandlingService.errorStatus(error,"Edit Employee Status")
+
     }
   )
     
@@ -447,23 +327,8 @@ this.employeeService.UserEditDetails(this.id,4).subscribe(resp =>{
       
     }
     ,   (error: AppResponse) => {
-      if(error.status === 400)
-      {
-       this.message = error.message
-      //  console.log(this.message)
-      }
-      else if(error.status === 401)
-      {
-        this.dangerStatus=true;
-        this.successStatus=false;
-        this.message = "Authorization has been denied for this request And You have to Login again."
-      }       
-      else
-      {
-        this.dangerStatus=true;
-        this.successStatus=false;
-        this.message = error.message;
-      }
+      this.errorHandlingService.errorStatus(error,"Edit Employee Status")
+
     }
   )
 
@@ -496,23 +361,8 @@ this.employeeService.UserEditDetails(this.id,4).subscribe(resp =>{
       
     }
     ,   (error: AppResponse) => {
-      if(error.status === 400)
-      {
-       this.message = error.message
-      //  console.log(this.message)
-      }
-      else if(error.status === 401)
-      {
-        this.dangerStatus=true;
-        this.successStatus=false;
-        this.message = "Authorization has been denied for this request And You have to Login again."
-      }       
-      else
-      {
-        this.dangerStatus=true;
-        this.successStatus=false;
-        this.message = error.message;
-      }
+      this.errorHandlingService.errorStatus(error,"Edit Employee Status")
+
     }
   )
 
@@ -546,23 +396,8 @@ this.employeeService.UserEditDetails(this.id,4).subscribe(resp =>{
       
     }
     ,   (error: AppResponse) => {
-      if(error.status === 400)
-      {
-       this.message = error.message
-      //  console.log(this.message)
-      }
-      else if(error.status === 401)
-      {
-        this.dangerStatus=true;
-        this.successStatus=false;
-        this.message = "Authorization has been denied for this request And You have to Login again."
-      }       
-      else
-      {
-        this.dangerStatus=true;
-        this.successStatus=false;
-        this.message = error.message;
-      }
+      this.errorHandlingService.errorStatus(error,"Edit Employee Status")
+
     }
   )
 

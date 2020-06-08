@@ -6,6 +6,7 @@ import { StringMapList } from '../../model/stringMapList.module';
 import { AppResponse } from 'src/app/models/appResponse';
 import { DropDownList } from '../../model/dropdownLIst';
 import { CustomToastrService } from 'src/app/service/customToastr.service';
+import { ErrorHandlingService } from 'src/app/service/error-handling.service';
 
 export class stringMapList  { 
 
@@ -49,7 +50,9 @@ export class StringMapListComponent implements OnInit {
 
   constructor(private dialog: MatDialog,
               private stringmapService: StringMapService,
-              private customToastrService: CustomToastrService
+              private customToastrService: CustomToastrService,
+              private errorHandlingService: ErrorHandlingService
+
               ){  
 
     this.stringmapService.getdropdownData().subscribe(resp =>{
@@ -72,31 +75,8 @@ export class StringMapListComponent implements OnInit {
       
     }
     ,   (error: AppResponse) => {
-      if(error.status === 400)
-      {
-        // this.dangerStatus=true;
-        // this.successStatus=false;
-        this.message = error.message
-        this.customToastrService.GetErrorToastr(this.message, "StringMap List Status", 5000)
+      this.errorHandlingService.errorStatus(error,"Login Status")
 
-       
-      }
-      else if(error.status === 401)
-      {
-        // this.dangerStatus=true;
-        // this.successStatus=false;
-        this.message = "Authorization has been denied for this request And You have to Login again."
-        this.customToastrService.GetErrorToastr(this.message, "StringMap List Status", 5000)
-
-      }       
-       else
-       {
-          // this.dangerStatus=true;
-          // this.successStatus=false;
-          this.message = error.message;
-          this.customToastrService.GetErrorToastr(this.message, "StringMap List Status", 5000)
-
-       }
 }
 )
 
@@ -149,31 +129,8 @@ export class StringMapListComponent implements OnInit {
       
     }
     ,   (error: AppResponse) => {
-      if(error.status === 400)
-      {
-        // this.dangerStatus=true;
-        // this.successStatus=false;
-        this.message = error.message;
-        this.customToastrService.GetErrorToastr(this.message, "StringMap List Status", 5000)
+      this.errorHandlingService.errorStatus(error,"Login Status")
 
-    
-      }
-      else if(error.status === 401)
-      {
-        // this.dangerStatus=true;
-        // this.successStatus=false;
-        this.message = "Authorization has been denied for this request And You have to Login again."
-        this.customToastrService.GetErrorToastr(this.message, "StringMap List Status", 5000)
-
-      }       
-      else
-      {
-        // this.dangerStatus=true;
-        // this.successStatus=false;
-        this.message = error.message;
-        this.customToastrService.GetErrorToastr(this.message, "StringMap List Status", 5000)
-
-      }
     }
   )
   }

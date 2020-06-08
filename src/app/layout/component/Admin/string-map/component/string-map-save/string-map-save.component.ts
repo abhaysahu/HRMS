@@ -5,6 +5,7 @@ import { AppResponse } from 'src/app/models/appResponse';
 import { DropDownList } from '../../model/dropdownLIst';
 import { savePickList } from '../../model/savePickList';
 import { CustomToastrService } from 'src/app/service/customToastr.service';
+import { ErrorHandlingService } from 'src/app/service/error-handling.service';
 
 @Component({
   selector: 'app-string-map-save',
@@ -30,7 +31,11 @@ export class StringMapSaveComponent implements OnInit {
   // dangerStatus=false;
   message="";
 
-  constructor(private stringMapService: StringMapService, private customToastrService: CustomToastrService) { 
+  constructor(
+    private stringMapService: StringMapService, 
+    private customToastrService: CustomToastrService,
+    private errorHandlingService: ErrorHandlingService
+    ) { 
 
     
 
@@ -53,31 +58,8 @@ export class StringMapSaveComponent implements OnInit {
       
     }
     ,   (error: AppResponse) => {
-      if(error.status === 400)
-      {
-        // this.dangerStatus=true;
-        // this.successStatus=false;
-        this.message = error.message
-        this.customToastrService.GetErrorToastr(this.message, "StringMap Save Status", 5000)
+      this.errorHandlingService.errorStatus(error,"Login Status")
 
-       
-      }
-      else if(error.status === 401)
-      {
-        // this.dangerStatus=true;
-        // this.successStatus=false;
-        this.message = "Authorization has been denied for this request And You have to Login again."
-        this.customToastrService.GetErrorToastr(this.message, "StringMap Save Status", 5000)
-
-      }       
-       else
-       {
-          // this.dangerStatus=true;
-          // this.successStatus=false;
-          this.message = error.message;
-          this.customToastrService.GetErrorToastr(this.message, "StringMap Save Status", 5000)
-
-       }
 }
 )
 
@@ -112,27 +94,8 @@ export class StringMapSaveComponent implements OnInit {
       
     }
     ,   (error: AppResponse) => {
-      if(error.status === 400)
-      {
-       this.message = error.message
-      //  console.log(this.message)
-      }
-      else if(error.status === 401)
-      {
-        // this.dangerStatus=true;
-        // this.successStatus=false;
-        this.message = "Authorization has been denied for this request And You have to Login again."
-        this.customToastrService.GetErrorToastr(this.message, "StringMap Save Status", 5000)
+      this.errorHandlingService.errorStatus(error,"Login Status")
 
-      }       
-      else
-      {
-        // this.dangerStatus=true;
-        // this.successStatus=false;
-        this.message = error.message;
-        this.customToastrService.GetErrorToastr(this.message, "StringMap Save Status", 5000)
-
-      }
     }
   )
 }

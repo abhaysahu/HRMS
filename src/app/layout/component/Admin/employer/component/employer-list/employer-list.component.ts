@@ -5,6 +5,7 @@ import { EmployerList } from '../../models/employerList';
 import { AppResponse } from 'src/app/models/appResponse';
 import { ToastrService } from 'ngx-toastr';
 import { CustomToastrService } from 'src/app/service/customToastr.service';
+import { ErrorHandlingService } from 'src/app/service/error-handling.service';
 
 
 @Component({
@@ -23,7 +24,11 @@ export class EmployerListComponent implements OnInit {
 
   email="";
 
-  constructor(private employerService: EmployerService, private customToastrService: CustomToastrService
+  constructor(
+    private employerService: EmployerService, 
+    private customToastrService: CustomToastrService,
+    private errorHandlingService: ErrorHandlingService
+
     ) { 
 
     this.employerService.getEmployerData().subscribe(resp =>{
@@ -43,31 +48,8 @@ export class EmployerListComponent implements OnInit {
       }
       
     },   (error: AppResponse) => {
-      if(error.status === 400)
-      {
-        // this.dangerStatus=true;
-        // this.successStatus=false;
-        this.message = error.message
-        this.customToastrService.GetErrorToastr(this.message, "Employer Status", 5000)
 
-      }
-      else if(error.status === 401)
-      {
-        // this.dangerStatus=true;
-        // this.successStatus=false;
-        this.message = "Authorization has been denied for this request And You have to Login again."
-        this.customToastrService.GetErrorToastr(this.message, "Employer Status", 5000)
-
-      }     
-
-      else
-      {
-        // this.dangerStatus=true;
-        // this.successStatus=false;
-        this.message = error.message;
-        this.customToastrService.GetErrorToastr(this.message, "Employer Status", 5000)
-
-      }
+      this.errorHandlingService.errorStatus(error,"Login Status")
 }
 )
 

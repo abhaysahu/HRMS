@@ -18,13 +18,18 @@ export class ErrorHandlingService {
 
   getauthorization()
   {
+
     const token = sessionStorage.getItem('token')
+
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
       'authorization': `bearer ${token}`
     })
 
+    console.log(headers)
+
     return headers
+    
   }
 
 
