@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
+import { ToastrService } from 'ngx-toastr';
 
 class DataTablesResponse {
   data: any[];
@@ -14,7 +15,7 @@ class DataTablesResponse {
 })
 export class LoginService {
 
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient, private toastr: ToastrService) { }
 
 
   checklogin(login)
@@ -39,6 +40,8 @@ export class LoginService {
   {
     return this.http.get("./assets/data.json");
   }
+
+  
 
   
 

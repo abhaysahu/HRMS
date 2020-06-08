@@ -31,6 +31,7 @@ export class CreateEmployeeComponent implements OnInit {
   dangerStatus = false;
   successStatus = false;
   message = '';
+  redirectId;
 
 
   constructor(private router: Router, private employeeService: EmployeeService, private dialog: MatDialog,
@@ -307,7 +308,11 @@ export class CreateEmployeeComponent implements OnInit {
         this.successStatus = true;
         this.dangerStatus = false;
         this.message = 'Data is Added successfully';
+
         console.log(resp)
+        this.redirectId=resp.Id
+        this.onPrint(resp)
+
       } else {
         this.dangerStatus = true;
         this.successStatus = false;
@@ -335,17 +340,16 @@ export class CreateEmployeeComponent implements OnInit {
   }
 
 
- onPrint() {
-   console.log("yes")
-   this.printService.printData.FullName="abhaysahu"
-   this.printService.printData.LoginId="asahu"
-   this.printService.printData.Password="abhayhmasdhb"
+ onPrint(PrintData) {
 
-   let print={
-    FullName:"abhaysahu",
-    LoginId:"asahu",
-    Password:"abhayhmasdhb"
-    
+   console.log("yes")
+
+   console.log(PrintData)
+
+   let prints={
+    FullName:PrintData.FullName,
+    LoginId:PrintData.LoginId,
+    Password:PrintData.Password
   }
 
   //  this.router.navigate(['/print/print/1']);
@@ -362,8 +366,15 @@ export class CreateEmployeeComponent implements OnInit {
     dialogConfig.disableClose = true;
     dialogConfig.width="50%";
     dialogConfig.height="99%";
-    dialogConfig.data={print}
+    dialogConfig.data={prints}
     this.dialog.open(PrintPopupComponent, dialogConfig).afterClosed().subscribe(res =>{
+
+      console.log(res)
+
+      this.router.navigate([`/dashboard/edit/employee/${this.redirectId}`]);
+
+
+
       
     });
 

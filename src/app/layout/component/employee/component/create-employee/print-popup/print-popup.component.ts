@@ -9,10 +9,17 @@ import { CommentsComponent } from 'src/app/layout/component/Timesheet/component/
 })
 export class PrintPopupComponent implements OnInit {
 
+  prints: any;
+
   constructor( @Inject(MAT_DIALOG_DATA) public data,
   public dialogRef: MatDialogRef<PrintPopupComponent>,) {
 
-    console.log(data)
+    
+
+    this.prints=data.prints
+
+    console.log(this.prints)
+    
    }
 
   ngOnInit() {

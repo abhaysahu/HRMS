@@ -4,6 +4,7 @@ import { combineLatest } from 'rxjs';
 import { AppResponse } from 'src/app/models/appResponse';
 import { DropDownList } from '../../model/dropdownLIst';
 import { savePickList } from '../../model/savePickList';
+import { CustomToastrService } from 'src/app/service/customToastr.service';
 
 @Component({
   selector: 'app-string-map-save',
@@ -25,11 +26,11 @@ export class StringMapSaveComponent implements OnInit {
 
   dropdownList: DropDownList[]=[];
 
-  successStatus=false;
-  dangerStatus=false;
+  // successStatus=false;
+  // dangerStatus=false;
   message="";
 
-  constructor(private stringMapService: StringMapService) { 
+  constructor(private stringMapService: StringMapService, private customToastrService: CustomToastrService) { 
 
     
 
@@ -42,32 +43,40 @@ export class StringMapSaveComponent implements OnInit {
       }
       else
       {
-        this.dangerStatus=true;
-        this.successStatus=false;
+        // this.dangerStatus=true;
+        // this.successStatus=false;
         this.message=resp.ErrorMessage;
         this.message=resp.Message;
+        this.customToastrService.GetErrorToastr(this.message, "StringMap Save Status", 5000)
+
       }
       
     }
     ,   (error: AppResponse) => {
       if(error.status === 400)
       {
-        this.dangerStatus=true;
-        this.successStatus=false;
+        // this.dangerStatus=true;
+        // this.successStatus=false;
         this.message = error.message
+        this.customToastrService.GetErrorToastr(this.message, "StringMap Save Status", 5000)
+
        
       }
       else if(error.status === 401)
       {
-        this.dangerStatus=true;
-        this.successStatus=false;
+        // this.dangerStatus=true;
+        // this.successStatus=false;
         this.message = "Authorization has been denied for this request And You have to Login again."
+        this.customToastrService.GetErrorToastr(this.message, "StringMap Save Status", 5000)
+
       }       
        else
        {
-          this.dangerStatus=true;
-          this.successStatus=false;
+          // this.dangerStatus=true;
+          // this.successStatus=false;
           this.message = error.message;
+          this.customToastrService.GetErrorToastr(this.message, "StringMap Save Status", 5000)
+
        }
 }
 )
@@ -86,15 +95,19 @@ export class StringMapSaveComponent implements OnInit {
       // console.log(resp)
       if(resp.Success)
       {
-        this.successStatus=true;
-        this.dangerStatus=false;
+        // this.successStatus=true;
+        // this.dangerStatus=false;
         this.message="Data is Added successfully"
+        this.customToastrService.GetSuccessToastr(this.message, "StringMap Save Status", 5000)
+
       }
       else
       {
-        this.dangerStatus=true;
-        this.successStatus=false;
+        // this.dangerStatus=true;
+        // this.successStatus=false;
         this.message=resp.Message;
+        this.customToastrService.GetErrorToastr(this.message, "StringMap Save Status", 5000)
+
       }
       
     }
@@ -106,15 +119,19 @@ export class StringMapSaveComponent implements OnInit {
       }
       else if(error.status === 401)
       {
-        this.dangerStatus=true;
-        this.successStatus=false;
+        // this.dangerStatus=true;
+        // this.successStatus=false;
         this.message = "Authorization has been denied for this request And You have to Login again."
+        this.customToastrService.GetErrorToastr(this.message, "StringMap Save Status", 5000)
+
       }       
       else
       {
-        this.dangerStatus=true;
-        this.successStatus=false;
+        // this.dangerStatus=true;
+        // this.successStatus=false;
         this.message = error.message;
+        this.customToastrService.GetErrorToastr(this.message, "StringMap Save Status", 5000)
+
       }
     }
   )
@@ -122,8 +139,8 @@ export class StringMapSaveComponent implements OnInit {
 
   closeStatus()
   {
-    this.dangerStatus=false;
-    this.successStatus=false;
+    // this.dangerStatus=false;
+    // this.successStatus=false;
   }
 
 }

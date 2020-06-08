@@ -7,8 +7,11 @@
 html, body { height: 100%;  margin: 0;
     padding: 0;}
 
-    #toast-container > div {
+
+  #toast-container > div {
       opacity:1;
   }
+
+
 
   

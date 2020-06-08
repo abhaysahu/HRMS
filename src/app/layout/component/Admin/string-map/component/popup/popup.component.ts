@@ -7,8 +7,7 @@ import { AppResponse } from 'src/app/models/appResponse';
 import { UpdatePopup } from '../../model/Updatepopup.modeule';
 import { CommentsComponent } from '../../../../Timesheet/component/comments/comments.component';
 import { EditpicklistComponent } from '../editpicklist/editpicklist.component';
-
-
+import { CustomToastrService } from 'src/app/service/customToastr.service';
 
 
 @Component({
@@ -21,8 +20,8 @@ export class PopupComponent implements OnInit {
 
   listOfPopup: ListOfPopup[]=[]
 
-  successStatus=false;
-  dangerStatus=false;
+  // successStatus=false;
+  // dangerStatus=false;
 
   message="";
 
@@ -34,11 +33,11 @@ export class PopupComponent implements OnInit {
   constructor(
     @Inject(MAT_DIALOG_DATA) public data,
     public dialogRef: MatDialogRef<PopupComponent>,
-
     private stringmapService: StringMapService,
-
-    private dialog: MatDialog
-  ) { 
+    private dialog: MatDialog,
+    private customToastrService: CustomToastrService
+  ) 
+  { 
 
     let attributeName = this.data.stringMapList.AttributeName;
     let objectTypeCode = this.data.stringMapList.ObjectTypeCode;
@@ -50,31 +49,39 @@ export class PopupComponent implements OnInit {
       }
       else
       {
-        this.dangerStatus=true;
-        this.successStatus=false;
+        // this.dangerStatus=true;
+        // this.successStatus=false;
         this.message=resp.ErrorMessage;
         this.message=resp.Message;
+        this.customToastrService.GetErrorToastr(this.message, "Login Status", 5000)
+
       }
       
     }
     ,   (error: AppResponse) => {
       if(error.status === 400)
       {
-        this.dangerStatus=true;
-        this.successStatus=false;
+        // this.dangerStatus=true;
+        // this.successStatus=false;
         this.message = error.message
+        this.customToastrService.GetErrorToastr(this.message, "Login Status", 5000)
+
       }
       else if(error.status === 401)
       {
-        this.dangerStatus=true;
-        this.successStatus=false;
+        // this.dangerStatus=true;
+        // this.successStatus=false;
         this.message = "Authorization has been denied for this request And You have to Login again."
+        this.customToastrService.GetErrorToastr(this.message, "Login Status", 5000)
+
       }       
        else
        {
-          this.dangerStatus=true;
-          this.successStatus=false;
+          // this.dangerStatus=true;
+          // this.successStatus=false;
           this.message = error.message;
+          this.customToastrService.GetErrorToastr(this.message, "Login Status", 5000)
+
        }
 }
 )
@@ -160,10 +167,12 @@ export class PopupComponent implements OnInit {
       }
       else
       {
-        this.dangerStatus=true;
-        this.successStatus=false;
+        // this.dangerStatus=true;
+        // this.successStatus=false;
         this.message=resp.ErrorMessage;
         this.message=resp.Message;
+        this.customToastrService.GetErrorToastr(this.message, "Login Status", 5000)
+
       }
       
     }
@@ -171,18 +180,24 @@ export class PopupComponent implements OnInit {
       if(error.status === 400)
       {
        this.message = error.message
+       this.customToastrService.GetErrorToastr(this.message, "Login Status", 5000)
+
       }
       else if(error.status === 401)
       {
-        this.dangerStatus=true;
-        this.successStatus=false;
+        // this.dangerStatus=true;
+        // this.successStatus=false;
         this.message = "Authorization has been denied for this request And You have to Login again."
+        this.customToastrService.GetErrorToastr(this.message, "Login Status", 5000)
+
       }       
        else
       {
-        this.dangerStatus=true;
-        this.successStatus=false;
+        // this.dangerStatus=true;
+        // this.successStatus=false;
         this.message = error.message;
+        this.customToastrService.GetErrorToastr(this.message, "Login Status", 5000)
+
       }
 }
 )
@@ -190,7 +205,7 @@ export class PopupComponent implements OnInit {
 
   closeStatus()
   {
-    this.dangerStatus=true;
-    this.successStatus=false;
+    // this.dangerStatus=true;
+    // this.successStatus=false;
   }
 }

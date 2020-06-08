@@ -5,7 +5,9 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { LoggedinUser } from 'src/app/models/loggedInUser';
 import { AuthService } from 'src/app/service/auth.service';
 import { AppResponse } from 'src/app/models/appResponse';
-import { ToastrService } from 'ngx-toastr';
+import { CustomToastrService } from 'src/app/service/customToastr.service';
+import { ErrorHandlingService } from 'src/app/service/error-handling.service';
+
 
 @Component({
   selector: 'app-login',
@@ -33,7 +35,9 @@ export class LoginComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     private authService: AuthService,
-    private toastr: ToastrService
+    private customToastrService: CustomToastrService,
+    private errorHandlingService: ErrorHandlingService
+    
     ) {
 
 
@@ -64,11 +68,10 @@ export class LoginComponent implements OnInit {
           {
             // this.dangerStatus=false;
             // this.successStatus=true;
-            // this.message="You are Login successfully"
-            this.toastr.success('You are Login successfully Wait for redirect', 'Login Status', {
-              progressBar: true, 
-              timeOut: 3000
-            });
+            this.message="You are Login successfully Wait for redirect"
+
+            this.customToastrService.GetSuccessToastr(this.message, "Login Status", 3000)
+
             setTimeout(()=>
             {    
               this.router.navigate([this.authService.redirectUrl]);
@@ -80,12 +83,10 @@ export class LoginComponent implements OnInit {
           {  
             // this.dangerStatus=false;
             // this.successStatus=true;
-            // this.message="You are Login successfully"
-            this.toastr.success('You are Login successfully Wait for redirect', 'Login Status', {
-              progressBar: true, 
-              timeOut: 3000
-            });
-            
+            this.message="You are Login successfully Wait for redirect"
+
+            this.customToastrService.GetSuccessToastr(this.message, "Login Status", 3000)
+  
             setTimeout(()=>
             {    
               this.router.navigate(['/dashboard']);
@@ -94,30 +95,10 @@ export class LoginComponent implements OnInit {
 
         },   (error: AppResponse) => {
 
-          console.log(error.status)
-             if(error.status === 400)
-             {
-              // this.dangerStatus=true;
-              // this.successStatus=false;
-              // this.message = "Either user name or password is incorrect!";
-              this.toastr.error('Either Username or password is incorrect!', 'Login Status', {
-                progressBar: true, 
-                timeOut: 5000,
-              });
+          this.errorHandlingService.errorStatus(error,"Login Status")
               
-             }  
-              else
-              {
-                // this.dangerStatus=true;
-                // this.successStatus=false;
-                // this.message = error.message;
-                this.toastr.error(this.message, 'Login Status', {
-                  progressBar: true, 
-                  timeOut: 5000
-                });
-              }
-              
-       });
+       }
+       );
   }
 
 
