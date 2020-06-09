@@ -232,10 +232,5 @@ export class RewardSkipComponent implements OnInit {
       this.errorHandlingService.errorStatus(error,"Reward Skip Status")
 }
 )
-
-
   }
-
-  
-
 }

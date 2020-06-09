@@ -76,7 +76,7 @@ export class EntityListComponent implements OnInit {
       
     },   (error: AppResponse) => {
       
-      this.errorHandlingService.errorStatus(error,"Login Status")
+      this.errorHandlingService.errorStatus(error,"Entity List Status")
 
 }
 )

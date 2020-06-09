@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Entity } from '../../model/entity';
 import { EntityService } from '../../service/entity.service';
 import { AppResponse } from 'src/app/models/appResponse';
+import { ErrorHandlingService } from 'src/app/service/error-handling.service';
+import { CustomToastrService } from 'src/app/service/customToastr.service';
 
 @Component({
   selector: 'app-entity-save',
@@ -12,11 +14,13 @@ export class EntitySaveComponent implements OnInit {
 
   entity: Entity;
 
-  successStatus=false;
-  dangerStatus=false;
+  // successStatus=false;
+  // dangerStatus=false;
   message="";
 
-  constructor(private entityService: EntityService) { 
+  constructor(private entityService: EntityService, private errorHandlingService: ErrorHandlingService,     
+     private customToastrService: CustomToastrService,
+    ) { 
 
     this.entity = {
         
@@ -42,15 +46,18 @@ export class EntitySaveComponent implements OnInit {
      
       if(resp.Success)
       {
-        this.successStatus=true;
-        this.dangerStatus=false;
+        // this.successStatus=true;
+        // this.dangerStatus=false;
         this.message="Data is Added successfully"
+
+        this.customToastrService.GetSuccessToastr(this.message, "Employer Save Status", 5000)
+
 
         setTimeout(()=>
         {    
 
-          this.successStatus=false;
-          this.dangerStatus=false;
+          // this.successStatus=false;
+          // this.dangerStatus=false;
 
           this.entity = 
           {
@@ -68,31 +75,15 @@ export class EntitySaveComponent implements OnInit {
       }
       else
       {
-        this.dangerStatus=true;
-        this.successStatus=false;
+        // this.dangerStatus=true;
+        // this.successStatus=false;
         this.message=resp.Message;
       }
       
     }
     ,   (error: AppResponse) => {
-      if(error.status === 400)
-      {
-        this.dangerStatus=true;
-        this.successStatus=false;
-        this.message = error.message
-      }
-      else if(error.status === 401)
-      {
-        this.dangerStatus=true;
-        this.successStatus=false;
-        this.message = "Authorization has been denied for this request And You have to Login again."
-      }       
-      else
-      {
-        this.dangerStatus=true;
-        this.successStatus=false;
-        this.message = error.message;
-      }
+      this.errorHandlingService.errorStatus(error,"Employer Status")
+
 }
 )
 
@@ -101,7 +92,7 @@ export class EntitySaveComponent implements OnInit {
 
   closeStatus()
   {
-    this.dangerStatus=false;
-    this.successStatus=false;
+    // this.dangerStatus=false;
+    // this.successStatus=false;
   }
 }

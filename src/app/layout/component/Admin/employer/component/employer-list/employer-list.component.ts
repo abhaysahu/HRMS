@@ -49,7 +49,7 @@ export class EmployerListComponent implements OnInit {
       
     },   (error: AppResponse) => {
 
-      this.errorHandlingService.errorStatus(error,"Login Status")
+      this.errorHandlingService.errorStatus(error,"Employer Status")
 }
 )
 
