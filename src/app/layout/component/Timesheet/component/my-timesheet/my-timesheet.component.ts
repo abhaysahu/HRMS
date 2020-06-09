@@ -15,6 +15,8 @@ export class MyTimesheetComponent implements OnInit {
 
   formData: Timesheet;
 
+  dateResult: any[]=[];
+
   
 
   constructor(private dialog: MatDialog,
@@ -22,15 +24,62 @@ export class MyTimesheetComponent implements OnInit {
 
     ) { 
 
+      // var today = new Date('9/6/2000');
+      // var tomorrow = new Date(today);
+      // tomorrow.setDate(today.getDate()+1);
+      // tomorrow.toLocaleDateString();
+
+
+      // var gsDayNames = [
+      //   'Sunday',
+      //   'Monday',
+      //   'Tuesday',
+      //   'Wednesday',
+      //   'Thursday',
+      //   'Friday',
+      //   'Saturday'
+      // ];
+
+
+      // var gsMonthNames = [
+      //   'Sunday',
+      //   'Monday',
+      //   'Tuesday',
+      //   'Wednesday',
+      //   'Thursday',
+      //   'Friday',
+      //   'Saturday'
+      // ];
+      
+      // var d = new Date();
+      // var dayName = gsDayNames[d.getDay()];
+
+      var result = [];
+      var dd = new Date('06-08-2020');
+      console.log(d)
+      for (let i=0; i<7; i++) 
+      {
+       
+        var d = new Date('06-29-2020');
+      
+        d.setDate(d.getDate()+i);
+
+        var finalDate = (d.toDateString())
+
+        console.log(finalDate)
+
+        let date={
+          Week: finalDate.substr(0,3),
+          Month: finalDate.substr(4,3),
+          Date: finalDate.substr(8,2)
+        }
+        this.dateResult.push(date)
+      }
+
+      console.log(this.dateResult)
+
       this.timesheetService.timesheet = this.Timesheet
 
-
-      // this.timesheetService.getdata().subscribe(data =>{
-      //   console.log("yes")
-      //   this.Timesheet = data
-      //   this.timesheetService.timesheet = this.Timesheet
-      //   console.log(this.Timesheet)
-      // })
     }
 
   ngOnInit() {
@@ -44,26 +93,7 @@ export class MyTimesheetComponent implements OnInit {
 
   AddOrEditOrderItem(commentId,hour,index,comment)
   {
-    // console.log("inder")
-
-
-    // console.log(this.timesheetService.comment.length)
-
-    // let iteration=0
-    // let status=0;
-
-    // for(iteration=0; iteration<this.timesheetService.comment.length; iteration++)
-    // {
-    //   if(this.timesheetService.comment[iteration].commentId == commentId)
-    //   {
-    //     status=this.timesheetService.comment[iteration].status
-    //     break;
-    //   }
-    //   else
-    //   {
-    //     status=0;
-    //   }
-    // }
+    
 
     const dialogConfig = new MatDialogConfig();
     dialogConfig.autoFocus = true;
