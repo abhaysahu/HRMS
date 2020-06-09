@@ -1,4 +1,4 @@
-/*.my-container{
+/* /*.my-container{
     border: 2px solid black ;
     display: grid;  
      /*grid-template-rows: 50px 50px;*/
@@ -86,7 +86,7 @@ p{
 .icon{
     font-size: 32px;
     color: #4b4b79;
-    
+    width: 65px;
     float: left;
     margin-top: -4px;
     line-height: 0;
@@ -101,3 +101,6 @@ p{
     bottom: 35px;
 }
 
+label{
+    font-weight: bold;
+}

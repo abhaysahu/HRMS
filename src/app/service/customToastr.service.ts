@@ -6,7 +6,7 @@ import { ToastrService } from 'ngx-toastr';
   providedIn: 'root'
 })
 export class CustomToastrService {
-
+ 
   constructor( private toastr: ToastrService) { }
 
   GetSuccessToastr(Message, Status, time)
