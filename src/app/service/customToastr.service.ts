@@ -9,6 +9,7 @@ export class CustomToastrService {
  
   constructor( private toastr: ToastrService) { }
 
+
   GetSuccessToastr(Message, Status, time)
   {
     return this.toastr.success(Message, Status, {
