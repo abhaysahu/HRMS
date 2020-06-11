@@ -41,7 +41,7 @@ export class ErrorHandlingService {
         // this.dangerStatus=true;
         // this.successStatus=false;
         this.message = error.message;
-        return this.customToastrService.GetErrorToastr(this.message, status, 5000)
+        return this.customToastrService.GetErrorToastr(this.message, status, 3000)
 
     
       }
@@ -50,7 +50,7 @@ export class ErrorHandlingService {
         // this.dangerStatus=true;
         // this.successStatus=false;
         this.message = "Authorization has been denied for this request And You have to Login again."
-        return this.customToastrService.GetErrorToastr(this.message, status, 5000)
+        return this.customToastrService.GetErrorToastr(this.message, status, 3000)
 
       }       
       else
@@ -58,7 +58,7 @@ export class ErrorHandlingService {
         // this.dangerStatus=true;
         // this.successStatus=false;
         this.message = error.message;
-        return this.customToastrService.GetErrorToastr(this.message, status, 5000)
+        return this.customToastrService.GetErrorToastr(this.message, status, 3000)
 
       }
   }

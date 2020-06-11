@@ -57,6 +57,7 @@ export class MyTimesheetComponent implements OnInit {
       var result = [];
       var dd = new Date('06-08-2020');
       console.log(d)
+
       for (let i=0; i<7; i++) 
       {
        
