@@ -175,6 +175,7 @@ import { ErrorHandlingService } from './service/error-handling.service';
     BrowserAnimationsModule,
     ToastrModule.forRoot(
       {
+        autoDismiss: true
        
       }
       

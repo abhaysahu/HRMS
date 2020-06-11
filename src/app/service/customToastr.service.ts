@@ -21,9 +21,21 @@ export class CustomToastrService {
 
   GetErrorToastr(Message, Status, time)
   {
+
+    // console.log(this.toastr.findDuplicate(Message,false,true))
+
+    
+
+    if(this.toastr!=null && this.toastr.previousToastMessage == Message)
+    {
+      console.log(Message)
+      this.toastr.clear()
+    }
+
     return this.toastr.error(Message, Status, {
       progressBar: true, 
       timeOut: time,
+      
       
     });
   }
