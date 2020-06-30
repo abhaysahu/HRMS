@@ -23,8 +23,6 @@ export class CustomToastrService {
 
     // console.log(this.toastr.findDuplicate(Message,false,true))
 
-    
-
     if(this.toastr!=null && this.toastr.previousToastMessage == Message)
     {
       console.log(Message)

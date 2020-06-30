@@ -26,7 +26,7 @@ export class ErrorHandlingService {
       'authorization': `bearer ${token}`
     })
 
-    console.log(headers)
+    // console.log(headers)
 
     return headers
     
@@ -36,11 +36,13 @@ export class ErrorHandlingService {
 
   errorStatus(error, status)
   {
+    console.log(error)
     if(error.status === 400)
       {
         // this.dangerStatus=true;
         // this.successStatus=false;
         this.message = error.message;
+        // this.message="network problem"
         return this.customToastrService.GetErrorToastr(this.message, status, 3000)
 
     
