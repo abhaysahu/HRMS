@@ -75,7 +75,7 @@ export class StringMapListComponent implements OnInit {
       
     }
     ,   (error: AppResponse) => {
-      this.errorHandlingService.errorStatus(error,"Login Status")
+      this.errorHandlingService.errorStatus(error,"String Map List")
 
 }
 )
