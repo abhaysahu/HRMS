@@ -11,6 +11,8 @@ import { ErrorHandlingService } from 'src/app/service/error-handling.service';
 })
 export class EmployeeService {
 
+  CopyOfPermanentAddress={}
+
   Employee: any={
 
     FullName: null,
