@@ -140,6 +140,8 @@ export class EmployeeDetailsComponent implements OnInit {
           this.permanentAddress = resp.Data[0]
           this.permanentAddress.CountryId = this.permanentAddress.Country.Id
           this.permanentAddress.StateProvinceId = this.permanentAddress.StateProvince.Id
+
+          this.employeeService.CopyOfPermanentAddress=this.permanentAddress
         }
 
       }
@@ -428,7 +430,12 @@ export class EmployeeDetailsComponent implements OnInit {
 
 
     else {
-      this.getPermanent()
+       this.getPermanent()
+
+      // console.log(this.employeeService.CopyOfPermanentAddress)
+
+      // this.permanentAddress=this.employeeService.CopyOfPermanentAddress
+      // console.log(this.permanentAddress)
     }
   }
 
