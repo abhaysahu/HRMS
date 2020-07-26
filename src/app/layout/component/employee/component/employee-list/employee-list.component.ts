@@ -5,6 +5,7 @@ import { LoginService } from 'src/app/login/services/login.service';
 import { EmployeeService } from '../../services/employee.service';
 import { AppResponse } from 'src/app/models/appResponse';
 import { ErrorHandlingService } from 'src/app/service/error-handling.service';
+import { CustomToastrService } from 'src/app/service/customToastr.service';
 
 
 class Person {
@@ -45,15 +46,16 @@ export class EmployeeListComponent implements OnInit {
   sortIcon6="fa fa-sort"
   sortIcon7="fa fa-sort"
 
-  successStatus=false;
-  dangerStatus=false;
+  // successStatus=false;
+  // dangerStatus=false;
   message="";
   email="";
 
   constructor(private http: HttpClient, 
     private loginService: LoginService, 
     private employeeService: EmployeeService,
-    private errorHandlingService: ErrorHandlingService
+    private errorHandlingService: ErrorHandlingService,
+    private customToastrService: CustomToastrService
 
     ) {
 
@@ -65,10 +67,11 @@ export class EmployeeListComponent implements OnInit {
         }
         else
         {
-            this.dangerStatus=true;
-            this.successStatus=false;
+            // this.dangerStatus=true;
+            // this.successStatus=false;
             this.message=resp.ErrorMessage;
             this.message=resp.Message;
+            this.customToastrService.GetErrorToastr(this.message,"List Employee Status", 5000)
         }
         
       },   (error: AppResponse) => {
@@ -242,11 +245,11 @@ export class EmployeeListComponent implements OnInit {
     this.sortIcon7="fa fa-sort"
   }
 
-  closeStatus()
-  {
-    this.dangerStatus=false;
-    this.successStatus=false;
-  }
+  // closeStatus()
+  // {
+  //   this.dangerStatus=false;
+  //   this.successStatus=false;
+  // }
 
 
 

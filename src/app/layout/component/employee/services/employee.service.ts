@@ -282,6 +282,23 @@ export class EmployeeService {
   } 
 
 
+  UserAddressUpdate(address)
+  {
+    // const token = sessionStorage.getItem('token')
+
+    // const headers = new HttpHeaders({
+    //   'Content-Type': 'application/json',
+    //   'authorization': `bearer ${token}`
+    // })
+
+    const headers = this.errorHandlingService.getauthorization()
+
+
+    return this.httpClient.post<any>(environment.webapiUrl+'api/update/address',address, { headers: headers })
+  } 
+
+
+
 
 
 
