@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AppResponse } from 'src/app/models/appResponse';
 import { CustomToastrService } from 'src/app/service/customToastr.service';
 import { ErrorHandlingService } from 'src/app/service/error-handling.service';
-import { VenderService } from '../../../service/vender.service';
+import { VenderService } from '../../service/vender.service';
 
 
 export class Venders {
