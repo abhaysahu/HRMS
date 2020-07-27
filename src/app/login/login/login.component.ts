@@ -68,10 +68,6 @@ export class LoginComponent implements OnInit {
 
             this.message="You are Login successfully Wait for redirect"
 
-            // this.dangerStatus=false;
-            // this.successStatus=true;
-            this.message="You are logged in"
-
 
             this.customToastrService.GetSuccessToastr(this.message, "Login Status", 3000)
 
@@ -85,10 +81,6 @@ export class LoginComponent implements OnInit {
           {  
 
             this.message="You are Login successfully Wait for redirect"
-
-            // this.dangerStatus=false;
-            // this.successStatus=true;
-            this.message="You are logged in"
 
 
             this.customToastrService.GetSuccessToastr(this.message, "Login Status", 3000)
