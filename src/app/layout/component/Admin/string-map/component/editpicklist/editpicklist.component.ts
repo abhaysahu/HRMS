@@ -85,7 +85,7 @@ export class EditpicklistComponent implements OnInit {
       }
       ,   (error: AppResponse) => {
 
-        this.errorHandlingService.errorStatus(error,"Login Status")
+        this.errorHandlingService.errorStatus(error,"Edit PickList Status")
 
   }
   )
