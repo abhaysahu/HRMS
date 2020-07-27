@@ -1,12 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { Login } from '../models/login';
 import { LoginService } from 'src/app/login/services/login.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { LoggedinUser } from 'src/app/models/loggedInUser';
 import { AuthService } from 'src/app/service/auth.service';
-import { AppResponse } from 'src/app/models/appResponse';
 import { CustomToastrService } from 'src/app/service/customToastr.service';
 import { ErrorHandlingService } from 'src/app/service/error-handling.service';
+import { Login } from '../models/login';
 
 
 @Component({
@@ -25,19 +24,15 @@ export class LoginComponent implements OnInit {
 
   error: string;
   grant_type = "password"
-  login: any[]=[]
+  login= {} as Login;
   
 
 
 
   constructor(
-    private loginServices: LoginService,
     private router: Router,
-    private route: ActivatedRoute,
     private authService: AuthService,
-    private customToastrService: CustomToastrService,
-    private errorHandlingService: ErrorHandlingService
-    
+    private customToastrService: CustomToastrService    
     ) {
 
 
@@ -56,8 +51,6 @@ export class LoginComponent implements OnInit {
   Login(form) {
 
     form.grant_type = "password"
-    
- 
     this.authService.login(form)    
       .subscribe((data: LoggedinUser) => {
        

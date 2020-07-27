@@ -98,11 +98,9 @@ import { MyTransactionComponent } from './layout/component/Finance/component/my-
 import { TransactionComponent } from './layout/component/Finance/component/transaction/transaction.component';
 import { LedgerComponent } from './layout/component/Finance/component/ledger/ledger.component';
 import { VenderComponent } from './layout/component/Finance/component/vender/vender-list/vender.component';
-import { ReportComponent } from './layout/component/Report/report/components/report.component';
 import { VenderSaveComponent } from './layout/component/Finance/component/vender/vender-save/vender-save.component';
 import { VenderSearchPipe } from './layout/component/Finance/vender-search.pipe';
-import { LenderComponent } from './layout/component/Finance/component/lender/lender.component';
-import { UnsoldProductsComponent } from './layout/component/Report/report/components/unsold-products/unsold-products.component';
+import { ReportComponent } from './layout/component/Report/report/components/report.component';
 
 
 
@@ -163,9 +161,7 @@ import { UnsoldProductsComponent } from './layout/component/Report/report/compon
     VenderComponent,
     ReportComponent,
     VenderSaveComponent,
-    VenderSearchPipe,
-    LenderComponent,
-    UnsoldProductsComponent
+    VenderSearchPipe
 
   ],
   imports: [

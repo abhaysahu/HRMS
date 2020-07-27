@@ -1,6 +1,7 @@
-export interface Login {
+export class Login {
     uuid: string;
-    username: string;
+    userName: string;
     password: string;
+    grant_type:string;
     status: string;
   }
