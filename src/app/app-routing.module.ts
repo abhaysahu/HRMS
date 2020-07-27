@@ -35,26 +35,32 @@ import { PrintLayoutComponent } from './layout/component/employee/component/crea
 import { InvoiceComponent } from './layout/component/employee/component/create-employee/invoice/invoice.component';
 import { AuthGuardService } from './service/auth-guard.service';
 import { RewardSkipComponent } from './layout/component/reward-skip/component/reward-skip.component';
+import { MyTransactionComponent } from './layout/component/Finance/component/my-transaction/my-transaction.component';
+import { TransactionComponent } from './layout/component/Finance/component/transaction/transaction.component';
+import { LedgerComponent } from './layout/component/Finance/component/ledger/ledger.component';
+import { VenderComponent } from './layout/component/Finance/component/vender/vender-list/vender.component';
+import { ReportComponent } from './layout/component/Report/report/report.component';
+import { VenderSaveComponent } from './layout/component/Finance/component/vender/vender-save/vender-save.component';
 
 const routes: Routes = [
-  
+
   {path: '', redirectTo: 'login', pathMatch: 'full'},
   {path: 'login', component: LoginComponent},
 
   {path: 'navbar', component: NavBarComponent},
-  
- 
+
+
   {
-    path: 'dashboard', component: DefaultComponent, 
+    path: 'dashboard', component: DefaultComponent,
       canActivate: [AuthGuardService],
 
     children: [
       {
-        path: '', component: DashboardComponent, 
+        path: '', component: DashboardComponent,
         //canActivate: [AuthGuardService]
       },
       {
-        path: 'employee/details', component: EmployeeDetailsComponent, 
+        path: 'employee/details', component: EmployeeDetailsComponent,
         //canActivate: [AuthGuardService]
       },
       {
@@ -158,14 +164,32 @@ const routes: Routes = [
       },
       {
         path: 'test/rewardskip', component: InvoiceComponent
+      },
+      {
+        path: 'finance/mytransaction', component: MyTransactionComponent
+      },
+      {
+        path: 'finance/transaction', component: TransactionComponent
+      },
+      {
+        path: 'finance/ledger', component: LedgerComponent
+      },
+      {
+        path: 'finance/vender/list', component: VenderComponent
+      },
+      {
+        path: 'finance/vender/save', component: VenderSaveComponent
+      },
+      {
+        path: 'report', component: ReportComponent
       }
-      
+
     ],
 
-   
-    
+
+
   },
-  
+
   ];
 
 @NgModule({

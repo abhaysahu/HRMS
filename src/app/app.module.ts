@@ -2,12 +2,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { MatSidenavModule, 
+import { MatSidenavModule,
   MatToolbarModule,
    MatListModule,
     MatButtonModule,
      MatIconModule,
-     MatDividerModule, 
+     MatDividerModule,
      MatNativeDateModule,
       MatDatepickerModule,
      MatFormFieldModule,
@@ -43,7 +43,7 @@ import { ApplyTimeAwayComponent } from './layout/component/Attendance-and-leaves
 import { MyTimeAwayRequestsComponent } from './layout/component/Attendance-and-leaves/component/my-time-away-requests/my-time-away-requests.component';
 import { MyLeavesComponent } from './layout/component/Attendance-and-leaves/component/my-leaves/my-leaves.component';
 import { CreateEmployeeComponent } from './layout/component/employee/component/create-employee/create-employee.component';
-import { EditEmployeeComponent } from './layout/component/employee/component/edit-employee/edit-employee.component'; 
+import { EditEmployeeComponent } from './layout/component/employee/component/edit-employee/edit-employee.component';
 import { EmployeeService } from './layout/component/employee/services/employee.service';
 
 import { MyTimesheetComponent } from './layout/component/Timesheet/component/my-timesheet/my-timesheet.component';
@@ -94,6 +94,12 @@ import { RewardSkipService } from './layout/component/reward-skip/service/reward
 import { AddRewardComponent } from './layout/component/reward-skip/component/add-reward/add-reward.component';
 import { CustomToastrService } from './service/customToastr.service';
 import { ErrorHandlingService } from './service/error-handling.service';
+import { MyTransactionComponent } from './layout/component/Finance/component/my-transaction/my-transaction.component';
+import { TransactionComponent } from './layout/component/Finance/component/transaction/transaction.component';
+import { LedgerComponent } from './layout/component/Finance/component/ledger/ledger.component';
+import { VenderComponent } from './layout/component/Finance/component/vender/vender-list/vender.component';
+import { ReportComponent } from './layout/component/Report/report/report.component';
+import { VenderSaveComponent } from './layout/component/Finance/component/vender/vender-save/vender-save.component';
 
 
 
@@ -140,14 +146,20 @@ import { ErrorHandlingService } from './service/error-handling.service';
     PrintLayoutComponent,
     InvoiceComponent,
     PrintPopupComponent,
-    
+
 
     SearchPipe,
     EmployerSearchPipe,
     AddAttendanceSearchPipe,
     ListEmployeePipe,
     RewardSkipComponent,
-    AddRewardComponent
+    AddRewardComponent,
+    MyTransactionComponent,
+    TransactionComponent,
+    LedgerComponent,
+    VenderComponent,
+    ReportComponent,
+    VenderSaveComponent
 
   ],
   imports: [
@@ -176,21 +188,21 @@ import { ErrorHandlingService } from './service/error-handling.service';
     ToastrModule.forRoot(
       {
         autoDismiss: true
-       
+
       }
-      
+
     )
-    
+
 
   ],
   entryComponents:[CommentsComponent, EditpicklistComponent, PopupComponent, PrintPopupComponent, AddRewardComponent],
 
   providers: [
      //{provide: LocationStrategy, useClass: HashLocationStrategy},
-    LoginService, 
+    LoginService,
     AuthGuardService,
     EmployeeService,
-    TimesheetService, 
+    TimesheetService,
     AuthService,
     EntityService,
     StringMapService,
@@ -205,6 +217,5 @@ import { ErrorHandlingService } from './service/error-handling.service';
     ErrorHandlingService
   ],
   bootstrap: [AppComponent]
-}) 
+})
 export class AppModule { }
-  

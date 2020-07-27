@@ -1,0 +1,85 @@
+<div class="col">
+  <div class="row my-row" >
+    <div class="col my-col">
+       <ul class="breadcrumb" style="background-color: transparent;">
+        <li class="breadcrumb-item " >
+            <span class="icon">
+            <i class="fa fa-handshake-o"></i></span>
+            <span class="heading" style="color: black; background-color: transparent;"> Vender</span></li>
+
+      </ul>
+    </div>
+<div class="col my-col">
+  <div class="a">
+      <ul class="breadcrumb" style="background-color: transparent;">
+        <li class="breadcrumb-item"><a routerLink="/dashboard">
+          <i class="fa fa-home"></i> Home</a></li>
+        <li class="breadcrumb-item"><a routerLink="/dashboard/finance/vender/list"> Vender List</a></li>
+        <li class="breadcrumb-item"><a routerLink="/dashboard/finance/vender/save"> Vender Save</a></li>
+
+      </ul>
+  </div>
+</div>
+  </div>
+  <div class="row my-row">
+    <div class="col my-col1">
+     Vender List Record
+  </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header">
+    Vender List <span style="float: right;"><a routerLink="/dashboard/finance/vender/save" ><i class="fa fa-plus-circle" ></i> New Vender</a></span>
+  </div>
+  <div class="card-body" style="overflow-x: scroll;">
+
+    <!-- <form class="form-inline" #f="ngForm" (ngsubmit)="Search(f.value)">
+      <input class="form-control mr-sm-2" type="text" #Search="ngModel" [(ngModel)]="Search" name="Search" placeholder="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form> -->
+
+    <input type="text" class="form-control" [(ngModel)]="email" placeholder="Serach any fields"/>
+
+    <br>
+
+    <table class="table table-bordered">
+      <thead>
+        <tr style="cursor: pointer;">
+          <th scope="col" (click)="sortFilter(1)">Name <i class={{sortIcon1}} aria-hidden="true"></i> </th>
+          <th scope="col" (click)="sortFilter(2)">Category <i class="{{sortIcon2}}" aria-hidden="true"></i> </th>
+          <th scope="col" (click)="sortFilter(3)">Address Line 1 <i class="{{sortIcon3}}" aria-hidden="true"></i> </th>
+          <th scope="col" (click)="sortFilter(4)">Address Line 2 <i class="{{sortIcon4}}" aria-hidden="true"></i> </th>
+          <th scope="col" (click)="sortFilter(5)">City <i class="{{sortIcon5}}" aria-hidden="true"></i> </th>
+          <th scope="col" (click)="sortFilter(6)">Zip <i class="{{sortIcon6}}" aria-hidden="true"></i> </th>
+          <th scope="col" (click)="sortFilter(7)">Primary Contact Person <i class="{{sortIcon7}}" aria-hidden="true"></i> </th>
+          <th scope="col" (click)="sortFilter(8)">Primary Contact Person Email <i class="{{sortIcon8}}" aria-hidden="true"></i> </th>
+          <th scope="col" (click)="sortFilter(9)">Primary Contact Person Phone <i class="{{sortIcon9}}" aria-hidden="true"></i> </th>
+
+        </tr>
+       </thead>
+      <tbody *ngIf="vender?.length != 0">
+        <tr *ngFor="let venders of vender; let i = index">
+          <td>{{ venders.Name }}</td>
+          <td>{{ venders.Category }}</td>
+          <td>{{ venders.AddressLine1 }}</td>
+          <td>{{ venders.AddressLine2 }}</td>
+          <td>{{ venders.City }}</td>
+          <td>{{ venders.Zip }}</td>
+          <td>{{ venders.PrimaryContactPerson }}</td>
+          <td>{{ venders.PrimaryContactPersonEmail }}</td>
+          <td>{{ venders.PrimaryContactPersonPhone }}</td>
+
+          <td><input type="text" class="form-control" value="{{i}}"   placeholder="Serach any fields"/></td>
+        </tr>
+        <tr>
+        </tr>
+      </tbody>
+      <tbody  *ngIf="vender?.length ==0">
+        <tr>
+          <td colspan="8" class="no-data-available">No matching records found</td>
+        </tr>
+      <tbody>
+    </table>
+  </div>
+  </div>
