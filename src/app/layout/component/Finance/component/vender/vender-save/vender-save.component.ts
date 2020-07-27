@@ -16,11 +16,9 @@ export class VenderSaveComponent implements OnInit {
 
   vender: Vender;
 
-  // successStatus=false;
-  // dangerStatus=false;
+
   message="";
   venderService: any;
-  // dropdownList: DropDownList[]=[];
 
 
   constructor(private entityService: VenderService, private errorHandlingService: ErrorHandlingService,
@@ -71,14 +69,11 @@ export class VenderSaveComponent implements OnInit {
         // this.dangerStatus=false;
         this.message="Data is Added successfully"
 
-        this.customToastrService.GetSuccessToastr(this.message, "Employer Save Status", 5000)
+        this.customToastrService.GetSuccessToastr(this.message, "Employer Save Status", 3000)
 
 
         setTimeout(()=>
         {
-
-          // this.successStatus=false;
-          // this.dangerStatus=false;
 
           this.vender =
           {
@@ -113,10 +108,5 @@ export class VenderSaveComponent implements OnInit {
 
   }
 
-  closeStatus()
-  {
-    // this.dangerStatus=false;
-    // this.successStatus=false;
-  }
 }
 

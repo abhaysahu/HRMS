@@ -100,6 +100,7 @@ import { LedgerComponent } from './layout/component/Finance/component/ledger/led
 import { VenderComponent } from './layout/component/Finance/component/vender/vender-list/vender.component';
 import { ReportComponent } from './layout/component/Report/report/report.component';
 import { VenderSaveComponent } from './layout/component/Finance/component/vender/vender-save/vender-save.component';
+import { VenderSearchPipe } from './layout/component/Finance/vender-search.pipe';
 
 
 
@@ -159,7 +160,8 @@ import { VenderSaveComponent } from './layout/component/Finance/component/vender
     LedgerComponent,
     VenderComponent,
     ReportComponent,
-    VenderSaveComponent
+    VenderSaveComponent,
+    VenderSearchPipe
 
   ],
   imports: [
