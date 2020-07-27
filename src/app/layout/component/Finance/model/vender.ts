@@ -8,7 +8,7 @@ export interface Vender {
   Zip: number;
   PrimaryContactPerson: string;
   PrimaryContactPersonEmail: string;
-  PrimaryContactPersonPhone: string;
+  PrimaryContactPersonPhone: number;
 
 
 

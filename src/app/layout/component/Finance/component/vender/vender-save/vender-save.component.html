@@ -112,7 +112,7 @@
 
         <div class="form-group col-md-3">
           <label for="PrimaryContactPersonPhone">Primary Contact Person Phone</label>
-          <input type="text" class="form-control" #PrimaryContactPersonPhone="ngModel" [(ngModel)]="vender.PrimaryContactPersonPhone" name="PrimaryContactPersonPhone" id="PrimaryContactPersonPhone" required>
+          <input type="number" class="form-control" #PrimaryContactPersonPhone="ngModel" [(ngModel)]="vender.PrimaryContactPersonPhone" name="PrimaryContactPersonPhone" id="PrimaryContactPersonPhone" required>
           <div class="invalid-feedback" *ngIf="PrimaryContactPersonPhone.touched && PrimaryContactPersonPhone.invalid">
             Primary Contact Person Phone Is Required.
           </div>
