@@ -60,14 +60,11 @@ export class LoginComponent implements OnInit {
  
     this.authService.login(form)    
       .subscribe((data: LoggedinUser) => {
-        console.log(data) 
        
           this.authService.manageSession(data);
           this.authService.loginStatus.emit(true);
           if (this.authService.redirectUrl) 
           {
-            // this.dangerStatus=false;
-            // this.successStatus=true;
             this.message="You are Login successfully Wait for redirect"
 
             this.customToastrService.GetSuccessToastr(this.message, "Login Status", 3000)
@@ -77,25 +74,38 @@ export class LoginComponent implements OnInit {
               this.router.navigate([this.authService.redirectUrl]);
       
             }, 3000);  
-
           } 
           else 
           {  
-            // this.dangerStatus=false;
-            // this.successStatus=true;
             this.message="You are Login successfully Wait for redirect"
-
             this.customToastrService.GetSuccessToastr(this.message, "Login Status", 3000)
-  
             setTimeout(()=>
             {    
               this.router.navigate(['/dashboard']);
             }, 3000); 
           }  
 
-        },   (error: AppResponse) => {
+        },   (error) => {
 
-          this.errorHandlingService.errorStatus(error,"Login Status")
+          console.log(error)
+          if(error.status === 400)
+          {
+            this.message = error.error.error_description;
+            return this.customToastrService.GetErrorToastr(this.message, status, 3000)
+          }
+
+          else if(error.status === 401)
+          {
+            this.message = "Authorization has been denied for this request And You have to Login again."
+            return this.customToastrService.GetErrorToastr(this.message, status, 3000)
+
+          }       
+          else
+          {
+            this.message = error.error.message;
+            return this.customToastrService.GetErrorToastr(this.message, status, 3000)
+
+          }
               
        }
        );

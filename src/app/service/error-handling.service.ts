@@ -36,30 +36,21 @@ export class ErrorHandlingService {
 
   errorStatus(error, status)
   {
-    console.log(error)
+    console.log(error.error)
     if(error.status === 400)
       {
-        // this.dangerStatus=true;
-        // this.successStatus=false;
-        this.message = error.message;
-        // this.message="network problem"
+        this.message = error.error.message;
         return this.customToastrService.GetErrorToastr(this.message, status, 3000)
-
-    
       }
       else if(error.status === 401)
       {
-        // this.dangerStatus=true;
-        // this.successStatus=false;
         this.message = "Authorization has been denied for this request And You have to Login again."
         return this.customToastrService.GetErrorToastr(this.message, status, 3000)
 
       }       
       else
       {
-        // this.dangerStatus=true;
-        // this.successStatus=false;
-        this.message = error.message;
+        this.message = error.error.message;
         return this.customToastrService.GetErrorToastr(this.message, status, 3000)
 
       }
