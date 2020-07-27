@@ -9,5 +9,5 @@ export interface Entity {
     PrimaryAttribute: string;
     PrimaryKey: string;
 
-    
+
 }

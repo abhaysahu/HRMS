@@ -1,0 +1,132 @@
+<div class="col">
+  <div class="row my-row" >
+    <div class="col my-col">
+       <ul class="breadcrumb" style="background-color: transparent;">
+        <li class="breadcrumb-item " >
+            <span class="icon">
+            <i class="fa fa-handshake-o"></i></span>
+            <span class="heading" style="color: black; background-color: transparent;">Add Vender</span></li>
+
+      </ul>
+    </div>
+<div class="col my-col">
+  <div class="a">
+      <ul class="breadcrumb" style="background-color: transparent;">
+        <li class="breadcrumb-item"><a routerLink="/dashboard">
+          <i class="fa fa-home"></i> Home</a></li>
+        <li class="breadcrumb-item"><a routerLink="/dashboard/finance/vender/save">Add Vender</a></li>
+        <li class="breadcrumb-item"><a routerLink="/dashboard/finance/vender/list">Vender List</a></li>
+
+      </ul>
+  </div>
+</div>
+  </div>
+  <div class="row my-row">
+    <div class="col my-col1">
+    Add Vender Record
+  </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header">
+    Add Vender<span style="float: right;"><a routerLink="/dashboard/finance/vender/list" ><i class="fa fa-plus-circle" ></i> Vender List</a></span>
+  </div>
+  <div class="card-body">
+    <form #f="ngForm" (ngSubmit)="VenderData(f.value)" class="was-validated">
+      <div class="form-row">
+
+        <div class="form-group col-md-3">
+          <label for="Name">Name</label>
+          <input type="text" class="form-control" #Name="ngModel" [(ngModel)]="vender.Name" name="Name" id="Name" required>
+          <div class="invalid-feedback" *ngIf="Name.touched && Name.invalid">
+            Name Is Required.
+          </div>
+        </div>
+<!--
+        <div class="form-group col-md-3">
+          <label for="Category">Category</label>
+          <select class="custom-select" #Category="ngModel" [(ngModel)]="vender.Category" name="Category" id="Category"  id="selectVender" required>
+            <option>Select any option</option>
+
+            <option *ngFor="let dropdownLists of dropdownList" [value]="dropdownLists.Category">{{dropdownLists.Name}}</option>
+          </select>
+          <div class="invalid-feedback" *ngIf="Category.touched && Category.invalid">
+            Object Type Code Is Required.
+          </div>
+        </div> -->
+
+        <div class="form-group col-md-3">
+          <label for="AddressLine1">Address Line 1</label>
+          <input type="text" class="form-control" #AddressLine1="ngModel" [(ngModel)]="vender.AddressLine1" name="AddressLine1" id="AddressLine1" required>
+          <div class="invalid-feedback" *ngIf="AddressLine1.touched && AddressLine1.invalid">
+            Address Line 1 Is Required.
+          </div>
+        </div>
+
+
+        <div class="form-group col-md-3">
+          <label for="AddressLine2">Address Line 2</label>
+          <input type="text" class="form-control" #AddressLine2="ngModel" [(ngModel)]="vender.AddressLine2" name="AddressLine2" id="AddressLine2" required>
+          <div class="invalid-feedback" *ngIf="AddressLine2.touched && AddressLine2.invalid">
+            Address Line 2 Is Required.
+          </div>
+        </div>
+
+
+        <div class="form-group col-md-3">
+          <label for="City">City</label>
+          <input type="text" class="form-control" #City="ngModel" [(ngModel)]="vender.City" name="City" id="City" required>
+          <div class="invalid-feedback" *ngIf="City.touched && City.invalid">
+            City Is Required.
+          </div>
+        </div>
+
+
+        <div class="form-group col-md-3">
+          <label for="Zip">Zip</label>
+          <input type="number" class="form-control" #Zip="ngModel" [(ngModel)]="vender.Zip" name="Zip" id="Zip" required>
+          <div class="invalid-feedback" *ngIf="Zip.touched && Zip.invalid">
+            Zip Is Required.
+          </div>
+        </div>
+
+
+        <div class="form-group col-md-3">
+          <label for="PrimaryContactPerson">Primary Contact Person</label>
+          <input type="text" class="form-control" #PrimaryContactPerson="ngModel" [(ngModel)]="vender.PrimaryContactPerson" name="PrimaryContactPerson" id="PrimaryContactPerson" required>
+          <div class="invalid-feedback" *ngIf="PrimaryContactPerson.touched && PrimaryContactPerson.invalid">
+            Primary Contact Person Is Required.
+          </div>
+        </div>
+
+
+        <div class="form-group col-md-3">
+          <label for=" PrimaryContactPersonEmail"> Primary Contact Person Email</label>
+          <input type="text" class="form-control" #PrimaryContactPersonEmail="ngModel" [(ngModel)]="vender. PrimaryContactPersonEmail" name=" PrimaryContactPersonEmail" id=" PrimaryContactPersonEmail" required>
+          <div class="invalid-feedback" *ngIf=" PrimaryContactPersonEmail.touched &&  PrimaryContactPersonEmail.invalid">
+            Primary Contact Person Email Is Required.
+          </div>
+        </div>
+
+
+        <div class="form-group col-md-3">
+          <label for="PrimaryContactPersonPhone">Primary Contact Person Phone</label>
+          <input type="text" class="form-control" #PrimaryContactPersonPhone="ngModel" [(ngModel)]="vender.PrimaryContactPersonPhone" name="PrimaryContactPersonPhone" id="PrimaryContactPersonPhone" required>
+          <div class="invalid-feedback" *ngIf="PrimaryContactPersonPhone.touched && PrimaryContactPersonPhone.invalid">
+            Primary Contact Person Phone Is Required.
+          </div>
+        </div>
+
+
+
+      </div>
+
+      <button type="submit" [disabled]="!f.valid" class="btn btn-primary">Save</button>
+    </form>
+
+  </div>
+</div>
+
+
+

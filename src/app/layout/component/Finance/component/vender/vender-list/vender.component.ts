@@ -1,35 +1,33 @@
 import { Component, OnInit } from '@angular/core';
-import { Entity } from '../../model/entity';
-import { EntityService } from '../../service/entity.service';
-import { EntityList } from '../../model/entityList';
 import { AppResponse } from 'src/app/models/appResponse';
 import { CustomToastrService } from 'src/app/service/customToastr.service';
 import { ErrorHandlingService } from 'src/app/service/error-handling.service';
+import { VenderService } from '../../../service/vender.service';
 
 
-export class Entitys {
+export class Venders {
 
   Name: string
-  LogicalName: string
-  SchemaName: string
-  ObjectTypeCode: number
-  Description: string
-  IsMasterEntity: boolean
-  PrimaryAttribute: string
-  PrimaryKey: string
+  Category: string
+  AddressLine1: string
+  AddressLine2: string
+  City: string
+  Zip: number
+  PrimaryContactPerson: string
+  PrimaryContactPersonEmail: string
+  PrimaryContactPersonPhone: string
 }
 
-@Component({
-  selector: 'app-entity-list',
-  templateUrl: './entity-list.component.html',
-  styleUrls: ['./entity-list.component.css']
-})
-export class EntityListComponent implements OnInit {
 
-  // entity: EntityList[]=[]
+@Component({
+  selector: 'app-vender',
+  templateUrl: './vender.component.html',
+  styleUrls: ['./vender.component.css']
+})
+export class VenderComponent implements OnInit {
   ascNumberSort = true;
   indexs:any[]=[];
-  entity:Entitys[]=[];
+  vender:Venders[]=[];
 
   sortIcon1="fa fa-sort"
   sortIcon2="fa fa-sort"
@@ -39,6 +37,8 @@ export class EntityListComponent implements OnInit {
   sortIcon6="fa fa-sort"
   sortIcon7="fa fa-sort"
   sortIcon8="fa fa-sort"
+  sortIcon9="fa fa-sort"
+
 
 
   // successStatus=false;
@@ -51,18 +51,18 @@ export class EntityListComponent implements OnInit {
   aa:boolean=false;
   search="";
 
-  constructor(private entityService: EntityService,
+  constructor(private venderService: VenderService,
     private customToastrService: CustomToastrService,
     private errorHandlingService: ErrorHandlingService
     ) {
 
 
 
-    this.entityService.getEntityData().subscribe(resp =>{
+    this.venderService.getVenderData().subscribe(resp =>{
 
       if(resp.Success)
       {
-        this.entity = resp.Data
+        this.vender = resp.Data
       }
       else
       {
@@ -70,13 +70,13 @@ export class EntityListComponent implements OnInit {
           // this.successStatus=false;
           this.message=resp.ErrorMessage;
           this.message=resp.Message;
-          this.customToastrService.GetErrorToastr(this.message, "Entity List Status", 5000)
+          this.customToastrService.GetErrorToastr(this.message, "Vender List Status", 5000)
 
       }
 
     },   (error: AppResponse) => {
 
-      this.errorHandlingService.errorStatus(error,"Entity List Status")
+      this.errorHandlingService.errorStatus(error,"Vender List Status")
 
 }
 )
@@ -98,12 +98,12 @@ export class EntityListComponent implements OnInit {
       if(this.ascNumberSort)
       {
         this.sortIcon1="fa fa-sort-desc"
-        this.entity=this.entity.sort((a,b)=>a.Name.localeCompare(b.Name)); // For ascending sort
+        this.vender=this.vender.sort((a,b)=>a.Name.localeCompare(b.Name)); // For ascending sort
       }
       else
       {
         this.sortIcon1="fa fa-sort-asc"
-        this.entity=this.entity.sort((a,b)=>b.Name.localeCompare(a.Name)); // For descending sort
+        this.vender=this.vender.sort((a,b)=>b.Name.localeCompare(a.Name)); // For descending sort
       }
     }
 
@@ -113,12 +113,12 @@ export class EntityListComponent implements OnInit {
       if(this.ascNumberSort)
       {
         this.sortIcon2="fa fa-sort-desc"
-        this.entity=this.entity.sort((a,b)=>a.LogicalName.localeCompare(b.LogicalName)); // For ascending sort
+        this.vender=this.vender.sort((a,b)=>a.Category.localeCompare(b.Category)); // For ascending sort
       }
       else
       {
         this.sortIcon2="fa fa-sort-asc"
-        this.entity=this.entity.sort((a,b)=>b.LogicalName.localeCompare(a.LogicalName)); // For descending sort
+        this.vender=this.vender.sort((a,b)=>b.Category.localeCompare(a.Category)); // For descending sort
       }
     }
 
@@ -128,12 +128,12 @@ export class EntityListComponent implements OnInit {
       if(this.ascNumberSort)
       {
         this.sortIcon3="fa fa-sort-desc"
-        this.entity=this.entity.sort((a,b)=>a.SchemaName.localeCompare(b.SchemaName)); // For ascending sort
+        this.vender=this.vender.sort((a,b)=>a.AddressLine1.localeCompare(b.AddressLine1)); // For ascending sort
       }
       else
       {
         this.sortIcon3="fa fa-sort-asc"
-        this.entity=this.entity.sort((a,b)=>b.SchemaName.localeCompare(a.SchemaName)); // For descending sort
+        this.vender=this.vender.sort((a,b)=>b.AddressLine1.localeCompare(a.AddressLine1)); // For descending sort
       }
     }
 
@@ -143,12 +143,12 @@ export class EntityListComponent implements OnInit {
       if(this.ascNumberSort)
       {
         this.sortIcon4="fa fa-sort-desc"
-        this.entity=this.entity.sort((a,b)=>a.ObjectTypeCode - b.ObjectTypeCode); // For ascending sort
+        this.vender=this.vender.sort((a,b)=>a.AddressLine2.localeCompare(b.AddressLine2)); // For ascending sort
       }
       else
       {
         this.sortIcon4="fa fa-sort-asc"
-        this.entity=this.entity.sort((a,b)=>b.ObjectTypeCode - a.ObjectTypeCode); // For descending sort
+        this.vender=this.vender.sort((a,b)=>b.AddressLine2.localeCompare(a.AddressLine2)); // For descending sort
       }
     }
 
@@ -158,12 +158,27 @@ export class EntityListComponent implements OnInit {
       if(this.ascNumberSort)
       {
         this.sortIcon5="fa fa-sort-desc"
-        this.entity=this.entity.sort((a,b)=>a.Description.localeCompare(b.Description)); // For ascending sort
+        this.vender=this.vender.sort((a,b)=>a.City.localeCompare(b.City)); // For ascending sort
       }
       else
       {
         this.sortIcon5="fa fa-sort-asc"
-        this.entity=this.entity.sort((a,b)=>b.Description.localeCompare(a.Description)); // For descending sort
+        this.vender=this.vender.sort((a,b)=>a.City.localeCompare(b.City)); // For ascending sort
+      }
+    }
+
+    else if(value == 6)
+    {
+      this.ascNumberSort = !this.ascNumberSort;
+      if(this.ascNumberSort)
+      {
+        this.sortIcon6="fa fa-sort-desc"
+        this.vender=this.vender.sort((a,b)=>a.Zip - b.Zip); // For ascending sort
+      }
+      else
+      {
+        this.sortIcon6="fa fa-sort-asc"
+        this.vender=this.vender.sort((a,b)=>b.Zip - a.Zip); // For descending sort
       }
     }
 
@@ -188,12 +203,12 @@ export class EntityListComponent implements OnInit {
       if(this.ascNumberSort)
       {
         this.sortIcon7="fa fa-sort-desc"
-        this.entity=this.entity.sort((a,b)=>a.PrimaryAttribute.localeCompare(b.PrimaryAttribute)); // For ascending sort
+        this.vender=this.vender.sort((a,b)=>a. PrimaryContactPerson.localeCompare(b. PrimaryContactPerson)); // For ascending sort
       }
       else
       {
         this.sortIcon7="fa fa-sort-asc"
-        this.entity=this.entity.sort((a,b)=>b.PrimaryAttribute.localeCompare(a.PrimaryAttribute)); // For descending sort
+        this.vender=this.vender.sort((a,b)=>b. PrimaryContactPerson.localeCompare(a. PrimaryContactPerson)); // For descending sort
       }
     }
 
@@ -203,12 +218,29 @@ export class EntityListComponent implements OnInit {
       if(this.ascNumberSort)
       {
         this.sortIcon8="fa fa-sort-desc"
-        this.entity=this.entity.sort((a,b)=>a.PrimaryKey.localeCompare(b.PrimaryKey)); // For ascending sort
+        this.vender=this.vender.sort((a,b)=>a. PrimaryContactPersonEmail.localeCompare(b. PrimaryContactPersonEmail)); // For ascending sort
       }
       else
       {
         this.sortIcon8="fa fa-sort-asc"
-        this.entity=this.entity.sort((a,b)=>b.PrimaryKey.localeCompare(a.PrimaryKey)); // For descending sort
+        // tslint:disable-next-line: max-line-length
+        this.vender=this.vender.sort((a,b)=>b. PrimaryContactPersonEmail.localeCompare(a. PrimaryContactPersonEmail)); // For descending sort
+      }
+    }
+
+    else if(value == 9)
+    {
+      this.ascNumberSort = !this.ascNumberSort;
+      if(this.ascNumberSort)
+      {
+        this.sortIcon9="fa fa-sort-desc"
+        this.vender=this.vender.sort((a,b)=>a. PrimaryContactPersonPhone.localeCompare(b. PrimaryContactPersonPhone)); // For ascending sort
+      }
+      else
+      {
+        this.sortIcon9="fa fa-sort-asc"
+        // tslint:disable-next-line: max-line-length
+        this.vender=this.vender.sort((a,b)=>b. PrimaryContactPersonPhone.localeCompare(a. PrimaryContactPersonPhone)); // For descending sort
       }
     }
   }
@@ -224,6 +256,8 @@ export class EntityListComponent implements OnInit {
     this.sortIcon6="fa fa-sort"
     this.sortIcon7="fa fa-sort"
     this.sortIcon8="fa fa-sort"
+    this.sortIcon9="fa fa-sort"
+
   }
 
   setIndex(ii){
@@ -237,3 +271,8 @@ export class EntityListComponent implements OnInit {
   }
 
 }
+
+
+
+
+
