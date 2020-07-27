@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-// import { Entity } from '../../model/entity';
-// import { EntityService } from '../../service/entity.service';
+
 import { AppResponse } from 'src/app/models/appResponse';
 import { ErrorHandlingService } from 'src/app/service/error-handling.service';
 import { CustomToastrService } from 'src/app/service/customToastr.service';
-import { Vender } from '../../../model/vender';
-import { VenderService } from '../../../service/vender.service';
+import { Vender } from '../../model/vender';
+import { VenderService } from '../../service/vender.service';
+
 
 @Component({
   selector: 'app-vender-save',
