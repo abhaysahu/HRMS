@@ -5,7 +5,7 @@
         <li class="breadcrumb-item " >
             <span class="icon">
             <i class="fa fa-briefcase"></i></span>
-            <span class="heading" style="color: black; background-color: transparent;"> Entity List</span></li>
+            <span class="heading" style="color: black; background-color: transparent;"> Transcation</span></li>
 
       </ul>
     </div>
@@ -14,8 +14,7 @@
       <ul class="breadcrumb" style="background-color: transparent;">
         <li class="breadcrumb-item"><a routerLink="/dashboard">
           <i class="fa fa-home"></i> Home</a></li>
-        <li class="breadcrumb-item"><a routerLink="/dashboard/entity/list"> Entity List</a></li>
-        <li class="breadcrumb-item"><a routerLink="/dashboard/entity/save"> Entity Save</a></li>
+        <li class="breadcrumb-item"><a routerLink="/dashboard/finaance/transaction"> Transaction</a></li>
 
       </ul>
   </div>
@@ -23,13 +22,65 @@
   </div>
   <div class="row my-row">
     <div class="col my-col1">
-     Entity List Record
+     Transaction Record
   </div>
   </div>
 </div>
 
 <div class="card">
   <div class="card-header">
-    Entity List <span style="float: right;"><a routerLink="/dashboard/entity/save" ><i class="fa fa-plus-circle" ></i> New Entity</a></span>
+    Transaction
   </div>
+  <div class="card-body" style="overflow-x: scroll;">
+    <form>
+      <div class="form">
+        <!-- <div class="form-row"> -->
+          <div class="form-group col-md-4">
+            <label for="TransactionType">Transaction Type</label>
+
+            <select class="custom-select" name="TransactionType" id="TransactionType" required>
+              <option selected>Select</option>
+              <option value="1">Credit</option>
+              <option value="2">Debit</option>
+            </select>
+            <!-- <div class="invalid-feedback" *ngIf="TransactionType.touched && applyFor.invalid">
+              Apply For is required.
+            </div> -->
+          </div>
+        <!-- </div> -->
+
+
+
+        <div class="form-group col-md-4">
+          <label for="LedgerType">Ledger Type</label>
+
+            <select class="custom-select" name="LedgerType" id="LedgerType" required>
+
+            <option selected>Select</option>
+            <option value="1">Credit</option>
+            <option value="2">Debit</option>
+          </select>
+          <!-- <div class="invalid-feedback" *ngIf="TransactionType.touched && applyFor.invalid">
+            Apply For is required.
+          </div> -->
+        </div>
+
+        <div class="form-group col-md-4">
+          <label for="LedgerCategory">Ledger Category</label>
+
+
+          <select class="custom-select" name="LedgerCategory" id="LedgerCategory" required>
+            <option selected>Select</option>
+            <option value="1">Sales</option>
+            <option value="2">Loan</option>
+            <option value="3">Purchase</option>
+
+          </select>
+          <!-- <div class="invalid-feedback" *ngIf="TransactionType.touched && applyFor.invalid">
+            Apply For is required.
+          </div> -->
+        </div>
+      </div>
+    </form>
+</div>
   </div>
