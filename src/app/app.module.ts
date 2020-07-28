@@ -99,10 +99,11 @@ import { TransactionComponent } from './layout/component/Finance/component/trans
 import { LedgerComponent } from './layout/component/Finance/component/ledger/ledger.component';
 import { VenderSearchPipe } from './layout/component/Finance/component/vender/vender-search.pipe';
 import { ReportComponent } from './layout/component/Report/report/components/report.component';
-import { LenderComponent } from './layout/component/Finance/component/lender/lender.component';
+import { LenderComponent } from './layout/component/Finance/component/lender/component/lender.component';
 import { UnsoldProductsComponent } from './layout/component/Report/report/components/unsold-products/unsold-products.component';
 import { VenderComponent } from './layout/component/Finance/component/vender/component/vender-list/vender.component';
 import { VenderSaveComponent } from './layout/component/Finance/component/vender/component/vender-save/vender-save.component';
+import { LenderSearchPipe } from './layout/component/Finance/component/lender/lender-search.pipe';
 
 
 
@@ -165,7 +166,8 @@ import { VenderSaveComponent } from './layout/component/Finance/component/vender
     VenderSaveComponent,
     LenderComponent,
     UnsoldProductsComponent,
-    VenderSearchPipe
+    VenderSearchPipe,
+    LenderSearchPipe
 
 
   ],

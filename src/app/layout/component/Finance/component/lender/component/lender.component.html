@@ -1,0 +1,103 @@
+<div class="col">
+  <div class="row my-row" >
+    <div class="col my-col">
+       <ul class="breadcrumb" style="background-color: transparent;">
+        <li class="breadcrumb-item " >
+            <span class="icon">
+            <i class="fa fa-handshake-o"></i></span>
+            <span class="heading" style="color: black; background-color: transparent;"> Lender</span></li>
+
+      </ul>
+    </div>
+<div class="col my-col">
+  <div class="a">
+      <ul class="breadcrumb" style="background-color: transparent;">
+        <li class="breadcrumb-item"><a routerLink="/dashboard">
+          <i class="fa fa-home"></i> Home</a></li>
+        <li class="breadcrumb-item"><a routerLink="/dashboard/finance/lender"> Lender List</a></li>
+
+      </ul>
+  </div>
+</div>
+  </div>
+  <div class="row my-row">
+    <div class="col my-col1">
+     Lender List Record
+  </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header">
+    Lender List
+  </div>
+  <div class="card-body" style="overflow-x: scroll;">
+
+    <!-- <form class="form-inline" #f="ngForm" (ngsubmit)="Search(f.value)">
+      <input class="form-control mr-sm-2" type="text" #Search="ngModel" [(ngModel)]="Search" name="Search" placeholder="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form> -->
+
+    <input type="text" class="form-control" [(ngModel)]="email" placeholder="Serach any fields"/>
+
+    <br>
+
+    <table class="table table-bordered">
+      <thead>
+        <tr style="cursor: pointer;">
+          <th scope="col" (click)="sortFilter(1)"> Amount <i class={{sortIcon1}} aria-hidden="true"></i> </th>
+          <th scope="col" (click)="sortFilter(2)">Payment <i class="{{sortIcon2}}" aria-hidden="true"></i> </th>
+          <th scope="col" (click)="sortFilter(3)">Receiver Object Type Code <i class="{{sortIcon3}}" aria-hidden="true"></i> </th>
+          <th scope="col" (click)="sortFilter(4)">Receiver <i class="{{sortIcon4}}" aria-hidden="true"></i> </th>
+          <th scope="col" (click)="sortFilter(5)">Payment Ref No <i class="{{sortIcon5}}" aria-hidden="true"></i> </th>
+          <th scope="col" (click)="sortFilter(6)">Lender Object Type Code <i class="{{sortIcon6}}" aria-hidden="true"></i> </th>
+          <th scope="col" (click)="sortFilter(7)">Lender <i class="{{sortIcon7}}" aria-hidden="true"></i> </th>
+          <th scope="col" (click)="sortFilter(8)">Yearly Interest Per <i class="{{sortIcon8}}" aria-hidden="true"></i> </th>
+          <th scope="col" (click)="sortFilter(9)">Is Partner Funding <i class="{{sortIcon9}}" aria-hidden="true"></i> </th>
+          <th scope="col" (click)="sortFilter(10)">Tenure <i class="{{sortIcon9}}" aria-hidden="true"></i> </th>
+          <th scope="col" (click)="sortFilter(11)">In Payment Terms <i class="{{sortIcon9}}" aria-hidden="true"></i> </th>
+          <th scope="col" (click)="sortFilter(12)">Start Date <i class="{{sortIcon9}}" aria-hidden="true"></i> </th>
+          <th scope="col" (click)="sortFilter(13)">End Date <i class="{{sortIcon9}}" aria-hidden="true"></i> </th>
+          <th scope="col" (click)="sortFilter(14)">Only Pay Interest <i class="{{sortIcon9}}" aria-hidden="true"></i> </th>
+          <th scope="col" (click)="sortFilter(15)">Repayment Amount <i class="{{sortIcon9}}" aria-hidden="true"></i> </th>
+          <th scope="col" (click)="sortFilter(16)">Current Out Standing <i class="{{sortIcon9}}" aria-hidden="true"></i> </th>
+          <th scope="col" (click)="sortFilter(17)">OutStanding Last Updated On <i class="{{sortIcon9}}" aria-hidden="true"></i> </th>
+
+
+        </tr>
+       </thead>
+      <tbody *ngIf="lender?.length != 0">
+        <tr *ngFor="let lenders of lender; let i = index">
+          <td>{{ lenders. Amount }}</td>
+          <td>{{ lenders.Payment }}</td>
+          <td>{{ lenders.ReceiverObjectTypeCode }}</td>
+          <td>{{ lenders.Receiver }}</td>
+          <td>{{ lenders. PaymentRefNo }}</td>
+          <td>{{ lenders.LenderObjectTypeCode }}</td>
+          <td>{{ lenders.Lender }}</td>
+          <td>{{ lenders.YearlyInterestPer }}</td>
+          <td>{{ lenders.IsPartnerFunding }}</td>
+          <td>{{ lenders.Tenure }}</td>
+          <td>{{ lenders.InPaymentTerms }}</td>
+          <td>{{ lenders.StartDate }}</td>
+          <td>{{ lenders.EndDate }}</td>
+          <td>{{ lenders.OnlyPayInterest }}</td>
+          <td>{{ lenders.RepaymentAmount }}</td>
+          <td>{{ lenders.CurrentOutStanding }}</td>
+          <td>{{ lenders.OutStandingLastUpdatedOn }}</td>
+
+
+
+
+        </tr>
+        <tr>
+        </tr>
+      </tbody>
+      <tbody  *ngIf="lender?.length ==0">
+        <tr>
+          <td colspan="17" class="no-data-available">No matching records found</td>
+        </tr>
+      <tbody>
+    </table>
+  </div>
+  </div>

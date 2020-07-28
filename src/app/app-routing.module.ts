@@ -39,7 +39,7 @@ import { MyTransactionComponent } from './layout/component/Finance/component/my-
 import { TransactionComponent } from './layout/component/Finance/component/transaction/transaction.component';
 import { LedgerComponent } from './layout/component/Finance/component/ledger/ledger.component';
 import { ReportComponent } from './layout/component/Report/report/components/report.component';
-import { LenderComponent } from './layout/component/Finance/component/lender/lender.component';
+import { LenderComponent } from './layout/component/Finance/component/lender/component/lender.component';
 import { UnsoldProductsComponent } from './layout/component/Report/report/components/unsold-products/unsold-products.component';
 import { VenderComponent } from './layout/component/Finance/component/vender/component/vender-list/vender.component';
 import { VenderSaveComponent } from './layout/component/Finance/component/vender/component/vender-save/vender-save.component';
