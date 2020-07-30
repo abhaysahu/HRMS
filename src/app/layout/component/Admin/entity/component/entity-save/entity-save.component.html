@@ -17,9 +17,9 @@
        <ul class="breadcrumb" style="background-color: transparent;">
         <li class="breadcrumb-item " >
             <span class="icon">
-            <i class="fa fa-briefcase"></i></span>  
+            <i class="fa fa-briefcase"></i></span>
             <span class="heading" style="color: black; background-color: transparent;">Add Entity</span></li>
-           
+
       </ul>
     </div>
 <div class="col my-col">
@@ -36,17 +36,17 @@
   </div>
   <div class="row my-row">
     <div class="col my-col1">
-    Add Entity Record
+    <!-- Add Entity Record -->
   </div>
   </div>
 </div>
 
 <div class="card">
-  <div class="card-header"> 
+  <div class="card-header">
     Add Entity<span style="float: right;"><a routerLink="/dashboard/entity/list" ><i class="fa fa-plus-circle" ></i> Entity List</a></span>
   </div>
   <div class="card-body">
-    <form #f="ngForm" (ngSubmit)="EntityData(f.value)" class="was-validated">  
+    <form #f="ngForm" (ngSubmit)="EntityData(f.value)" class="was-validated">
       <div class="form-row">
 
         <div class="form-group col-md-3">
@@ -70,7 +70,7 @@
           <input type="text" class="form-control" #SchemaName="ngModel" value="dbo" [(ngModel)]="entity.SchemaName" name="SchemaName" id="SchemaName" required>
           <div class="invalid-feedback" *ngIf="SchemaName.touched && SchemaName.invalid">
             Schema Name Is Required.
-          </div>  
+          </div>
         </div>
 
            <!---<div class="form-group col-md-3">
@@ -89,7 +89,7 @@
             Description Is Required.
           </div> -->
         </div>
- 
+
         <div class="form-group col-md-3">
           <div style="padding-left: 20px;">
             <label for="IsMasterEntity">Is Master Entity</label><br><br>
@@ -123,9 +123,9 @@
           </div>
         </div>
       </div>
-                    
+
       <button type="submit" [disabled]="!f.valid" class="btn btn-primary">Save</button>
     </form>
-                    
+
   </div>
 </div>

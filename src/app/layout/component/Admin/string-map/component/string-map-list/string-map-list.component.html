@@ -9,16 +9,16 @@
   <i class="fa fa-times-circle" (click)="closeStatus()"  aria-hidden="true"></i>
    <a class="btn btn-primary" routerLink="/login">Go To Login Page</a>
 </div> -->
- 
+
 <div class="col">
   <div class="row my-row" >
     <div class="col my-col">
        <ul class="breadcrumb" style="background-color: transparent;">
         <li class="breadcrumb-item " >
             <span class="icon">
-            <i class="fa fa-briefcase"></i></span>  
+            <i class="fa fa-briefcase"></i></span>
             <span class="heading" style="color: black; background-color: transparent;"> Pick List</span></li>
-           
+
       </ul>
     </div>
 <div class="col my-col">
@@ -35,7 +35,7 @@
   </div>
   <div class="row my-row">
     <div class="col my-col1">
-     Pick List  Record
+     <!-- Pick List  Record -->
   </div>
   </div>
 </div>
@@ -45,13 +45,13 @@
     Pick List <span style="float: right;"><a routerLink="/dashboard/picklist/save" ><i class="fa fa-plus-circle" ></i> New Pick List</a></span>
   </div>
   <div class="card-body" style="overflow-x: scroll;">
-     
+
       <form class="form-inline">
         <div class="form-group mb-1">
           <label for="selectEntity">Select Entity</label>
         </div>
         <div class="form-group col-md-4" *ngIf="dropdownList?.length != 0">
-          <select class="custom-select"  id="selectEntity" (change)="getList($event)"> 
+          <select class="custom-select"  id="selectEntity" (change)="getList($event)">
             <option value= "">Select any option</option>
             <option *ngFor="let dropdownLists of dropdownList" [value]="dropdownLists.ObjectTypeCode">{{dropdownLists.Name}}</option>
 
@@ -66,7 +66,7 @@
           <th scope="col" (click)="sortFilter(2)">PickList <i class={{sortIcon2}} aria-hidden="true"></i></th>
           <th scope="col" width="20%" (click)="sortFilter(3)">Number Of Options <i class={{sortIcon3}} aria-hidden="true"></i></th>
           <th scope="col">Action</th>
-          
+
 
         </tr>
       </thead>

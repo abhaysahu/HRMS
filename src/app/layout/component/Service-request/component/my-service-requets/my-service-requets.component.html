@@ -4,7 +4,7 @@
   </div>
   <div class="header-title">
       <h1>My Service Requests</h1>
-      <small>My Service Requests Record</small> 
+      <small>My Service Requests Record</small>
       <ul class="link hidden-xs">
           <li><a href="index-2.html"><i class="fa fa-home"></i>Home</a></li>
           <li><a href="datatable.html">My Service Requests</a></li>
@@ -18,10 +18,10 @@
        <ul class="breadcrumb" style="background-color: transparent;">
         <li class="breadcrumb-item " >
             <span class="icon">
-            <i class="fa fa-clock-o"></i></span>  
+            <i class="fa fa-clock-o"></i></span>
             <span class="heading" style="color: black; background-color: transparent;">    My Service Requests
             </span></li>
-           
+
       </ul>
     </div>
 <div class="col my-col">
@@ -36,8 +36,8 @@
 </div>
   </div>
   <div class="row my-row">
-    <div class="col my-col1"> 
-      My Service Requests Record
+    <div class="col my-col1">
+      <!-- My Service Requests Record -->
   </div>
   </div>
 </div>
@@ -52,7 +52,7 @@
   <div class="card-body">
     <form #form="ngForm" (submit)="onSubmit(form.value)" class="was-validated">
 <div class="form-row">
-  
+
   <div class="form-group col-md-2">
     <label for="requestId">Request Id</label><br>
     <input type="number" class="form-control"  #requestId="ngModel" [(ngModel)]="Servicerequest.requestId" name="requestId" id="requestId" min="0000000000" max="999999999999999" required>
@@ -62,7 +62,7 @@
   </div>
   <div class="form-group col-md-3">
     <label for="function">Function</label>
-    
+
     <select class="custom-select" #function="ngModel" [(ngModel)]="Servicerequest.function" name="function" id="function" required>
       <option selected>All</option>
       <option value="1">Working Out Of Office</option>
@@ -81,7 +81,7 @@
 
   <div class="form-group col-md-3">
     <label for="subFunction">Subfunction</label>
-    
+
     <select class="custom-select" #subFunction="ngModel" [(ngModel)]="Servicerequest.subFunction" name="subFunction" id="subFunction" required >
       <option selected>All</option>
       <option value="1">Working Out Of Office</option>
@@ -100,7 +100,7 @@
 
   <div class="form-group col-md-3">
     <label for="status">Status</label>
-    
+
     <select class="custom-select" #status="ngModel" [(ngModel)]="Servicerequest.status" name="status" id="status" required>
       <option selected>Open</option>
       <option value="1">Working Out Of Office</option>
@@ -119,7 +119,7 @@
       <div class="form-group col-md-2">
         <label for="dateFrom">Date From</label>
         <div class="form-group">
-          <input type="date" #dateFrom="ngModel" [(ngModel)]="Servicerequest.dateFrom" name="dateFrom" id="dateFrom"  max="3000-12-31" 
+          <input type="date" #dateFrom="ngModel" [(ngModel)]="Servicerequest.dateFrom" name="dateFrom" id="dateFrom"  max="3000-12-31"
                 min="1000-01-01" class="form-control" required>
                 <div class="invalid-feedback" *ngIf="dateFrom.touched && dateFrom.invalid">
                   Date  is required.
@@ -129,7 +129,7 @@
       <div class="form-group col-md-2">
         <label for="dateTo">Date To</label>
         <div class="form-group">
-          <input type="date" #dateTo="ngModel" [(ngModel)]="Servicerequest.dateTo" name="dateTo" id="dateTo" max="3000-12-31" 
+          <input type="date" #dateTo="ngModel" [(ngModel)]="Servicerequest.dateTo" name="dateTo" id="dateTo" max="3000-12-31"
                 min="1000-01-01" class="form-control" required>
                 <div class="invalid-feedback" *ngIf="dateTo.touched && dateTo.invalid">
                   Date  is required.
@@ -138,7 +138,7 @@
         </div>
         <div class="form-group col-md-2">
           <label for="dateTo"></label>
-          <div class="form-group">        
+          <div class="form-group">
             <button type="submit" class="btn btn-primary">Filter</button>
         </div>
 </div>

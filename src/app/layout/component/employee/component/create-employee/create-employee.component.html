@@ -19,7 +19,7 @@ both are edited the other in formation  -->
        <ul class="breadcrumb" style="background-color: transparent;">
         <li class="breadcrumb-item " >
             <span class="icon">
-            <i class="fa fa-clock-o"></i></span>  
+            <i class="fa fa-clock-o"></i></span>
             <span class="heading" style="color: black; background-color: transparent;">Create New Employee</span></li>
       </ul>
     </div>
@@ -38,7 +38,7 @@ both are edited the other in formation  -->
   </div>
   <div class="row my-row">
     <div class="col my-col1">
-    Create New Employee 
+    <!-- Create New Employee  -->
    </div>
   </div>
 </div>
@@ -75,7 +75,7 @@ both are edited the other in formation  -->
                   <input type="text" class="form-control" #PersonalEmail="ngModel" [(ngModel)]="Employee.PersonalEmail" name="PersonalEmail" id="PersonalEmail" placeholder="Personal Email ID" required>
                   <div class="invalid-feedback" *ngIf="PersonalEmail.touched && PersonalEmail.invalid">
                     Personal Email Id Is Mandatory
-                  </div>  
+                  </div>
                 </div>
 
 
@@ -84,7 +84,7 @@ both are edited the other in formation  -->
                   <input type="text" class="form-control" #OfficialEmail="ngModel" [(ngModel)]="Employee.OfficialEmail" name="OfficialEmail" id="OfficialEmail" placeholder="Offical Email ID">
                   <div class="invalid-feedback" *ngIf="OfficialEmail.touched && OfficialEmail.invalid">
                    Official Email Id Is Required
-                  </div>  
+                  </div>
                 </div>
 
                 <!-- <div class="form-group col-md-4">
@@ -104,7 +104,7 @@ both are edited the other in formation  -->
                           min="1000-01-01" class="form-control" required>
 										<div class="invalid-feedback" *ngIf="DateOfJoining.touched && DateOfJoining.invalid">
 											Date of Joining is Mandatory
-										</div>                  
+										</div>
                 </div>
 
                 <!-- <div class="form-group col-md-4">
@@ -113,55 +113,55 @@ both are edited the other in formation  -->
                           min="1000-01-01" class="form-control" required>
                     <div class="invalid-feedback" *ngIf="dateOfConfirmation.touched && dateOfConfirmation.invalid">
                       Date Of Confirmation Is Required.
-                    </div>   
+                    </div>
                 </div> -->
-                
+
 
                 <!-- <div class="form-group col-md-4">
                   <label for="division">Division</label>
                   <select class="custom-select" #division="ngModel" [(ngModel)]="Employee.division" name="division" id="division" required>
-                    
+
                     <option *ngFor="let dropdownLists of dropdownListOfDivision" [value]="dropdownLists.Value">{{dropdownLists.Text}}</option>
                   </select>
                   <div class="invalid-feedback" *ngIf="division.touched && division.invalid">
                   	Select One Division, It Is Required.
-                  </div>  
+                  </div>
                 </div> -->
 
-              
+
                 <div class="form-group col-md-4">
                   <label for="Department">Department</label>
                   <select class="custom-select" type="number" #Department="ngModel" [(ngModel)]="Employee.Department" name="Department" id="Department"  required>
-                    
+
                     <option *ngFor="let dropdownLists of dropdownListOfDepartment" [value]=dropdownLists.Value>{{dropdownLists.Text}}</option>
                   </select>
                   <div class="invalid-feedback" *ngIf="Department.touched && Department.invalid">
                     Department is Mandatory
-                  </div>  
+                  </div>
                 </div>
 
                 <div class="form-group col-md-4">
                   <label for="Designation">Designation</label>
                   <select class="custom-select" type="number" #Designation="ngModel" [(ngModel)]="Employee.Designation" name="Designation" id="Designation"  required>
-                    
+
                     <option *ngFor="let dropdownLists of dropdownListOfDesignation" [value]=dropdownLists.Value>{{dropdownLists.Text}}</option>
-                  
+
                   </select>
                   <div class="invalid-feedback" *ngIf="Designation.touched && Designation.invalid">
                     Designation is Mandatory
-                  </div>  
+                  </div>
                 </div>
 
                 <div class="form-group col-md-4">
                   <label for="Grade">Grade</label>
                   <select type="number" class="custom-select" #Grade="ngModel" [(ngModel)]="Employee.Grade" name="Grade" id="Grade"  required>
-                    
+
                     <option *ngFor="let dropdownLists of dropdownListOfGrade" [value]=dropdownLists.Value>{{dropdownLists.Text}}</option>
-                  
+
                   </select>
                    <div class="invalid-feedback" *ngIf="Grade.touched && Grade.invalid">
                     Grade is Mandatory
-                  </div>  
+                  </div>
                 </div>
 
 
@@ -170,9 +170,9 @@ both are edited the other in formation  -->
                   <input type="text" class="form-control"#HighestQualification="ngModel" [(ngModel)]="Employee.HighestQualification" name="HighestQualification" id="HighestQualification" placeholder="Enter Highest Qualification">
                   <div class="invalid-feedback" *ngIf="HighestQualification.touched && HighestQualification.invalid">
                     High Qualification Is Mandatory
-                  </div> 
+                  </div>
                 </div>
-                
+
                 <div class="form-group col-md-4">
                   <label for="PriorExperience">Total Experience(yrs)</label><br>
                   <input type="number" id="PriorExperience" class="form-control" #PriorExperience="ngModel" [(ngModel)]="Employee.PriorExperience" name="PriorExperience" id="PriorExperience" min="1" max="20" >
@@ -192,9 +192,9 @@ both are edited the other in formation  -->
                 <div class="form-group col-md-4">
                   <label for="MaritalStatus">Marital Status</label>
                   <select type="number" class="custom-select" #MaritalStatus="ngModel" [(ngModel)]="Employee.MaritalStatus" name="MaritalStatus" id="MaritalStatus"  required>
-                    
+
                     <option *ngFor="let dropdownLists of dropdownListOfMaritalStatus" [value]=dropdownLists.Value>{{dropdownLists.Text}}</option>
-                  
+
                   </select>
                   <div class="invalid-feedback" *ngIf="MaritalStatus.touched && MaritalStatus.invalid">
                     Marital Status Is Mandatory
@@ -204,9 +204,9 @@ both are edited the other in formation  -->
                 <div class="form-group col-md-4">
                   <label for="Gender">Gender</label>
                   <select type="number" class="custom-select" #Gender="ngModel" [(ngModel)]="Employee.Gender" name="Gender" id="Gender" required>
-                    
+
                     <option *ngFor="let dropdownLists of dropdownListOfGender" [value]=dropdownLists.Value>{{dropdownLists.Text}}</option>
-                  
+
                   </select>
                   <div class="invalid-feedback" *ngIf="Gender.touched && Gender.invalid">
                     Gender Is Mandatory
@@ -219,10 +219,10 @@ both are edited the other in formation  -->
                   <select type="text" class="custom-select" #PrimaryManagerId="ngModel" [(ngModel)]="Employee.PrimaryManagerId" name="PrimaryManagerId" id="PrimaryManagerId">
                     <option value="">Select any option</option>
                     <option *ngFor="let dropdownLists of dropdownListOfUser" [value]=dropdownLists.Id>{{dropdownLists.FullName}}</option>
-                  
+
                   </select>
                   <!-- <div class="invalid-feedback" *ngIf="PrimaryManagerId.touched && PrimaryManagerId.invalid">
-                    
+
                   </div> -->
                 </div>
 
@@ -232,7 +232,7 @@ both are edited the other in formation  -->
                   <select type="number" class="custom-select" #EmployeeStatus="ngModel" [(ngModel)]="Employee.EmployeeStatus" name="EmployeeStatus" id="EmployeeStatus" required>
                     <option value="">Select any option</option>
                     <option *ngFor="let dropdownLists of dropdownListOfStatus" [value]=dropdownLists.Value>{{dropdownLists.Text}}</option>
-                  
+
                   </select>
                   <div class="invalid-feedback" *ngIf="EmployeeStatus.touched && EmployeeStatus.invalid">
                     Employee Status Is Mandatory
@@ -241,23 +241,23 @@ both are edited the other in formation  -->
 
 
               </div>
-              
+
               <button type="submit" [disabled]="!f.valid" class="btn btn-primary">Save</button>
-    
+
                 <!-- <button type="button" (click)="onPrint()" class="btn btn-primary" style="margin-left: 10px;">PRINT</button> -->
               <!-- <router-outlet></router-outlet>
               <router-outlet name="print"></router-outlet> -->
 
              <!----<button (click)="printPage()" class="btn btn-primary">print</button>-->
-              
+
             </form>
-            
+
           </div>
         </div>
       </div>
 
-			
-			
+
+
       <!-- <div class="card">
         <div class="card-header" id="headingTwo">
           <h2 class="mb-0">
@@ -333,10 +333,10 @@ both are edited the other in formation  -->
 								 	</div>
 								</div>
               </div>
-            
+
               <button type="submit" class="btn btn-primary">Save</button>
             </form>
-            
+
           </div>
         </div>
       </div> -->
@@ -417,10 +417,10 @@ both are edited the other in formation  -->
 								  </div>
 								</div>
               </div>
-            
+
               <button type="submit" class="btn btn-primary">Save</button>
             </form>
-            
+
           </div>
         </div>
       </div> -->
@@ -501,18 +501,17 @@ both are edited the other in formation  -->
 								  </div>
 								</div>
               </div>
-            
+
               <button type="submit" class="btn btn-primary">Save</button>
             </form>
-            
+
           </div>
         </div>
       </div> -->
     </div>
-    
+
   </div>
 </div>
 
 
 
- 

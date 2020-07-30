@@ -4,9 +4,9 @@
        <ul class="breadcrumb" style="background-color: transparent;">
         <li class="breadcrumb-item " >
             <span class="icon">
-            <i class="fa fa-briefcase"></i></span>  
+            <i class="fa fa-briefcase"></i></span>
             <span class="heading" style="color: black; background-color: transparent;">Expense Claim</span></li>
-           
+
       </ul>
     </div>
 <div class="col my-col">
@@ -18,10 +18,10 @@
       </ul>
   </div>
 </div>
-  </div> 
+  </div>
   <div class="row my-row">
     <div class="col my-col1">
-    Expense Claim Record
+    <!-- Expense Claim Record -->
   </div>
   </div>
 </div>
@@ -30,12 +30,12 @@
     Expense Claim
   </div>
   <div class="card-body">
-    <form #form="ngForm" (submit)="onSubmit(form.value)" class="was-validated">  
+    <form #form="ngForm" (submit)="onSubmit(form.value)" class="was-validated">
       <div class="form-row">
-        
+
           <div class="form-group col-md-4">
             <label for="period">Period</label>
-            
+
             <select class="custom-select" #period="ngModel" [(ngModel)]="Expenseclaim.period" name="period" id="period" required>
               <option selected>04 May 2020 - 10 May 2020</option>
               <option value="1">27 Apr 2020 - 03 May 2020</option>
@@ -45,40 +45,40 @@
               <div class="invalid-feedback" *ngIf="period.touched && period.invalid">
                 Period is required.
               </div>
-            
+
           </div>
           <div class="form-group col-md-4">
             <label for="project">Project</label>
-            
-            <select class="custom-select"  #project="ngModel" [(ngModel)]="Expenseclaim.project" name="project" id="project" required> 
+
+            <select class="custom-select"  #project="ngModel" [(ngModel)]="Expenseclaim.project" name="project" id="project" required>
               <option selected>Select</option>
               <option value="1">Working Out Of Office</option>
               <option value="2">Work From Home</option>
               <option value="3">Attendance Modification</option>
               <option value="4">Earning Compensatory</option>
               <option value="5">Short Leave</option>
-  
+
             </select>
             <div class="invalid-feedback" *ngIf="date.project && project.invalid">
               Project is required.
             </div>
-           
+
           </div>
           <div class="form-group">
             <div class="form-group col-md-14">
               <label for="date">Date</label>
 
-            <input type="date" #date="ngModel" [(ngModel)]="Expenseclaim.date" name="date" id="date" 
-            max="3000-12-31" id="date"  min="1000-01-01" class="form-control" required>  
+            <input type="date" #date="ngModel" [(ngModel)]="Expenseclaim.date" name="date" id="date"
+            max="3000-12-31" id="date"  min="1000-01-01" class="form-control" required>
             <div class="invalid-feedback" *ngIf="date.touched && date.invalid">
               Date is required.
-            </div>                                                            
-                  
+            </div>
+
           </div>
           </div>
           <div class="form-group col-md-4">
             <label for="description">Description</label>
-            <textarea class="form-control" #description="ngModel" [(ngModel)]="Expenseclaim.description" name="description" id="description" 
+            <textarea class="form-control" #description="ngModel" [(ngModel)]="Expenseclaim.description" name="description" id="description"
             rows="1" required></textarea>
             <div class="invalid-feedback" *ngIf="description.touched && description.invalid">
               Description is required.
@@ -89,7 +89,7 @@
             <div class="form-group col-md-4">
               <label for="type">Type</label>
               <select class="custom-select" #type="ngModel" [(ngModel)]="Expenseclaim.type" name="type" id="type" required>
-        
+
                 <option selected>Carework</option>
                  <option value="1">Working Out Of Office</option>
                  <option value="2">Work From Home</option>
@@ -116,7 +116,7 @@
                 <div class="form-group col-md-4">
                   <label for="paidBy">Paid By</label>
                   <select class="custom-select" #paidBy="ngModel" [(ngModel)]="Expenseclaim.paidBy" name="paidBy" id="paidBy" required>
-        
+
                     <option selected>Select</option>
                      <option value="1">Working </option>
                      <option value="2">Work </option>
@@ -129,7 +129,7 @@
                     </div>
                   </div>
                   <div class="form-group col-md-4">
-      
+
                     <label for="scannedBills">Scanned Bills</label><br><br>
                     <div class="form-check form-check-inline">
                       <input class="form-check-input" type="radio" [value]="true" #scannedBills="ngModel" [(ngModel)]="Expenseclaim.scannedBills" name="scannedBills" required>
@@ -143,9 +143,9 @@
                       Scanned Bills Is Required.
                     </div>
                   </div>
-                  
+
                   <div class="form-group col-md-4">
-      
+
                     <label for="physicalBills">Physical Bills</label><br><br>
                     <div class="form-check form-check-inline">
                       <input class="form-check-input" type="radio" [value]="true" #physicalBills="ngModel" [(ngModel)]="Expenseclaim.physicalBills" name="physicalBills" required>
@@ -189,9 +189,9 @@
 
 
 
-            
-          
-      
+
+
+
     </form>
     <!--<form class="form-inline">
       <div class="form-group mb-2">
@@ -220,7 +220,7 @@
          <option value="5">Short Leave</option>
         </select>
       </div>
-      
+
     </form><br>--->
      <!----table -->
      <!---<div style="overflow-x: scroll;">
@@ -242,8 +242,8 @@
           <tr>
             <td>
               <div class="form-group">
-                <input type="date"  max="3000-12-31" id="date"  min="1000-01-01" class="form-control">                                                              
-                      
+                <input type="date"  max="3000-12-31" id="date"  min="1000-01-01" class="form-control">
+
               </div>
             </td>
             <td>
@@ -253,7 +253,7 @@
             <td>
               <div class="form-group mx-sm-3 mb-2">
                 <select class="custom-select" id="type">
-        
+
                 <option selected>Carework</option>
                  <option value="1">Working Out Of Office</option>
                  <option value="2">Work From Home</option>
@@ -270,7 +270,7 @@
             <td>
               <div class="form-group mx-sm-3 mb-2">
                 <select class="custom-select" id="type">
-        
+
                 <option selected>Select</option>
                  <option value="1">Working </option>
                  <option value="2">Work </option>
@@ -300,10 +300,10 @@
                 <label class="form-check-label" for="inlineRadio2">No</label>
                 </div>
             </td>
-            
-           
+
+
           </tr>
-        
+
         </tbody>
       </table>
       </div><br>

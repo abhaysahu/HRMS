@@ -17,9 +17,9 @@
         <li class="breadcrumb-item">
           <span class="icon">
             <i class="fa fa-briefcase"></i>
-          </span>  
+          </span>
           <span class="heading" style="color: black; background-color: transparent;">Add Picklist</span>
-        </li>   
+        </li>
       </ul>
     </div>
     <div class="col my-col">
@@ -35,7 +35,7 @@
   </div>
   <div class="row my-row">
     <div class="col my-col1">
-      Add Pick List Record
+      <!-- Add Pick List Record -->
     </div>
   </div>
 </div>
@@ -45,19 +45,19 @@
    Add Pick List <span style="float: right;"><a routerLink="/dashboard/picklist/list" ><i class="fa fa-plus-circle" ></i>  Pick List</a></span>
   </div>
   <div class="card-body">
-    <form #f="ngForm" (ngSubmit)="StringMapData(f.value)" class="was-validated">  
+    <form #f="ngForm" (ngSubmit)="StringMapData(f.value)" class="was-validated">
       <div class="form-row">
         <!---1-->
         <div class="form-group col-md-3">
           <label for="ObjectTypeCode">Object Type Code</label>
-          <select class="custom-select" #ObjectTypeCode="ngModel" [(ngModel)]="stringMap.ObjectTypeCode" name="ObjectTypeCode" id="ObjectTypeCode"  id="selectEntity" required> 
-            <option>Select any option</option>  
-            
+          <select class="custom-select" #ObjectTypeCode="ngModel" [(ngModel)]="stringMap.ObjectTypeCode" name="ObjectTypeCode" id="ObjectTypeCode"  id="selectEntity" required>
+            <option>Select any option</option>
+
             <option *ngFor="let dropdownLists of dropdownList" [value]="dropdownLists.ObjectTypeCode">{{dropdownLists.Name}}</option>
           </select>
           <div class="invalid-feedback" *ngIf="ObjectTypeCode.touched && ObjectTypeCode.invalid">
             Object Type Code Is Required.
-          </div> 
+          </div>
         </div>
 
         <div class="form-group col-md-3">
@@ -66,7 +66,7 @@
           <div class="invalid-feedback" *ngIf="AttributeName.touched && AttributeName.invalid">
             AttributeValue Is Required.
           </div>
-        </div>    
+        </div>
 
         <div class="form-group col-md-3">
           <label for="Value">Value</label>
@@ -91,7 +91,7 @@
             Name Is Required.
           </div>
         </div>
-        
+
         <div class="form-group col-md-3">
           <div style="padding-left: 20px;">
             <label for="IsActive">Is Active</label><br><br>
@@ -107,8 +107,8 @@
           <div class="invalid-feedback" *ngIf="IsActive.touched && IsActive.invalid">
             Master Entity Is Required.
           </div>
-        </div>     
-        
+        </div>
+
         <div class="form-group col-md-3">
           <label for="Description">Description</label>
           <textarea rows="2" class="form-control" #Description="ngModel" [(ngModel)]="stringMap.Description" name="Description" id="Description"></textarea>
@@ -118,6 +118,6 @@
         </div>
       </div>
       <button type="submit" [disabled]="!f.valid" class="btn btn-primary">Save</button>
-    </form>      
+    </form>
   </div>
 </div>

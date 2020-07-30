@@ -18,9 +18,9 @@
        <ul class="breadcrumb" style="background-color: transparent;">
         <li class="breadcrumb-item " >
             <span class="icon">
-            <i class="fa fa-briefcase"></i></span>  
+            <i class="fa fa-briefcase"></i></span>
             <span class="heading" style="color: black; background-color: transparent;"> Time Away Requests</span></li>
-           
+
       </ul>
     </div>
 <div class="col my-col">
@@ -35,7 +35,7 @@
   </div>
   <div class="row my-row">
     <div class="col my-col1">
-    My Time Away Requests Record
+    <!-- My Time Away Requests Record -->
   </div>
   </div>
 </div>
@@ -49,7 +49,7 @@
       <div class="form-row">
       <div class="form-group col-md-2">
         <label for="requestId">Request Id</label>
-        
+
         <select class="custom-select" #requestId="ngModel" [(ngModel)]="Attendance.requestId" name="requestId" id="requestId" required>
           <option selected>All</option>
           <option value="1">A</option>
@@ -62,7 +62,7 @@
         </div>
         <div class="form-group col-md-2">
           <label for="type">Type</label>
-          
+
           <select class="custom-select" #type="ngModel" [(ngModel)]="Attendance.type" name="type" id="type" required>
             <option selected>All</option>
             <option value="1">Working Out Of Office</option>
@@ -78,7 +78,7 @@
 
           <div class="form-group col-md-2">
             <label for="month">Month</label>
-            
+
             <select class="custom-select" #month="ngModel" [(ngModel)]="Attendance.month" name="month" id="month" required>
               <option selected>Select</option>
               <option value="1">Jan</option>
@@ -93,7 +93,7 @@
               <option value="10">October</option>
               <option value="11">November</option>
               <option value="12">December</option>
-  
+
             </select>
             <div class="invalid-feedback" *ngIf="month.touched && month.invalid">
               Month is required.
@@ -102,7 +102,7 @@
 
             <div class="form-group col-md-2">
               <label for="year">Year</label>
-              
+
               <select class="custom-select" #year="ngModel" [(ngModel)]="Attendance.year" name="year" id="year" required>
                 <option selected>Select</option>
                 <option value="1">Jan</option>
@@ -117,7 +117,7 @@
                 <option value="10">October</option>
                 <option value="11">November</option>
                 <option value="12">December</option>
-    
+
               </select>
               <div class="invalid-feedback" *ngIf="year.touched && year.invalid">
                 Year is required.
@@ -126,7 +126,7 @@
 
               <div class="form-group col-md-2">
                 <label for="approvalStatus">Approval Status</label>
-                
+
                 <select class="custom-select" #approvalStatus="ngModel" [(ngModel)]="Attendance.approvalStatus" name="approvalStatus" id="approvalStatus" required>
                   <option selected>Pending</option>
                   <option value="1">Working Out Of Office</option>
@@ -142,7 +142,7 @@
 
                 <div class="form-group col-md-2">
                   <label for="hrStatus">Hr Status</label>
-                  
+
                   <select class="custom-select" #hrStatus="ngModel" [(ngModel)]="Attendance.hrStatus" name="hrStatus" id="hrStatus" required>
                     <option selected>Pending</option>
                     <option value="1">Working Out Of Office</option>
@@ -154,11 +154,11 @@
                     <div class="invalid-feedback" *ngIf="hrStatus.touched && hrStatus.invalid">
                       Hr status is required.
                     </div>
-            
+
                   </div>
       </div>
       <button type="submit" class="btn btn-primary">Filter</button>
-      
+
     </form><br>
     <div style="overflow-x: scroll;">
     <table class="table table-bordered">

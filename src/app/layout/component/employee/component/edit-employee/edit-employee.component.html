@@ -34,7 +34,7 @@
   </div>
   <div class="row my-row">
     <div class="col my-col1">
-      Edit Full Details
+      <!-- Edit Full Details -->
     </div>
   </div>
 </div>
@@ -206,11 +206,11 @@
                   <label for="pfCard">PF #</label><br>
                   <input type="text" class="form-control" #pfCard="ngModel" [(ngModel)]="Employee.pfCard" id="pfCard" name="pfCard" min="0000000000" max="999999999999999" readonly>
                 </div>
-                
+
               </div>
               <button type="submit" class="btn btn-primary">Save</button>
             </form>
-            
+
           </div>
         </div>
       </div> -->
@@ -330,11 +330,11 @@
                   </div>
                 </div>
               </div>
-     
+
                 <input type="hidden" class="form-control" #Id="ngModel"
                 [(ngModel)]="currentAddress.Id" name="Id" id="Id">
-                
-         
+
+
               <button type="submit" [disabled]="!current.valid" class="btn btn-primary">Save</button>
             </form>
 
@@ -492,12 +492,12 @@
 
 
             <!-- <div class="form-row shift">
-           
+
               <div class="form-group form-check col-md-6">
                 <input type="checkbox" class="form-check-input" id="exampleCheck1" (change)="copyCurrentToEmergency($event)">
                 <label class="form-check-label" for="exampleCheck1">Same As Current Address</label>
               </div>
-      
+
               <div class="form-group form-check col-md-6">
                 <input type="checkbox" class="form-check-input" id="exampleCheck1" (change)="copyPermanentToEmergency($event)">
                 <label class="form-check-label" for="exampleCheck1">Same As Permanent Address</label>
