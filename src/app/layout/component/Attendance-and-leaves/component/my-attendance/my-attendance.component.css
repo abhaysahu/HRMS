@@ -4,7 +4,7 @@
     padding: 15px 30px;
     background-color: #f2f2f2;
     border-bottom: 1px solid #fff;
-    
+
 
     box-shadow: 0 0 20px rgba(0,0, 0, 0.15);
     border-radius: 5px 5px 0 0;
@@ -17,7 +17,7 @@
     width: 65px;
     float: left;
     margin-top: -4px;
-    line-height: 0;   
+    line-height: 0;
 }
 .content-header .header-title {
     margin-left: 62px;
@@ -81,7 +81,7 @@ ul.link li > a > i.fa {
     border-radius: 5px 5px 0 0;
     overflow: hidden;
     border-collapse: collapse;
-    
+
 
 }
 label{
@@ -95,13 +95,13 @@ label {
     margin: .4rem 0;
 }*/
 
-.card{
+/* .card{
 
     box-shadow: 0 0 20px rgba(0,0, 0, 0.20);
     border-radius: 5px 5px 0 0;
     overflow: hidden;
     border-collapse: collapse;
-    
+
 
 }
 .my-row {
@@ -148,4 +148,4 @@ label {
 
 label{
     font-weight: bold;
-}
+} */
