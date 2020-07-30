@@ -3,7 +3,7 @@
     padding: 15px 30px;
     background-color: #f2f2f2;
     border-bottom: 1px solid #fff;
-    
+
 
     box-shadow: 0 0 20px rgba(0,0, 0, 0.15);
     border-radius: 5px 5px 0 0;
@@ -76,7 +76,7 @@
     padding: 15px 30px;
     background-color: #f2f2f2;
     border-bottom: 1px solid #fff;
-    
+
 
     box-shadow: 0 0 20px rgba(0,0, 0, 0.15);
     border-radius: 5px 5px 0 0;
@@ -148,7 +148,7 @@ ul.breadcrumb li > a > i.fa {
     border-radius: 5px 5px 0 0;
     overflow: hidden;
     border-collapse: collapse;
-    
+
 
 }*/
 /* code my me*/
@@ -203,7 +203,7 @@ ul.breadcrumb li > a > i.fa {
     padding: 15px 30px;
     background-color: #f2f2f2;
     border-bottom: 1px solid #fff;
-    
+
 
     box-shadow: 0 0 20px rgba(0,0, 0, 0.15);
     border-radius: 5px 5px 0 0;
@@ -213,13 +213,13 @@ ul.breadcrumb li > a > i.fa {
 
 }*/
 
-.card{
+/* .card{
 
     box-shadow: 0 0 20px rgba(0,0, 0, 0.20);
     border-radius: 5px 5px 0 0;
     overflow: hidden;
     border-collapse: collapse;
-    
+
 
 }
 .my-row {
@@ -258,7 +258,8 @@ ul.breadcrumb li > a > i.fa {
 .my-col1{
 	font-size: 14px;
     display: inline-block;
-    padding-left: 95px;
+    paddi/
+    ng-left: 95px;
     font-weight: 600;
     color: #555;
     bottom: 35px;
@@ -266,4 +267,4 @@ ul.breadcrumb li > a > i.fa {
 
 label{
     font-weight: bold;
-}
+} */

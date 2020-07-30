@@ -3,7 +3,7 @@
     padding: 15px 30px;
     background-color: #f2f2f2;
     border-bottom: 1px solid #fff;
-    
+
 
     box-shadow: 0 0 20px rgba(0,0, 0, 0.15);
     border-radius: 5px 5px 0 0;
@@ -77,16 +77,16 @@ ul.link li > a > i.fa {
     border-radius: 5px 5px 0 0;
     overflow: hidden;
     border-collapse: collapse;
-    
+
 
 }*/
-.card{
+/* .card{
 
     box-shadow: 0 0 20px rgba(0,0, 0, 0.20);
     border-radius: 5px 5px 0 0;
     overflow: hidden;
     border-collapse: collapse;
-    
+
 
 }
 .my-row {
@@ -133,4 +133,4 @@ ul.link li > a > i.fa {
 
 label{
     font-weight: bold;
-}
+} */
