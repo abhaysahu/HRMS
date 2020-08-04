@@ -38,11 +38,11 @@ import { RewardSkipComponent } from './layout/component/reward-skip/component/re
 import { MyTransactionComponent } from './layout/component/Finance/component/my-transaction/my-transaction.component';
 import { TransactionComponent } from './layout/component/Finance/component/transaction/transaction.component';
 import { LedgerComponent } from './layout/component/Finance/component/ledger/ledger.component';
-import { ReportComponent } from './layout/component/Report/report/components/report.component';
 import { LenderComponent } from './layout/component/Finance/component/lender/component/lender.component';
-import { UnsoldProductsComponent } from './layout/component/Report/report/components/unsold-products/unsold-products.component';
 import { VenderComponent } from './layout/component/Finance/component/vender/component/vender-list/vender.component';
 import { VenderSaveComponent } from './layout/component/Finance/component/vender/component/vender-save/vender-save.component';
+import { UnsoldProductsComponent } from './layout/component/Report/components/unsold-products/unsold-products.component';
+import { ReportComponent } from './layout/component/Report/components/report/report.component';
 
 const routes: Routes = [
 
