@@ -1,0 +1,98 @@
+<div class="col">
+  <div class="row my-row" >
+    <div class="col my-col">
+       <ul class="breadcrumb" style="background-color: transparent;">
+        <li class="breadcrumb-item " >
+            <span class="icon">
+            <i class="fa fa-folder-o"></i></span>
+            <span class="heading" style="color: black; background-color: transparent;"> Unsold Products</span></li>
+
+      </ul>
+    </div>
+<div class="col my-col">
+  <div class="a">
+      <ul class="breadcrumb" style="background-color: transparent;">
+        <li class="breadcrumb-item"><a routerLink="/dashboard">
+          <i class="fa fa-home"></i> Home</a></li>
+        <li class="breadcrumb-item"><a routerLink="/dashboard/report/unsoldproducts"> Unsold Products</a></li>
+
+      </ul>
+  </div>
+</div>
+  </div>
+  <div class="row my-row">
+    <div class="col my-col1">
+     <!-- Unsold Products Record -->
+  </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header">
+    Unsold Products
+
+  </div>
+  <div class="card-body" style="overflow-x: scroll;">
+    <div class="form-row">
+    <div class="form-group col-md-4">
+      <label for="ProductAddedSince">Product Added Since</label>
+
+      <select class="custom-select" (change)="getListOfProduct($event)">
+        <option selected>Selected Any option</option>
+        <option value=7>1 Week</option>
+        <option value=30>1 Month</option>
+        <option value=90>3 Month</option>
+        <option value=180>6 Month</option>
+
+        </select>
+      </div>
+
+        <div class="form-group col-md-4">
+          <label for="date">Date</label>
+          <div class="form-group">
+            <input type="date" max="3000-12-31" [(ngModel)]="DateOfLastSell" (change)="getListOfProductByDate($event)" name="date" id="date" min="1000-01-01" class="form-control">
+          </div>
+        </div>
+
+      </div>
+
+      <input type="text" class="form-control" [(ngModel)]="email" placeholder="Serach any fields"/>
+
+    <br>
+
+
+    <table class="table table-bordered">
+      <thead>
+        <tr style="cursor: pointer;">
+          <th scope="col" (click)="sortFilter(1)">Product Name <i class={{sortIcon1}} aria-hidden="true"></i></th>
+          <th scope="col" (click)="sortFilter(2)">Selling Price <i class={{sortIcon2}} aria-hidden="true"></i></th>
+          <th scope="col" (click)="sortFilter(3)">MRP <i class={{sortIcon3}} aria-hidden="true"></i></th>
+          <th scope="col" (click)="sortFilter(4)">Buying Cost <i class={{sortIcon4}} aria-hidden="true"></i></th>
+          <th scope="col" (click)="sortFilter(5)">Stock Quantity <i class={{sortIcon5}} aria-hidden="true"></i></th>
+          <th scope="col" (click)="sortFilter(6)">Sold Quantity <i class={{sortIcon6}} aria-hidden="true"></i></th>
+          <th scope="col" (click)="sortFilter(7)">Days To Last Order <i class={{sortIcon7}} aria-hidden="true"></i></th>
+        </tr>
+      </thead>
+
+      <tbody *ngIf="UnsoldProduct?.length != 0">
+        <tr *ngFor="let UnsoldProducts of UnsoldProduct | unsold:email;">
+          <td>{{ UnsoldProducts.ProductName }}</td>
+          <td>{{ UnsoldProducts.SellingPrice }}</td>
+          <td>{{ UnsoldProducts.MRP }}</td>
+          <td>{{ UnsoldProducts.BuyingCost }}</td>
+          <td>{{ UnsoldProducts.StockQuantity }}</td>
+          <td>{{ UnsoldProducts.SoldQuantity }}</td>
+          <td>{{ UnsoldProducts.DaysToLastOrder }}</td>
+        </tr>
+      </tbody>
+
+      <tbody  *ngIf="UnsoldProduct?.length ==0">
+        <tr>
+          <td colspan="7" class="no-data-available">No matching records found</td>
+        </tr>
+      <tbody>
+
+    </table>
+
+  </div>
+  </div>

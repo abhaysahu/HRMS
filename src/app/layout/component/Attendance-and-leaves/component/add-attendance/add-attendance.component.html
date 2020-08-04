@@ -55,7 +55,7 @@
               <th scope="col">In Time</th>
               <th scope="col">Out Time</th>
               <th scope="col">Status</th>
-              <th scope="col">Index</th>
+              <th scope="col">Action</th>
             </tr>
           </thead>
           <tbody *ngIf="Addattendance?.length != 0">
@@ -115,7 +115,7 @@
               </td>
 
               <td>
-                {{ i }}
+                <button type="button" (click)="Save()" class="btn btn-primary">Save</button>
               </td>
             </tr>
           </tbody>

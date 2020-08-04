@@ -39,7 +39,7 @@ export class ErrorHandlingService {
     console.log(error.error)
     if(error.status === 400)
       {
-        this.message = error.error.message;
+        this.message = error.error.Message;
         return this.customToastrService.GetErrorToastr(this.message, status, 3000)
       }
       else if(error.status === 401)
@@ -50,7 +50,7 @@ export class ErrorHandlingService {
       }       
       else
       {
-        this.message = error.error.message;
+        this.message = error.error.Message;
         return this.customToastrService.GetErrorToastr(this.message, status, 3000)
 
       }
