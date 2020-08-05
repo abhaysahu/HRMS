@@ -24,38 +24,9 @@ export class MyTimesheetComponent implements OnInit {
 
     ) { 
 
-      // var today = new Date('9/6/2000');
-      // var tomorrow = new Date(today);
-      // tomorrow.setDate(today.getDate()+1);
-      // tomorrow.toLocaleDateString();
-
-
-      // var gsDayNames = [
-      //   'Sunday',
-      //   'Monday',
-      //   'Tuesday',
-      //   'Wednesday',
-      //   'Thursday',
-      //   'Friday',
-      //   'Saturday'
-      // ];
-
-
-      // var gsMonthNames = [
-      //   'Sunday',
-      //   'Monday',
-      //   'Tuesday',
-      //   'Wednesday',
-      //   'Thursday',
-      //   'Friday',
-      //   'Saturday'
-      // ];
-      
-      // var d = new Date();
-      // var dayName = gsDayNames[d.getDay()];
 
       var result = [];
-      var dd = new Date('06-08-2020');
+      //var dd = new Date('06-08-2020');
       console.log(d)
 
       for (let i=0; i<7; i++) 

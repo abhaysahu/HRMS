@@ -13,9 +13,11 @@ import { stringify } from 'querystring';
 export class UnsoldProductsComponent implements OnInit {
 
   UnsoldProduct: any[]=[];
+  ProductForm: any;
   message;
   email;
   ascNumberSort;
+  dataStatus=true
 
   sortIcon1="fa fa-sort"
   sortIcon2="fa fa-sort"
@@ -29,14 +31,43 @@ export class UnsoldProductsComponent implements OnInit {
   constructor(
     private customToastrService: CustomToastrService,
     private errorHandlingService: ErrorHandlingService,
-    private reportService: ReportService) { }
+    private reportService: ReportService) { 
+
+      this.ProductForm={
+        DateOfLastSell: '',
+        ProductName: ''
+      }
+
+
+
+    }
 
   ngOnInit() {
   }
 
-  getListOfProductByDate(event)
+  getListOfProduct(event)
   {
-    let date = event.target.value;
+
+    let NumberOfDay = event.target.value;
+
+    let d = new Date();
+    let calculatedDate =new Date(d.setDate(d.getDate()-NumberOfDay));
+
+    let date12 =(`${calculatedDate.getMonth()+1}-${calculatedDate.getDate()}-${calculatedDate.getFullYear()}`);
+
+    // console.log(date12)
+
+    this.ProductForm = {
+      DateOfLastSell: date12,
+    }
+
+  }
+
+
+  submit(data)
+  {
+
+    let date = data.DateOfLastSell
     let date1 = new Date(date)
     // console.log(date1)
     // console.log(date1.getDate());
@@ -45,13 +76,13 @@ export class UnsoldProductsComponent implements OnInit {
 
     var date12 =new Date(`${date1.getMonth()+1}/${date1.getDate()}/${date1.getFullYear()}`);
 
-    console.log(date12);
+    // console.log(date12);
 
     // var date1 = new Date("06/30/2019"); 
 
     var date2 = new Date(); 
     var date22 = new Date(`${date2.getMonth()+1}/${date2.getDate()}/${date2.getFullYear()}`);
-    console.log(date22)
+    // console.log(date22)
 
     var Difference_In_Time = date22.getTime() - date12.getTime();
     var Difference_In_Days = Difference_In_Time / (1000 * 3600 * 24); 
@@ -62,12 +93,17 @@ export class UnsoldProductsComponent implements OnInit {
     }
     else
     {
-      this.reportService.getListOfProduct(Difference_In_Days).subscribe(resp =>{
+      // console.log(Difference_In_Days)
+      this.reportService.getListOfProduct(Difference_In_Days, data.ProductName).subscribe(resp =>{
         console.log(resp)
         if(resp.Success)
         {
+          this.dataStatus=false
           this.UnsoldProduct = resp.Data
-          
+          if(this.UnsoldProduct==null)
+          {
+            this.dataStatus = true
+          }
         }
         else
         {
@@ -81,40 +117,15 @@ export class UnsoldProductsComponent implements OnInit {
     )
 
     }
-      
     
 
-  }
-
-  getListOfProduct(event)
-  {
-    let NumberOfDay = event.target.value;
-    
-    console.log(NumberOfDay);
-
-
-    this.reportService.getListOfProduct(NumberOfDay).subscribe(resp =>{
-      console.log(resp)
-      if(resp.Success)
-      {
-        this.UnsoldProduct = resp.Data
-        
-      }
-      else
-      {
-        this.message=resp.ErrorMessage;
-        this.customToastrService.GetErrorToastr(this.message, "Unsold Report Status", 5000)
-      }
-    }
-    ,   (error: AppResponse) => {
-      this.errorHandlingService.errorStatus(error,"Unsold Report Status")
-    }
-  )
   }
 
   sortFilter(value)
   {
     this.disable();
+
+    console.log(value)
 
     if(value == 1)
     {

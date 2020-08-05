@@ -20,13 +20,22 @@ export class ReportService {
 
 
 
-  getListOfProduct(NumberOfDay): Observable<GetListOfProduct>
+  getListOfProduct(NumberOfDay, ProductName): Observable<GetListOfProduct>
   {
 
     const headers = this.errorHandlingService.getauthorization();
 
-    return this.httpClient.post<GetListOfProduct>(environment.webapiUrl+`api/pobara/report/ProductUnSold?daysToLastSale=${NumberOfDay}&productName`, { headers: headers })
+    if(ProductName==null)
+    {
+      return this.httpClient.post<GetListOfProduct>(environment.webapiUrl+`api/pobara/report/ProductUnSold?daysToLastSale=${NumberOfDay}&productName`, { headers: headers })
+    }
 
+    else
+    {
+      return this.httpClient.post<GetListOfProduct>(environment.webapiUrl+`api/pobara/report/ProductUnSold?daysToLastSale=${NumberOfDay}&productName=${ProductName}`, { headers: headers })
+    }
+
+    
   }
 
 }
