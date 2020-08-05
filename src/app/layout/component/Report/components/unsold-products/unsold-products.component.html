@@ -33,8 +33,11 @@
 
   </div>
   <div class="card-body" style="overflow-x: scroll;">
+
+    <form #form="ngForm" (ngSubmit)="submit(form.value)" class="was-validated">
+
     <div class="form-row">
-    <div class="form-group col-md-4">
+    <div class="form-group col-md-3">
       <label for="ProductAddedSince">Product Added Since</label>
 
       <select class="custom-select" (change)="getListOfProduct($event)">
@@ -43,25 +46,47 @@
         <option value=30>1 Month</option>
         <option value=90>3 Month</option>
         <option value=180>6 Month</option>
-
-        </select>
+      </select>
       </div>
 
-        <div class="form-group col-md-4">
-          <label for="date">Date</label>
-          <div class="form-group">
-            <input type="date" max="3000-12-31" [(ngModel)]="DateOfLastSell" (change)="getListOfProductByDate($event)" name="date" id="date" min="1000-01-01" class="form-control">
-          </div>
+      
+
+      <div class="form-group col-md-3">
+        <label for="date">Date</label>
+        <div class="form-group">
+          <input type="date" class="form-control" #DateOfLastSell="ngModel" [ngModel]="ProductForm.DateOfLastSell | date:'yyyy-MM-dd'" (ngModelChange)="ProductForm.DateOfLastSell = $event" name="DateOfLastSell" required>
         </div>
-
+        <div class="invalid-feedback" *ngIf="DateOfLastSell.touched && DateOfLastSell.invalid">
+          Date Is Required.
+        </div>
       </div>
+
+      <!-- (change)="getListOfProductByDate($event)" -->
+
+
+      <div class="form-group col-md-3">
+				<label for="ProductName">Product Name</label>
+				<input type="text" class="form-control" #ProductName="ngModel" [(ngModel)]="ProductForm.ProductName" name="ProductName" id="ProductName">
+				<div class="invalid-feedback" *ngIf="ProductName.touched && ProductName.invalid">
+					Product Name Is Required.
+				</div>
+			</div>
+
+      <div class="form-group col-md-3">
+        <label for=""></label>
+        <button type="submit" [disabled]="!form.valid" class="btn btn-primary">Save</button>
+      </div>
+
+    </div>
+
+    </form>
 
       <input type="text" class="form-control" [(ngModel)]="email" placeholder="Serach any fields"/>
 
     <br>
 
 
-    <table class="table table-bordered">
+    <table class="table table-bordered" *ngIf="UnsoldProduct?.length != 0">
       <thead>
         <tr style="cursor: pointer;">
           <th scope="col" (click)="sortFilter(1)">Product Name <i class={{sortIcon1}} aria-hidden="true"></i></th>
@@ -74,7 +99,7 @@
         </tr>
       </thead>
 
-      <tbody *ngIf="UnsoldProduct?.length != 0">
+      <tbody>
         <tr *ngFor="let UnsoldProducts of UnsoldProduct | unsold:email;">
           <td>{{ UnsoldProducts.ProductName }}</td>
           <td>{{ UnsoldProducts.SellingPrice }}</td>
@@ -86,7 +111,7 @@
         </tr>
       </tbody>
 
-      <tbody  *ngIf="UnsoldProduct?.length ==0">
+      <tbody *ngIf="dataStatus">
         <tr>
           <td colspan="7" class="no-data-available">No matching records found</td>
         </tr>
