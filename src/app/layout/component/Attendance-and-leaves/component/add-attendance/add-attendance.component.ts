@@ -22,8 +22,8 @@ export class AddAttendanceComponent implements OnInit {
     private attendanceService: AttendanceService,
     private customToastrService: CustomToastrService,
     private errorHandlingService: ErrorHandlingService
-    
-    ) { 
+
+    ) {
 
     this.attendanceService.getUser().subscribe(resp => {
 
@@ -31,7 +31,7 @@ export class AddAttendanceComponent implements OnInit {
         {
           this.recordData = resp.Data
           console.log(this.recordData)
-          for (let i=0; i<this.recordData.length; i++) 
+          for (let i=0; i<this.recordData.length; i++)
           {
             let date={
               id: this.recordData[i].Id,
@@ -54,19 +54,19 @@ export class AddAttendanceComponent implements OnInit {
             this.message=resp.Message;
             this.customToastrService.GetErrorToastr(this.message,"Add Attendance", 5000)
         }
-        
+
       },   (error: AppResponse) => {
         this.errorHandlingService.errorStatus(error,"Add Attendance")
 
   }
   )
-  
-        
+
+
     }
 
  ngOnInit() {
   }
-  
+
 
   Save()
   {
@@ -94,7 +94,7 @@ export class AddAttendanceComponent implements OnInit {
       this.Addattendance[index].Intime = "10:00"
       this.Addattendance[index].OutTime = "20:00"
     }
-    
+
   }
 
   InTimechange(inTime, index)

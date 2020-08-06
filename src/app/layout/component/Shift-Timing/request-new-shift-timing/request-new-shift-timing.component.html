@@ -1,0 +1,139 @@
+<div class="col">
+  <div class="row my-row" >
+    <div class="col my-col">
+       <ul class="breadcrumb" style="background-color: transparent;">
+        <li class="breadcrumb-item " >
+            <span class="icon">
+            <i class="fa fa-handshake-o"></i></span>
+            <span class="heading" style="color: black; background-color: transparent;">Request New Shift Timing</span></li>
+
+      </ul>
+    </div>
+<div class="col my-col">
+  <div class="a">
+      <ul class="breadcrumb" style="background-color: transparent;">
+        <li class="breadcrumb-item"><a routerLink="/dashboard">
+          <i class="fa fa-home"></i> Home</a></li>
+        <li class="breadcrumb-item"><a routerLink="/dashboard/shifttiming/requestnewshifttiming">Request New Shift Timing</a></li>
+
+      </ul>
+  </div>
+</div>
+  </div>
+  <div class="row my-row">
+    <div class="col my-col1">
+    <!-- Add Vender Record -->
+  </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header">
+    Request New Shift Timing
+  </div>
+  <div class="card-body">
+    <form #form="ngForm" (submit)="onSubmit(form.value)" class="was-validated">
+      <div class="form-row">
+
+        <div class="form-group col-md-3">
+          <label for="Started">Started</label>
+          <input type="time" class="form-control" #Started="ngModel" [(ngModel)]="MyShifts.Started" name="Started" id="Started" required>
+          <div class="invalid-feedback" *ngIf="Started.touched && Started.invalid">
+            Started Is Required.
+          </div>
+        </div>
+
+        <div class="form-group col-md-3">
+          <label for="Ended">Ended</label>
+          <input type="time" class="form-control" #Ended="ngModel" [(ngModel)]="MyShifts.Ended" name="Ended" id="Ended" required>
+          <div class="invalid-feedback" *ngIf="Ended.touched && Ended.invalid">
+            Ended Is Required.
+          </div>
+        </div>
+
+        <div class="form-group col-md-3">
+          <label for="RequestedOn">Requested On</label>
+          <input type="time" class="form-control" #RequestedOn="ngModel" [(ngModel)]="MyShifts.RequestedOn" name="RequestedOn" id="RequestedOn" required>
+          <div class="invalid-feedback" *ngIf="Ended.touched && Ended.invalid">
+            Ended Is Required.
+          </div>
+        </div>
+
+        <div class="form-group col-md-3">
+          <label for="Status">Status</label>
+          <select class="custom-select" #Status="ngModel" [(ngModel)]="MyShifts.Status" name="Status" id="Status"  id="selectStatus" required>
+            <option>Select any option</option>
+
+            <option *ngFor="let dropdownLists of dropdownList" [value]="dropdownLists.Status">{{dropdownLists.Name}}</option>
+          </select>
+          <div class="invalid-feedback" *ngIf="Status.touched && Status.invalid">
+            Status Is Required.
+          </div>
+        </div>
+
+        <div class="form-group col-md-3">
+          <label for="ApprovedBy">ApprovedBy</label>
+          <select class="custom-select" #ApprovedBy="ngModel" [(ngModel)]="MyShifts.ApprovedBy" name="ApprovedBy" id="ApprovedBy"  id="selectApprovedBy" required>
+            <option>Select any option</option>
+
+            <option *ngFor="let dropdownLists of dropdownList" [value]="dropdownLists.ApprovedBy">{{dropdownLists.Name}}</option>
+          </select>
+          <div class="invalid-feedback" *ngIf="ApprovedBy.touched && ApprovedBy.invalid">
+            ApprovedBy Is Required.
+          </div>
+        </div>
+
+        <!-- <div class="form-group col-md-3">
+          <label for="Category">Category</label>
+          <select class="custom-select" #Category="ngModel" [(ngModel)]="vender.Category" name="Category" id="Category"  id="selectVender" required>
+            <option>Select any option</option>
+
+            <option *ngFor="let dropdownLists of dropdownList" [value]="dropdownLists.Category">{{dropdownLists.Name}}</option>
+          </select>
+          <div class="invalid-feedback" *ngIf="Category.touched && Category.invalid">
+            Object Type Code Is Required.
+          </div>
+        </div>
+
+        <div class="form-group col-md-3">
+          <label for="AddressLine1">Address Line 1</label>
+          <input type="text" class="form-control" #AddressLine1="ngModel" [(ngModel)]="vender.AddressLine1" name="AddressLine1" id="AddressLine1" required>
+          <div class="invalid-feedback" *ngIf="AddressLine1.touched && AddressLine1.invalid">
+            Address Line 1 Is Required.
+          </div>
+        </div>
+
+
+        <div class="form-group col-md-3">
+          <label for="AddressLine2">Address Line 2</label>
+          <input type="text" class="form-control" #AddressLine2="ngModel" [(ngModel)]="vender.AddressLine2" name="AddressLine2" id="AddressLine2" required>
+          <div class="invalid-feedback" *ngIf="AddressLine2.touched && AddressLine2.invalid">
+            Address Line 2 Is Required.
+          </div>
+        </div>
+
+
+        -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+      </div>
+
+      <button type="submit" class="btn btn-primary">Save</button>
+    </form>
+
+  </div>
+</div>
+
+
+

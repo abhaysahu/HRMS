@@ -43,6 +43,9 @@ import { VenderComponent } from './layout/component/Finance/component/vender/com
 import { VenderSaveComponent } from './layout/component/Finance/component/vender/component/vender-save/vender-save.component';
 import { UnsoldProductsComponent } from './layout/component/Report/components/unsold-products/unsold-products.component';
 import { ReportComponent } from './layout/component/Report/components/report/report.component';
+import { MyShiftsComponent } from './layout/component/Shift-Timing/my-shifts/my-shifts.component';
+import { AwaitingMyApprovalComponent } from './layout/component/Shift-Timing/awaiting-my-approval/awaiting-my-approval.component';
+import { RequestNewShiftTimingComponent } from './layout/component/Shift-Timing/request-new-shift-timing/request-new-shift-timing.component';
 
 const routes: Routes = [
 
@@ -186,10 +189,19 @@ const routes: Routes = [
         path: 'report', component: ReportComponent
       },
       {
-        path: 'finance/lender', component:LenderComponent
+        path: 'finance/lender', component: LenderComponent
       },
       {
         path: 'report/unsoldproducts', component: UnsoldProductsComponent
+      },
+      {
+        path: 'shifttiming/myshifts' , component: MyShiftsComponent
+      },
+      {
+        path: 'shifttiming/awaitingmyapproval' , component: AwaitingMyApprovalComponent
+      },
+      {
+        path: 'shifttiming/requestnewshifttiming' , component: RequestNewShiftTimingComponent
       }
 
     ],
