@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 // import { PopupComponent } from '../popup/popup.component';
-import { MatDialog, MatDialogConfig } from '@angular/material';
+import { MatDialog, MatDialogConfig, MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
 import { PopupshiftComponent } from '../popupshift/popupshift.component';
 
 @Component({
@@ -9,21 +9,22 @@ import { PopupshiftComponent } from '../popupshift/popupshift.component';
   styleUrls: ['./shift.component.css']
 })
 export class ShiftComponent implements OnInit {
-  dialog: any;
+ 
 
-  constructor() { }
+  constructor(
+    private dialog: MatDialog,
+
+  ) { }
 
   ngOnInit() {
   }
-  AddOrEditOrderItem(shift)
+  ShiftPopup()
   {
-
-
     const dialogConfig = new MatDialogConfig();
     dialogConfig.autoFocus = true;
     dialogConfig.disableClose = true;
     dialogConfig.width="50%";
-    dialogConfig.data={shift}
+    dialogConfig.data={}
     this.dialog.open(PopupshiftComponent, dialogConfig).afterClosed().subscribe(res =>{
 
 
