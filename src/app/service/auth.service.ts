@@ -62,7 +62,10 @@ export class AuthService {
   
   public logout(): void {
 
-    this.redirectUrl = document.location.pathname;
+    //this.redirectUrl = document.location.pathname;
+    this.redirectUrl = this.router.url;
+    // console.log(this.redirectUrl)
+    
     sessionStorage.removeItem('token');
     sessionStorage.removeItem('refresh');
     sessionStorage.removeItem('user');
