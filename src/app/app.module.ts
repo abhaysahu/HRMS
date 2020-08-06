@@ -109,6 +109,8 @@ import { UnsoldPipe } from './layout/component/Report/pipe/unsold.pipe';
 import { MyShiftsComponent } from './layout/component/Shift-Timing/my-shifts/my-shifts.component';
 import { AwaitingMyApprovalComponent } from './layout/component/Shift-Timing/awaiting-my-approval/awaiting-my-approval.component';
 import { RequestNewShiftTimingComponent } from './layout/component/Shift-Timing/request-new-shift-timing/request-new-shift-timing.component';
+import { ShiftComponent } from './layout/component/Attendance-and-leaves/component/shift/shift.component';
+import { PopupshiftComponent } from './layout/component/Attendance-and-leaves/component/popupshift/popupshift.component';
 
 
 
@@ -176,7 +178,9 @@ import { RequestNewShiftTimingComponent } from './layout/component/Shift-Timing/
     UnsoldPipe,
     MyShiftsComponent,
     AwaitingMyApprovalComponent,
-    RequestNewShiftTimingComponent
+    RequestNewShiftTimingComponent,
+    ShiftComponent,
+    PopupshiftComponent
 
 
   ],
@@ -213,7 +217,7 @@ import { RequestNewShiftTimingComponent } from './layout/component/Shift-Timing/
 
 
   ],
-  entryComponents:[CommentsComponent, EditpicklistComponent, PopupComponent, PrintPopupComponent, AddRewardComponent],
+  entryComponents:[CommentsComponent, EditpicklistComponent, PopupComponent, PrintPopupComponent, AddRewardComponent, PopupshiftComponent],
 
   providers: [
      {provide: LocationStrategy, useClass: HashLocationStrategy},

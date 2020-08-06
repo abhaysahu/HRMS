@@ -8,7 +8,7 @@ import { DropDownList } from '../../model/dropdownLIst';
 import { CustomToastrService } from 'src/app/service/customToastr.service';
 import { ErrorHandlingService } from 'src/app/service/error-handling.service';
 
-export class stringMapList  { 
+export class stringMapList  {
 
   EntityName:string;
   AttributeName:string;
@@ -29,7 +29,7 @@ export class StringMapListComponent implements OnInit {
   dropdownList: DropDownList[]=[];
   ascNumberSort = true;
   indexs:any[]=[];
-  
+
   sortIcon1="fa fa-sort"
   sortIcon2="fa fa-sort"
   sortIcon3="fa fa-sort"
@@ -53,14 +53,14 @@ export class StringMapListComponent implements OnInit {
               private customToastrService: CustomToastrService,
               private errorHandlingService: ErrorHandlingService
 
-              ){  
+              ){
 
     this.stringmapService.getdropdownData().subscribe(resp =>{
-   
+
       if(resp.Success)
       {
         this.dropdownList = resp.Data
-       
+
       }
       else
       {
@@ -70,9 +70,9 @@ export class StringMapListComponent implements OnInit {
         this.message=resp.Message;
         this.customToastrService.GetErrorToastr(this.message, "StringMap List Status", 5000)
 
-        
+
       }
-      
+
     }
     ,   (error: AppResponse) => {
       this.errorHandlingService.errorStatus(error,"String Map List")
@@ -84,15 +84,15 @@ export class StringMapListComponent implements OnInit {
 
   ngOnInit() {
   }
-  
-  
+
+
   setIndex(ii){
     this.aa=ii;
   }
 
 
   AddOrEditOrderItem(stringMapList)
-  { 
+  {
 
     //console.log(stringMapList)
 
@@ -102,21 +102,21 @@ export class StringMapListComponent implements OnInit {
     dialogConfig.width="50%";
     dialogConfig.data={stringMapList}
     this.dialog.open(PopupComponent, dialogConfig).afterClosed().subscribe(res =>{
-     
-      
+
+
     });
   }
 
   getList(event)
   {
-    
+
     this.objectTypeCode = event.target.value
     this.stringmapService.stringMapGetList(this.objectTypeCode).subscribe(resp =>{
       console.log(resp)
       if(resp.Success)
       {
         this.stringMapList = resp.Data
-        
+
       }
       else
       {
@@ -126,7 +126,7 @@ export class StringMapListComponent implements OnInit {
         this.customToastrService.GetErrorToastr(this.message, "StringMap List Status", 5000)
 
       }
-      
+
     }
     ,   (error: AppResponse) => {
       this.errorHandlingService.errorStatus(error,"Login Status")
@@ -149,12 +149,12 @@ export class StringMapListComponent implements OnInit {
     if(value == 1)
     {
       this.ascNumberSort = !this.ascNumberSort;
-      if(this.ascNumberSort) 
+      if(this.ascNumberSort)
       {
         this.sortIcon1="fa fa-sort-desc"
         this.stringMapList=this.stringMapList.sort((a,b)=>a.EntityName.localeCompare(b.EntityName)); // For ascending sort
-      } 
-      else 
+      }
+      else
       {
         this.sortIcon1="fa fa-sort-asc"
         this.stringMapList=this.stringMapList.sort((a,b)=>b.EntityName.localeCompare(a.EntityName)); // For descending sort
@@ -164,12 +164,12 @@ export class StringMapListComponent implements OnInit {
     else if(value == 2)
     {
       this.ascNumberSort = !this.ascNumberSort;
-      if(this.ascNumberSort) 
+      if(this.ascNumberSort)
       {
         this.sortIcon2="fa fa-sort-desc"
         this.stringMapList=this.stringMapList.sort((a,b)=>a.AttributeName.localeCompare(b.AttributeName)); // For ascending sort
-      } 
-      else 
+      }
+      else
       {
         this.sortIcon2="fa fa-sort-asc"
         this.stringMapList=this.stringMapList.sort((a,b)=>b.AttributeName.localeCompare(a.AttributeName)); // For descending sort
@@ -179,12 +179,12 @@ export class StringMapListComponent implements OnInit {
     else if(value == 3)
     {
       this.ascNumberSort = !this.ascNumberSort;
-      if(this.ascNumberSort) 
+      if(this.ascNumberSort)
       {
         this.sortIcon3="fa fa-sort-desc"
         this.stringMapList=this.stringMapList.sort((a,b)=>a.CountStringMap - b.CountStringMap); // For ascending sort
-      } 
-      else 
+      }
+      else
       {
         this.sortIcon3="fa fa-sort-asc"
         this.stringMapList=this.stringMapList.sort((a,b)=>b.CountStringMap - a.CountStringMap); // For descending sort

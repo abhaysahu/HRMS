@@ -28,8 +28,8 @@ export class PopupComponent implements OnInit {
 
   updatePopup: UpdatePopup;
 
-  
- 
+
+
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public data,
@@ -39,8 +39,8 @@ export class PopupComponent implements OnInit {
     private customToastrService: CustomToastrService,
     private errorHandlingService: ErrorHandlingService
 
-  ) 
-  { 
+  )
+  {
 
     let attributeName = this.data.stringMapList.AttributeName;
     let objectTypeCode = this.data.stringMapList.ObjectTypeCode;
@@ -59,18 +59,18 @@ export class PopupComponent implements OnInit {
         this.customToastrService.GetErrorToastr(this.message, "Login Status", 5000)
 
       }
-      
+
     }
     ,   (error: AppResponse) => {
 
       this.errorHandlingService.errorStatus(error,"Login Status")
     }
 )
-    
+
   }
 
   ngOnInit() {
-    
+
   }
   close()
   {
@@ -102,7 +102,7 @@ export class PopupComponent implements OnInit {
     this.dialog.open(EditpicklistComponent, dialogConfig).afterClosed().subscribe(res =>{
       this.refresh()
     });
-  
+
   }
 
 
@@ -129,9 +129,9 @@ export class PopupComponent implements OnInit {
     dialogConfig.data=[this.updatePopup]
     this.dialog.open(EditpicklistComponent, dialogConfig).afterClosed().subscribe(res =>{
       this.refresh()
-      
+
     });
-  
+
   }
 
 
@@ -155,7 +155,7 @@ export class PopupComponent implements OnInit {
         this.customToastrService.GetErrorToastr(this.message, "Login Status", 5000)
 
       }
-      
+
     }
     ,   (error: AppResponse) => {
             this.errorHandlingService.errorStatus(error,"Login Status")

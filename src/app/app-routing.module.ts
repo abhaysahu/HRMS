@@ -46,6 +46,7 @@ import { ReportComponent } from './layout/component/Report/components/report/rep
 import { MyShiftsComponent } from './layout/component/Shift-Timing/my-shifts/my-shifts.component';
 import { AwaitingMyApprovalComponent } from './layout/component/Shift-Timing/awaiting-my-approval/awaiting-my-approval.component';
 import { RequestNewShiftTimingComponent } from './layout/component/Shift-Timing/request-new-shift-timing/request-new-shift-timing.component';
+import { ShiftComponent } from './layout/component/Attendance-and-leaves/component/shift/shift.component';
 
 const routes: Routes = [
 
@@ -95,6 +96,9 @@ const routes: Routes = [
       {
         path: 'myleaves', component: MyLeavesComponent,
         //canActivate: [AuthGuardService],
+      },
+      {
+        path: 'shift', component: ShiftComponent
       },
       {
         path: 'mytimesheet', component: MyTimesheetComponent,
@@ -203,6 +207,7 @@ const routes: Routes = [
       {
         path: 'shifttiming/requestnewshifttiming' , component: RequestNewShiftTimingComponent
       }
+
 
     ],
 
