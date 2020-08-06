@@ -53,7 +53,7 @@
 
         <div class="form-group col-md-3">
           <label for="RequestedOn">Requested On</label>
-          <input type="time" class="form-control" #RequestedOn="ngModel" [(ngModel)]="MyShifts.RequestedOn" name="RequestedOn" id="RequestedOn" required>
+          <input type="text" class="form-control" #RequestedOn="ngModel" [(ngModel)]="MyShifts.RequestedOn" name="RequestedOn" id="RequestedOn" required>
           <div class="invalid-feedback" *ngIf="Ended.touched && Ended.invalid">
             Ended Is Required.
           </div>

@@ -58,6 +58,7 @@ export class LoginComponent implements OnInit {
           this.authService.loginStatus.emit(true);
           if (this.authService.redirectUrl) 
           {
+            console.log(this.authService.redirectUrl)
 
             this.message="You are Login successfully Wait for redirect"
 
