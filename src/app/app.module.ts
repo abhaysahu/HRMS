@@ -212,7 +212,7 @@ import { ShiftTimeService } from './layout/component/Attendance-and-leaves/servi
   entryComponents:[CommentsComponent, EditpicklistComponent, PopupComponent, PrintPopupComponent, AddRewardComponent, PopupshiftComponent],
 
   providers: [
-     {provide: LocationStrategy, useClass: HashLocationStrategy},
+    //  {provide: LocationStrategy, useClass: HashLocationStrategy},
     LoginService,
     AuthGuardService,
     EmployeeService,
