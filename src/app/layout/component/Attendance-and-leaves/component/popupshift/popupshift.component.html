@@ -19,7 +19,7 @@
         </div>
       </div>
 
-      <div class="form-group col-md-6">
+      <!-- <div class="form-group col-md-6">
         <label for="RequestedOn">Requested On</label>
         <input type="text" class="form-control" #RequestedOn="ngModel" [(ngModel)]="MyShifts.RequestedOn" name="RequestedOn" id="RequestedOn" required>
         <div class="invalid-feedback" *ngIf="Ended.touched && Ended.invalid">
@@ -37,7 +37,7 @@
         <div class="invalid-feedback" *ngIf="Status.touched && Status.invalid">
           Status Is Required.
         </div>
-      </div>
+      </div> -->
 
       <div class="form-group col-md-6">
         <label for="ApprovedBy">ApprovedBy</label>
@@ -50,50 +50,6 @@
           ApprovedBy Is Required.
         </div>
       </div>
-
-      <!-- <div class="form-group col-md-3">
-        <label for="Category">Category</label>
-        <select class="custom-select" #Category="ngModel" [(ngModel)]="vender.Category" name="Category" id="Category"  id="selectVender" required>
-          <option>Select any option</option>
-
-          <option *ngFor="let dropdownLists of dropdownList" [value]="dropdownLists.Category">{{dropdownLists.Name}}</option>
-        </select>
-        <div class="invalid-feedback" *ngIf="Category.touched && Category.invalid">
-          Object Type Code Is Required.
-        </div>
-      </div>
-
-      <div class="form-group col-md-3">
-        <label for="AddressLine1">Address Line 1</label>
-        <input type="text" class="form-control" #AddressLine1="ngModel" [(ngModel)]="vender.AddressLine1" name="AddressLine1" id="AddressLine1" required>
-        <div class="invalid-feedback" *ngIf="AddressLine1.touched && AddressLine1.invalid">
-          Address Line 1 Is Required.
-        </div>
-      </div>
-
-
-      <div class="form-group col-md-3">
-        <label for="AddressLine2">Address Line 2</label>
-        <input type="text" class="form-control" #AddressLine2="ngModel" [(ngModel)]="vender.AddressLine2" name="AddressLine2" id="AddressLine2" required>
-        <div class="invalid-feedback" *ngIf="AddressLine2.touched && AddressLine2.invalid">
-          Address Line 2 Is Required.
-        </div>
-      </div>
-
-
-      -->
-
-
-
-
-
-
-
-
-
-
-
-
 
     </div>
 
