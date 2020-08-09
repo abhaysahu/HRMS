@@ -106,14 +106,9 @@ import { UnsoldProductsComponent } from './layout/component/Report/components/un
 import { ReportComponent } from './layout/component/Report/components/report/report.component';
 import { ReportService } from './layout/component/Report/service/report.service';
 import { UnsoldPipe } from './layout/component/Report/pipe/unsold.pipe';
-import { MyShiftsComponent } from './layout/component/Shift-Timing/my-shifts/my-shifts.component';
-import { AwaitingMyApprovalComponent } from './layout/component/Shift-Timing/awaiting-my-approval/awaiting-my-approval.component';
-import { RequestNewShiftTimingComponent } from './layout/component/Shift-Timing/request-new-shift-timing/request-new-shift-timing.component';
 import { ShiftComponent } from './layout/component/Attendance-and-leaves/component/shift/shift.component';
 import { PopupshiftComponent } from './layout/component/Attendance-and-leaves/component/popupshift/popupshift.component';
-
-
-
+import { ShiftTimeService } from './layout/component/Attendance-and-leaves/service/shift-time.service';
 
 
 
@@ -176,9 +171,6 @@ import { PopupshiftComponent } from './layout/component/Attendance-and-leaves/co
     VenderSearchPipe,
     LenderSearchPipe,
     UnsoldPipe,
-    MyShiftsComponent,
-    AwaitingMyApprovalComponent,
-    RequestNewShiftTimingComponent,
     ShiftComponent,
     PopupshiftComponent
 
@@ -227,7 +219,6 @@ import { PopupshiftComponent } from './layout/component/Attendance-and-leaves/co
     TimesheetService,
     AuthService,
     EntityService,
-    StringMapService,
     ProjectService,
     SystemLogService,
     AttendanceService,
@@ -237,7 +228,8 @@ import { PopupshiftComponent } from './layout/component/Attendance-and-leaves/co
     RewardSkipService,
     CustomToastrService,
     ErrorHandlingService,
-    ReportService
+    ReportService,
+    ShiftTimeService
   ],
   bootstrap: [AppComponent]
 })

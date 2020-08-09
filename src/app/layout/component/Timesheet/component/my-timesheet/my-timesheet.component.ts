@@ -32,7 +32,7 @@ export class MyTimesheetComponent implements OnInit {
       for (let i=0; i<7; i++) 
       {
        
-        var d = new Date('06-29-2020');
+        var d = new Date('06-25-2020');
       
         d.setDate(d.getDate()+i);
 
