@@ -52,3 +52,54 @@ font-size: 14px;
 label{
   font-weight: bold;
 } */
+/* th {
+  position: sticky;
+}
+table tbody
+{
+   overflow: auto;
+   height: 100px;
+}
+table tbody, table thead
+{
+    display: table;
+} */
+/* th {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+th[scope=row] {
+  position: -webkit-sticky;
+  position: sticky;
+  left: 0;
+  z-index: 1;
+}
+thead {
+  position: sticky;
+} */
+/* .table-fixed tbody {
+  height: 230px;
+  overflow-y: auto;
+  width: 100%;
+}
+.table-fixed thead, .table-fixed tbody, .table-fixed tr, .table-fixed td, .table-fixed th {
+  display: block;
+}
+.table-fixed tbody td, .table-fixed thead > tr> th {
+  float: left;
+  border-bottom-width: 0;
+} */
+/* tbody {
+  height:200px;
+  overflow:auto;
+}
+thead, tbody tr {
+  display:table;
+  width:100%;
+  table-layout:fixed;
+}
+thead {
+
+} */
