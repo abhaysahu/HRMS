@@ -13,8 +13,9 @@ import { AppResponse } from 'src/app/models/appResponse';
 export class PopupshiftComponent implements OnInit {
 
   MyShifts: any[] = [];
-  shiftStatus: any[]=[];
+  shiftPersonal: any[]=[];
   message;
+  Id;
 
 
   constructor(
@@ -25,19 +26,75 @@ export class PopupshiftComponent implements OnInit {
     private customToastrService: CustomToastrService,
     private errorHandlingService: ErrorHandlingService
     
-
-
   ) {
+
+    // this.Id=JSON.parse(sessionStorage.getItem('user')).Id;
+
+    this.Id="53a845f3-c35f-4d07-a0b4-c0aa719cd0ae";
+
+
+    this.shiftTimeService.shiftTimeDataSave(this.Id).subscribe(resp => {
+      console.log(resp);
+     
+      if (resp.Success) {
+        this.shiftPersonal = resp.Data;
+      } else {
+        
+        this.message = resp.ErrorMessage;
+        this.message = resp.Message;
+        this.customToastrService.GetErrorToastr(this.message, "Shift Save Status", 5000)
+
+      }
+      
+    }
+    ,   (error: AppResponse) => {
+
+      this.errorHandlingService.errorStatus(error,"Shift Save Status")
+
+    }
+  );
 
    }
 
   ngOnInit() {
   }
-  onSubmit(myshifts) {
-    let id = JSON.parse(sessionStorage.getItem('user')).Id;
 
-    myshifts.EmployeeId = id
+  onSubmit(myshifts) {
+    // this.Id = JSON.parse(sessionStorage.getItem('user')).Id;
+
+    this.Id="53a845f3-c35f-4d07-a0b4-c0aa719cd0ae";
+
+    myshifts.EmployeeId = this.Id;
+    myshifts.Status = 2;
+    myshifts.ApprovalPerson = "72fecddb-fcfa-4afb-a8ec-7c0a3839e7c5"
     console.log(myshifts)
+
+
+    this.shiftTimeService.shiftTimeDataSave(myshifts).subscribe(resp => {
+     
+      if(resp.Success)
+      {
+        this.message="Data is Added successfully"
+
+        this.customToastrService.GetSuccessToastr(this.message, "Shift Save Status", 5000)
+      }
+
+      else
+      {
+        // this.dangerStatus=true;
+        // this.successStatus=false;
+        this.message=resp.Message;
+        this.customToastrService.GetErrorToastr(this.message, "Shift Save Status", 5000)
+
+      }
+      
+    }
+    ,   (error: AppResponse) => {
+      this.errorHandlingService.errorStatus(error,"Shift Save Status")
+
+}
+)
+
   }
 
   close()
