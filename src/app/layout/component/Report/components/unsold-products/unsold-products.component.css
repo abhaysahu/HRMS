@@ -103,7 +103,7 @@ thead, tbody tr {
 thead {
 
 } */
-table.responsive-table thead {
+/* table.responsive-table thead {
   position: fixed;
   top: 50px;
   left: 0;
@@ -114,4 +114,18 @@ table.responsive-table thead {
   background: #eee;
   table-layout: fixed;
   display: table;
+} */
+.btn{
+  margin-top: 30px;
 }
+th{
+  position: sticky;
+
+}
+/* thead{
+  position: sticky;
+  top: 0;
+} */
+/* .div1{
+  position: sticky;
+} */

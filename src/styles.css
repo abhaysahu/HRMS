@@ -78,6 +78,6 @@ label{
   height:350px;
    overflow:auto;
 }
-
-
-
+th{
+  position: sticky;
+}

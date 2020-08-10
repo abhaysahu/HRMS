@@ -21,6 +21,9 @@ h1{
 .content tbody tr:last-of-type {
     border-bottom: 2px solid #009869;
 }
+th{
+  position: sticky;
+}
 
 
 /* .card{
