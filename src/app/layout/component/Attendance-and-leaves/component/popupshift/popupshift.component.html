@@ -5,49 +5,29 @@
     <div class="form-row">
 
       <div class="form-group col-md-6">
-        <label for="Started">Started</label>
-        <input type="time" class="form-control" #Started="ngModel" [(ngModel)]="MyShifts.Started" name="Started" id="Started" required>
-        <div class="invalid-feedback" *ngIf="Started.touched && Started.invalid">
+        <label for="StartTime">Started</label>
+        <input type="time" class="form-control" #StartTime="ngModel" [(ngModel)]="MyShifts.StartTime" name="StartTime" id="StartTime" required>
+        <div class="invalid-feedback" *ngIf="StartTime.touched && StartTime.invalid">
           Started Is Required.
         </div>
       </div>
 
       <div class="form-group col-md-6">
-        <label for="Ended">Ended</label>
-        <input type="time" class="form-control" #Ended="ngModel" [(ngModel)]="MyShifts.Ended" name="Ended" id="Ended" required>
-        <div class="invalid-feedback" *ngIf="Ended.touched && Ended.invalid">
+        <label for="EndTime">Ended</label>
+        <input type="time" class="form-control" #EndTime="ngModel" [(ngModel)]="MyShifts.EndTime" name="EndTime" id="EndTime" required>
+        <div class="invalid-feedback" *ngIf="EndTime.touched && EndTime.invalid">
           Ended Is Required.
         </div>
       </div>
 
-      <!-- <div class="form-group col-md-6">
-        <label for="RequestedOn">Requested On</label>
-        <input type="text" class="form-control" #RequestedOn="ngModel" [(ngModel)]="MyShifts.RequestedOn" name="RequestedOn" id="RequestedOn" required>
-        <div class="invalid-feedback" *ngIf="Ended.touched && Ended.invalid">
-          Required On Is Required.
-        </div>
-      </div>
-
       <div class="form-group col-md-6">
-        <label for="Status">Status</label>
-        <select class="custom-select" #Status="ngModel" [(ngModel)]="MyShifts.Status" name="Status" id="Status"  id="selectStatus" required>
+        <label for="ApprovalPerson">ApprovedBy</label>
+        <select class="custom-select" #ApprovalPerson="ngModel" [(ngModel)]="MyShifts.ApprovalPerson" name="ApprovalPerson" id="ApprovalPerson"  id="selectApprovedBy">
           <option>Select any option</option>
 
-          <option *ngFor="let dropdownLists of dropdownList" [value]="dropdownLists.Status">{{dropdownLists.Name}}</option>
+          <option *ngFor="let dropdownLists of dropdownList" [value]="dropdownLists.Id">{{dropdownLists.Name}}</option>
         </select>
-        <div class="invalid-feedback" *ngIf="Status.touched && Status.invalid">
-          Status Is Required.
-        </div>
-      </div> -->
-
-      <div class="form-group col-md-6">
-        <label for="ApprovedBy">ApprovedBy</label>
-        <select class="custom-select" #ApprovedBy="ngModel" [(ngModel)]="MyShifts.ApprovedBy" name="ApprovedBy" id="ApprovedBy"  id="selectApprovedBy" required>
-          <option>Select any option</option>
-
-          <option *ngFor="let dropdownLists of dropdownList" [value]="dropdownLists.ApprovedBy">{{dropdownLists.Name}}</option>
-        </select>
-        <div class="invalid-feedback" *ngIf="ApprovedBy.touched && ApprovedBy.invalid">
+        <div class="invalid-feedback" *ngIf="ApprovalPerson.touched && ApprovalPerson.invalid">
           ApprovedBy Is Required.
         </div>
       </div>

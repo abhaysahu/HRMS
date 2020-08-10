@@ -32,18 +32,23 @@ export class ShiftTimeService {
   }
 
 
-  shiftStatus(): Observable<DropDown>
+  ApprovedByStatus(Id): Observable<DropDown>
   {
-    // const token = sessionStorage.getItem('token')
-
-    // const headers = new HttpHeaders({
-    //   'Content-Type': 'application/json',
-    //   'authorization': `bearer ${token}`
-    // })
 
     const headers = this.errorHandlingService.getauthorization()
 
 
-    return this.httpClient.get<DropDown>(environment.webapiUrl+'api/get/PickList?attributeName=StatusCode&objectTypeCode=14', { headers: headers })
+    return this.httpClient.get<DropDown>(environment.webapiUrl+ `api/user/manager?id=${Id}`, { headers: headers })
   }
+
+
+  GetMyShiftTimeList(Id,status): Observable<DropDown>
+  {
+
+    const headers = this.errorHandlingService.getauthorization()
+
+
+    return this.httpClient.get<DropDown>(environment.webapiUrl+ `api/get/ShiftTimeByEmployeeId?employeeId=${Id}&aprovingStatus=${status}`, { headers: headers })
+  }
+
 }
