@@ -51,4 +51,22 @@ export class ShiftTimeService {
     return this.httpClient.get<DropDown>(environment.webapiUrl+ `api/get/ShiftTimeByEmployeeId?employeeId=${Id}&aprovingStatus=${status}`, { headers: headers })
   }
 
+
+  GetAwaitingMyApprovalList(Id,status): Observable<DropDown>
+  {
+
+    const headers = this.errorHandlingService.getauthorization()
+
+
+    return this.httpClient.get<DropDown>(environment.webapiUrl+ `api/get/ShiftTimeByApprovedById?employeeId=${Id}&aprovingStatus=${status}`, { headers: headers })
+  }
+
+  UpdateTimeShiftData(Data)
+  {
+     
+    const headers = this.errorHandlingService.getauthorization()
+
+    return this.httpClient.post<any>(environment.webapiUrl+'api/update/ShiftTime',Data, { headers: headers })
+  }
+
 }

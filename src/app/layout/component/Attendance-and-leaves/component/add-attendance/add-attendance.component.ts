@@ -11,7 +11,11 @@ import { ErrorHandlingService } from 'src/app/service/error-handling.service';
 })
 export class AddAttendanceComponent implements OnInit {
   Addattendance: any[] = [];
-  recordData: any[]=[]
+  recordData: any[]=[];
+  DateOfAttendance;
+  dropdownLists: any[]=[];
+
+  GetAttendance: any[]=[];
 
   email="";
   message;
@@ -25,46 +29,142 @@ export class AddAttendanceComponent implements OnInit {
 
     ) {
 
-    this.attendanceService.getUser().subscribe(resp => {
+      this.attendanceService.AttendanceStatus().subscribe(resp => {
+        console.log(resp);
+       
+        if (resp.Success) {
+          this.dropdownLists = resp.Data;
+          console.log(this.dropdownLists)
+        } else {
+          
+          this.message = resp.ErrorMessage;
+          this.message = resp.Message;
+          this.customToastrService.GetErrorToastr(this.message, "Shift Save Status", 5000)
+  
+        }
+        
+      }
+      ,   (error: AppResponse) => {
+  
+        this.errorHandlingService.errorStatus(error,"Shift Save Status")
+  
+      }
+    );
+  
+
+
+
+
+
+
+      this.attendanceService.getUser().subscribe(resp => {
 
         if(resp.Success)
         {
           this.recordData = resp.Data
-          console.log(this.recordData)
+  
+  
+         
           for (let i=0; i<this.recordData.length; i++)
           {
             let date={
-              id: this.recordData[i].Id,
+              EmployeeId: this.recordData[i].Id,
               Name: this.recordData[i].FullName,
-              Intime: "10:00",
+              InTime: "10:00",
               OutTime: "20:00",
+              CreatedBy: JSON.parse(sessionStorage.getItem('user')).Id,
               Status: 1
             }
             this.Addattendance.push(date)
           }
-
+  
           console.log(this.Addattendance)
-
+  
         }
         else
         {
-            // this.dangerStatus=true;
-            // this.successStatus=false;
             this.message=resp.ErrorMessage;
             this.message=resp.Message;
             this.customToastrService.GetErrorToastr(this.message,"Add Attendance", 5000)
         }
-
+  
       },   (error: AppResponse) => {
         this.errorHandlingService.errorStatus(error,"Add Attendance")
-
+  
   }
   )
-
 
     }
 
  ngOnInit() {
+  }
+
+  getUserForAttendance(date)
+  {
+    this.DateOfAttendance = date;
+
+    this.attendanceService.getAttendanceByDate(date).subscribe(resp => {
+     
+      if (resp.Success) {
+        this.GetAttendance = resp.Data;
+        this.AddAttendanceOfEmployee(this.GetAttendance)
+      } else {
+        
+        this.message = resp.ErrorMessage;
+        this.message = resp.Message;
+        this.customToastrService.GetErrorToastr(this.message, "Shift Save Status", 5000)
+  
+      }
+      
+    }
+    ,   (error: AppResponse) => {
+  
+      this.errorHandlingService.errorStatus(error,"Shift Save Status")
+  
+    }
+  );
+
+
+  }
+
+  AddAttendanceOfEmployee(Attendance)
+  {
+    this.attendanceService.getUser().subscribe(resp => {
+
+      if(resp.Success)
+      {
+        this.recordData = resp.Data
+
+
+       
+        for (let i=0; i<this.recordData.length; i++)
+        {
+          let date={
+            id: this.recordData[i].Id,
+            Name: this.recordData[i].FullName,
+            Intime: "10:00",
+            OutTime: "20:00",
+            Status: 1
+          }
+          this.Addattendance.push(date)
+        }
+
+        console.log(this.Addattendance)
+
+      }
+      else
+      {
+          this.message=resp.ErrorMessage;
+          this.message=resp.Message;
+          this.customToastrService.GetErrorToastr(this.message,"Add Attendance", 5000)
+      }
+
+    },   (error: AppResponse) => {
+      this.errorHandlingService.errorStatus(error,"Add Attendance")
+
+}
+)
+
   }
 
 

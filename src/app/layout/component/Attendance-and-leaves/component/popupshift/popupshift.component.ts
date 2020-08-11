@@ -13,6 +13,7 @@ import { AppResponse } from 'src/app/models/appResponse';
 export class PopupshiftComponent implements OnInit {
 
   MyShifts: any[] = [];
+  dropdownList:any[]=[];
   shiftPersonal: any[]=[];
   message;
   Id;
@@ -33,11 +34,11 @@ export class PopupshiftComponent implements OnInit {
     this.Id="53a845f3-c35f-4d07-a0b4-c0aa719cd0ae";
 
 
-    this.shiftTimeService.shiftTimeDataSave(this.Id).subscribe(resp => {
+    this.shiftTimeService.ApprovedByStatus(this.Id).subscribe(resp => {
       console.log(resp);
      
       if (resp.Success) {
-        this.shiftPersonal = resp.Data;
+        this.dropdownList = resp.Data;
       } else {
         
         this.message = resp.ErrorMessage;
@@ -60,13 +61,13 @@ export class PopupshiftComponent implements OnInit {
   }
 
   onSubmit(myshifts) {
+
     // this.Id = JSON.parse(sessionStorage.getItem('user')).Id;
 
     this.Id="53a845f3-c35f-4d07-a0b4-c0aa719cd0ae";
 
     myshifts.EmployeeId = this.Id;
     myshifts.Status = 2;
-    myshifts.ApprovalPerson = "72fecddb-fcfa-4afb-a8ec-7c0a3839e7c5"
     console.log(myshifts)
 
 
@@ -81,8 +82,6 @@ export class PopupshiftComponent implements OnInit {
 
       else
       {
-        // this.dangerStatus=true;
-        // this.successStatus=false;
         this.message=resp.Message;
         this.customToastrService.GetErrorToastr(this.message, "Shift Save Status", 5000)
 
