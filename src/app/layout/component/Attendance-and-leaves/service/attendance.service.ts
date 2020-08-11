@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Responses } from '../models/response';
 import { ErrorHandlingService } from 'src/app/service/error-handling.service';
+import { DropDown } from '../../employee/models/dropDown';
 
 @Injectable({
   providedIn: 'root'
@@ -35,6 +36,27 @@ export class AttendanceService {
 
 
     return this.httpClient.get<Responses>(environment.webapiUrl+'api/get/employee', { headers: headers })
+  }
+
+
+  getAttendanceByDate(date): Observable<Responses>
+  {
+   
+
+    const headers = this.errorHandlingService.getauthorization()
+
+
+    return this.httpClient.get<Responses>(environment.webapiUrl+`api/get/AttendanceByDate?date=${date}`, { headers: headers })
+  }
+
+
+  AttendanceStatus(): Observable<DropDown>
+  {
+
+    const headers = this.errorHandlingService.getauthorization()
+
+
+    return this.httpClient.get<DropDown>(environment.webapiUrl+ 'api/get/PickList?attributeName=StatusCode&objectTypeCode=11', { headers: headers })
   }
   
 }

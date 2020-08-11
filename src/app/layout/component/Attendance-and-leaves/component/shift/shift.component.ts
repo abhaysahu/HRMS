@@ -16,6 +16,8 @@ export class ShiftComponent implements OnInit {
 
 
   MyShiftList: any[]=[];
+  MyApprovalList:any[]=[];
+  UpdateTimeShift={}
   message;
   Id;
  
@@ -32,7 +34,7 @@ export class ShiftComponent implements OnInit {
     this.Id="53a845f3-c35f-4d07-a0b4-c0aa719cd0ae";
 
 
-    this.shiftTimeService.GetMyShiftTimeList(this.Id,2).subscribe(resp => {
+    this.shiftTimeService.GetMyShiftTimeList(this.Id,0).subscribe(resp => {
       console.log(resp);
      
       if (resp.Success) {
@@ -67,5 +69,143 @@ export class ShiftComponent implements OnInit {
 
     });
   }
+
+  getTheDataOfMyShift()
+  {
+    this.Id="53a845f3-c35f-4d07-a0b4-c0aa719cd0ae";
+
+
+    this.shiftTimeService.GetMyShiftTimeList(this.Id,0).subscribe(resp => {
+      console.log(resp);
+     
+      if (resp.Success) {
+        this.MyShiftList = resp.Data;
+      } else {
+        
+        this.message = resp.ErrorMessage;
+        this.message = resp.Message;
+        this.customToastrService.GetErrorToastr(this.message, "My Shift List Status", 5000)
+
+      }
+      
+    }
+    ,   (error: AppResponse) => {
+
+      this.errorHandlingService.errorStatus(error,"My Shift List Status")
+
+    }
+  );
+  }
+
+  getTheDataOfMyApproval()
+  {
+    // this.Id=JSON.parse(sessionStorage.getItem('user')).Id;
+
+    console.log("no")
+    this.Id="53a845f3-c35f-4d07-a0b4-c0aa719cd0ae";
+
+    this.shiftTimeService.GetMyShiftTimeList(this.Id,0).subscribe(resp => {
+      console.log(resp);
+     
+      if (resp.Success) {
+        this.MyApprovalList = resp.Data;
+      } else {
+        
+        this.message = resp.ErrorMessage;
+        this.message = resp.Message;
+        this.customToastrService.GetErrorToastr(this.message, "My Shift List Status", 5000)
+
+      }
+      
+    }
+    ,   (error: AppResponse) => {
+
+      this.errorHandlingService.errorStatus(error,"My Shift List Status")
+
+    }
+  );
+  }
+
+  ApproveTimeShift(Guid)
+  {
+    this.UpdateTimeShift={
+      Id: Guid,
+      Status: 3,
+      ApprovedBy: JSON.parse(sessionStorage.getItem('user')).Id,
+      StatusReason: "congratulation your request was approved"
+    }
+
+    console.log(this.UpdateTimeShift)
+
+
+    this.shiftTimeService.UpdateTimeShiftData(this.UpdateTimeShift).subscribe(resp => {
+     
+      if(resp.Success)
+      {
+        this.message="Data is Update successfully"
+        this.getTheDataOfMyApproval()
+
+        this.customToastrService.GetSuccessToastr(this.message, "Shift Update Status", 5000)
+      }
+
+      else
+      {
+        this.message=resp.Message;
+        this.customToastrService.GetErrorToastr(this.message, "Shift Update Status", 5000)
+
+      }
+      
+    }
+    ,   (error: AppResponse) => {
+      this.errorHandlingService.errorStatus(error,"Shift Update Status")
+
+}
+)
+
+
+  }
+
+
+  RejectTimeShift(Guid)
+  {
+    this.UpdateTimeShift={
+      Id: Guid,
+      Status: 4,
+      ApprovedBy: JSON.parse(sessionStorage.getItem('user')).Id,
+      StatusReason: "your request was Rejected"
+    }
+
+    console.log(this.UpdateTimeShift)
+
+
+    this.shiftTimeService.UpdateTimeShiftData(this.UpdateTimeShift).subscribe(resp => {
+     
+      if(resp.Success)
+      {
+        this.message="Data is Update successfully"
+        this.getTheDataOfMyApproval()
+
+
+        this.customToastrService.GetSuccessToastr(this.message, "Shift Update Status", 5000)
+      }
+
+      else
+      {
+        this.message=resp.Message;
+        this.customToastrService.GetErrorToastr(this.message, "Shift Update Status", 5000)
+
+      }
+      
+    }
+    ,   (error: AppResponse) => {
+      this.errorHandlingService.errorStatus(error,"Shift Update Status")
+
+}
+)
+
+
+  }
+
+
 
 }
