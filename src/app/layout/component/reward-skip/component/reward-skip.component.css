@@ -1,8 +1,8 @@
 /* /*.my-container{
     border: 2px solid black ;
-    display: grid;  
+    display: grid;
      /*grid-template-rows: 50px 50px;*/
-    
+
 /* } */
 
 .my-row{
@@ -31,7 +31,7 @@
   .search-box{
       height: 35px;
   }
-  
+
   #vertical-line{
       width: 3px;
       height: auto;
@@ -39,24 +39,34 @@
   }
   .table-header{
       background-color: #ddd;
+      position: sticky;
   }
   .add{
       background-color: rgb(23, 162,184);
       color: white;
   }
- 
+
 p{
     color: red;
     font-weight: bold;
     margin-left: 5px;
 }
-.card{
+.table-responsive{
+  table-layout: fixed;
+  border-collapse: collapse;
+}
+
+.table-responsive thead th{
+  position: sticky;
+  top: 0;
+}
+/* .card{
 
     box-shadow: 0 0 20px rgba(0,0, 0, 0.20);
     border-radius: 5px 5px 0 0;
     overflow: hidden;
     border-collapse: collapse;
-    
+
 
 }
 .my-row {
@@ -103,4 +113,17 @@ p{
 
 label{
     font-weight: bold;
+} */
+
+/* th{
+  position: sticky;
 }
+.table-header{
+  position: sticky;
+} */
+/* thead{
+  position: sticky;
+} */
+/* .table.sticky th{
+  position: sticky;
+} */

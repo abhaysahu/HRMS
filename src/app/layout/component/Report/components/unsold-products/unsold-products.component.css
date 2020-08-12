@@ -118,10 +118,43 @@ thead {
 .btn{
   margin-top: 30px;
 }
+
+/* .table.sticky th{
+  position: sticky;
+}
+.table.sticky th::after {
+  content: ' ';
+  position: absolute;
+
+} */
 th{
+  position: fixed;
+}
+/* th {
+  position: sticky;
+}
+table{
+  position: sticky;
+  border-collapse: collapse;
+}
+thead{
+  position: sticky;
+} */
+
+
+  /* background: transparent; */
+  /* color: #fff; */
+  /* padding: 9px 25px; */
+  /* top: 0; */
+  /* margin-left: -25px; */
+  /* line-height: normal; */
+  /* border-left: 1px solid #800; */
+
+
+/* th{
   position: sticky;
 
-}
+} */
 /* thead{
   position: sticky;
   top: 0;
@@ -129,3 +162,20 @@ th{
 /* .div1{
   position: sticky;
 } */
+/* .table-fixed thead {
+  width: 97%;
+} */
+/* .table-fixed tbody {
+
+  overflow-y: auto;
+  /* width: 100%; */
+/* } */
+/*.table-fixed thead, .table-fixed tbody, .table-fixed tr, .table-fixed td, .table-fixed th {
+  display: block;
+}
+.table-fixed tbody td, .table-fixed thead > tr> th {
+  float: left;
+} */
+th{
+  position: sticky;
+}
