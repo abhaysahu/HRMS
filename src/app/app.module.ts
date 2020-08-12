@@ -109,6 +109,7 @@ import { UnsoldPipe } from './layout/component/Report/pipe/unsold.pipe';
 import { ShiftComponent } from './layout/component/Attendance-and-leaves/component/shift/shift.component';
 import { PopupshiftComponent } from './layout/component/Attendance-and-leaves/component/popupshift/popupshift.component';
 import { ShiftTimeService } from './layout/component/Attendance-and-leaves/service/shift-time.service';
+import { GraphComponent } from './layout/component/dashboard/components/graph/graph.component';
 
 
 
@@ -172,7 +173,8 @@ import { ShiftTimeService } from './layout/component/Attendance-and-leaves/servi
     LenderSearchPipe,
     UnsoldPipe,
     ShiftComponent,
-    PopupshiftComponent
+    PopupshiftComponent,
+    GraphComponent
 
 
   ],
