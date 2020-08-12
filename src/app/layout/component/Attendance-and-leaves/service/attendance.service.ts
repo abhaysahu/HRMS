@@ -25,12 +25,6 @@ export class AttendanceService {
 
   getUser(): Observable<Responses>
   {
-    // const token = sessionStorage.getItem('token')
-
-    // const headers = new HttpHeaders({
-    //   'Content-Type': 'application/json',
-    //   'authorization': `bearer ${token}`
-    // })
 
     const headers = this.errorHandlingService.getauthorization()
 
@@ -57,6 +51,21 @@ export class AttendanceService {
 
 
     return this.httpClient.get<DropDown>(environment.webapiUrl+ 'api/get/PickList?attributeName=StatusCode&objectTypeCode=11', { headers: headers })
+  }
+
+
+  attendanceDataSave(attendanceData)
+  {
+    const headers = this.errorHandlingService.getauthorization()
+
+    return this.httpClient.post<any>(environment.webapiUrl+'api/add/Attendance',attendanceData, { headers: headers })
+  }
+
+  attendanceDataUpdate(attendanceData)
+  {
+    const headers = this.errorHandlingService.getauthorization()
+
+    return this.httpClient.post<any>(environment.webapiUrl+'api/update/Attendance',attendanceData, { headers: headers })
   }
   
 }

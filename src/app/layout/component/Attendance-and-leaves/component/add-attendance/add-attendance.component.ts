@@ -13,12 +13,13 @@ export class AddAttendanceComponent implements OnInit {
   Addattendance: any[] = [];
   recordData: any[]=[];
   DateOfAttendance;
-  dropdownLists: any[]=[];
+  dropdownList: any[]=[];
 
   GetAttendance: any[]=[];
 
   email="";
   message;
+  showStatus=false
 
 
 
@@ -33,8 +34,8 @@ export class AddAttendanceComponent implements OnInit {
         console.log(resp);
        
         if (resp.Success) {
-          this.dropdownLists = resp.Data;
-          console.log(this.dropdownLists)
+          this.dropdownList = resp.Data;
+          console.log(this.dropdownList)
         } else {
           
           this.message = resp.ErrorMessage;
@@ -52,28 +53,22 @@ export class AddAttendanceComponent implements OnInit {
     );
   
 
-
-
-
-
-
       this.attendanceService.getUser().subscribe(resp => {
 
         if(resp.Success)
         {
           this.recordData = resp.Data
-  
-  
          
           for (let i=0; i<this.recordData.length; i++)
           {
             let date={
               EmployeeId: this.recordData[i].Id,
               Name: this.recordData[i].FullName,
-              InTime: "10:00",
-              OutTime: "20:00",
+              InTime: null,
+              OutTime: null,
               CreatedBy: JSON.parse(sessionStorage.getItem('user')).Id,
-              Status: 1
+              Status: 1,
+              Action: 1
             }
             this.Addattendance.push(date)
           }
@@ -99,11 +94,12 @@ export class AddAttendanceComponent implements OnInit {
  ngOnInit() {
   }
 
-  getUserForAttendance(date)
+  getUserForAttendanceByDate(date)
   {
     this.DateOfAttendance = date;
 
     this.attendanceService.getAttendanceByDate(date).subscribe(resp => {
+      console.log(resp)
      
       if (resp.Success) {
         this.GetAttendance = resp.Data;
@@ -129,87 +125,90 @@ export class AddAttendanceComponent implements OnInit {
 
   AddAttendanceOfEmployee(Attendance)
   {
-    this.attendanceService.getUser().subscribe(resp => {
+    this.showStatus=true
+    console.log(this.Addattendance)
 
+  }
+
+
+  // Save()
+  // {
+  //   console.log(this.Addattendance)
+
+  // }
+
+
+  SaveAttendance(saveattendanceData)
+  {
+    console.log(this.Addattendance)
+  
+    saveattendanceData.Date=this.DateOfAttendance;
+    saveattendanceData.CreatedBy=JSON.parse(sessionStorage.getItem('user')).Id;
+    console.log(saveattendanceData)
+
+    this.attendanceService.attendanceDataSave(saveattendanceData).subscribe(resp => {
+     
       if(resp.Success)
       {
-        this.recordData = resp.Data
+        this.message="Data is Added successfully"
+        this.getUserForAttendanceByDate(this.DateOfAttendance)
 
 
-       
-        for (let i=0; i<this.recordData.length; i++)
-        {
-          let date={
-            id: this.recordData[i].Id,
-            Name: this.recordData[i].FullName,
-            Intime: "10:00",
-            OutTime: "20:00",
-            Status: 1
-          }
-          this.Addattendance.push(date)
-        }
-
-        console.log(this.Addattendance)
-
+        this.customToastrService.GetSuccessToastr(this.message, "Attendance Save Status", 5000)
       }
+
       else
       {
-          this.message=resp.ErrorMessage;
-          this.message=resp.Message;
-          this.customToastrService.GetErrorToastr(this.message,"Add Attendance", 5000)
-      }
+        this.message=resp.Message;
+        this.customToastrService.GetErrorToastr(this.message, "Attendance Save Status", 5000)
 
-    },   (error: AppResponse) => {
-      this.errorHandlingService.errorStatus(error,"Add Attendance")
+      }
+      
+    }
+    ,   (error: AppResponse) => {
+      this.errorHandlingService.errorStatus(error,"Attendance Save Status")
 
 }
 )
 
   }
 
+  // Statuschange(status, index)
+  // {
+  //   console.log(status)
+  //   this.Addattendance[index].Status = status
+  //   if(status == 3 || status == 4)
+  //   {
+  //     this.Addattendance[index].Intime = "00:00"
+  //     this.Addattendance[index].OutTime = "00:00"
+  //   }
 
-  Save()
-  {
-    console.log(this.Addattendance)
+  //   else if (status == 2)
+  //   {
+  //     this.Addattendance[index].Intime = "15:00"
+  //     this.Addattendance[index].OutTime = "00:00"
+  //   }
+  //   else if (status == 1)
+  //   {
+  //     this.Addattendance[index].Intime = "10:00"
+  //     this.Addattendance[index].OutTime = "20:00"
+  //   }
 
-  }
+  // }
 
-  Statuschange(status, index)
-  {
-    console.log(status)
-    this.Addattendance[index].Status = status
-    if(status == 3 || status == 4)
-    {
-      this.Addattendance[index].Intime = "00:00"
-      this.Addattendance[index].OutTime = "00:00"
-    }
+  // InTimechange(inTime, index)
+  // {
+  //   console.log(inTime)
+  //   console.log(index)
+  //   this.Addattendance[index].Intime = inTime
+  // }
 
-    else if (status == 2)
-    {
-      this.Addattendance[index].Intime = "15:00"
-      this.Addattendance[index].OutTime = "00:00"
-    }
-    else if (status == 1)
-    {
-      this.Addattendance[index].Intime = "10:00"
-      this.Addattendance[index].OutTime = "20:00"
-    }
-
-  }
-
-  InTimechange(inTime, index)
-  {
-    console.log(inTime)
-    console.log(index)
-    this.Addattendance[index].Intime = inTime
-  }
-
-  OutTimechange(outTime, index)
-  {
-    console.log(outTime)
-    console.log(index)
-    this.Addattendance[index].OutTime = outTime
-  }
+  // OutTimechange(outTime, index)
+  // {
+  //   console.log(outTime)
+  //   console.log(index)
+  //   this.Addattendance[index].OutTime = outTime
+  // }
 
 
 }
