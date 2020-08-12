@@ -19,7 +19,9 @@ export class AddAttendanceComponent implements OnInit {
 
   email="";
   message;
-  showStatus=false
+  showStatus=false;
+
+
 
 
 
@@ -64,8 +66,8 @@ export class AddAttendanceComponent implements OnInit {
             let date={
               EmployeeId: this.recordData[i].Id,
               Name: this.recordData[i].FullName,
-              InTime: null,
-              OutTime: null,
+              InTime: "00:00",
+              OutTime: "00:00",
               CreatedBy: JSON.parse(sessionStorage.getItem('user')).Id,
               Status: 1,
               Action: 1
@@ -74,6 +76,17 @@ export class AddAttendanceComponent implements OnInit {
           }
   
           console.log(this.Addattendance)
+
+          var b2 = [
+            {EmployeeId: "0",Name: "a",InTime: "08:25",OutTime: "19:25",CreatedBy: JSON.parse(sessionStorage.getItem('user')).Id,Status: 1,Action: 2},
+            {EmployeeId: "1",Name: "b",InTime: "09:25",OutTime: "20:25",CreatedBy: JSON.parse(sessionStorage.getItem('user')).Id,Status: 2,Action: 2},
+            {EmployeeId: "5",Name: "f",InTime: "10:25",OutTime: "21:25",CreatedBy: JSON.parse(sessionStorage.getItem('user')).Id,Status: 3,Action: 2},
+          ];
+
+          for(let i=0;i<b2.length;i++)
+          {
+            this.Addattendance.push(b2[i]);
+          }
   
         }
         else
@@ -131,11 +144,41 @@ export class AddAttendanceComponent implements OnInit {
   }
 
 
-  // Save()
-  // {
-  //   console.log(this.Addattendance)
+  Save()
+  {
+    console.log(this.Addattendance)
 
-  // }
+    var b1 = [
+      {EmployeeId: "0",Name: "a",InTime: "00:00",OutTime: "00:00",CreatedBy: JSON.parse(sessionStorage.getItem('user')).Id,Status: 1,Action: 1},
+      {EmployeeId: "1",Name: "b",InTime: "00:00",OutTime: "00:00",CreatedBy: JSON.parse(sessionStorage.getItem('user')).Id,Status: 1,Action: 1},
+      {EmployeeId: "2",Name: "c",InTime: "00:00",OutTime: "00:00",CreatedBy: JSON.parse(sessionStorage.getItem('user')).Id,Status: 1,Action: 1},
+      {EmployeeId: "3",Name: "d",InTime: "00:00",OutTime: "00:00",CreatedBy: JSON.parse(sessionStorage.getItem('user')).Id,Status: 1,Action: 1},
+      {EmployeeId: "4",Name: "e",InTime: "00:00",OutTime: "00:00",CreatedBy: JSON.parse(sessionStorage.getItem('user')).Id,Status: 1,Action: 1},
+      {EmployeeId: "5",Name: "f",InTime: "00:00",OutTime: "00:00",CreatedBy: JSON.parse(sessionStorage.getItem('user')).Id,Status: 1,Action: 1},
+      
+    ]; 
+    
+    var b2 = [
+      {EmployeeId: "0",Name: "a",InTime: "08:25",OutTime: "19:25",CreatedBy: JSON.parse(sessionStorage.getItem('user')).Id,Status: 1,Action: 2},
+      {EmployeeId: "1",Name: "b",InTime: "09:25",OutTime: "20:25",CreatedBy: JSON.parse(sessionStorage.getItem('user')).Id,Status: 2,Action: 2},
+      {EmployeeId: "5",Name: "f",InTime: "10:25",OutTime: "21:25",CreatedBy: JSON.parse(sessionStorage.getItem('user')).Id,Status: 3,Action: 2},
+      
+    ];
+
+    var res = b1.filter(item1 => 
+      !b2.some(item2 => (item2.EmployeeId === item1.EmployeeId)))
+      console.log(res);
+
+      for(let i=0;i<res.length;i++)
+      {
+        b2.push(res[i]);
+      }
+
+      this.Addattendance = b2;
+      this.showStatus=true
+      console.log(this.Addattendance);
+
+  }
 
 
   SaveAttendance(saveattendanceData)
