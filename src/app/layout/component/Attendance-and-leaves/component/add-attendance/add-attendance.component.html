@@ -49,7 +49,7 @@
 
         <input type="text" class="form-control" [(ngModel)]="email" placeholder="Serach any fields"/>
       <br>
-        <form #f="ngForm" (ngSubmit)="SaveAttendance(f.value)" class="was-validated">
+   
          
           <table class="table table-bordered">
             <thead>
@@ -69,7 +69,7 @@
 
                 <td>
 
-                  <select class="custom-select" #Status="ngModel" [(ngModel)]="addAttendances.Status" name="Status" id="Status"  id="selectEntity" required>
+                  <select class="custom-select"  name="Status" id="Status"  id="selectEntity">
                     <option *ngFor="let dropdownLists of dropdownList" [value]="dropdownLists.Value">{{dropdownLists.Text}}</option>
                   </select>
 
@@ -86,34 +86,34 @@
                 </td>
 
                 <td>
-                  <input type="time" class="form-control" #InTime="ngModel" [(ngModel)]="addAttendances.InTime" name="InTime" id="InTime" required>
-                  <div class="invalid-feedback" *ngIf="InTime.touched && InTime.invalid">
+                  <input type="time" [value]="addAttendances.InTime" class="form-control" name="InTime" id="InTime">
+                  <!-- <div class="invalid-feedback" *ngIf="InTime.touched && InTime.invalid">
                     In Time Is Required.
-                  </div>
+                  </div> -->
                 </td>
                 <td>
-                  <input type="time" class="form-control" #OutTime="ngModel" [(ngModel)]="addAttendances.OutTime" name="OutTime" id="OutTime" required>
-                  <div class="invalid-feedback" *ngIf="InTime.touched && InTime.invalid">
+                  <input type="time" [value]="addAttendances.OutTime" class="form-control" name="OutTime" id="OutTime">
+                  <!-- <div class="invalid-feedback" *ngIf="InTime.touched && InTime.invalid">
                     Out Time Is Required.
-                  </div>
+                  </div> -->
                 </td>
 
 
 
                 <td *ngIf="addAttendances.Action==1">
-                  <input type="hidden" class="form-control" #EmployeeId="ngModel" [(ngModel)]="addAttendances.EmployeeId" name="EmployeeId" id="EmployeeId">  
-                  <button type="submit"  [disabled]="!f.valid" class="btn btn-primary">Save</button>
+                  <input type="hidden" class="form-control" [value]="addAttendances.EmployeeId" [(ngModel)]="EmployeeId" name="EmployeeId" id="EmployeeId">  
+                  <button type="submit"  class="btn btn-primary">Save</button>
                 </td>
 
                 <td *ngIf="addAttendances.Action==2">
-                  <input type="hidden" class="form-control" #EmployeeId="ngModel" [(ngModel)]="addAttendances.EmployeeId" name="EmployeeId" id="EmployeeId">  
-                  <button type="submit"  [disabled]="!f.valid" class="btn btn-primary">Update</button>
+                  <input type="hidden" class="form-control" [value]="addAttendances.EmployeeId" [(ngModel)]="EmployeeId" name="EmployeeId" id="EmployeeId">  
+                  <button type="submit" class="btn btn-primary">Update</button>
                 </td>
 
               </tr>
             </tbody>
           </table>
-        </form>
+       
       </div><br>
       <button type="button" (click)="Save()" class="btn btn-primary">Save</button>
       <button type="submit" class="btn btn-primary" style="margin-left: 15px;">Submit</button>
