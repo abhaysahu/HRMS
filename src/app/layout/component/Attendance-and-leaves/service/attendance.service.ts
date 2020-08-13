@@ -49,7 +49,6 @@ export class AttendanceService {
 
     const headers = this.errorHandlingService.getauthorization()
 
-
     return this.httpClient.get<DropDown>(environment.webapiUrl+ 'api/get/PickList?attributeName=StatusCode&objectTypeCode=11', { headers: headers })
   }
 
@@ -66,6 +65,16 @@ export class AttendanceService {
     const headers = this.errorHandlingService.getauthorization()
 
     return this.httpClient.post<any>(environment.webapiUrl+'api/update/Attendance',attendanceData, { headers: headers })
+  }
+
+  getAttendanceByEmployee(EmployeeId, Month, Year)
+  {
+
+    const headers = this.errorHandlingService.getauthorization()
+
+    return this.httpClient.get<DropDown>(environment.webapiUrl+`api/get/AttendanceByEmployee?employeeId=${EmployeeId}&month=${Month}&year=${Year}`, { headers: headers })
+
+
   }
   
 }

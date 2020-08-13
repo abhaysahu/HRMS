@@ -69,7 +69,7 @@
 
                 <td>
 
-                  <select class="custom-select"  name="Status" id="Status"  id="selectEntity">
+                  <select class="custom-select" value={{addAttendances.Status}} (change)="Statuschange($event.target.value)"  name="Status" id="Status"  id="selectEntity">
                     <option *ngFor="let dropdownLists of dropdownList" [value]="dropdownLists.Value">{{dropdownLists.Text}}</option>
                   </select>
 
@@ -86,13 +86,13 @@
                 </td>
 
                 <td>
-                  <input type="time" [value]="addAttendances.InTime" class="form-control" name="InTime" id="InTime">
+                  <input type="time" [value]="addAttendances.InTime" (change)="InTimechange($event.target.value)" class="form-control" name="InTime" id="InTime">
                   <!-- <div class="invalid-feedback" *ngIf="InTime.touched && InTime.invalid">
                     In Time Is Required.
                   </div> -->
                 </td>
-                <td>
-                  <input type="time" [value]="addAttendances.OutTime" class="form-control" name="OutTime" id="OutTime">
+                <td> 
+                  <input type="time" [value]="addAttendances.OutTime"  (change)=" OutTimechange($event.target.value)" class="form-control" name="OutTime" id="OutTime">
                   <!-- <div class="invalid-feedback" *ngIf="InTime.touched && InTime.invalid">
                     Out Time Is Required.
                   </div> -->
@@ -101,13 +101,13 @@
 
 
                 <td *ngIf="addAttendances.Action==1">
-                  <input type="hidden" class="form-control" [value]="addAttendances.EmployeeId" [(ngModel)]="EmployeeId" name="EmployeeId" id="EmployeeId">  
-                  <button type="submit"  class="btn btn-primary">Save</button>
+                  <!-- <input type="hidden" class="form-control" [value]="addAttendances.EmployeeId" [(ngModel)]="EmployeeId" name="EmployeeId" id="EmployeeId">   -->
+                  <button type="button" (click)="SaveAttendance(addAttendances.EmployeeId)" class="btn btn-primary">Save</button>
                 </td>
 
                 <td *ngIf="addAttendances.Action==2">
-                  <input type="hidden" class="form-control" [value]="addAttendances.EmployeeId" [(ngModel)]="EmployeeId" name="EmployeeId" id="EmployeeId">  
-                  <button type="submit" class="btn btn-primary">Update</button>
+                  <!-- <input type="hidden" class="form-control" [value]="addAttendances.EmployeeId" [(ngModel)]="EmployeeId" name="EmployeeId" id="EmployeeId">   -->
+                  <button type="button" (click)="UpdateAttendance(addAttendances.EmployeeId)" class="btn btn-primary">Update</button>
                 </td>
 
               </tr>

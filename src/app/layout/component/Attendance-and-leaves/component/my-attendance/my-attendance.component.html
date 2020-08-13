@@ -34,24 +34,30 @@
     My Attendance
   </div>
   <div class="card-body">
-    <form class="was-validated">
+    <form #f="ngForm" (ngSubmit)="GetAttendance(f.value)" class="was-validated">
       <div class="form-row">
-      <!-- <div class="form-group col-md-4">
-        <label for="employee">Employee</label>
 
-        <select class="custom-select" #employee="ngModel" [(ngModel)]="Attendance.employee" name="employee" id="employee" required>
-          <option selected>Selected</option>
-          <option value="1">A</option>
-          <option value="2">b</option>
-          </select>
-          <div class="invalid-feedback" *ngIf="year.touched && year.invalid">
-            Year is required.
+
+        <div class="form-group col-md-4">
+          <label for="year">Year</label>
+
+          <select class="custom-select" #year="ngModel" [(ngModel)]="SearchAttendance.year" name="year" id="year" required>
+            <option selected>2020</option>
+            <option value="1">2019</option>
+            <option value="2">2018</option>
+            <option value="3">2017</option>
+            <option value="4">2016</option>
+            <option value="5">2015</option>
+            </select>
+            <div class="invalid-feedback" *ngIf="year.touched && year.invalid">
+              Year is required.
+            </div>
           </div>
-        </div> -->
+
         <div class="form-group col-md-4">
           <label for="month">Month</label>
 
-          <select class="custom-select" #month="ngModel" [(ngModel)]="Attendance.month" name="month" id="month" required> >
+          <select class="custom-select" #month="ngModel" [(ngModel)]="SearchAttendance.month" name="month" id="month" required> >
             <option selected>April</option>
             <option value="1">Jan</option>
             <option value="2">Feb</option>
@@ -71,22 +77,20 @@
               Month is required.
             </div>
           </div>
-          <div class="form-group col-md-4">
-            <label for="year">Year</label>
+         
 
-            <select class="custom-select" #year="ngModel" [(ngModel)]="Attendance.year" name="year" id="year" required>
-              <option selected>2020</option>
-              <option value="1">2019</option>
-              <option value="2">2018</option>
-              <option value="3">2017</option>
-              <option value="4">2016</option>
-              <option value="5">2015</option>
-              </select>
-              <div class="invalid-feedback" *ngIf="year.touched && year.invalid">
-                Year is required.
-              </div>
+            <div class="form-group col-md-2">
+              <button type="submit" [disabled]="!f.valid" class="btn btn-primary">Save</button>
+
             </div>
+
+            
+
         </div>
+
+       
+
+
       </form>
 
 
@@ -143,8 +147,8 @@
 
     </table>
     </div><br>
-    <button type="button"  class="btn btn-primary">Save</button>
-    <button type="submit" class="btn btn-primary" style="margin-left: 15px;">Submit</button>
+    <!-- <button type="button"  class="btn btn-primary">Save</button>
+    <button type="submit" class="btn btn-primary" style="margin-left: 15px;">Submit</button> -->
 
 
   </div>
