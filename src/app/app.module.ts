@@ -111,6 +111,7 @@ import { PopupshiftComponent } from './layout/component/Attendance-and-leaves/co
 import { ShiftTimeService } from './layout/component/Attendance-and-leaves/service/shift-time.service';
 import { GraphComponent } from './layout/component/dashboard/components/graph/graph.component';
 import { SubdashboardComponent } from './layout/component/dashboard/components/subdashboard/subdashboard.component';
+import { ResetPopupComponent } from './layout/component/employee/component/reset-popup/reset-popup.component';
 
 
 
@@ -176,10 +177,12 @@ import { SubdashboardComponent } from './layout/component/dashboard/components/s
     ShiftComponent,
     PopupshiftComponent,
     GraphComponent,
-    SubdashboardComponent
+    SubdashboardComponent,
+    ResetPopupComponent
 
   ],
   imports: [
+    ReactiveFormsModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
@@ -212,7 +215,7 @@ import { SubdashboardComponent } from './layout/component/dashboard/components/s
 
 
   ],
-  entryComponents:[CommentsComponent, EditpicklistComponent, PopupComponent, PrintPopupComponent, AddRewardComponent, PopupshiftComponent],
+  entryComponents:[CommentsComponent, EditpicklistComponent, PopupComponent, PrintPopupComponent, AddRewardComponent, PopupshiftComponent, ResetPopupComponent],
 
   providers: [
     //  {provide: LocationStrategy, useClass: HashLocationStrategy},

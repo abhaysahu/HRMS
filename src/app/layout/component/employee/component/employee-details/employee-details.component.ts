@@ -7,6 +7,8 @@ import { AppResponse } from 'src/app/models/appResponse';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ErrorHandlingService } from 'src/app/service/error-handling.service';
 import { CustomToastrService } from 'src/app/service/customToastr.service';
+import { MatDialog, MatDialogConfig, MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
+import { ResetPopupComponent } from '../reset-popup/reset-popup.component';
 
 
 
@@ -39,6 +41,8 @@ export class EmployeeDetailsComponent implements OnInit {
   id
 
   constructor(private employeeService: EmployeeService,
+    private dialog: MatDialog,
+
     private router: Router,
     private route: ActivatedRoute,
     private errorHandlingService: ErrorHandlingService,
@@ -128,7 +132,7 @@ export class EmployeeDetailsComponent implements OnInit {
     );
 
 
-    // Get permanent Address 
+    // Get permanent Address
 
     this.employeeService.UserEditDetails(this.id, 1).subscribe(resp => {
       if (resp.Success) {
@@ -728,6 +732,18 @@ export class EmployeeDetailsComponent implements OnInit {
         this.errorHandlingService.errorStatus(error, "Edit Employee Status")
       }
     )
+  }
+  ResetPopup()
+  {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.autoFocus = true;
+    dialogConfig.disableClose = true;
+    dialogConfig.width="40%";
+    // dialogConfig.height="40%";
+    dialogConfig.data={}
+    this.dialog.open(ResetPopupComponent, dialogConfig).afterClosed().subscribe(res =>{
+
+    });
   }
 
 }

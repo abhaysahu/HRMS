@@ -10,7 +10,14 @@ export class NavBarComponent implements OnInit {
 
   @Output() toggleSideBarForMe: EventEmitter<any> = new EventEmitter();
 
-  constructor(private authService: AuthService) { }
+  name;
+
+  constructor(private authService: AuthService) {
+     let name = JSON.parse(sessionStorage.getItem('user')).userName;
+     console.log(name)
+
+
+   }
 
   ngOnInit() {
   }
@@ -18,7 +25,7 @@ export class NavBarComponent implements OnInit {
   toggleSideBar() {
     this.toggleSideBarForMe.emit();
 
-  
+
     setTimeout(() => {
       window.dispatchEvent(
         new Event('resize')

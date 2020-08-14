@@ -77,7 +77,7 @@ export class ShiftComponent implements OnInit {
       if (resp.Success) {
         this.MyShiftList = resp.Data;
         this.removeNullValue(this.MyShiftList)
-        
+
       } else {
 
         this.message = resp.ErrorMessage;
@@ -129,7 +129,7 @@ export class ShiftComponent implements OnInit {
 
   }
 
-  
+
 
   ShiftPopup()
   {

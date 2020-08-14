@@ -26,7 +26,7 @@ export class PopupshiftComponent implements OnInit {
     private shiftTimeService: ShiftTimeService,
     private customToastrService: CustomToastrService,
     private errorHandlingService: ErrorHandlingService
-    
+
   ) {
 
     // this.Id=JSON.parse(sessionStorage.getItem('user')).Id;
@@ -36,17 +36,17 @@ export class PopupshiftComponent implements OnInit {
 
     this.shiftTimeService.ApprovedByStatus(this.Id).subscribe(resp => {
       console.log(resp);
-     
+
       if (resp.Success) {
         this.dropdownList = resp.Data;
       } else {
-        
+
         this.message = resp.ErrorMessage;
         this.message = resp.Message;
         this.customToastrService.GetErrorToastr(this.message, "Shift Save Status", 5000)
 
       }
-      
+
     }
     ,   (error: AppResponse) => {
 
@@ -72,7 +72,7 @@ export class PopupshiftComponent implements OnInit {
 
 
     this.shiftTimeService.shiftTimeDataSave(myshifts).subscribe(resp => {
-     
+
       if(resp.Success)
       {
         this.message="Data is Added successfully"
@@ -86,7 +86,7 @@ export class PopupshiftComponent implements OnInit {
         this.customToastrService.GetErrorToastr(this.message, "Shift Save Status", 5000)
 
       }
-      
+
     }
     ,   (error: AppResponse) => {
       this.errorHandlingService.errorStatus(error,"Shift Save Status")

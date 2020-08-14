@@ -8,6 +8,8 @@ import { ErrorHandlingService } from 'src/app/service/error-handling.service';
 import { CustomToastrService } from 'src/app/service/customToastr.service';
 
 
+
+
 class Person {
   id: number;
   firstName: string;
@@ -29,7 +31,7 @@ class DataTablesResponse {
 export class EmployeeListComponent implements OnInit {
 
   // @ViewChild(DataTableDirective)
-  
+
   // datatableElement: DataTableDirective;
 
   // dtOptions: DataTables.Settings = {};
@@ -51,8 +53,9 @@ export class EmployeeListComponent implements OnInit {
   message="";
   email="";
 
-  constructor(private http: HttpClient, 
-    private loginService: LoginService, 
+  constructor(private http: HttpClient,
+
+    private loginService: LoginService,
     private employeeService: EmployeeService,
     private errorHandlingService: ErrorHandlingService,
     private customToastrService: CustomToastrService
@@ -73,14 +76,14 @@ export class EmployeeListComponent implements OnInit {
             this.message=resp.Message;
             this.customToastrService.GetErrorToastr(this.message,"List Employee Status", 5000)
         }
-        
+
       },   (error: AppResponse) => {
         this.errorHandlingService.errorStatus(error,"List Employee Status")
 
   }
   )
-  
-        
+
+
     }
 
   ngOnInit(): void {
@@ -90,13 +93,13 @@ export class EmployeeListComponent implements OnInit {
     //   pagingType: 'full_numbers',
     //   pageLength: 5,
     //   serverSide: true,
- 
+
     //   searching: true,
     //   search: false,
     //   info:true,
-      
 
-      
+
+
     //   ajax: (dataTablesParameters: any) => {
     //     this.employeeService.getUser()
     //     .subscribe(resp => {
@@ -118,7 +121,7 @@ export class EmployeeListComponent implements OnInit {
   //     dtInstance.columns().every(function () {
   //       const that = this;
   //       $('input', this.footer()).on('keyup change', function () {
-          
+
   //         if (that.search() !== this['value']) {
   //           that
   //             .search(this['value'])
@@ -138,12 +141,12 @@ export class EmployeeListComponent implements OnInit {
     if(value == 1)
     {
       this.ascNumberSort = !this.ascNumberSort;
-      if(this.ascNumberSort) 
+      if(this.ascNumberSort)
       {
         this.sortIcon1="fa fa-sort-desc"
         this.persons=this.persons.sort((a,b)=>a.EmpCode - b.EmpCode); // For ascending sort
-      } 
-      else 
+      }
+      else
       {
         this.sortIcon1="fa fa-sort-asc"
         this.persons=this.persons.sort((a,b)=>b.EmpCode - a.EmpCode); // For descending sort
@@ -153,12 +156,12 @@ export class EmployeeListComponent implements OnInit {
     else if(value == 2)
     {
       this.ascNumberSort = !this.ascNumberSort;
-      if(this.ascNumberSort) 
+      if(this.ascNumberSort)
       {
         this.sortIcon2="fa fa-sort-desc"
         this.persons=this.persons.sort((a,b)=>a.FullName.localeCompare(b.FullName)); // For ascending sort
-      } 
-      else 
+      }
+      else
       {
         this.sortIcon2="fa fa-sort-asc"
         this.persons=this.persons.sort((a,b)=>b.FullName.localeCompare(a.FullName)); // For descending sort
@@ -168,12 +171,12 @@ export class EmployeeListComponent implements OnInit {
     else if(value == 3)
     {
       this.ascNumberSort = !this.ascNumberSort;
-      if(this.ascNumberSort) 
+      if(this.ascNumberSort)
       {
         this.sortIcon3="fa fa-sort-desc"
         this.persons=this.persons.sort((a,b)=>a.Designation.Text.localeCompare(b.Designation.Text)); // For ascending sort
-      } 
-      else 
+      }
+      else
       {
         this.sortIcon3="fa fa-sort-asc"
         this.persons=this.persons.sort((a,b)=>b.Designation.Text.localeCompare(a.Designation.Text)); // For descending sort
@@ -184,12 +187,12 @@ export class EmployeeListComponent implements OnInit {
     else if(value == 4)
     {
       this.ascNumberSort = !this.ascNumberSort;
-      if(this.ascNumberSort) 
+      if(this.ascNumberSort)
       {
         this.sortIcon4="fa fa-sort-desc"
         this.persons=this.persons.sort((a,b)=>a.Department.Text.localeCompare(b.Department.Text)); // For ascending sort
-      } 
-      else 
+      }
+      else
       {
         this.sortIcon4="fa fa-sort-asc"
         this.persons=this.persons.sort((a,b)=>b.Department.Text.localeCompare(a.Department.Text)); // For descending sort
@@ -199,12 +202,12 @@ export class EmployeeListComponent implements OnInit {
     else if(value == 5)
     {
       this.ascNumberSort = !this.ascNumberSort;
-      if(this.ascNumberSort) 
+      if(this.ascNumberSort)
       {
         this.sortIcon5="fa fa-sort-desc"
         this.persons=this.persons.sort((a,b)=>a.PersonalEmail.localeCompare(b.PersonalEmail)); // For ascending sort
-      } 
-      else 
+      }
+      else
       {
         this.sortIcon5="fa fa-sort-asc"
         this.persons=this.persons.sort((a,b)=>b.PersonalEmail.localeCompare(a.PersonalEmail)); // For descending sort
@@ -214,12 +217,12 @@ export class EmployeeListComponent implements OnInit {
     else if(value == 6)
     {
       this.ascNumberSort = !this.ascNumberSort;
-      if(this.ascNumberSort) 
+      if(this.ascNumberSort)
       {
         this.sortIcon6="fa fa-sort-desc"
         this.persons=this.persons.sort((a,b)=>a.Status.Text.localeCompare(b.Status.Text)); // For ascending sort
-      } 
-      else 
+      }
+      else
       {
         this.sortIcon6="fa fa-sort-asc"
         this.persons=this.persons.sort((a,b)=>b.Status.Text.localeCompare(a.Status.Text)); // For descending sort
@@ -250,6 +253,7 @@ export class EmployeeListComponent implements OnInit {
   //   this.dangerStatus=false;
   //   this.successStatus=false;
   // }
+
 
 
 
