@@ -175,7 +175,7 @@ both are edited the other in formation  -->
 
                 <div class="form-group col-md-4">
                   <label for="PriorExperience">Total Experience(yrs)</label><br>
-                  <input type="number" id="PriorExperience" class="form-control" #PriorExperience="ngModel" [(ngModel)]="Employee.PriorExperience" name="PriorExperience" id="PriorExperience" min="1" max="20" >
+                  <input type="number" id="PriorExperience" class="form-control" #PriorExperience="ngModel" [(ngModel)]="Employee.PriorExperience" name="PriorExperience" id="PriorExperience" min="0" max="20" >
                   <div class="invalid-feedback" *ngIf="PriorExperience.touched && PriorExperience.invalid">
                     Total Experience Is Mandatory
                   </div>
