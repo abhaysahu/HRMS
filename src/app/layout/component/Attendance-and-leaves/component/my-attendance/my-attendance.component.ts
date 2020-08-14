@@ -14,10 +14,11 @@ import { AppResponse } from 'src/app/models/appResponse';
   styleUrls: ['./my-attendance.component.css']
 })
 export class MyAttendanceComponent implements OnInit {
-  SearchAttendance: any[] = [];
+  SearchAttendance: any;
 
   Attendance: any[]=[];
   message;
+  showTable=false
 
   ListOfMonth: any[]=[];
 
@@ -42,6 +43,16 @@ export class MyAttendanceComponent implements OnInit {
     private errorHandlingService: ErrorHandlingService
 
    ) {
+
+
+    let date=new Date();
+
+    this.SearchAttendance={
+      year:date.getFullYear(),
+      month:(date.getMonth()+1)
+    }
+    console.log(this.SearchAttendance)
+    this.GetAttendance(this.SearchAttendance)
 
     this.dropDownListOfMonth=[
       {
@@ -114,8 +125,9 @@ export class MyAttendanceComponent implements OnInit {
       }
     ]
 
+    let Id=JSON.parse(sessionStorage.getItem('user')).Id;
 
-    console.log(this.dropDownListOfYear)
+
 
   }
 
@@ -130,11 +142,16 @@ export class MyAttendanceComponent implements OnInit {
       if(resp.Success)
       {
         this.Attendance = resp.Data
+        console.log(this.Attendance)
+        for(let i=0;i<this.Attendance.length;i++)
+        {
+          this.Attendance[i].Date=new Date(this.Attendance[i].Date).toDateString().substr(0,13) 
+        }
+
+        this.showTable=true
       }
       else
       {
-          // this.dangerStatus=true;
-          // this.successStatus=false;
           this.message=resp.ErrorMessage;
           this.message=resp.Message;
           this.customToastrService.GetErrorToastr(this.message, "My Attendance Status", 5000)

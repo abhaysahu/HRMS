@@ -108,7 +108,7 @@ export class MyLeavesComponent implements OnInit {
     //get the month of all the year;
 
 
-    let year =2017
+    let year =2020
 
     let doj=new Date("2017-08-06");
 
@@ -119,7 +119,7 @@ export class MyLeavesComponent implements OnInit {
 
     if(year==yearOfDOJ && year!=yearOfTOD)
     {
-      console.log((doj.getMonth()+1).toString())
+      // console.log((doj.getMonth()+1).toString())
 
       for(let i=doj.getMonth();i<12;i++)
       {
@@ -137,12 +137,22 @@ export class MyLeavesComponent implements OnInit {
   
     else if(year>yearOfDOJ && year!=yearOfTOD)
     {
-
+      this.dropDownListOfMonth=this.month
+      console.log(this.dropDownListOfMonth)
     }
 
-    else
+    else if(year==yearOfTOD)
     {
-      console.log("no")
+
+      for(let i=0;i<doj.getMonth()+1;i++)
+      {
+        this.data={
+              Value:this.month[i].Value,
+              Text:this.month[i].Text,
+            }
+            this.dropDownListOfMonth.push(this.data)
+      }
+      console.log(this.dropDownListOfMonth)
     }
 
 

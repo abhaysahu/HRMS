@@ -61,6 +61,8 @@ export class UnsoldProductsComponent implements OnInit {
       DateOfLastSell: date12,
     }
 
+    console.log(this.ProductForm)
+
   }
 
 
@@ -69,20 +71,12 @@ export class UnsoldProductsComponent implements OnInit {
 
     let date = data.DateOfLastSell
     let date1 = new Date(date)
-    // console.log(date1)
-    // console.log(date1.getDate());
-    // console.log(date1.getMonth()+1);
-    // console.log(date1.getFullYear());
+   
 
     var date12 =new Date(`${date1.getMonth()+1}/${date1.getDate()}/${date1.getFullYear()}`);
 
-    // console.log(date12);
-
-    // var date1 = new Date("06/30/2019"); 
-
     var date2 = new Date(); 
     var date22 = new Date(`${date2.getMonth()+1}/${date2.getDate()}/${date2.getFullYear()}`);
-    // console.log(date22)
 
     var Difference_In_Time = date22.getTime() - date12.getTime();
     var Difference_In_Days = Difference_In_Time / (1000 * 3600 * 24); 
@@ -93,7 +87,7 @@ export class UnsoldProductsComponent implements OnInit {
     }
     else
     {
-      // console.log(Difference_In_Days)
+      console.log(Difference_In_Days)
       this.reportService.getListOfProduct(Difference_In_Days, data.ProductName).subscribe(resp =>{
         console.log(resp)
         if(resp.Success)

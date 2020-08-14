@@ -74,6 +74,14 @@ export class AttendanceService {
 
     return this.httpClient.get<DropDown>(environment.webapiUrl+`api/get/AttendanceByEmployee?employeeId=${EmployeeId}&month=${Month}&year=${Year}`, { headers: headers })
 
+  }
+
+  getDateOfJoining(EmployeeId)
+  {
+    
+    const headers = this.errorHandlingService.getauthorization()
+
+    return this.httpClient.get<DropDown>(environment.webapiUrl+`api/get/DateOfJoining?employeeId=${EmployeeId}`, { headers: headers })
 
   }
   
