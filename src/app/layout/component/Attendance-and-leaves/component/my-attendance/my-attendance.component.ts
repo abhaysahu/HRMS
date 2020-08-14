@@ -18,6 +18,7 @@ export class MyAttendanceComponent implements OnInit {
 
   Attendance: any[]=[];
   message;
+  showTable=false
 
   ListOfMonth: any[]=[];
 
@@ -114,9 +115,6 @@ export class MyAttendanceComponent implements OnInit {
       }
     ]
 
-
-    console.log(this.dropDownListOfYear)
-
   }
 
 
@@ -130,11 +128,16 @@ export class MyAttendanceComponent implements OnInit {
       if(resp.Success)
       {
         this.Attendance = resp.Data
+        console.log(this.Attendance)
+        for(let i=0;i<this.Attendance.length;i++)
+        {
+          this.Attendance[i].Date=new Date(this.Attendance[i].Date).toDateString().substr(0,13) 
+        }
+
+        this.showTable=true
       }
       else
       {
-          // this.dangerStatus=true;
-          // this.successStatus=false;
           this.message=resp.ErrorMessage;
           this.message=resp.Message;
           this.customToastrService.GetErrorToastr(this.message, "My Attendance Status", 5000)
