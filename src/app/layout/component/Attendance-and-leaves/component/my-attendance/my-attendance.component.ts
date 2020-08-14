@@ -14,7 +14,7 @@ import { AppResponse } from 'src/app/models/appResponse';
   styleUrls: ['./my-attendance.component.css']
 })
 export class MyAttendanceComponent implements OnInit {
-  SearchAttendance: any[] = [];
+  SearchAttendance: any;
 
   Attendance: any[]=[];
   message;
@@ -43,6 +43,16 @@ export class MyAttendanceComponent implements OnInit {
     private errorHandlingService: ErrorHandlingService
 
    ) {
+
+
+    let date=new Date();
+
+    this.SearchAttendance={
+      year:date.getFullYear(),
+      month:(date.getMonth()+1)
+    }
+    console.log(this.SearchAttendance)
+    this.GetAttendance(this.SearchAttendance)
 
     this.dropDownListOfMonth=[
       {
@@ -114,6 +124,10 @@ export class MyAttendanceComponent implements OnInit {
         Text:2020,
       }
     ]
+
+    let Id=JSON.parse(sessionStorage.getItem('user')).Id;
+
+
 
   }
 
