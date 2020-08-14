@@ -70,13 +70,13 @@
               <td>{{ MyShiftLists.StartTime }}</td>
               <td>{{ MyShiftLists.EndTime }}</td>
               <td>{{ MyShiftLists.CreatedOn }}</td>
-              <td>{{ MyShiftLists.AprovingStatus.Text }}</td>
-              <td>{{ MyShiftLists.ApprovalPerson.Name }}</td>
-              <td>{{ MyShiftLists.ApprovalBy.Name }}</td>
+              <td>{{ MyShiftLists.AprovingStatus }}</td>
+              <td>{{ MyShiftLists.ApprovalPerson }}</td>
+              <td>{{ MyShiftLists.ApprovedBy }}</td>
             </tr>
 
           </tbody>
-          <tbody  *ngIf="myshift?.length ==0">
+          <tbody  *ngIf="MyShiftList?.length ==0">
             <tr>
               <td colspan="6" class="no-data-available">No matching records found</td>
             </tr>
