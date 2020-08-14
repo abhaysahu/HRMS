@@ -110,6 +110,7 @@ import { ShiftComponent } from './layout/component/Attendance-and-leaves/compone
 import { PopupshiftComponent } from './layout/component/Attendance-and-leaves/component/popupshift/popupshift.component';
 import { ShiftTimeService } from './layout/component/Attendance-and-leaves/service/shift-time.service';
 import { GraphComponent } from './layout/component/dashboard/components/graph/graph.component';
+import { SubdashboardComponent } from './layout/component/dashboard/components/subdashboard/subdashboard.component';
 
 
 
@@ -174,8 +175,8 @@ import { GraphComponent } from './layout/component/dashboard/components/graph/gr
     UnsoldPipe,
     ShiftComponent,
     PopupshiftComponent,
-    GraphComponent
-
+    GraphComponent,
+    SubdashboardComponent
 
   ],
   imports: [

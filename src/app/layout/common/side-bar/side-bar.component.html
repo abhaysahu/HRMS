@@ -21,9 +21,18 @@
                     </li>
                 </ul>
             </li>-->
-            <li>
+            <!-- <li>
                 <a routerLink="/dashboard" style="font-size: 16px;"><i class="fa fa-window-maximize" ></i>  Dashboard</a>
-             </li><hr>
+             </li><hr> -->
+             <li>
+              <a href="#page10Submenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" style="font-size: 16px;"><i class="fa fa-window-maximize"></i>  Dashboard</a>
+              <ul class="collapse list-unstyled" id="page10Submenu" data-accordion="false">
+                  <li>
+                      <a routerLink="subdashboard" style="color:rgb(127,131,135);">Sub Dashboard</a>
+                  </li>
+
+              </ul>
+          </li><hr>
             <li>
                 <a href="#page2Submenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" style="font-size: 16px;"><i class="fa fa-address-book"></i>  Employee</a>
                 <ul class="collapse list-unstyled" id="page2Submenu" data-accordion="false">

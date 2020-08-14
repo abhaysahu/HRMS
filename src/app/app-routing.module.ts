@@ -44,6 +44,7 @@ import { VenderSaveComponent } from './layout/component/Finance/component/vender
 import { UnsoldProductsComponent } from './layout/component/Report/components/unsold-products/unsold-products.component';
 import { ReportComponent } from './layout/component/Report/components/report/report.component';
 import { ShiftComponent } from './layout/component/Attendance-and-leaves/component/shift/shift.component';
+import { SubdashboardComponent } from './layout/component/dashboard/components/subdashboard/subdashboard.component';
 
 const routes: Routes = [
 
@@ -51,6 +52,8 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent},
 
   {path: 'navbar', component: NavBarComponent},
+  // {path: 'subdashboard' , component: SubdashboardComponent},
+
 
 
   {
@@ -62,6 +65,7 @@ const routes: Routes = [
         path: '', component: DashboardComponent,
         //canActivate: [AuthGuardService]
       },
+
       {
         path: 'employee/details', component: EmployeeDetailsComponent,
         //canActivate: [AuthGuardService]
@@ -195,7 +199,11 @@ const routes: Routes = [
       {
         path: 'report/unsoldproducts', component: UnsoldProductsComponent
       },
-      
+      {
+        path: 'subdashboard' , component: SubdashboardComponent
+
+      }
+
 
 
     ],
