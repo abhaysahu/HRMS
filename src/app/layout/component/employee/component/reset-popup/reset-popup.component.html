@@ -1,5 +1,5 @@
 <div class="popup">
-  <form [formGroup]="registrationForm">
+  <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
     <div class="form-group">
 
       <label for="password">Password</label>
@@ -15,7 +15,7 @@
 
 
 
-  <button type="submit" class="btn btn-primary">Save</button>
+  <button [disabled]="!registrationForm.valid" class="btn btn-primary" type="submit">Save</button>
 
   <button type="button" class="btn btn-outline-dark ml-2" (click)="close()" ><i class="fa fa-close"></i> Close</button>
   </form>

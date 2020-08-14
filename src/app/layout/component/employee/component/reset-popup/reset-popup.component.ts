@@ -2,6 +2,8 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { PasswordValidator } from '../../models/password.validator';
+import { RegistrationService } from '../../services/registration.service';
+
 
 
 @Component({
@@ -10,9 +12,12 @@ import { PasswordValidator } from '../../models/password.validator';
   styleUrls: ['./reset-popup.component.css']
 })
 export class ResetPopupComponent implements OnInit {
+  Resetpopup: any[] = [];
+
 
   constructor(
     private fb: FormBuilder,
+    private _registrationService: RegistrationService,
     @Inject(MAT_DIALOG_DATA) public data,
   // tslint:disable-next-line: align
   public dialogRef: MatDialogRef<ResetPopupComponent>) { }
@@ -30,9 +35,21 @@ export class ResetPopupComponent implements OnInit {
 
   }
 
+
+
   close()
   {
     this.dialogRef.close();
+  }
+
+  // tslint:disable-next-line: adjacent-overload-signatures
+  onSubmit() {
+    console.log(this.registrationForm.value);
+    this._registrationService.register(this.registrationForm.value)
+      .subscribe(
+        response => console.log('success', response),
+        error => console.error('error', error)
+      )
   }
 
 }
