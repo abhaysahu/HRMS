@@ -19,6 +19,11 @@ export class MyAttendanceComponent implements OnInit {
   Attendance: any[]=[];
   message;
 
+  ListOfMonth: any[]=[];
+
+  dropDownListOfMonth: any[]=[];
+  dropDownListOfYear: any[]=[];
+
   ascNumberSort = true;
 
   sortIcon1="fa fa-sort"
@@ -37,6 +42,80 @@ export class MyAttendanceComponent implements OnInit {
     private errorHandlingService: ErrorHandlingService
 
    ) {
+
+    this.dropDownListOfMonth=[
+      {
+        Value:1,
+        Text:"Jan"
+      },
+      {
+        Value:2,
+        Text:"Feb"
+      },
+      {
+        Value:3,
+        Text:"Mar"
+      },
+      {
+        Value:4,
+        Text:"Apr"
+      },
+      {
+        Value:5,
+        Text:"May"
+      },
+      {
+        Value:6,
+        Text:"Jun"
+      },
+      {
+        Value:7,
+        Text:"Jul"
+      },
+      {
+        Value:8,
+        Text:"Aug"
+      },
+      {
+        Value:9,
+        Text:"Sep"
+      },
+      {
+        Value:10,
+        Text:"Oct"
+      },
+      {
+        Value:11,
+        Text:"Nov"
+      },
+      {
+        Value:12,
+        Text:"Dec"
+      },
+    ]
+
+
+    this.dropDownListOfYear =[
+      {
+        Value:2017,
+        Text:2017,
+      },
+      {
+        Value:2018,
+        Text:2018,
+      },
+      {
+        Value:2019,
+        Text:2019,
+      },
+      {
+        Value:2020,
+        Text:2020,
+      }
+    ]
+
+
+    console.log(this.dropDownListOfYear)
 
   }
 
