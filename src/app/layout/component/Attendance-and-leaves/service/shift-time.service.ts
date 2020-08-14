@@ -70,19 +70,4 @@ export class ShiftTimeService {
     return this.httpClient.post<any>(environment.webapiUrl+'api/update/ShiftTime',Data, { headers: headers })
   }
 
-  getMyShiftData(): Observable<MyShiftList>
-  {
-    // const token = sessionStorage.getItem('token')
-    // const headers = new HttpHeaders({
-    //   'Content-Type': 'application/json',
-    //   'authorization': `bearer ${token}`
-    // })
-    const headers = this.errorHandlingService.getauthorization()
-
-    console.log(headers)
-
-    return this.httpClient.get<MyShiftList>(environment.webapiUrl+'', { headers: headers })
-
-  }
-
 }
