@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Employee } from '../../models/employee';
 import { Router } from '@angular/router';
 import { EmployeeService } from '../../services/employee.service';
 import { AppResponse } from 'src/app/models/appResponse';
@@ -8,6 +7,7 @@ import { CommentsComponent } from '../../../Timesheet/component/comments/comment
 import { PrintService } from '../../services/print.service';
 import { PrintPopupComponent } from './print-popup/print-popup.component';
 import { ErrorHandlingService } from 'src/app/service/error-handling.service';
+import { Employee } from '../../models/employee';
 
 
 @Component({
@@ -17,7 +17,7 @@ import { ErrorHandlingService } from 'src/app/service/error-handling.service';
 })
 export class CreateEmployeeComponent implements OnInit {
 
-  Employee: any[] = [];
+  Employee = {} as Employee
 
   dropdownListOfUser: any[] = [];
   dropdownListOfDepartment: any[] = [];

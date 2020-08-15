@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import { Project } from '../../models/Project';
 
 
 @Component({
@@ -9,7 +10,7 @@ import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 })
 export class ProjectSaveComponent implements OnInit {
   public Editor = ClassicEditor;
-  Project: any[] = [];
+  Project={} as Project;
 
 
  

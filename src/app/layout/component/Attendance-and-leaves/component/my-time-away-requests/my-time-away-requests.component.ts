@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AwayRequest } from '../../models/away_request';
 
 @Component({
   selector: 'app-my-time-away-requests',
@@ -6,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./my-time-away-requests.component.css']
 })
 export class MyTimeAwayRequestsComponent implements OnInit {
-  Attendance: any[] = [];
+  Attendance= {} as AwayRequest
 
 
   constructor() { }

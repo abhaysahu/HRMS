@@ -1,10 +1,10 @@
-export interface MyShifts {
+export interface PopupShift {
 
   StartTime: number
   EndTime: number
   CreatedOn: number
-  ApprovingStatus: string
-  ApprovingPerson: string
+  Status: string
+  ApprovalPerson: string
   ApprovedBy: string
 
 
