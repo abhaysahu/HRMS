@@ -76,12 +76,12 @@ export class AttendanceService {
 
   }
 
-  getDateOfJoining(EmployeeId)
+  getDateOfJoining(id)
   {
     
     const headers = this.errorHandlingService.getauthorization()
 
-    return this.httpClient.get<DropDown>(environment.webapiUrl+`api/get/DateOfJoining?employeeId=${EmployeeId}`, { headers: headers })
+    return this.httpClient.get<DropDown>(environment.webapiUrl+`api/user/${id}`, { headers: headers })
 
   }
   
