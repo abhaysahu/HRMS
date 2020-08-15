@@ -6,6 +6,7 @@ import { AttendanceService } from '../../service/attendance.service';
 import { CustomToastrService } from 'src/app/service/customToastr.service';
 import { ErrorHandlingService } from 'src/app/service/error-handling.service';
 import { AppResponse } from 'src/app/models/appResponse';
+import { ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -19,12 +20,13 @@ export class MyAttendanceComponent implements OnInit {
   Attendance: any[]=[];
   message;
   showTable=false
-
   ListOfMonth: any[]=[];
-
   dropDownListOfMonth: any[]=[];
   dropDownListOfYear: any[]=[];
+  data={}
+  Name
 
+  Id;
   ascNumberSort = true;
 
   sortIcon1="fa fa-sort"
@@ -40,9 +42,24 @@ export class MyAttendanceComponent implements OnInit {
 
     private attendanceService: AttendanceService,
     private customToastrService: CustomToastrService,
-    private errorHandlingService: ErrorHandlingService
-
+    private errorHandlingService: ErrorHandlingService,
+    private route: ActivatedRoute,
    ) {
+
+
+    
+
+    if(this.route.snapshot.paramMap.get('id'))
+    {
+      this.Id=this.route.snapshot.paramMap.get('id')
+      this.Name=this.route.snapshot.paramMap.get('name')
+      console.log(this.Name)
+    }
+    else
+    {
+      this.Id=JSON.parse(sessionStorage.getItem('user')).Id;
+      
+    }
 
 
     let date=new Date();
@@ -125,23 +142,62 @@ export class MyAttendanceComponent implements OnInit {
       }
     ]
 
-    let Id=JSON.parse(sessionStorage.getItem('user')).Id;
+   
 
+    this.attendanceService.getDateOfJoining(this.Id).subscribe(resp =>{
 
+      if(resp.Success)
+      {
+
+        let doj=new Date("2017-08-06");
+
+        let Tod=new Date();
+
+        let yearOfDOJ=doj.getFullYear()
+        // let yearOfTOD=Tod.getFullYear();
+        let diff =Tod.getFullYear()-doj.getFullYear(); 
+        console.log(diff)
+
+        for (let i=0;i<(diff+1);i++)
+        {
+          this.data={
+            Value:yearOfDOJ+i,
+            Text:yearOfDOJ+i,
+        }
+
+        this.dropDownListOfYear.push(this.data)
+      }
+
+      console.log(this.dropDownListOfYear)
+      
+      }
+      else
+      {
+          this.message=resp.ErrorMessage;
+          this.message=resp.Message;
+          this.customToastrService.GetErrorToastr(this.message, "My Attendance Status", 5000)
+
+      }
+
+    },   (error: AppResponse) => {
+
+      this.errorHandlingService.errorStatus(error,"My Attendance Status")
+
+}
+)
 
   }
-
 
   GetAttendance(data)
   {
     console.log(data)
-    let id=JSON.parse(sessionStorage.getItem('user')).Id
 
-    this.attendanceService.getAttendanceByEmployee(id,data.month,data.year).subscribe(resp =>{
+    this.attendanceService.getAttendanceByEmployee(this.Id,data.month,data.year).subscribe(resp =>{
 
       if(resp.Success)
       {
         this.Attendance = resp.Data
+        this.Name= this.Attendance[0].Employee.Name
         console.log(this.Attendance)
         for(let i=0;i<this.Attendance.length;i++)
         {
@@ -187,12 +243,12 @@ export class MyAttendanceComponent implements OnInit {
       if(this.ascNumberSort) 
       {
         this.sortIcon2="fa fa-sort-desc"
-        this.Attendance=this.Attendance.sort((a, b) => new Date(b.CREATE_TS).getTime() - new Date(a.CREATE_TS).getTime()); // For ascending sort
+        this.Attendance=this.Attendance.sort((a, b) => new Date(b.Date).getTime() - new Date(a.Date).getTime()); // For ascending sort
       } 
       else 
       {
         this.sortIcon2="fa fa-sort-asc"
-        this.Attendance=this.Attendance.sort((a, b) => new Date(b.CREATE_TS).getTime() - new Date(a.CREATE_TS).getTime()); // For descending sort
+        this.Attendance=this.Attendance.sort((a, b) => new Date(b.Date).getTime() - new Date(a.Date).getTime()); // For descending sort
       }
     }
 
@@ -217,12 +273,12 @@ export class MyAttendanceComponent implements OnInit {
       if(this.ascNumberSort) 
       {
         this.sortIcon4="fa fa-sort-desc"
-        this.Attendance=this.Attendance.sort((a,b)=>a.ObjectTypeCode - b.ObjectTypeCode); // For ascending sort
+        this.Attendance=this.Attendance.sort((a,b)=>a.InTime.localeCompare(b.InTime)); // For ascending sort
       } 
       else 
       {
         this.sortIcon4="fa fa-sort-asc"
-        this.Attendance=this.Attendance.sort((a,b)=>b.ObjectTypeCode - a.ObjectTypeCode); // For descending sort
+        this.Attendance=this.Attendance.sort((a,b)=>b.InTime.localeCompare(a.InTime)); // For descending sort
       }
     }
 

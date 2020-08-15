@@ -87,6 +87,10 @@ const routes: Routes = [
         //canActivate: [AuthGuardService],
       },
       {
+        path: 'use/attendance/:id/:name', component: MyAttendanceComponent,
+        //canActivate: [AuthGuardService],
+      },
+      {
         path: 'applytimeaway', component: ApplyTimeAwayComponent,
         //canActivate: [AuthGuardService],
       },
