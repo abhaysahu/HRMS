@@ -64,7 +64,8 @@ both are edited the other in formation  -->
 
                 <div class="form-group col-md-4">
                   <label for="FullName">Full Name</label>
-                  <input #FullName="ngModel" [(ngModel)]="Employee.FullName" name="FullName" id="FullName" type="text" class="form-control" placeholder="Employee Name" required>
+                  <!-- pattern="([a-zA-Z]+\s){2,}([a-zA-Z])+" -->
+                  <input #FullName="ngModel"  [(ngModel)]="Employee.FullName" name="FullName" id="FullName" type="text" class="form-control" placeholder="Employee Name" required>
                   <div class="invalid-feedback" *ngIf="FullName.touched && FullName.invalid">
                     Full Name is Mandatory
                   </div>

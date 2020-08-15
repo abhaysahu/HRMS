@@ -31,7 +31,8 @@
 
 <div class="card">
   <div class="card-header">
-    My Attendance
+    <!-- My Attendance -->
+    {{Name}} Attendance
   </div>
   <div class="card-body">
     <form #f="ngForm" (ngSubmit)="GetAttendance(f.value)" class="was-validated">
@@ -42,7 +43,7 @@
           <label for="year">Year</label>
 
 
-          <select class="custom-select" #year="ngModel" [(ngModel)]="SearchAttendance.year" name="year" id="year">
+          <select class="custom-select" #year="ngModel" [(ngModel)]="SearchAttendance.year" name="year" id="year" >
             <option *ngFor="let dropdownLists of dropDownListOfYear" [value]="dropdownLists.Value">{{dropdownLists.Text}}</option>
           </select>
 
@@ -104,17 +105,17 @@
         <tr>
           <th scope="col" (click)="sortFilter(1)"># <i class={{sortIcon1}} aria-hidden="true"></i> </th>
           <th scope="col" (click)="sortFilter(2)">Date<i class={{sortIcon2}} aria-hidden="true"></i> </th>
-          <th scope="col">Shift</th>
-          <th scope="col" (click)="sortFilter(3)">In Time <i class={{sortIcon3}} aria-hidden="true"></i> </th>
-          <th scope="col" (click)="sortFilter(4)">Out Time <i class={{sortIcon4}} aria-hidden="true"></i> </th>
-          <th scope="col" (click)="sortFilter(5)">Working Hours <i class={{sortIcon5}} aria-hidden="true"></i> </th>
-          <th scope="col" (click)="sortFilter(6)">Status <i class={{sortIcon6}} aria-hidden="true"></i> </th>
-          <th scope="col" (click)="sortFilter(7)">Options <i class={{sortIcon7}} aria-hidden="true"></i> </th>
+          <th scope="col" (click)="sortFilter(3)">Shift<i class={{sortIcon3}} aria-hidden="true"></i> </th>
+          <th scope="col" (click)="sortFilter(4)">In Time <i class={{sortIcon4}} aria-hidden="true"></i> </th>
+          <th scope="col" (click)="sortFilter(5)">Out Time <i class={{sortIcon5}} aria-hidden="true"></i> </th>
+          <th scope="col" (click)="sortFilter(6)">Working Hours <i class={{sortIcon6}} aria-hidden="true"></i> </th>
+          <th scope="col" (click)="sortFilter(7)">Status <i class={{sortIcon7}} aria-hidden="true"></i> </th>
+          <th scope="col" (click)="sortFilter(8)">Options <i class={{sortIcon8}} aria-hidden="true"></i> </th>
 
         </tr>
       </thead>
       <tbody *ngIf="Attendance?.length != 0">
-        <tr *ngFor="let Attendances of Attendance | addAttendanceSearch:email; let i = index">
+        <tr *ngFor="let Attendances of Attendance let i = index">
           <td>{{i}}</td>
           <td>{{ Attendances.Date }}</td>
           <td></td>

@@ -10,11 +10,11 @@ export class NavBarComponent implements OnInit {
 
   @Output() toggleSideBarForMe: EventEmitter<any> = new EventEmitter();
 
-  name;
+  Name;
 
   constructor(private authService: AuthService) {
-     let name = JSON.parse(sessionStorage.getItem('user')).userName;
-     console.log(name)
+     this.Name = JSON.parse(sessionStorage.getItem('user')).userName;
+     console.log(this.Name)
 
 
    }
