@@ -5,6 +5,7 @@ import { ErrorHandlingService } from 'src/app/service/error-handling.service';
 import { CustomToastrService } from 'src/app/service/customToastr.service';
 import { Vender } from '../../model/vender';
 import { VenderService } from '../../service/vender.service';
+import { DropDownList } from '../../model/dropDown';
 
 
 @Component({
@@ -20,24 +21,13 @@ export class VenderSaveComponent implements OnInit {
   // dangerStatus=false;
   message="";
   venderService: any;
-  // dropdownList: DropDownList[]=[];
+  dropdownList: DropDownList[]=[];
 
 
   constructor(private entityService: VenderService, private errorHandlingService: ErrorHandlingService,
      private customToastrService: CustomToastrService,
     ) {
 
-    // this.vender = {
-
-    //   // Name: null,
-    //   // Category: null,
-    //   // SchemaName: "dbo",
-    //   // // ObjectTypeCode: null,
-    //   // Description: "",
-    //   // IsMasterEntity: true,
-    //   // PrimaryAttribute: null,
-    //   // PrimaryKey: null,
-    // }
 
     this.vender = {
 
@@ -50,7 +40,6 @@ export class VenderSaveComponent implements OnInit {
       PrimaryContactPerson: null,
       PrimaryContactPersonEmail: null,
       PrimaryContactPersonPhone: null,
-
 
     }
 

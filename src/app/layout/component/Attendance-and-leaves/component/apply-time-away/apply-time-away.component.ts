@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ApplyTimeAway } from '../../models/time_away';
 
 @Component({
   selector: 'app-apply-time-away',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ApplyTimeAwayComponent implements OnInit {
 
-  Attendance: any[] = [];
+  Attendance ={} as ApplyTimeAway;
 
   constructor() { }
 

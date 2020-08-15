@@ -22,7 +22,9 @@ export class AddRewardComponent implements OnInit {
     public dialogRef: MatDialogRef<AddRewardComponent>,
     private rewardservice: RewardSkipService
 
-  ) { }
+  ) {
+   
+   }
 
   ngOnInit() {
   }

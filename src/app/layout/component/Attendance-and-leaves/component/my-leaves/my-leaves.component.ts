@@ -6,7 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./my-leaves.component.css']
 })
 export class MyLeavesComponent implements OnInit {
-  Leaves: any[] = [];
+  Leaves ={
+    year:null,
+    dateOfJoining:null
+  }
   dropDownListOfYear: any[]=[]
   dropDownListOfMonth:any[]=[]
   month:any[]=[]
