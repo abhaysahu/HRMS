@@ -1,7 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { DataTableDirective } from 'angular-datatables';
-import { LoginService } from 'src/app/login/services/login.service';
+import { Component, OnInit } from '@angular/core';
 import { AttendanceService } from '../../service/attendance.service';
 import { CustomToastrService } from 'src/app/service/customToastr.service';
 import { ErrorHandlingService } from 'src/app/service/error-handling.service';
@@ -126,26 +123,7 @@ export class MyAttendanceComponent implements OnInit {
     ]
 
 
-    // this.dropDownListOfYear =[
-    //   {
-    //     Value:2017,
-    //     Text:2017,
-    //   },
-    //   {
-    //     Value:2018,
-    //     Text:2018,
-    //   },
-    //   {
-    //     Value:2019,
-    //     Text:2019,
-    //   },
-    //   {
-    //     Value:2020,
-    //     Text:2020,
-    //   }
-    // ]
-
-   
+  
 
     this.attendanceService.getDateOfJoining(this.Id).subscribe(resp =>{
 
@@ -212,14 +190,23 @@ export class MyAttendanceComponent implements OnInit {
           this.Attendance[i].Date=new Date(this.Attendance[i].Date).toDateString().substr(0,13) 
 
 
-          let intime = this.Attendance[i].InTime
-          let outtime = this.Attendance[i].OutTime
-          var dt1 = new Date("October 13, 2014 "+intime);
-          var dt2 = new Date("October 13, 2014 "+outtime);
-          var diff =(dt2.getTime() - dt1.getTime()) / 1000;
-          diff = diff/60;
-          let ans = Math.abs(Math.round(diff)/60).toFixed(2);  
-          this.Attendance[i].WorkingHours=ans
+          if(this.Attendance[i].OutTime=="00:00:00")
+          {
+            this.Attendance[i].WorkingHours=0.00
+          }
+          else
+          {
+            let intime = this.Attendance[i].InTime
+            let outtime = this.Attendance[i].OutTime
+            var dt1 = new Date("October 13, 2014 "+intime);
+            var dt2 = new Date("October 13, 2014 "+outtime);
+            var diff =(dt2.getTime() - dt1.getTime()) / 1000;
+            diff = diff/60;
+            let ans = Math.abs(Math.round(diff)/60).toFixed(2);  
+            this.Attendance[i].WorkingHours=ans
+          }
+
+          
 
 
           if(this.Attendance[i].Shift.Id=="00000000-0000-0000-0000-000000000000")
@@ -232,12 +219,8 @@ export class MyAttendanceComponent implements OnInit {
           }
 
 
-
           this.Attendance[i].InTime = (this.Attendance[i].InTime).substr(0,5);
           this.Attendance[i].OutTime = (this.Attendance[i].OutTime).substr(0,5);   
-
-
-
           
         }
 
