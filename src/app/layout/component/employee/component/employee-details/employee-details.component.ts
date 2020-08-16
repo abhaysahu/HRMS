@@ -40,11 +40,12 @@ export class EmployeeDetailsComponent implements OnInit {
   message = '';
   id
 
-  constructor(private employeeService: EmployeeService,
+  constructor(
     private dialog: MatDialog,
 
     private router: Router,
     private route: ActivatedRoute,
+    private employeeService: EmployeeService,
     private errorHandlingService: ErrorHandlingService,
     private customToastrService: CustomToastrService
 
@@ -733,14 +734,17 @@ export class EmployeeDetailsComponent implements OnInit {
       }
     )
   }
+
   ResetPopup()
   {
+    let Id = JSON.parse(sessionStorage.getItem('user')).Id;
+
     const dialogConfig = new MatDialogConfig();
     dialogConfig.autoFocus = true;
     dialogConfig.disableClose = true;
     dialogConfig.width="40%";
     // dialogConfig.height="40%";
-    dialogConfig.data={}
+    dialogConfig.data={Id}
     this.dialog.open(ResetPopupComponent, dialogConfig).afterClosed().subscribe(res =>{
 
     });
