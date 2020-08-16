@@ -6,6 +6,7 @@ import { ShiftTimeService } from '../../service/shift-time.service';
 import { CustomToastrService } from 'src/app/service/customToastr.service';
 import { ErrorHandlingService } from 'src/app/service/error-handling.service';
 import { AppResponse } from 'src/app/models/appResponse';
+import { RejectPopupComponent } from '../reject-popup/reject-popup.component';
 
 export class MyShifts {
 
@@ -397,6 +398,20 @@ export class ShiftComponent implements OnInit {
   setIndex(ii){
     this.aa=ii;
   }
+
+  RejectPopup()
+  {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.autoFocus = true;
+    dialogConfig.disableClose = true;
+    dialogConfig.width="40%";
+    // dialogConfig.height="40%";
+    dialogConfig.data={}
+    this.dialog.open(RejectPopupComponent, dialogConfig).afterClosed().subscribe(res =>{
+
+    });
+  }
+
 
 
 

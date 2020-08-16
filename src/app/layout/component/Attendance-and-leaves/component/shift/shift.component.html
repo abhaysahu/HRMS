@@ -50,7 +50,19 @@
 
       </div>
       <div class="card-body" style="overflow-x: scroll;">
-        <input type="text" class="form-control" [(ngModel)]="email" placeholder="Serach any fields"/>
+        <!-- <input type="text" class="form-control" [(ngModel)]="email" placeholder="Serach any fields"/> -->
+        <div class="form-group col-md-4">
+          <select class="custom-select"  id="selectEntity">
+            <option value= "">Select any option</option>
+            <option value="1" >Draft</option>
+            <option value="2" >Pending</option>
+            <option value="3" >Approved</option>
+            <option value="4" >Rejected</option>
+            <option value="5" >Not in use</option>
+
+
+          </select>
+        </div>
 
         <table class="table table-bordered">
           <thead>
@@ -123,7 +135,8 @@
               <td>{{ MyApprovalLists.CreatedOn}}</td>
               <td>{{ MyApprovalLists.AprovingStatus.Text }}</td>
               <td>{{ MyApprovalLists.ApprovalPerson.Name }}</td>
-              <td><a style="color: green; cursor: pointer;" (click)="ApproveTimeShift(MyApprovalLists.Id)">Approve</a> / <a style="color: red; cursor: pointer;" (click)="RejectTimeShift(MyApprovalLists.Id)">Reject</a></td>
+              <!-- <td><a style="color: green; cursor: pointer;" (click)="ApproveTimeShift(MyApprovalLists.Id)">Approve</a> / <a (click)=" RejectPopup()" style="float: right; cursor: pointer; padding-left: -1000px;"><a style="color: red; cursor: pointer;" (click)="RejectTimeShift(MyApprovalLists.Id)" >Reject</a></a></td> -->
+              <td><span style="color: green; cursor: pointer;" (click)="ApproveTimeShift(MyApprovalLists.Id)">Approve</span>/<span style="color: red; cursor: pointer;" (click)="RejectTimeShift(MyApprovalLists.Id)"><span (click)=" RejectPopup()" style=" cursor: pointer;" >Reject</span></span></td>
 
             </tr>
         </table>

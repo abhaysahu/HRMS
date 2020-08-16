@@ -79,7 +79,7 @@ export class MyLeavesComponent implements OnInit {
 
 
     //get the year of my attendance
-    
+
     // let doj=new Date("2017-08-06");
 
     // let Tod=new Date();
@@ -87,7 +87,7 @@ export class MyLeavesComponent implements OnInit {
     // let yearOfDOJ=doj.getFullYear()
     // let yearOfTOD=Tod.getFullYear();
 
-    // let diff =Tod.getFullYear()-doj.getFullYear(); 
+    // let diff =Tod.getFullYear()-doj.getFullYear();
     // console.log(diff)
 
     // for (let i=0;i<(diff+1);i++)
@@ -103,7 +103,7 @@ export class MyLeavesComponent implements OnInit {
     // console.log(this.dropDownListOfYear)
 
 
-    
+
 
 
 
@@ -136,14 +136,14 @@ export class MyLeavesComponent implements OnInit {
     //           Value:this.month[i].Value,
     //           Text:this.month[i].Text,
     //         }
-      
+
     //         this.dropDownListOfMonth.push(this.data)
     //   }
 
     //   console.log(this.dropDownListOfMonth)
     // }
 
-  
+
     // else if(year>yearOfDOJ && year!=yearOfTOD)
     // {
     //   this.dropDownListOfMonth=this.month
@@ -172,7 +172,7 @@ export class MyLeavesComponent implements OnInit {
   ngOnInit() {
   }
   onSubmit(leaves) {
-    console.log(leaves) 
+    console.log(leaves)
   }
 }
 
