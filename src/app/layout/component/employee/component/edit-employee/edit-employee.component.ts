@@ -5,6 +5,9 @@ import { AppResponse } from 'src/app/models/appResponse';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ErrorHandlingService } from 'src/app/service/error-handling.service';
 import { CustomToastrService } from 'src/app/service/customToastr.service';
+import { MatDialog, MatDialogConfig, MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
+import { ResetPopupComponent } from '../reset-popup/reset-popup.component';
+
 
 @Component({
   selector: 'app-edit-employee',
@@ -20,8 +23,8 @@ export class EditEmployeeComponent implements OnInit {
   currentAddress: any={}
   emergencyAddress: any={}
   officeAddress: any={}
-  
-  
+
+
   dropdownListOfCountry: any[] = [];
   dropdownListOfState: any[] = [];
 
@@ -36,12 +39,13 @@ export class EditEmployeeComponent implements OnInit {
   id
 
   constructor(private employeeService: EmployeeService,
+    private dialog: MatDialog,
      private router: Router,
      private route: ActivatedRoute,
      private errorHandlingService: ErrorHandlingService,
      private customToastrService: CustomToastrService
 
-     ) { 
+     ) {
 
     this.Employee=this.employeeService.Employee
 
@@ -125,7 +129,7 @@ export class EditEmployeeComponent implements OnInit {
     );
 
 
-    // Get permanent Address 
+    // Get permanent Address
 
     this.employeeService.UserEditDetails(this.id, 1).subscribe(resp => {
       if (resp.Success) {
@@ -284,20 +288,20 @@ export class EditEmployeeComponent implements OnInit {
 
       this.employeeService.UserAddressUpdate(permanent).subscribe(resp => {
         if (resp.Success) {
-         
+
           this.message = "Data is Update successfully"
           this.customToastrService.GetSuccessToastr(this.message, "Employee details", 3000)
-  
+
         }
         else {
-          
+
           this.message = resp.Message;
           this.customToastrService.GetErrorToastr(this.message, "Employee details", 5000)
         }
       }
         , (error: AppResponse) => {
           this.errorHandlingService.errorStatus(error, "Edit Employee Status")
-  
+
         }
       )
     }
@@ -307,13 +311,13 @@ export class EditEmployeeComponent implements OnInit {
 
       this.employeeService.UserAddressSave(permanent).subscribe(resp => {
       if (resp.Success) {
-        
+
         this.message = "Data is Added successfully"
         this.customToastrService.GetSuccessToastr(this.message, "Employee details", 3000)
 
       }
       else {
-        
+
         this.message = resp.Message;
         this.customToastrService.GetErrorToastr(this.message, "Employee details", 5000)
       }
@@ -325,7 +329,7 @@ export class EditEmployeeComponent implements OnInit {
     )
     }
 
-    
+
   }
 
 
@@ -344,27 +348,27 @@ export class EditEmployeeComponent implements OnInit {
       console.log("update Api")
 
       this.employeeService.UserAddressUpdate(current).subscribe(resp => {
-     
+
         if (resp.Success) {
-          
+
           this.message = "Data is Update successfully"
           this.customToastrService.GetSuccessToastr(this.message, "Employee details", 3000)
-  
+
         }
         else {
 
           this.message = resp.Message;
           this.customToastrService.GetErrorToastr(this.message, "Employee details", 5000)
-  
+
         }
-  
+
       }
         , (error: AppResponse) => {
           this.errorHandlingService.errorStatus(error, "Edit Employee Status")
-  
+
         }
       )
-  
+
     }
     else
     {
@@ -373,13 +377,13 @@ export class EditEmployeeComponent implements OnInit {
       this.employeeService.UserAddressSave(current).subscribe(resp => {
 
         if (resp.Success) {
-      
+
         this.message = "Data is Added successfully"
         this.customToastrService.GetSuccessToastr(this.message, "Employee details", 3000)
 
       }
       else {
-        
+
         this.message = resp.Message;
         this.customToastrService.GetErrorToastr(this.message, "Employee details", 5000)
 
@@ -413,13 +417,13 @@ export class EditEmployeeComponent implements OnInit {
       this.employeeService.UserAddressUpdate(office).subscribe(resp => {
 
         if (resp.Success) {
-    
+
         this.message = "Data is update successfully"
         this.customToastrService.GetSuccessToastr(this.message, "Employee details", 3000)
 
       }
       else {
-        
+
         this.message = resp.Message;
         this.customToastrService.GetErrorToastr(this.message, "Employee details", 5000)
 
@@ -441,13 +445,13 @@ export class EditEmployeeComponent implements OnInit {
       this.employeeService.UserAddressSave(office).subscribe(resp => {
 
         if (resp.Success) {
-    
+
         this.message = "Data is Added successfully"
         this.customToastrService.GetSuccessToastr(this.message, "Employee details", 3000)
 
       }
       else {
-        
+
         this.message = resp.Message;
         this.customToastrService.GetErrorToastr(this.message, "Employee details", 5000)
 
@@ -481,17 +485,17 @@ export class EditEmployeeComponent implements OnInit {
       this.employeeService.UserAddressUpdate(emergency).subscribe(resp => {
 
         if (resp.Success) {
-          
+
           this.message = "Data is Update successfully"
           this.customToastrService.GetSuccessToastr(this.message, "Employee details", 3000)
         }
         else {
-          
+
           this.message = resp.Message;
           this.customToastrService.GetErrorToastr(this.message, "Employee details", 5000)
-  
+
         }
-  
+
       }
         , (error: AppResponse) => {
           this.errorHandlingService.errorStatus(error, "Edit Employee Status")
@@ -504,15 +508,15 @@ export class EditEmployeeComponent implements OnInit {
       console.log("call new address")
 
       this.employeeService.UserAddressSave(emergency).subscribe(resp => {
-      
+
       if (resp.Success) {
-        
+
         this.message = "Data is Added successfully"
         this.customToastrService.GetSuccessToastr(this.message, "Employee details", 3000)
 
       }
       else {
-        
+
         this.message = resp.Message;
         this.customToastrService.GetErrorToastr(this.message, "Employee details", 5000)
 
@@ -525,7 +529,7 @@ export class EditEmployeeComponent implements OnInit {
     )
     }
 
-    
+
   }
 
 
@@ -726,6 +730,19 @@ export class EditEmployeeComponent implements OnInit {
         this.errorHandlingService.errorStatus(error, "Edit Employee Status")
       }
     )
+  }
+
+  ResetPopup()
+  {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.autoFocus = true;
+    dialogConfig.disableClose = true;
+    dialogConfig.width="40%";
+    // dialogConfig.height="40%";
+    dialogConfig.data={}
+    this.dialog.open(ResetPopupComponent, dialogConfig).afterClosed().subscribe(res =>{
+
+    });
   }
 
 }
