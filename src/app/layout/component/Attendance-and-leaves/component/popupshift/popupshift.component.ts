@@ -4,6 +4,7 @@ import { ShiftTimeService } from '../../service/shift-time.service';
 import { CustomToastrService } from 'src/app/service/customToastr.service';
 import { ErrorHandlingService } from 'src/app/service/error-handling.service';
 import { AppResponse } from 'src/app/models/appResponse';
+import { PopupShift } from '../../models/myshift';
 
 @Component({
   selector: 'app-popupshift',
@@ -12,9 +13,9 @@ import { AppResponse } from 'src/app/models/appResponse';
 })
 export class PopupshiftComponent implements OnInit {
 
-  MyShifts: any[] = [];
+  MyShifts= {} as PopupShift;
   dropdownList:any[]=[];
-  shiftPersonal: any[]=[];
+
   message;
   Id;
 

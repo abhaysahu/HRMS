@@ -17,6 +17,8 @@ import { ActivatedRoute } from '@angular/router';
 export class MyAttendanceComponent implements OnInit {
   SearchAttendance: any;
 
+  dateOfJoining: any=[];
+
   Attendance: any[]=[];
   message;
   showTable=false
@@ -24,6 +26,7 @@ export class MyAttendanceComponent implements OnInit {
   dropDownListOfMonth: any[]=[];
   dropDownListOfYear: any[]=[];
   data={}
+  month:any[]=[]
   Name
 
   Id;
@@ -71,7 +74,7 @@ export class MyAttendanceComponent implements OnInit {
     console.log(this.SearchAttendance)
     this.GetAttendance(this.SearchAttendance)
 
-    this.dropDownListOfMonth=[
+    this.month=[
       {
         Value:1,
         Text:"Jan"
@@ -123,24 +126,24 @@ export class MyAttendanceComponent implements OnInit {
     ]
 
 
-    this.dropDownListOfYear =[
-      {
-        Value:2017,
-        Text:2017,
-      },
-      {
-        Value:2018,
-        Text:2018,
-      },
-      {
-        Value:2019,
-        Text:2019,
-      },
-      {
-        Value:2020,
-        Text:2020,
-      }
-    ]
+    // this.dropDownListOfYear =[
+    //   {
+    //     Value:2017,
+    //     Text:2017,
+    //   },
+    //   {
+    //     Value:2018,
+    //     Text:2018,
+    //   },
+    //   {
+    //     Value:2019,
+    //     Text:2019,
+    //   },
+    //   {
+    //     Value:2020,
+    //     Text:2020,
+    //   }
+    // ]
 
    
 
@@ -148,15 +151,17 @@ export class MyAttendanceComponent implements OnInit {
 
       if(resp.Success)
       {
+        this.dateOfJoining=resp.Data
+        console.log(this.dateOfJoining.DateOfJoining)
 
-        let doj=new Date("2017-08-06");
+        let doj=new Date(this.dateOfJoining.DateOfJoining);
 
         let Tod=new Date();
 
         let yearOfDOJ=doj.getFullYear()
-        // let yearOfTOD=Tod.getFullYear();
+        let yearOfTOD=Tod.getFullYear();
         let diff =Tod.getFullYear()-doj.getFullYear(); 
-        console.log(diff)
+        // console.log(diff)
 
         for (let i=0;i<(diff+1);i++)
         {
@@ -168,7 +173,9 @@ export class MyAttendanceComponent implements OnInit {
         this.dropDownListOfYear.push(this.data)
       }
 
-      console.log(this.dropDownListOfYear)
+
+      this.getListOfMonth(yearOfTOD)
+      // console.log(this.dropDownListOfYear)
       
       }
       else
@@ -221,7 +228,6 @@ export class MyAttendanceComponent implements OnInit {
 }
 )
 
-
   }
 
   ngOnInit() {
@@ -230,6 +236,71 @@ export class MyAttendanceComponent implements OnInit {
     console.log(attendance) 
   }
 
+
+
+  getListOfMonth(Year)
+  {
+
+    this.dropDownListOfMonth=[]
+
+    // let date12 =new Date(`08-08-${Year}`);
+
+    // let year=date12.getFullYear();
+
+    let year=Year
+    console.log(year)
+    this.dateOfJoining.DateOfJoining
+
+    let doj=new Date(this.dateOfJoining.DateOfJoining);
+
+    let Tod=new Date();
+
+    let yearOfDOJ=doj.getFullYear()
+    let yearOfTOD=Tod.getFullYear();
+
+    console.log(yearOfDOJ)
+    console.log(yearOfTOD)
+
+    if(year==yearOfDOJ && year!=yearOfTOD)
+    {
+      // console.log((doj.getMonth()+1).toString())
+
+      for(let i=doj.getMonth();i<12;i++)
+      {
+        this.data={
+              Value:this.month[i].Value,
+              Text:this.month[i].Text,
+            }
+      
+            this.dropDownListOfMonth.push(this.data)
+      }
+
+      console.log(this.dropDownListOfMonth)
+    }
+
+  
+    else if(year>yearOfDOJ && year!=yearOfTOD)
+    {
+      this.dropDownListOfMonth=this.month
+      console.log(this.dropDownListOfMonth)
+    }
+
+    else if(year==yearOfTOD)
+    {
+
+      for(let i=0;i<Tod.getMonth()+1;i++)
+      {
+        this.data={
+              Value:this.month[i].Value,
+              Text:this.month[i].Text,
+            }
+            this.dropDownListOfMonth.push(this.data)
+      }
+      console.log(this.dropDownListOfMonth)
+    }
+
+
+  }
 
 
   sortFilter(value)

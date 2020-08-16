@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AddSr } from '../../models/add_sr';
 
 @Component({
   selector: 'app-add-sr',
@@ -6,8 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./add-sr.component.css']
 })
 export class AddSRComponent implements OnInit {
-  Sr: any[] = [];
+  Sr ={} as AddSr
 
+  
   constructor() { }
 
   ngOnInit() {

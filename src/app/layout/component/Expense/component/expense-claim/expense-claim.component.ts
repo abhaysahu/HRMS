@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Expense } from '../../models/expense';
 
 @Component({
   selector: 'app-expense-claim',
@@ -6,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./expense-claim.component.css']
 })
 export class ExpenseClaimComponent implements OnInit {
-  Expenseclaim: any[] = [];
+  Expenseclaim = {} as Expense
 
 
   constructor() { }

@@ -51,11 +51,12 @@ export class DefaultComponent implements OnInit {
     }
 
     };
- 
+
     
   }
 
-  sideBarToggler() {
+  sideBarToggler(id) {
+ 
     this.siderBarOpen = !this.siderBarOpen;
   }
 

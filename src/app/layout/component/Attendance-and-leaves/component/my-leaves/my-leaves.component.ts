@@ -6,7 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./my-leaves.component.css']
 })
 export class MyLeavesComponent implements OnInit {
-  Leaves: any[] = [];
+  Leaves ={
+    year:null,
+    dateOfJoining:null
+  }
   dropDownListOfYear: any[]=[]
   dropDownListOfMonth:any[]=[]
   month:any[]=[]
@@ -109,53 +112,68 @@ export class MyLeavesComponent implements OnInit {
     //get the month of all the year;
 
 
-    let year =2020
+    // let year =2020
 
-    let doj=new Date("2017-08-06");
+    // console.log(year)
 
-    let Tod=new Date("2020-08-13");
+    // let doj=new Date("2017-08-06");
 
-    let yearOfDOJ=doj.getFullYear()
-    let yearOfTOD=Tod.getFullYear();
+    // let Tod=new Date("2020-08-13");
 
-    if(year==yearOfDOJ && year!=yearOfTOD)
-    {
-      // console.log((doj.getMonth()+1).toString())
+    // let yearOfDOJ=doj.getFullYear()
+    // let yearOfTOD=Tod.getFullYear();
 
-      for(let i=doj.getMonth();i<12;i++)
-      {
-        this.data={
-              Value:this.month[i].Value,
-              Text:this.month[i].Text,
-            }
+    // console.log(yearOfDOJ)
+    // console.log(yearOfTOD)
+
+    // if(year==yearOfDOJ && year!=yearOfTOD)
+    // {
+    //   // console.log((doj.getMonth()+1).toString())
+
+    //   for(let i=doj.getMonth();i<12;i++)
+    //   {
+    //     this.data={
+    //           Value:this.month[i].Value,
+    //           Text:this.month[i].Text,
+    //         }
       
-            this.dropDownListOfMonth.push(this.data)
-      }
+    //         this.dropDownListOfMonth.push(this.data)
+    //   }
 
-      console.log(this.dropDownListOfMonth)
-    }
+    //   console.log(this.dropDownListOfMonth)
+    // }
 
   
-    else if(year>yearOfDOJ && year!=yearOfTOD)
-    {
-      this.dropDownListOfMonth=this.month
-      console.log(this.dropDownListOfMonth)
-    }
+    // else if(year>yearOfDOJ && year!=yearOfTOD)
+    // {
+    //   this.dropDownListOfMonth=this.month
+    //   console.log(this.dropDownListOfMonth)
+    // }
 
-    else if(year==yearOfTOD)
-    {
+    // else if(year==yearOfTOD)
+    // {
 
-      for(let i=0;i<doj.getMonth()+1;i++)
-      {
-        this.data={
-              Value:this.month[i].Value,
-              Text:this.month[i].Text,
-            }
-            this.dropDownListOfMonth.push(this.data)
-      }
-      console.log(this.dropDownListOfMonth)
-    }
+    //   for(let i=0;i<doj.getMonth()+1;i++)
+    //   {
+    //     this.data={
+    //           Value:this.month[i].Value,
+    //           Text:this.month[i].Text,
+    //         }
+    //         this.dropDownListOfMonth.push(this.data)
+    //   }
+    //   console.log(this.dropDownListOfMonth)
+    // }
 
+
+
+
+
+    let intime ="12:15:00"
+
+    let outtime = "22:00:00"
+
+    intime=intime.substr(0,4);
+    console.log(intime)
 
 
 

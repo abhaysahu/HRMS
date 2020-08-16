@@ -34,13 +34,13 @@
         Project List</a></span>
   </div>
   <div class="card-body">
-    <form #form="ngForm" (submit)="onSubmit(form.value)" class="was-validated">
+    <form #f="ngForm" (submit)="onSubmit(f.value)" class="was-validated">
       <div class="form-row">
         <div class="form-group col-md-6">
 
-          <label for="value">Name</label>
-          <input type="text" class="form-control" #name="ngModel" [(ngModel)]="Project.name" name="name" id="name" required>
-          <div class="invalid-feedback" *ngIf="name.touched && name.invalid">
+          <label for="Name">Name</label>
+          <input type="text" class="form-control" #Name="ngModel" [(ngModel)]="Project.Name" name="Name" id="Name" required>
+          <div class="invalid-feedback" *ngIf="Name.touched && Name.invalid">
             Name is required.
           </div>
 
@@ -169,6 +169,7 @@
           Delivery ManagerId is required.
         </div>
       </div>
+
       <button type="submit" [disabled]="!f.valid" class="btn btn-primary">Save</button>
     </form>
 
