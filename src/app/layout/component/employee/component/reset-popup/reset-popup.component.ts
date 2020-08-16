@@ -3,6 +3,10 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { PasswordValidator } from '../../models/password.validator';
 import { RegistrationService } from '../../services/registration.service';
+import { AppResponse } from 'src/app/models/appResponse';
+import { EmployeeService } from '../../services/employee.service';
+import { ErrorHandlingService } from 'src/app/service/error-handling.service';
+import { CustomToastrService } from 'src/app/service/customToastr.service';
 
 
 
@@ -12,15 +16,18 @@ import { RegistrationService } from '../../services/registration.service';
   styleUrls: ['./reset-popup.component.css']
 })
 export class ResetPopupComponent implements OnInit {
-  Resetpopup: any[] = [];
+ Resetpopup={}
+
+ message;
 
 
   constructor(
+    private employeeService: EmployeeService,
+    private errorHandlingService: ErrorHandlingService,
+    private customToastrService: CustomToastrService,
     private fb: FormBuilder,
-    private _registrationService: RegistrationService,
     @Inject(MAT_DIALOG_DATA) public data,
-  // tslint:disable-next-line: align
-  public dialogRef: MatDialogRef<ResetPopupComponent>) { }
+    public dialogRef: MatDialogRef<ResetPopupComponent>) { }
 
   registrationForm: FormGroup;
 
@@ -44,12 +51,36 @@ export class ResetPopupComponent implements OnInit {
 
   // tslint:disable-next-line: adjacent-overload-signatures
   onSubmit() {
-    console.log(this.registrationForm.value);
-    this._registrationService.register(this.registrationForm.value)
-      .subscribe(
-        response => console.log('success', response),
-        error => console.error('error', error)
-      )
+    
+
+    this.Resetpopup={
+      Id:this.data.Id,
+      Password:this.registrationForm.value.password
+    }
+
+    console.log(this.Resetpopup);
+
+    this.employeeService.UpdateThePassword(this.Resetpopup).subscribe(resp => {
+      console.log(resp)
+     
+      if(resp.Success)
+      {
+        this.message="Data is Added successfully"
+        this.customToastrService.GetSuccessToastr(this.message, "Employer Save Status", 5000)
+        this.close()
+      }
+      else
+      {
+        this.message=resp.Message;
+        this.customToastrService.GetErrorToastr(this.message,"Employee ResetPassword", 5000);
+      }
+      
+    }
+    ,   (error: AppResponse) => {
+      this.errorHandlingService.errorStatus(error,"Employer Status")
+}
+)
+    
   }
 
 }

@@ -734,12 +734,14 @@ export class EditEmployeeComponent implements OnInit {
 
   ResetPopup()
   {
+    let Id = this.route.snapshot.paramMap.get('id');
+
     const dialogConfig = new MatDialogConfig();
     dialogConfig.autoFocus = true;
     dialogConfig.disableClose = true;
     dialogConfig.width="40%";
     // dialogConfig.height="40%";
-    dialogConfig.data={}
+    dialogConfig.data={Id}
     this.dialog.open(ResetPopupComponent, dialogConfig).afterClosed().subscribe(res =>{
 
     });

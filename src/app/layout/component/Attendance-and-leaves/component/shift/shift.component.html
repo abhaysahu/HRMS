@@ -136,7 +136,7 @@
               <td>{{ MyApprovalLists.AprovingStatus.Text }}</td>
               <td>{{ MyApprovalLists.ApprovalPerson.Name }}</td>
               <!-- <td><a style="color: green; cursor: pointer;" (click)="ApproveTimeShift(MyApprovalLists.Id)">Approve</a> / <a (click)=" RejectPopup()" style="float: right; cursor: pointer; padding-left: -1000px;"><a style="color: red; cursor: pointer;" (click)="RejectTimeShift(MyApprovalLists.Id)" >Reject</a></a></td> -->
-              <td><span style="color: green; cursor: pointer;" (click)="ApproveTimeShift(MyApprovalLists.Id)">Approve</span>/<span style="color: red; cursor: pointer;" (click)="RejectTimeShift(MyApprovalLists.Id)"><span (click)=" RejectPopup()" style=" cursor: pointer;" >Reject</span></span></td>
+              <td><span style="color: green; cursor: pointer;" (click)="ApproveTimeShift(MyApprovalLists.Id)">Approve</span>/<span style="color: red; cursor: pointer;"><span (click)="RejectPopup(MyApprovalLists.Id)" style=" cursor: pointer;" >Reject</span></span></td>
 
             </tr>
         </table>
