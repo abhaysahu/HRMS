@@ -36,7 +36,7 @@ export class ErrorHandlingService {
 
   errorStatus(error, status)
   {
-    console.log(error.error)
+    console.log(error)
     if(error.status === 400)
       {
         this.message = error.error.Message;

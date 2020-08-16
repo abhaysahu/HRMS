@@ -86,7 +86,7 @@
 
         </tr>
       </thead>
-      <tbody *ngIf="Attendance?.length != 0">
+      <tbody *ngIf="Attendance?.length!= 0">
         <tr *ngFor="let Attendances of Attendance let i = index">
           <td>{{ Attendances.Date }}</td>
           <td>{{ Attendances.ShiftTimeing}}</td>
@@ -97,7 +97,7 @@
           <td>Done</td>
         </tr>
       </tbody>
-      <tbody  *ngIf="Attendance?.length ==0">
+      <tbody *ngIf="Attendance?.length==0">
         <tr>
           <td colspan="8" class="no-data-available">No matching records found</td>
         </tr>
