@@ -168,45 +168,53 @@ export class AddAttendanceComponent implements OnInit {
 
   SaveAttendance(employeeId,i)
   {
+    let c=0;
 
     this.FormData[0].EmployeeId=employeeId;
     this.FormData[0].CreatedBy=JSON.parse(sessionStorage.getItem('user')).Id;
     this.FormData[0].Date=this.DateOfAttendance;
     this.FormData[0].Status=this.Addattendance[i].Status
     this.FormData[0].InTime=this.Addattendance[i].InTime
-    this.FormData[0].OutTime=this.Addattendance[i].OutTime
-   
+    if(this.Addattendance[i].OutTime==null || this.Addattendance[i].OutTime=="")
+    {
+      this.FormData[0].OutTime="00:00"
+    }
+    else
+    {
+      this.FormData[0].OutTime=this.Addattendance[i].OutTime
+    }
+    
     console.log(this.FormData)
 
 
-    this.attendanceService.attendanceDataSave(this.FormData[0]).subscribe(resp => {
+//     this.attendanceService.attendanceDataSave(this.FormData[0]).subscribe(resp => {
      
-      if(resp.Success)
-      {
-        this.message="Data is Added successfully"
+//       if(resp.Success)
+//       {
+//         this.message="Data is Added successfully"
         
-        this.customToastrService.GetSuccessToastr(this.message, "Attendance Save Status", 5000)
+//         this.customToastrService.GetSuccessToastr(this.message, "Attendance Save Status", 5000)
 
-        this.FormData=[{
-          EmployeeId:"",
-          Date:"",
-          InTime: "",
-          OutTime: "",
-          CreatedBy: "",
-          Status: 1
-        }]
-        this.getUserForAttendanceByDate(this.DateOfAttendance)
-      }
-      else
-      {
-        this.message=resp.Message;
-        this.customToastrService.GetErrorToastr(this.message, "Attendance Save Status", 5000)
-      }
-    }
-    ,   (error: AppResponse) => {
-      this.errorHandlingService.errorStatus(error,"Attendance Save Status")
-}
-)
+//         this.FormData=[{
+//           EmployeeId:"",
+//           Date:"",
+//           InTime: "",
+//           OutTime: "",
+//           CreatedBy: "",
+//           Status: 1
+//         }]
+//         this.getUserForAttendanceByDate(this.DateOfAttendance)
+//       }
+//       else
+//       {
+//         this.message=resp.Message;
+//         this.customToastrService.GetErrorToastr(this.message, "Attendance Save Status", 5000)
+//       }
+//     }
+//     ,   (error: AppResponse) => {
+//       this.errorHandlingService.errorStatus(error,"Attendance Save Status")
+// }
+// )
 
   }
 

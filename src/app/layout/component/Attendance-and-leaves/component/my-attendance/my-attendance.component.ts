@@ -204,14 +204,46 @@ export class MyAttendanceComponent implements OnInit {
       if(resp.Success)
       {
         this.Attendance = resp.Data
-        this.Name= this.Attendance[0].Employee.Name
+        // this.Name= this.Attendance[0].Employee.Name
         console.log(this.Attendance)
+
         for(let i=0;i<this.Attendance.length;i++)
         {
           this.Attendance[i].Date=new Date(this.Attendance[i].Date).toDateString().substr(0,13) 
+
+
+          let intime = this.Attendance[i].InTime
+          let outtime = this.Attendance[i].OutTime
+          var dt1 = new Date("October 13, 2014 "+intime);
+          var dt2 = new Date("October 13, 2014 "+outtime);
+          var diff =(dt2.getTime() - dt1.getTime()) / 1000;
+          diff = diff/60;
+          let ans = Math.abs(Math.round(diff)/60).toFixed(2);  
+          this.Attendance[i].WorkingHours=ans
+
+
+          if(this.Attendance[i].Shift.Id=="00000000-0000-0000-0000-000000000000")
+          {
+            this.Attendance[i].ShiftTimeing = "00:00 - 00:00"
+          }
+          else
+          {
+            this.Attendance[i].ShiftTimeing = `${(this.Attendance[i].Shift.StartTime).substr(0,5)} - ${(this.Attendance[i].Shift.EndTime).substr(0,5)}`
+          }
+
+
+
+          this.Attendance[i].InTime = (this.Attendance[i].InTime).substr(0,5);
+          this.Attendance[i].OutTime = (this.Attendance[i].OutTime).substr(0,5);   
+
+
+
+          
         }
 
         this.showTable=true
+
+        console.log(this.Attendance)
       }
       else
       {
@@ -235,6 +267,8 @@ export class MyAttendanceComponent implements OnInit {
   onSubmit(attendance) {
     console.log(attendance) 
   }
+
+
 
 
 

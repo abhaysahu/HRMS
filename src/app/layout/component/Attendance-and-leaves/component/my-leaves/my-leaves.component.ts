@@ -167,25 +167,6 @@ export class MyLeavesComponent implements OnInit {
 
 
 
-
-    let intime ="12:15:00"
-
-    let outtime = "22:00:00"
-
-    intime=intime.substr(0,4);
-    console.log(intime)
-
-
-
-
-    
-
-
-
-
-
-
-
    }
 
   ngOnInit() {
