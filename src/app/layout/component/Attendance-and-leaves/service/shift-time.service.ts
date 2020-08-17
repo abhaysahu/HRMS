@@ -22,11 +22,7 @@ export class ShiftTimeService {
 
   shiftTimeDataSave(ShiftTime)
   {
-    // const token = sessionStorage.getItem('token')
-    // const headers = new HttpHeaders({
-    //   'Content-Type': 'application/json',
-    //   'authorization': `bearer ${token}`
-    // })
+  
     const headers = this.errorHandlingService.getauthorization()
 
     return this.httpClient.post<any>(environment.webapiUrl+'api/add/ShiftTime',ShiftTime, { headers: headers })
@@ -68,6 +64,15 @@ export class ShiftTimeService {
     const headers = this.errorHandlingService.getauthorization()
 
     return this.httpClient.post<any>(environment.webapiUrl+'api/update/ShiftTime',Data, { headers: headers })
+  }
+
+
+  ShiftsStatus(): Observable<DropDown>
+  {
+
+    const headers = this.errorHandlingService.getauthorization()
+
+    return this.httpClient.get<DropDown>(environment.webapiUrl+ 'api/get/PickList?attributeName=StatusCode&objectTypeCode=14', { headers: headers })
   }
 
 }

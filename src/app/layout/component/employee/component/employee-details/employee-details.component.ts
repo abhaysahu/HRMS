@@ -62,11 +62,77 @@ export class EmployeeDetailsComponent implements OnInit {
 
       if (resp.Success) {
         this.Employee = resp.Data;
-        var date = this.Employee.DateOfJoining
-        var answer = date.substr(0, 10)
-        this.Employee.DateOfJoining = answer
-        this.Status = true
+        if(this.Employee==null)
+        {
+          this.customToastrService.GetInfoToastr("No Record Found!!..", "No Data", 5000);
+        }
+        else
+        {
+          var date = this.Employee.DateOfJoining
+          var answer = date.substr(0, 10)
+          this.Employee.DateOfJoining = answer
+          this.Status = true
 
+
+          if(this.Employee.Department==null)
+          {
+            this.Employee.Department="N/N"
+          }
+          else
+          {
+            this.Employee.Department=this.Employee.Department.Text
+          }
+
+
+          if(this.Employee.Designation==null)
+          {
+            this.Employee.Designation="N/N"
+          }
+          else
+          {
+            this.Employee.Designation=this.Employee.Designation.Text
+          }
+
+          if(this.Employee.Gender==null)
+          {
+            this.Employee.Gender="N/N"
+          }
+          else
+          {
+            this.Employee.Gender=this.Employee.Gender.Text
+          }
+
+
+          if(this.Employee.Grade==null)
+          {
+            this.Employee.Grade="N/N"
+          }
+          else
+          {
+            this.Employee.Grade=this.Employee.Grade.Text
+          }
+
+          if(this.Employee.MaritalStatus==null)
+          {
+            this.Employee.MaritalStatus="N/N"
+          }
+          else
+          {
+            this.Employee.MaritalStatus=this.Employee.MaritalStatus.Text
+          }
+
+          if(this.Employee.Status==null)
+          {
+            this.Employee.Status="N/N"
+          }
+          else
+          {
+            this.Employee.Status=this.Employee.Status.Text
+          }
+ 
+          console.log(this.Employee)
+        }
+        
       } else {
         // this.dangerStatus = true;
         // this.successStatus = false;

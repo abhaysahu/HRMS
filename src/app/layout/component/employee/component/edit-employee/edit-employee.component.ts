@@ -58,12 +58,78 @@ export class EditEmployeeComponent implements OnInit {
 
       if (resp.Success) {
         this.Employee = resp.Data;
-        var date = this.Employee.DateOfJoining
-        var answer = date.substr(0, 10)
-        this.Employee.DateOfJoining = answer
-        this.Status = true
+        if(this.Employee==null)
+        {
+          this.customToastrService.GetInfoToastr("No Record Found!!..", "No Data", 5000);
+        }
+        else
+        {
+          var date = this.Employee.DateOfJoining
+          var answer = date.substr(0, 10)
+          this.Employee.DateOfJoining = answer
+          this.Status = true
 
-      } else {
+
+          if(this.Employee.Department==null)
+          {
+            this.Employee.Department="N/N"
+          }
+          else
+          {
+            this.Employee.Department=this.Employee.Department.Text
+          }
+
+
+          if(this.Employee.Designation==null)
+          {
+            this.Employee.Designation="N/N"
+          }
+          else
+          {
+            this.Employee.Designation=this.Employee.Designation.Text
+          }
+
+          if(this.Employee.Gender==null)
+          {
+            this.Employee.Gender="N/N"
+          }
+          else
+          {
+            this.Employee.Gender=this.Employee.Gender.Text
+          }
+
+
+          if(this.Employee.Grade==null)
+          {
+            this.Employee.Grade="N/N"
+          }
+          else
+          {
+            this.Employee.Grade=this.Employee.Grade.Text
+          }
+
+          if(this.Employee.MaritalStatus==null)
+          {
+            this.Employee.MaritalStatus="N/N"
+          }
+          else
+          {
+            this.Employee.MaritalStatus=this.Employee.MaritalStatus.Text
+          }
+
+          if(this.Employee.Status==null)
+          {
+            this.Employee.Status="N/N"
+          }
+          else
+          {
+            this.Employee.Status=this.Employee.Status.Text
+          }
+ 
+          // console.log(this.Employee)
+        }
+        
+      }  else {
         // this.dangerStatus = true;
         // this.successStatus = false;
         this.message = resp.ErrorMessage;
@@ -82,13 +148,11 @@ export class EditEmployeeComponent implements OnInit {
     // get list of Conuntry for add or update the Address
 
     this.employeeService.listOfCountry().subscribe(resp => {
-      console.log(resp);
+      // console.log(resp);
 
       if (resp.Success) {
         this.dropdownListOfCountry = resp.Data;
       } else {
-        // this.dangerStatus = true;
-        // this.successStatus = false;
         this.message = resp.ErrorMessage;
         this.message = resp.Message;
         this.customToastrService.GetErrorToastr(this.message, "Employee details", 5000)
@@ -107,13 +171,14 @@ export class EditEmployeeComponent implements OnInit {
     // get list of Conuntry for add or update the Address
 
     this.employeeService.listOfState().subscribe(resp => {
-      console.log(resp);
+      // console.log(resp);
 
-      if (resp.Success) {
+      if (resp.Success) 
+      {
         this.dropdownListOfState = resp.Data;
-      } else {
-        // this.dangerStatus = true;
-        // this.successStatus = false;
+      } 
+      else {
+        
         this.message = resp.ErrorMessage;
         this.message = resp.Message;
         this.customToastrService.GetErrorToastr(this.message, "Employee details", 5000)
@@ -134,7 +199,7 @@ export class EditEmployeeComponent implements OnInit {
     this.employeeService.UserEditDetails(this.id, 1).subscribe(resp => {
       if (resp.Success) {
         if (resp.Data == null) {
-          console.log("yes")
+          // console.log("yes")
           this.permanentAddress = []
         }
         else {
@@ -145,8 +210,6 @@ export class EditEmployeeComponent implements OnInit {
 
       }
       else {
-        // this.dangerStatus=true;
-        // this.successStatus=false;
         this.message = resp.ErrorMessage;
         this.customToastrService.GetErrorToastr(this.message, "Employee details", 5000)
 
@@ -166,20 +229,19 @@ export class EditEmployeeComponent implements OnInit {
     this.employeeService.UserEditDetails(this.id, 2).subscribe(resp => {
       if (resp.Success) {
         if (resp.Data == null) {
-          console.log("yes")
+          // console.log("yes")
           this.currentAddress = []
         }
         else {
           this.currentAddress = resp.Data[0]
           this.currentAddress.CountryId = this.currentAddress.Country.Id
           this.currentAddress.StateProvinceId = this.currentAddress.StateProvince.Id
-          console.log(this.currentAddress)
+          // console.log(this.currentAddress)
         }
 
       }
       else {
-        // this.dangerStatus=true;
-        // this.successStatus=false;
+        
         this.message = resp.ErrorMessage;
         this.customToastrService.GetErrorToastr(this.message, "Employee details", 5000)
 
@@ -199,23 +261,20 @@ export class EditEmployeeComponent implements OnInit {
     this.employeeService.UserEditDetails(this.id, 3).subscribe(resp => {
       if (resp.Success) {
         if (resp.Data == null) {
-          console.log("yes")
+          // console.log("yes")
           this.officeAddress = []
         }
         else {
           this.officeAddress = resp.Data[0]
           this.officeAddress.CountryId = this.officeAddress.Country.Id
           this.officeAddress.StateProvinceId = this.officeAddress.StateProvince.Id
-          console.log(this.officeAddress)
+          // console.log(this.officeAddress)
         }
 
       }
       else {
-        // this.dangerStatus=true;
-        // this.successStatus=false;
         this.message = resp.ErrorMessage;
         this.customToastrService.GetErrorToastr(this.message, "Employee details", 5000)
-
       }
 
     }
@@ -230,7 +289,7 @@ export class EditEmployeeComponent implements OnInit {
     this.employeeService.UserEditDetails(this.id, 4).subscribe(resp => {
       if (resp.Success) {
         if (resp.Data == null) {
-          console.log("yes")
+          // console.log("yes")
           this.emergencyAddress = []
         }
         else {
@@ -242,8 +301,7 @@ export class EditEmployeeComponent implements OnInit {
 
       }
       else {
-        // this.dangerStatus=true;
-        // this.successStatus=false;
+        
         this.message = resp.ErrorMessage;
         this.customToastrService.GetErrorToastr(this.message, "Employee details", 5000)
 
@@ -277,14 +335,14 @@ export class EditEmployeeComponent implements OnInit {
     permanent.Email = ""
     permanent.Company = ""
 
-    console.log(permanent)
+    // console.log(permanent)
 
     this.permanentAddress = permanent
 
     if(permanent.Id)
     {
 
-      console.log("Update API")
+      // console.log("Update API")
 
       this.employeeService.UserAddressUpdate(permanent).subscribe(resp => {
         if (resp.Success) {
@@ -307,7 +365,7 @@ export class EditEmployeeComponent implements OnInit {
     }
     else
     {
-      console.log("call new address")
+      // console.log("call new address")
 
       this.employeeService.UserAddressSave(permanent).subscribe(resp => {
       if (resp.Success) {
@@ -317,19 +375,15 @@ export class EditEmployeeComponent implements OnInit {
 
       }
       else {
-
         this.message = resp.Message;
         this.customToastrService.GetErrorToastr(this.message, "Employee details", 5000)
       }
     }
       , (error: AppResponse) => {
         this.errorHandlingService.errorStatus(error, "Edit Employee Status")
-
       }
     )
     }
-
-
   }
 
 
@@ -342,26 +396,19 @@ export class EditEmployeeComponent implements OnInit {
 
     console.log(current)
     this.currentAddress = current
-
     if(current.Id)
     {
-      console.log("update Api")
+      // console.log("update Api")
 
       this.employeeService.UserAddressUpdate(current).subscribe(resp => {
-
         if (resp.Success) {
-
           this.message = "Data is Update successfully"
           this.customToastrService.GetSuccessToastr(this.message, "Employee details", 3000)
-
         }
         else {
-
           this.message = resp.Message;
           this.customToastrService.GetErrorToastr(this.message, "Employee details", 5000)
-
         }
-
       }
         , (error: AppResponse) => {
           this.errorHandlingService.errorStatus(error, "Edit Employee Status")
@@ -372,32 +419,24 @@ export class EditEmployeeComponent implements OnInit {
     }
     else
     {
-      console.log("call new address")
+      // console.log("call new address")
 
       this.employeeService.UserAddressSave(current).subscribe(resp => {
-
         if (resp.Success) {
 
         this.message = "Data is Added successfully"
         this.customToastrService.GetSuccessToastr(this.message, "Employee details", 3000)
-
       }
       else {
-
         this.message = resp.Message;
         this.customToastrService.GetErrorToastr(this.message, "Employee details", 5000)
-
       }
-
     }
       , (error: AppResponse) => {
         this.errorHandlingService.errorStatus(error, "Edit Employee Status")
-
       }
     )
-
     }
-
   }
 
 
@@ -412,7 +451,7 @@ export class EditEmployeeComponent implements OnInit {
 
     if(office.Id)
     {
-      console.log("update Api")
+      // console.log("update Api")
 
       this.employeeService.UserAddressUpdate(office).subscribe(resp => {
 
@@ -440,12 +479,11 @@ export class EditEmployeeComponent implements OnInit {
 
     else
     {
-      console.log("call new address")
+      // console.log("call new address")
 
       this.employeeService.UserAddressSave(office).subscribe(resp => {
 
         if (resp.Success) {
-
         this.message = "Data is Added successfully"
         this.customToastrService.GetSuccessToastr(this.message, "Employee details", 3000)
 
@@ -472,20 +510,16 @@ export class EditEmployeeComponent implements OnInit {
     emergency.RegardingObjectId = this.id;
     emergency.Email = ""
     emergency.Company = ""
-
-
-    console.log(emergency)
-
+    // console.log(emergency)
     this.emergencyAddress = emergency
 
     if(emergency.Id)
     {
-      console.log("update Api")
+      // console.log("update Api")
 
       this.employeeService.UserAddressUpdate(emergency).subscribe(resp => {
 
         if (resp.Success) {
-
           this.message = "Data is Update successfully"
           this.customToastrService.GetSuccessToastr(this.message, "Employee details", 3000)
         }
@@ -505,23 +539,16 @@ export class EditEmployeeComponent implements OnInit {
     }
     else
     {
-      console.log("call new address")
-
+      // console.log("call new address")
       this.employeeService.UserAddressSave(emergency).subscribe(resp => {
-
       if (resp.Success) {
-
         this.message = "Data is Added successfully"
         this.customToastrService.GetSuccessToastr(this.message, "Employee details", 3000)
-
       }
       else {
-
         this.message = resp.Message;
         this.customToastrService.GetErrorToastr(this.message, "Employee details", 5000)
-
       }
-
     }
       , (error: AppResponse) => {
         this.errorHandlingService.errorStatus(error, "Edit Employee Status")
@@ -535,7 +562,7 @@ export class EditEmployeeComponent implements OnInit {
 
   copyCurrentToPermanent(event) {
 
-    console.log(event.target.checked)
+    // console.log(event.target.checked)
     if (event.target.checked) {
 
       this.permanentAddress.FullName = this.currentAddress.FullName
@@ -560,7 +587,7 @@ export class EditEmployeeComponent implements OnInit {
     console.log(event.target.checked)
     if (event.target.checked) {
 
-      console.log("yes")
+      // console.log("yes")
 
       this.emergencyAddress.FullName = this.currentAddress.FullName
       this.emergencyAddress.PhoneNumber = this.currentAddress.PhoneNumber
@@ -586,7 +613,7 @@ export class EditEmployeeComponent implements OnInit {
     console.log(event.target.checked)
     if (event.target.checked) {
 
-      console.log("yes")
+      // console.log("yes")
 
       this.emergencyAddress.FullName = this.permanentAddress.FullName
       this.emergencyAddress.PhoneNumber = this.permanentAddress.PhoneNumber
@@ -612,20 +639,19 @@ export class EditEmployeeComponent implements OnInit {
     this.employeeService.UserEditDetails(this.id, 1).subscribe(resp => {
       if (resp.Success) {
         if (resp.Data == null) {
-          console.log("yes")
+          // console.log("yes")
           this.permanentAddress = []
         }
         else {
           this.permanentAddress = resp.Data[0]
           this.permanentAddress.CountryId = this.permanentAddress.Country.Id
           this.permanentAddress.StateProvinceId = this.permanentAddress.StateProvince.Id
-          console.log(this.permanentAddress)
+          // console.log(this.permanentAddress)
         }
 
       }
       else {
-        // this.dangerStatus=true;
-        // this.successStatus=false;
+        
         this.message = resp.ErrorMessage;
         this.customToastrService.GetErrorToastr(this.message, "Employee details", 5000)
 
@@ -644,20 +670,19 @@ export class EditEmployeeComponent implements OnInit {
     this.employeeService.UserEditDetails(this.id, 2).subscribe(resp => {
       if (resp.Success) {
         if (resp.Data == null) {
-          console.log("yes")
+          // console.log("yes")
           this.currentAddress = []
         }
         else {
           this.currentAddress = resp.Data[0]
           this.currentAddress.CountryId = this.currentAddress.Country.Id
           this.currentAddress.StateProvinceId = this.currentAddress.StateProvince.Id
-          console.log(this.currentAddress)
+          // console.log(this.currentAddress)
         }
 
       }
       else {
-        // this.dangerStatus=true;
-        // this.successStatus=false;
+        
         this.message = resp.ErrorMessage;
         this.customToastrService.GetErrorToastr(this.message, "Employee details", 5000)
 
@@ -676,20 +701,19 @@ export class EditEmployeeComponent implements OnInit {
     this.employeeService.UserEditDetails(this.id, 4).subscribe(resp => {
       if (resp.Success) {
         if (resp.Data == null) {
-          console.log("yes")
+          // console.log("yes")
           this.emergencyAddress = []
         }
         else {
           this.emergencyAddress = resp.Data[0]
           this.emergencyAddress.CountryId = this.emergencyAddress.Country.Id
           this.emergencyAddress.StateProvinceId = this.emergencyAddress.StateProvince.Id
-          console.log(this.emergencyAddress)
+          // console.log(this.emergencyAddress)
         }
 
       }
       else {
-        // this.dangerStatus=true;
-        // this.successStatus=false;
+        
         this.message = resp.ErrorMessage;
         this.customToastrService.GetErrorToastr(this.message, "Employee details", 5000)
       }
@@ -706,20 +730,19 @@ export class EditEmployeeComponent implements OnInit {
     this.employeeService.UserEditDetails(this.id, 3).subscribe(resp => {
       if (resp.Success) {
         if (resp.Data == null) {
-          console.log("yes")
+          // console.log("yes")
           this.officeAddress = []
         }
         else {
           this.officeAddress = resp.Data[0]
           this.officeAddress.CountryId = this.officeAddress.Country.Id
           this.officeAddress.StateProvinceId = this.officeAddress.StateProvince.Id
-          console.log(this.officeAddress)
+          // console.log(this.officeAddress)
         }
 
       }
       else {
-        // this.dangerStatus=true;
-        // this.successStatus=false;
+        
         this.message = resp.ErrorMessage;
         this.customToastrService.GetErrorToastr(this.message, "Employee details", 5000)
 

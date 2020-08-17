@@ -9,14 +9,12 @@ import { AppResponse } from 'src/app/models/appResponse';
 import { RejectPopupComponent } from '../reject-popup/reject-popup.component';
 
 export class MyShifts {
-
   StartTime: number
   EndTime: number
   CreatedOn: number
   ApprovingStatus: string
   ApprovingPerson: string
   ApprovedBy: string
-
 }
 
 
@@ -28,21 +26,13 @@ export class MyShifts {
 export class ShiftComponent implements OnInit {
   ascNumberSort = true;
   indexs:any[]=[];
-
-
-
-
-
-  // successStatus=false;
-  // dangerStatus=false;
+  dropDownListOfShiftStatus:any[]=[];
+  length=1;
 
   message="";
-
+  pendingValue:number;
   email="";
-
-  aa:boolean=false;
-  search="";
-
+  
 
 
   MyShiftList: any[]=[];
@@ -71,12 +61,59 @@ export class ShiftComponent implements OnInit {
 
     this.Id="53a845f3-c35f-4d07-a0b4-c0aa719cd0ae";
 
+    this.shiftTimeService.ShiftsStatus().subscribe(resp =>{
 
-    this.shiftTimeService.GetMyShiftTimeList(this.Id,0).subscribe(resp => {
+      if(resp.Success)
+      {
+        let data ={
+          Value: 0, 
+          Text: "All"
+        }
+        this.dropDownListOfShiftStatus = resp.Data
+        this.dropDownListOfShiftStatus.push(data)
+        this.dropDownListOfShiftStatus=this.dropDownListOfShiftStatus.sort((a,b)=>a.Value - b.Value);
+        this.pendingValue = 2
+        console.log(this.dropDownListOfShiftStatus)
+
+        this.getListOfShift(2);
+      }
+      else
+      {
+        this.message=resp.ErrorMessage;
+        this.message=resp.Message;
+        this.customToastrService.GetErrorToastr(this.message, "StringMap List Status", 5000)
+      }
+
+    }
+    ,   (error: AppResponse) => {
+      this.errorHandlingService.errorStatus(error,"String Map List")
+
+}
+)
+
+  }
+
+  ngOnInit() {
+  }
+
+
+  getListOfShift(StatusValue)
+  {
+    this.Id="53a845f3-c35f-4d07-a0b4-c0aa719cd0ae";
+
+    this.length=1
+    this.shiftTimeService.GetMyShiftTimeList(this.Id,StatusValue).subscribe(resp => {
       console.log(resp);
 
       if (resp.Success) {
         this.MyShiftList = resp.Data;
+        if(this.MyShiftList==null)
+        {
+          console.log("yes")
+          this.length=0
+        }
+
+        console.log(this.MyShiftList)
         this.removeNullValue(this.MyShiftList)
 
       } else {
@@ -94,10 +131,6 @@ export class ShiftComponent implements OnInit {
 
     }
   );
-   }
-
-
-  ngOnInit() {
   }
 
 
@@ -105,7 +138,9 @@ export class ShiftComponent implements OnInit {
   {
 
     console.log(this.MyShiftList)
-    for (let i=0; i<this.MyShiftList.length; i++)
+    if(this.length!=0)
+    {
+      for (let i=0; i<this.MyShiftList.length; i++)
     {
 
       this.MyShiftList[i].CreatedOn=new Date(this.MyShiftList[i].CreatedOn).toDateString().substr(4,13)
@@ -127,7 +162,13 @@ export class ShiftComponent implements OnInit {
     }
 
     console.log(this.MyShiftList)
+    }
 
+    else
+    {
+      this.customToastrService.GetInfoToastr("There is no Matching record for this Request", "Shift Request", 5000)
+    }
+    
   }
 
 
@@ -148,17 +189,23 @@ export class ShiftComponent implements OnInit {
   {
     this.Id="53a845f3-c35f-4d07-a0b4-c0aa719cd0ae";
 
-
-    this.shiftTimeService.GetMyShiftTimeList(this.Id,0).subscribe(resp => {
+    this.length=1
+    this.dropDownListOfShiftStatus=this.dropDownListOfShiftStatus.sort((a,b)=>a.Value - b.Value);
+    this.pendingValue = 2
+    this.shiftTimeService.GetMyShiftTimeList(this.Id,2).subscribe(resp => {
       console.log(resp);
 
       if (resp.Success) {
         this.MyShiftList = resp.Data;
+        if(this.MyShiftList==null)
+        {
+          console.log("yes")
+          this.length=0
+        }
+
         this.removeNullValue(this.MyShiftList)
       } else {
 
-        this.message = resp.ErrorMessage;
-        this.message = resp.Message;
         this.customToastrService.GetErrorToastr(this.message, "My Shift List Status", 5000)
 
       }
@@ -172,30 +219,41 @@ export class ShiftComponent implements OnInit {
   );
   }
 
-  getTheDataOfMyApproval()
+  getTheDataOfMyApproval(StatusCode)
   {
-    // this.Id=JSON.parse(sessionStorage.getItem('user')).Id;
-
-    console.log("no")
     this.Id="72fecddb-fcfa-4afb-a8ec-7c0a3839e7c5";
+    // this.Id=JSON.parse(sessionStorage.getItem('user')).Id;
+    console.log(StatusCode)
 
-    this.shiftTimeService.GetAwaitingMyApprovalList(this.Id,0).subscribe(resp => {
+    this.length=1
+    this.dropDownListOfShiftStatus=this.dropDownListOfShiftStatus.sort((a,b)=>a.Value - b.Value);
+    this.pendingValue = StatusCode
+
+    this.shiftTimeService.GetAwaitingMyApprovalList(this.Id,StatusCode).subscribe(resp => {
       console.log(resp);
 
-      if (resp.Success) {
+      if (resp.Success) 
+      {
         this.MyApprovalList = resp.Data;
-        for(let i=0;i<this.MyApprovalList.length;i++)
-        {
-          this.MyApprovalList[i].CreatedOn=new Date(this.MyApprovalList[i].CreatedOn).toDateString().substr(4,13)
-        }
-      } else {
 
+        if(this.MyApprovalList==null)
+        {
+          this.length=0;
+          this.customToastrService.GetInfoToastr("There is no Matching record for this Request", "Shift Request", 5000)
+        }
+        else
+        {
+          for(let i=0;i<this.MyApprovalList.length;i++)
+          {
+            this.MyApprovalList[i].CreatedOn=new Date(this.MyApprovalList[i].CreatedOn).toDateString().substr(4,13)
+          }
+        }
+      } 
+      else {
         this.message = resp.ErrorMessage;
         this.message = resp.Message;
         this.customToastrService.GetErrorToastr(this.message, "My Shift List Status", 5000)
-
       }
-
     }
     ,   (error: AppResponse) => {
 
@@ -222,7 +280,7 @@ export class ShiftComponent implements OnInit {
       if(resp.Success)
       {
         this.message="Data is Updated successfully"
-        this.getTheDataOfMyApproval()
+        this.getTheDataOfMyApproval(2)
 
         this.customToastrService.GetSuccessToastr(this.message, "Shift Update Status", 5000)
       }
@@ -262,7 +320,7 @@ export class ShiftComponent implements OnInit {
       if(resp.Success)
       {
         this.message="Data is Updated successfully"
-        this.getTheDataOfMyApproval()
+        this.getTheDataOfMyApproval(2)
 
 
         this.customToastrService.GetSuccessToastr(this.message, "Shift Update Status", 5000)
@@ -395,9 +453,7 @@ export class ShiftComponent implements OnInit {
 
   }
 
-  setIndex(ii){
-    this.aa=ii;
-  }
+
 
   RejectPopup(Id)
   {
@@ -409,7 +465,7 @@ export class ShiftComponent implements OnInit {
     dialogConfig.data={Id}
     this.dialog.open(RejectPopupComponent, dialogConfig).afterClosed().subscribe(res =>{
 
-      this.getTheDataOfMyApproval()
+      this.getTheDataOfMyApproval(2)
 
     });
   }

@@ -37,6 +37,7 @@ export class EmployeeListComponent implements OnInit {
   // dtOptions: DataTables.Settings = {};
 
   persons: any[]=[];
+  length=1
 
   ascNumberSort = true;
 
@@ -64,14 +65,52 @@ export class EmployeeListComponent implements OnInit {
 
       this.employeeService.getUser().subscribe(resp =>{
         console.log(resp)
+        this.length=1
         if(resp.Success)
         {
           this.persons = resp.Data
+          console.log(this.persons)
+          if(this.persons==null)
+          {
+            this.length=0;
+            this.customToastrService.GetInfoToastr("No Record Found!!..", "No Data", 5000);
+          }
+          else
+          {
+            for(let i=0;i<this.persons.length;i++)
+            {
+              if(this.persons[i].Designation==null)
+              {
+                this.persons[i].Designation="N/N"
+              }
+              else
+              {
+                this.persons[i].Designation= this.persons[i].Designation.Text
+              }
+
+              if(this.persons[i].Department==null)
+              {
+                this.persons[i].Department="N/N"
+              }
+              else
+              {
+                this.persons[i].Department= this.persons[i].Department.Text
+              }
+
+              if(this.persons[i].Status==null)
+              {
+                this.persons[i].Status="N/N"
+              }
+              else
+              {
+                this.persons[i].Status= this.persons[i].Status.Text
+              }
+
+            }
+          }
         }
         else
         {
-            // this.dangerStatus=true;
-            // this.successStatus=false;
             this.message=resp.ErrorMessage;
             this.message=resp.Message;
             this.customToastrService.GetErrorToastr(this.message,"List Employee Status", 5000)
@@ -174,12 +213,12 @@ export class EmployeeListComponent implements OnInit {
       if(this.ascNumberSort)
       {
         this.sortIcon3="fa fa-sort-desc"
-        this.persons=this.persons.sort((a,b)=>a.Designation.Text.localeCompare(b.Designation.Text)); // For ascending sort
+        this.persons=this.persons.sort((a,b)=>a.Designation.localeCompare(b.Designation)); // For ascending sort
       }
       else
       {
         this.sortIcon3="fa fa-sort-asc"
-        this.persons=this.persons.sort((a,b)=>b.Designation.Text.localeCompare(a.Designation.Text)); // For descending sort
+        this.persons=this.persons.sort((a,b)=>b.Designation.localeCompare(a.Designation)); // For descending sort
       }
     }
 
@@ -190,12 +229,12 @@ export class EmployeeListComponent implements OnInit {
       if(this.ascNumberSort)
       {
         this.sortIcon4="fa fa-sort-desc"
-        this.persons=this.persons.sort((a,b)=>a.Department.Text.localeCompare(b.Department.Text)); // For ascending sort
+        this.persons=this.persons.sort((a,b)=>a.Department.localeCompare(b.Department)); // For ascending sort
       }
       else
       {
         this.sortIcon4="fa fa-sort-asc"
-        this.persons=this.persons.sort((a,b)=>b.Department.Text.localeCompare(a.Department.Text)); // For descending sort
+        this.persons=this.persons.sort((a,b)=>b.Department.localeCompare(a.Department)); // For descending sort
       }
     }
 
@@ -220,12 +259,12 @@ export class EmployeeListComponent implements OnInit {
       if(this.ascNumberSort)
       {
         this.sortIcon6="fa fa-sort-desc"
-        this.persons=this.persons.sort((a,b)=>a.Status.Text.localeCompare(b.Status.Text)); // For ascending sort
+        this.persons=this.persons.sort((a,b)=>a.Status.localeCompare(b.Status)); // For ascending sort
       }
       else
       {
         this.sortIcon6="fa fa-sort-asc"
-        this.persons=this.persons.sort((a,b)=>b.Status.Text.localeCompare(a.Status.Text)); // For descending sort
+        this.persons=this.persons.sort((a,b)=>b.Status.localeCompare(a.Status)); // For descending sort
       }
     }
 
@@ -247,17 +286,5 @@ export class EmployeeListComponent implements OnInit {
     this.sortIcon6="fa fa-sort"
     this.sortIcon7="fa fa-sort"
   }
-
-  // closeStatus()
-  // {
-  //   this.dangerStatus=false;
-  //   this.successStatus=false;
-  // }
-
-
-
-
-
-
 
 }
