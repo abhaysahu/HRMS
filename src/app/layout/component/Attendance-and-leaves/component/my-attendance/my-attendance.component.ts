@@ -25,6 +25,7 @@ export class MyAttendanceComponent implements OnInit {
   data={}
   month:any[]=[]
   Name
+  length=1;
 
   Id;
   ascNumberSort = true;
@@ -68,7 +69,7 @@ export class MyAttendanceComponent implements OnInit {
       year:date.getFullYear(),
       month:(date.getMonth()+1)
     }
-    console.log(this.SearchAttendance)
+    //console.log(this.SearchAttendance)
     this.GetAttendance(this.SearchAttendance)
 
     this.month=[
@@ -123,8 +124,6 @@ export class MyAttendanceComponent implements OnInit {
     ]
 
 
-  
-
     this.attendanceService.getDateOfJoining(this.Id).subscribe(resp =>{
 
       if(resp.Success)
@@ -150,8 +149,6 @@ export class MyAttendanceComponent implements OnInit {
 
         this.dropDownListOfYear.push(this.data)
       }
-
-
       this.getListOfMonth(yearOfTOD)
       // console.log(this.dropDownListOfYear)
       
@@ -175,7 +172,9 @@ export class MyAttendanceComponent implements OnInit {
 
   GetAttendance(data)
   {
-    console.log(data)
+
+    this.length=1
+    //console.log(data)
 
     this.attendanceService.getAttendanceByEmployee(this.Id,data.month,data.year).subscribe(resp =>{
 
@@ -184,12 +183,10 @@ export class MyAttendanceComponent implements OnInit {
         this.Attendance = resp.Data
         if(this.Attendance!=null)
         {
-
           console.log(this.Attendance)
           for(let i=0;i<this.Attendance.length;i++)
           {
             this.Attendance[i].Date=new Date(this.Attendance[i].Date).toDateString().substr(0,13) 
-
 
             if(this.Attendance[i].OutTime=="00:00:00")
             {
@@ -225,8 +222,9 @@ export class MyAttendanceComponent implements OnInit {
 
           console.log(this.Attendance)
         }
-        else{
-          this.Attendance.length=0;
+        else
+        {
+          this.length=0;
           this.customToastrService.GetInfoToastr("No Attendance Found!!..", "No Data", 5000);
         }
       }
@@ -267,7 +265,7 @@ export class MyAttendanceComponent implements OnInit {
     // let year=date12.getFullYear();
 
     let year=Year
-    console.log(year)
+    // console.log(year)
     this.dateOfJoining.DateOfJoining
 
     let doj=new Date(this.dateOfJoining.DateOfJoining);
@@ -277,8 +275,8 @@ export class MyAttendanceComponent implements OnInit {
     let yearOfDOJ=doj.getFullYear()
     let yearOfTOD=Tod.getFullYear();
 
-    console.log(yearOfDOJ)
-    console.log(yearOfTOD)
+    // console.log(yearOfDOJ)
+    // console.log(yearOfTOD)
 
     if(year==yearOfDOJ && year!=yearOfTOD)
     {
@@ -315,7 +313,7 @@ export class MyAttendanceComponent implements OnInit {
             }
             this.dropDownListOfMonth.push(this.data)
       }
-      console.log(this.dropDownListOfMonth)
+      // console.log(this.dropDownListOfMonth)
     }
 
 
