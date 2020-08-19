@@ -20,7 +20,7 @@ export class LoginService {
 
   checklogin(login)
   {
- 
+
       console.log(login)
 
       return this.http.post(environment.apiUrl+'/loginApi/login',login);
@@ -41,9 +41,9 @@ export class LoginService {
     return this.http.get("./assets/data.json");
   }
 
-  
 
-  
+
+
 
 }
 

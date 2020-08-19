@@ -25,14 +25,14 @@ export class LoginComponent implements OnInit {
   error: string;
   grant_type = "password"
   login= {} as Login;
-  
+
 
 
 
   constructor(
     private router: Router,
     private authService: AuthService,
-    private customToastrService: CustomToastrService    
+    private customToastrService: CustomToastrService
     ) {
 
 
@@ -51,12 +51,12 @@ export class LoginComponent implements OnInit {
   Login(form) {
 
     form.grant_type = "password"
-    this.authService.login(form)    
+    this.authService.login(form)
       .subscribe((data: LoggedinUser) => {
-       
+
           this.authService.manageSession(data);
           this.authService.loginStatus.emit(true);
-          if (this.authService.redirectUrl) 
+          if (this.authService.redirectUrl)
           {
             console.log(this.authService.redirectUrl)
 
@@ -66,23 +66,23 @@ export class LoginComponent implements OnInit {
             this.customToastrService.GetSuccessToastr(this.message, "Login Status", 3000)
 
             setTimeout(()=>
-            {    
+            {
               this.router.navigate([this.authService.redirectUrl]);
-      
-            }, 3000);  
-          } 
-          else 
-          {  
+
+            }, 3000);
+          }
+          else
+          {
 
             this.message="You are Login successfully Wait for redirect"
 
 
             this.customToastrService.GetSuccessToastr(this.message, "Login Status", 3000)
             setTimeout(()=>
-            {    
+            {
               this.router.navigate(['/dashboard']);
-            }, 3000); 
-          }  
+            }, 3000);
+          }
 
         },   (error) => {
 
@@ -98,14 +98,14 @@ export class LoginComponent implements OnInit {
             this.message = "Authorization has been denied for this request And You have to Login again."
             return this.customToastrService.GetErrorToastr(this.message, status, 3000)
 
-          }       
+          }
           else
           {
             this.message = error.error.message;
             return this.customToastrService.GetErrorToastr(this.message, status, 3000)
 
           }
-              
+
        }
        );
   }

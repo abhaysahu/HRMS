@@ -137,7 +137,7 @@ export class EmployeeService {
 
     return this.httpClient.get<DropDown>(environment.webapiUrl+'api/get/PickList?attributeName=StatusCode&objectTypeCode=9', { headers: headers })
   }
-  
+
 
   listOfDepartment(): Observable<DropDown>
   {
@@ -169,7 +169,7 @@ export class EmployeeService {
 
     return this.httpClient.get<DropDown>(environment.webapiUrl+'api/get/PickList?attributeName=Designation&objectTypeCode=9', { headers: headers })
   }
-  
+
 
   listOfMaritalStatus(): Observable<DropDown>
   {
@@ -216,7 +216,7 @@ export class EmployeeService {
 
 
     return this.httpClient.post<any>(environment.webapiUrl+'api/add/user',user, { headers: headers })
-  } 
+  }
 
 
   UserEditDetails(RegardingObjectId, AddressType): Observable<DropDown>
@@ -279,7 +279,7 @@ export class EmployeeService {
 
 
     return this.httpClient.post<any>(environment.webapiUrl+'api/add/address',address, { headers: headers })
-  } 
+  }
 
 
   UserAddressUpdate(address)
@@ -295,11 +295,11 @@ export class EmployeeService {
 
 
     return this.httpClient.post<any>(environment.webapiUrl+'api/update/address',address, { headers: headers })
-  } 
+  }
 
   UpdateThePassword(password)
   {
-    
+
     const headers = this.errorHandlingService.getauthorization()
 
     return this.httpClient.post<any>(environment.webapiUrl+'api/user/resetpassword',password, { headers: headers })
