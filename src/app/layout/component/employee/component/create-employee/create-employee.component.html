@@ -65,27 +65,35 @@ both are edited the other in formation  -->
                 <div class="form-group col-md-4">
                   <label for="FullName">Full Name</label>
                   <!-- pattern="([a-zA-Z]+\s){2,}([a-zA-Z])+" -->
-                  <input #FullName="ngModel"  [(ngModel)]="Employee.FullName" name="FullName" id="FullName" type="text" class="form-control" placeholder="Employee Name" required>
-                  <div class="invalid-feedback" *ngIf="FullName.touched && FullName.invalid">
+                  <input #FullName="ngModel" pattern="([a-zA-Z]*[ ][a-zA-Z]*)" [(ngModel)]="Employee.FullName" name="FullName" id="FullName" type="text" class="form-control" placeholder="Employee Name" required>
+                  <div class="invalid-feedback" *ngIf="FullName.touched">
                     Full Name is Mandatory
+                  </div>
+                  <div class="invalid-feedback" *ngIf="FullName.invalid">
+                    FullName Have First and Last Name 
                   </div>
                 </div>
 
                 <div class="form-group col-md-4">
                   <label for="PersonalEmail">Personal Email</label>
-                  <input type="text" class="form-control" #PersonalEmail="ngModel" [(ngModel)]="Employee.PersonalEmail" name="PersonalEmail" id="PersonalEmail" placeholder="Personal Email ID" required>
-                  <div class="invalid-feedback" *ngIf="PersonalEmail.touched && PersonalEmail.invalid">
+                  <input type="text" class="form-control" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}" #PersonalEmail="ngModel" [(ngModel)]="Employee.PersonalEmail" name="PersonalEmail" id="PersonalEmail" placeholder="Personal Email ID" required>
+                  <div class="invalid-feedback" *ngIf="PersonalEmail.touched">
                     Personal Email Id Is Mandatory
+                  </div>
+                  <div class="invalid-feedback" *ngIf="PersonalEmail.invalid">
+                    Email Id Should be valid
                   </div>
                 </div>
 
-
                 <div class="form-group col-md-4">
                   <label for="OfficialEmail">Official Email</label>
-                  <input type="text" class="form-control" #OfficialEmail="ngModel" [(ngModel)]="Employee.OfficialEmail" name="OfficialEmail" id="OfficialEmail" placeholder="Offical Email ID">
-                  <div class="invalid-feedback" *ngIf="OfficialEmail.touched && OfficialEmail.invalid">
+                  <input type="text" class="form-control" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}" #OfficialEmail="ngModel" [(ngModel)]="Employee.OfficialEmail" name="OfficialEmail" id="OfficialEmail" placeholder="Offical Email ID">
+                  <div class="invalid-feedback" *ngIf="OfficialEmail.touched">
                    Official Email Id Is Required
                   </div>
+                  <div class="invalid-feedback" *ngIf="OfficialEmail.invalid">
+                    Email Id Should be valid
+                   </div>
                 </div>
 
                 <!-- <div class="form-group col-md-4">
@@ -133,8 +141,7 @@ both are edited the other in formation  -->
                 <div class="form-group col-md-4">
                   <label for="Department">Department</label>
                   <select class="custom-select" type="number" #Department="ngModel" [(ngModel)]="Employee.Department" name="Department" id="Department"  required>
-
-                    <option *ngFor="let dropdownLists of dropdownListOfDepartment" [value]=dropdownLists.Value>{{dropdownLists.Text}}</option>
+                   <option *ngFor="let dropdownLists of dropdownListOfDepartment" [value]=dropdownLists.Value>{{dropdownLists.Text}}</option>
                   </select>
                   <div class="invalid-feedback" *ngIf="Department.touched && Department.invalid">
                     Department is Mandatory
@@ -144,9 +151,7 @@ both are edited the other in formation  -->
                 <div class="form-group col-md-4">
                   <label for="Designation">Designation</label>
                   <select class="custom-select" type="number" #Designation="ngModel" [(ngModel)]="Employee.Designation" name="Designation" id="Designation"  required>
-
                     <option *ngFor="let dropdownLists of dropdownListOfDesignation" [value]=dropdownLists.Value>{{dropdownLists.Text}}</option>
-
                   </select>
                   <div class="invalid-feedback" *ngIf="Designation.touched && Designation.invalid">
                     Designation is Mandatory
@@ -156,9 +161,7 @@ both are edited the other in formation  -->
                 <div class="form-group col-md-4">
                   <label for="Grade">Grade</label>
                   <select type="number" class="custom-select" #Grade="ngModel" [(ngModel)]="Employee.Grade" name="Grade" id="Grade"  required>
-
                     <option *ngFor="let dropdownLists of dropdownListOfGrade" [value]=dropdownLists.Value>{{dropdownLists.Text}}</option>
-
                   </select>
                    <div class="invalid-feedback" *ngIf="Grade.touched && Grade.invalid">
                     Grade is Mandatory
@@ -168,7 +171,7 @@ both are edited the other in formation  -->
 
                 <div class="form-group col-md-4">
                   <label for="HighestQualification">High Qualification</label>
-                  <input type="text" class="form-control"#HighestQualification="ngModel" [(ngModel)]="Employee.HighestQualification" name="HighestQualification" id="HighestQualification" placeholder="Enter Highest Qualification">
+                  <input type="text" class="form-control" #HighestQualification="ngModel" [(ngModel)]="Employee.HighestQualification" name="HighestQualification" id="HighestQualification" placeholder="Enter Highest Qualification">
                   <div class="invalid-feedback" *ngIf="HighestQualification.touched && HighestQualification.invalid">
                     High Qualification Is Mandatory
                   </div>
@@ -193,21 +196,18 @@ both are edited the other in formation  -->
                 <div class="form-group col-md-4">
                   <label for="MaritalStatus">Marital Status</label>
                   <select type="number" class="custom-select" #MaritalStatus="ngModel" [(ngModel)]="Employee.MaritalStatus" name="MaritalStatus" id="MaritalStatus"  required>
-
                     <option *ngFor="let dropdownLists of dropdownListOfMaritalStatus" [value]=dropdownLists.Value>{{dropdownLists.Text}}</option>
-
                   </select>
                   <div class="invalid-feedback" *ngIf="MaritalStatus.touched && MaritalStatus.invalid">
                     Marital Status Is Mandatory
                   </div>
                 </div>
 
+
                 <div class="form-group col-md-4">
                   <label for="Gender">Gender</label>
                   <select type="number" class="custom-select" #Gender="ngModel" [(ngModel)]="Employee.Gender" name="Gender" id="Gender" required>
-
                     <option *ngFor="let dropdownLists of dropdownListOfGender" [value]=dropdownLists.Value>{{dropdownLists.Text}}</option>
-
                   </select>
                   <div class="invalid-feedback" *ngIf="Gender.touched && Gender.invalid">
                     Gender Is Mandatory
@@ -220,7 +220,6 @@ both are edited the other in formation  -->
                   <select type="text" class="custom-select" #PrimaryManagerId="ngModel" [(ngModel)]="Employee.PrimaryManagerId" name="PrimaryManagerId" id="PrimaryManagerId">
                     <option value="">Select any option</option>
                     <option *ngFor="let dropdownLists of dropdownListOfUser" [value]=dropdownLists.Id>{{dropdownLists.FullName}}</option>
-
                   </select>
                   <!-- <div class="invalid-feedback" *ngIf="PrimaryManagerId.touched && PrimaryManagerId.invalid">
 
