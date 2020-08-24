@@ -57,9 +57,9 @@ export class ShiftComponent implements OnInit {
   ) {
 
 
-    // this.Id=JSON.parse(sessionStorage.getItem('user')).Id;
+    this.Id=JSON.parse(sessionStorage.getItem('user')).Id;
 
-    this.Id="53a845f3-c35f-4d07-a0b4-c0aa719cd0ae";
+    //this.Id="53a845f3-c35f-4d07-a0b4-c0aa719cd0ae";
 
     this.shiftTimeService.ShiftsStatus().subscribe(resp =>{
 
@@ -99,7 +99,7 @@ export class ShiftComponent implements OnInit {
 
   getListOfShift(StatusValue)
   {
-    this.Id="53a845f3-c35f-4d07-a0b4-c0aa719cd0ae";
+    this.Id=JSON.parse(sessionStorage.getItem('user')).Id;
 
     this.length=1
     this.shiftTimeService.GetMyShiftTimeList(this.Id,StatusValue).subscribe(resp => {
@@ -187,7 +187,7 @@ export class ShiftComponent implements OnInit {
 
   getTheDataOfMyShift()
   {
-    this.Id="53a845f3-c35f-4d07-a0b4-c0aa719cd0ae";
+    this.Id=JSON.parse(sessionStorage.getItem('user')).Id;
 
     this.length=1
     this.dropDownListOfShiftStatus=this.dropDownListOfShiftStatus.sort((a,b)=>a.Value - b.Value);
@@ -221,8 +221,8 @@ export class ShiftComponent implements OnInit {
 
   getTheDataOfMyApproval(StatusCode)
   {
-    this.Id="72fecddb-fcfa-4afb-a8ec-7c0a3839e7c5";
-    // this.Id=JSON.parse(sessionStorage.getItem('user')).Id;
+    //this.Id="72fecddb-fcfa-4afb-a8ec-7c0a3839e7c5";
+     this.Id=JSON.parse(sessionStorage.getItem('user')).Id;
     console.log(StatusCode)
 
     this.length=1

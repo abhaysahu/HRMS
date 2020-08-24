@@ -53,7 +53,10 @@ export class EmployeeDetailsComponent implements OnInit {
 
     this.Employee = this.employeeService.Employee
 
-    this.id = "94943514-be17-49e3-82da-65dbf9f6dc81"
+    // this.id = "72fecddb-fcfa-4afb-a8ec-7c0a3839e7c5"
+
+    this.id = JSON.parse(sessionStorage.getItem('user')).Id;
+    
 
     // get Employee data
 

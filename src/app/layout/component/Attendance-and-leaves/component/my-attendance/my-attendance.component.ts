@@ -218,6 +218,9 @@ export class MyAttendanceComponent implements OnInit {
             this.Attendance[i].OutTime = (this.Attendance[i].OutTime).substr(0,5);   
           }
 
+
+          this.Attendance=this.Attendance.sort((a, b) => new Date(a.Date).getTime() - new Date(b.Date).getTime()); // For ascending sort
+          
           this.showTable=true
 
           console.log(this.Attendance)
@@ -331,7 +334,7 @@ export class MyAttendanceComponent implements OnInit {
       if(this.ascNumberSort) 
       {
         this.sortIcon2="fa fa-sort-desc"
-        this.Attendance=this.Attendance.sort((a, b) => new Date(b.Date).getTime() - new Date(a.Date).getTime()); // For ascending sort
+        this.Attendance=this.Attendance.sort((a, b) => new Date(a.Date).getTime() - new Date(b.Date).getTime()); // For ascending sort
       } 
       else 
       {
@@ -346,12 +349,12 @@ export class MyAttendanceComponent implements OnInit {
       if(this.ascNumberSort) 
       {
         this.sortIcon3="fa fa-sort-desc"
-        this.Attendance=this.Attendance.sort((a,b)=>a.SchemaName.localeCompare(b.SchemaName)); // For ascending sort
+        this.Attendance=this.Attendance.sort((a,b)=>a.ShiftTimeing.localeCompare(b.ShiftTimeing)); // For ascending sort
       } 
       else 
       {
         this.sortIcon3="fa fa-sort-asc"
-        this.Attendance=this.Attendance.sort((a,b)=>b.SchemaName.localeCompare(a.SchemaName)); // For descending sort
+        this.Attendance=this.Attendance.sort((a,b)=>b.ShiftTimeing.localeCompare(a.ShiftTimeing)); // For descending sort
       }
     }
 
@@ -376,12 +379,12 @@ export class MyAttendanceComponent implements OnInit {
       if(this.ascNumberSort) 
       {
         this.sortIcon5="fa fa-sort-desc"
-        this.Attendance=this.Attendance.sort((a,b)=>a.Description.localeCompare(b.Description)); // For ascending sort
+        this.Attendance=this.Attendance.sort((a,b)=>a.OutTime.localeCompare(b.OutTime)); // For ascending sort
       } 
       else 
       {
         this.sortIcon5="fa fa-sort-asc"
-        this.Attendance=this.Attendance.sort((a,b)=>b.Description.localeCompare(a.Description)); // For descending sort
+        this.Attendance=this.Attendance.sort((a,b)=>b.OutTime.localeCompare(a.OutTime)); // For descending sort
       }
     }
 
@@ -391,12 +394,12 @@ export class MyAttendanceComponent implements OnInit {
       if(this.ascNumberSort) 
       {
         this.sortIcon6="fa fa-sort-desc"
-        this.Attendance=this.Attendance.sort((a,b)=>a.IsMasterAttendances.localeCompare(b.IsMasterAttendances)); // For ascending sort
+        this.Attendance=this.Attendance.sort((a,b)=>a.WorkingHours.localeCompare(b.WorkingHours)); // For ascending sort
       } 
       else 
       {
         this.sortIcon6="fa fa-sort-asc"
-        this.Attendance=this.Attendance.sort((a,b)=>b.IsMasterAttendances.localeCompare(a.IsMasterAttendances)); // For descending sort
+        this.Attendance=this.Attendance.sort((a,b)=>b.WorkingHours.localeCompare(a.WorkingHours)); // For descending sort
       }
     }
 
@@ -406,12 +409,12 @@ export class MyAttendanceComponent implements OnInit {
       if(this.ascNumberSort) 
       {
         this.sortIcon7="fa fa-sort-desc"
-        this.Attendance=this.Attendance.sort((a,b)=>a.PrimaryAttribute.localeCompare(b.PrimaryAttribute)); // For ascending sort
+        this.Attendance=this.Attendance.sort((a,b)=>a.Status.Text.localeCompare(b.Status.Text)); // For ascending sort
       } 
       else 
       {
         this.sortIcon7="fa fa-sort-asc"
-        this.Attendance=this.Attendance.sort((a,b)=>b.PrimaryAttribute.localeCompare(a.PrimaryAttribute)); // For descending sort
+        this.Attendance=this.Attendance.sort((a,b)=>b.Status.Text.localeCompare(a.Status.Text)); // For descending sort
       }
     }
   }
