@@ -30,9 +30,9 @@ export class PopupshiftComponent implements OnInit {
 
   ) {
 
-    // this.Id=JSON.parse(sessionStorage.getItem('user')).Id;
+     this.Id=JSON.parse(sessionStorage.getItem('user')).Id;
 
-    this.Id="53a845f3-c35f-4d07-a0b4-c0aa719cd0ae";
+    //this.Id="53a845f3-c35f-4d07-a0b4-c0aa719cd0ae";
 
 
     this.shiftTimeService.ApprovedByStatus(this.Id).subscribe(resp => {
@@ -63,12 +63,14 @@ export class PopupshiftComponent implements OnInit {
 
   onSubmit(myshifts) {
 
-    // this.Id = JSON.parse(sessionStorage.getItem('user')).Id;
+     this.Id = JSON.parse(sessionStorage.getItem('user')).Id;
 
-    this.Id="53a845f3-c35f-4d07-a0b4-c0aa719cd0ae";
+    //this.Id="53a845f3-c35f-4d07-a0b4-c0aa719cd0ae";
 
     myshifts.EmployeeId = this.Id;
     myshifts.Status = 2;
+    myshifts.StartTime = myshifts.StartTime + ":00"
+    myshifts.EndTime = myshifts.EndTime + ":00"
     console.log(myshifts)
 
 

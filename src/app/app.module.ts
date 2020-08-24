@@ -220,7 +220,7 @@ import { RejectPopupComponent } from './layout/component/Attendance-and-leaves/c
   entryComponents:[CommentsComponent, EditpicklistComponent, PopupComponent, PrintPopupComponent, AddRewardComponent, PopupshiftComponent, ResetPopupComponent, RejectPopupComponent],
 
   providers: [
-    //  {provide: LocationStrategy, useClass: HashLocationStrategy},
+      {provide: LocationStrategy, useClass: HashLocationStrategy},
     LoginService,
     AuthGuardService,
     EmployeeService,

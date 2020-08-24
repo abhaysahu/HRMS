@@ -65,8 +65,8 @@ export class ResetPopupComponent implements OnInit {
      
       if(resp.Success)
       {
-        this.message="Data is Added successfully"
-        this.customToastrService.GetSuccessToastr(this.message, "Employer Save Status", 5000)
+        this.message="Password is Reset successfully"
+        this.customToastrService.GetSuccessToastr(this.message, "Employee ResetPassword", 5000)
         this.close()
       }
       else

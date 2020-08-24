@@ -110,7 +110,7 @@ export class AddAttendanceComponent implements OnInit {
             this.Addattendance[i].Status=1
           }
 
-          if((this.Addattendance[i].OutTime)=="00:00:00")
+          if((this.Addattendance[i].OutTime)=="00:00:00" && (this.Addattendance[i].Status==1 || this.Addattendance[i].Status==2))
           {
             this.Addattendance[i].OutTime=null
           }
@@ -121,6 +121,9 @@ export class AddAttendanceComponent implements OnInit {
         }
 
         console.log(this.Addattendance)
+
+        this.Addattendance=this.Addattendance.sort((a,b)=>a.Employee.Name.localeCompare(b.Employee.Name)); // For ascending sort
+
         this.showStatus=true;
 
        

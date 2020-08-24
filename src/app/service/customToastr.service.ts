@@ -41,6 +41,12 @@ export class CustomToastrService {
 
   GetInfoToastr(Message, Status, time)
   {
+    if(this.toastr!=null && this.toastr.previousToastMessage == Message)
+    {
+      console.log(Message)
+      this.toastr.clear()
+    }
+    
     return this.toastr.info(Message, Status, {
       progressBar: true, 
       timeOut: time
