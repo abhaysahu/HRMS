@@ -45,6 +45,7 @@ import { UnsoldProductsComponent } from './layout/component/Report/components/un
 import { ReportComponent } from './layout/component/Report/components/report/report.component';
 import { ShiftComponent } from './layout/component/Attendance-and-leaves/component/shift/shift.component';
 import { SubdashboardComponent } from './layout/component/dashboard/components/subdashboard/subdashboard.component';
+import { Role } from './models/role';
 
 const routes: Routes = [
 
@@ -59,6 +60,12 @@ const routes: Routes = [
   {
     path: 'dashboard', component: DefaultComponent,
       canActivate: [AuthGuardService],
+      data: {
+        roles: [
+          Role.User,
+          Role.Admin,
+        ]
+      },
 
     children: [
       {

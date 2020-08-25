@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { AuthService } from './auth.service';
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
+import { data } from 'jquery';
+import { Role } from '../models/role';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +13,9 @@ export class AuthGuardService implements CanActivate {
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
     let url: string = state.url;
+    const roles = route.data.roles
     console.log(state.url)
+    console.log(roles)
     return this.checkLogin(state.url);
   }
 
