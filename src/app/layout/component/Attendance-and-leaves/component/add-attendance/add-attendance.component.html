@@ -84,8 +84,7 @@
                 'is-red': addAttendances.Status === 'OnLeave',
                 'is-green': addAttendances.Status === 'Absent'
               }" -->
-              <tr
-               *ngFor="let addAttendances of Addattendance | addAttendanceSearch:email; let i = index" >
+              <tr *ngFor="let addAttendances of Addattendance | addAttendanceSearch:email; let i = index" >
                <!------>
                <!-- <popover-content #myPopover
                           title="Popover"
@@ -112,11 +111,7 @@
                     <option *ngFor="let dropdownLists of dropdownList" [value]="dropdownLists.Value">{{dropdownLists.Text}}</option>
                   </select>
                 </td>
-                <td>
-                  <select class="custom-select" value={{addAttendances.Status}} (change)="Statuschange($event.target.value,i)"  name="Status" id="Status"  id="selectEntity">
-                    <option *ngFor="let dropdownLists of dropdownList" [value]="dropdownLists.Value">{{dropdownLists.Text}}</option>
-                  </select>
-                </td>
+                
 
                 <td *ngIf="addAttendances.Status==1 || addAttendances.Status==2">
                   <input type="time" [value]="addAttendances.InTime" (change)="InTimechange($event.target.value,i)" class="form-control" name="InTime" id="InTime">
