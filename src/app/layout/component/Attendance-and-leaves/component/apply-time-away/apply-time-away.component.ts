@@ -15,6 +15,6 @@ export class ApplyTimeAwayComponent implements OnInit {
   ngOnInit() {
   }
   onSubmit(attendance) {
-    console.log(attendance) 
+    console.log(attendance)
   }
 }

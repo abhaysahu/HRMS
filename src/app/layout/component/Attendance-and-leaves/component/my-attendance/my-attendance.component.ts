@@ -4,6 +4,9 @@ import { CustomToastrService } from 'src/app/service/customToastr.service';
 import { ErrorHandlingService } from 'src/app/service/error-handling.service';
 import { AppResponse } from 'src/app/models/appResponse';
 import { ActivatedRoute } from '@angular/router';
+import { MatDialog, MatDialogConfig, MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
+import { EditPopupComponent } from '../edit-popup/edit-popup.component';
+
 
 
 @Component({
@@ -37,10 +40,12 @@ export class MyAttendanceComponent implements OnInit {
   sortIcon5="fa fa-sort"
   sortIcon6="fa fa-sort"
   sortIcon7="fa fa-sort"
+  sortIcon8="fa fa-sort"
+
 
 
   constructor(
-
+    private dialog: MatDialog,
     private attendanceService: AttendanceService,
     private customToastrService: CustomToastrService,
     private errorHandlingService: ErrorHandlingService,
@@ -48,7 +53,7 @@ export class MyAttendanceComponent implements OnInit {
    ) {
 
 
-    
+
 
     if(this.route.snapshot.paramMap.get('id'))
     {
@@ -137,7 +142,7 @@ export class MyAttendanceComponent implements OnInit {
 
         let yearOfDOJ=doj.getFullYear()
         let yearOfTOD=Tod.getFullYear();
-        let diff =Tod.getFullYear()-doj.getFullYear(); 
+        let diff =Tod.getFullYear()-doj.getFullYear();
         // console.log(diff)
 
         for (let i=0;i<(diff+1);i++)
@@ -151,7 +156,7 @@ export class MyAttendanceComponent implements OnInit {
       }
       this.getListOfMonth(yearOfTOD)
       // console.log(this.dropDownListOfYear)
-      
+
       }
       else
       {
@@ -186,7 +191,7 @@ export class MyAttendanceComponent implements OnInit {
           console.log(this.Attendance)
           for(let i=0;i<this.Attendance.length;i++)
           {
-            this.Attendance[i].Date=new Date(this.Attendance[i].Date).toDateString().substr(0,13) 
+            this.Attendance[i].Date=new Date(this.Attendance[i].Date).toDateString().substr(0,13)
 
             if(this.Attendance[i].OutTime=="00:00:00")
             {
@@ -200,11 +205,11 @@ export class MyAttendanceComponent implements OnInit {
               var dt2 = new Date("October 13, 2014 "+outtime);
               var diff =(dt2.getTime() - dt1.getTime()) / 1000;
               diff = diff/60;
-              let ans = Math.abs(Math.round(diff)/60).toFixed(2);  
+              let ans = Math.abs(Math.round(diff)/60).toFixed(2);
               this.Attendance[i].WorkingHours=ans
             }
 
-        
+
             if(this.Attendance[i].Shift.Id=="00000000-0000-0000-0000-000000000000")
             {
               this.Attendance[i].ShiftTimeing = "00:00 - 00:00"
@@ -215,12 +220,12 @@ export class MyAttendanceComponent implements OnInit {
             }
 
             this.Attendance[i].InTime = (this.Attendance[i].InTime).substr(0,5);
-            this.Attendance[i].OutTime = (this.Attendance[i].OutTime).substr(0,5);   
+            this.Attendance[i].OutTime = (this.Attendance[i].OutTime).substr(0,5);
           }
 
 
           this.Attendance=this.Attendance.sort((a, b) => new Date(a.Date).getTime() - new Date(b.Date).getTime()); // For ascending sort
-          
+
           this.showTable=true
 
           console.log(this.Attendance)
@@ -251,7 +256,7 @@ export class MyAttendanceComponent implements OnInit {
   ngOnInit() {
   }
   onSubmit(attendance) {
-    console.log(attendance) 
+    console.log(attendance)
   }
 
 
@@ -291,14 +296,14 @@ export class MyAttendanceComponent implements OnInit {
               Value:this.month[i].Value,
               Text:this.month[i].Text,
             }
-      
+
             this.dropDownListOfMonth.push(this.data)
       }
 
       console.log(this.dropDownListOfMonth)
     }
 
-  
+
     else if(year>yearOfDOJ && year!=yearOfTOD)
     {
       this.dropDownListOfMonth=this.month
@@ -331,12 +336,12 @@ export class MyAttendanceComponent implements OnInit {
     if(value == 2)
     {
       this.ascNumberSort = !this.ascNumberSort;
-      if(this.ascNumberSort) 
+      if(this.ascNumberSort)
       {
         this.sortIcon2="fa fa-sort-desc"
         this.Attendance=this.Attendance.sort((a, b) => new Date(a.Date).getTime() - new Date(b.Date).getTime()); // For ascending sort
-      } 
-      else 
+      }
+      else
       {
         this.sortIcon2="fa fa-sort-asc"
         this.Attendance=this.Attendance.sort((a, b) => new Date(b.Date).getTime() - new Date(a.Date).getTime()); // For descending sort
@@ -346,12 +351,12 @@ export class MyAttendanceComponent implements OnInit {
     else if(value == 3)
     {
       this.ascNumberSort = !this.ascNumberSort;
-      if(this.ascNumberSort) 
+      if(this.ascNumberSort)
       {
         this.sortIcon3="fa fa-sort-desc"
         this.Attendance=this.Attendance.sort((a,b)=>a.ShiftTimeing.localeCompare(b.ShiftTimeing)); // For ascending sort
-      } 
-      else 
+      }
+      else
       {
         this.sortIcon3="fa fa-sort-asc"
         this.Attendance=this.Attendance.sort((a,b)=>b.ShiftTimeing.localeCompare(a.ShiftTimeing)); // For descending sort
@@ -361,12 +366,12 @@ export class MyAttendanceComponent implements OnInit {
     else if(value == 4)
     {
       this.ascNumberSort = !this.ascNumberSort;
-      if(this.ascNumberSort) 
+      if(this.ascNumberSort)
       {
         this.sortIcon4="fa fa-sort-desc"
         this.Attendance=this.Attendance.sort((a,b)=>a.InTime.localeCompare(b.InTime)); // For ascending sort
-      } 
-      else 
+      }
+      else
       {
         this.sortIcon4="fa fa-sort-asc"
         this.Attendance=this.Attendance.sort((a,b)=>b.InTime.localeCompare(a.InTime)); // For descending sort
@@ -376,12 +381,12 @@ export class MyAttendanceComponent implements OnInit {
     else if(value == 5)
     {
       this.ascNumberSort = !this.ascNumberSort;
-      if(this.ascNumberSort) 
+      if(this.ascNumberSort)
       {
         this.sortIcon5="fa fa-sort-desc"
         this.Attendance=this.Attendance.sort((a,b)=>a.OutTime.localeCompare(b.OutTime)); // For ascending sort
-      } 
-      else 
+      }
+      else
       {
         this.sortIcon5="fa fa-sort-asc"
         this.Attendance=this.Attendance.sort((a,b)=>b.OutTime.localeCompare(a.OutTime)); // For descending sort
@@ -391,12 +396,12 @@ export class MyAttendanceComponent implements OnInit {
     else if(value == 6)
     {
       this.ascNumberSort = !this.ascNumberSort;
-      if(this.ascNumberSort) 
+      if(this.ascNumberSort)
       {
         this.sortIcon6="fa fa-sort-desc"
         this.Attendance=this.Attendance.sort((a,b)=>a.WorkingHours.localeCompare(b.WorkingHours)); // For ascending sort
-      } 
-      else 
+      }
+      else
       {
         this.sortIcon6="fa fa-sort-asc"
         this.Attendance=this.Attendance.sort((a,b)=>b.WorkingHours.localeCompare(a.WorkingHours)); // For descending sort
@@ -406,12 +411,12 @@ export class MyAttendanceComponent implements OnInit {
     else if(value == 7)
     {
       this.ascNumberSort = !this.ascNumberSort;
-      if(this.ascNumberSort) 
+      if(this.ascNumberSort)
       {
         this.sortIcon7="fa fa-sort-desc"
         this.Attendance=this.Attendance.sort((a,b)=>a.Status.Text.localeCompare(b.Status.Text)); // For ascending sort
-      } 
-      else 
+      }
+      else
       {
         this.sortIcon7="fa fa-sort-asc"
         this.Attendance=this.Attendance.sort((a,b)=>b.Status.Text.localeCompare(a.Status.Text)); // For descending sort
@@ -429,6 +434,19 @@ export class MyAttendanceComponent implements OnInit {
     this.sortIcon5="fa fa-sort"
     this.sortIcon6="fa fa-sort"
     this.sortIcon7="fa fa-sort"
+    this.sortIcon8="fa fa-sort"
+
+  }
+  EditPopup()
+  {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.autoFocus = true;
+    dialogConfig.disableClose = true;
+    dialogConfig.width="50%";
+    dialogConfig.data={}
+    this.dialog.open(EditPopupComponent, dialogConfig).afterClosed().subscribe(res =>{
+
+    });
   }
 
 

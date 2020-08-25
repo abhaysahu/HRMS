@@ -113,7 +113,8 @@ import { GraphComponent } from './layout/component/dashboard/components/graph/gr
 import { SubdashboardComponent } from './layout/component/dashboard/components/subdashboard/subdashboard.component';
 import { ResetPopupComponent } from './layout/component/employee/component/reset-popup/reset-popup.component';
 import { RejectPopupComponent } from './layout/component/Attendance-and-leaves/component/reject-popup/reject-popup.component';
-
+import { PopoverModule } from 'ngx-smart-popover';
+import { EditPopupComponent } from './layout/component/Attendance-and-leaves/component/edit-popup/edit-popup.component';
 
 
 @NgModule({
@@ -180,7 +181,8 @@ import { RejectPopupComponent } from './layout/component/Attendance-and-leaves/c
     GraphComponent,
     SubdashboardComponent,
     ResetPopupComponent,
-    RejectPopupComponent
+    RejectPopupComponent,
+    EditPopupComponent
 
   ],
   imports: [
@@ -197,6 +199,7 @@ import { RejectPopupComponent } from './layout/component/Attendance-and-leaves/c
     MatSidenavModule,
     MatDividerModule,
     // FlexLayoutModule,
+    PopoverModule,
 
     HttpClientModule,
 
@@ -217,7 +220,7 @@ import { RejectPopupComponent } from './layout/component/Attendance-and-leaves/c
 
 
   ],
-  entryComponents:[CommentsComponent, EditpicklistComponent, PopupComponent, PrintPopupComponent, AddRewardComponent, PopupshiftComponent, ResetPopupComponent, RejectPopupComponent],
+  entryComponents:[CommentsComponent, EditpicklistComponent, PopupComponent, PrintPopupComponent, AddRewardComponent, PopupshiftComponent, ResetPopupComponent, RejectPopupComponent,EditPopupComponent],
 
   providers: [
       {provide: LocationStrategy, useClass: HashLocationStrategy},

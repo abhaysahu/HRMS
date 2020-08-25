@@ -139,6 +139,7 @@
               <!-- <td><a style="color: green; cursor: pointer;" (click)="ApproveTimeShift(MyApprovalLists.Id)">Approve</a> / <a (click)=" RejectPopup()" style="float: right; cursor: pointer; padding-left: -1000px;"><a style="color: red; cursor: pointer;" (click)="RejectTimeShift(MyApprovalLists.Id)" >Reject</a></a></td> -->
               <td><span style="color: green; cursor: pointer;" (click)="ApproveTimeShift(MyApprovalLists.Id)">Approve</span>/<span style="color: red; cursor: pointer;"><span (click)="RejectPopup(MyApprovalLists.Id)" style=" cursor: pointer;" >Reject</span></span></td>
             </tr>
+            </tbody>
             <tbody  *ngIf="length==0">
               <tr>
                 <td colspan="6" class="no-data-available">No matching records found</td>

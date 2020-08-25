@@ -1,4 +1,7 @@
+.nav-link {
+  color: black;
 
+}
 /*.content-header {
     position: relative;
     padding: 15px 30px;
@@ -17,7 +20,7 @@
     width: 65px;
     float: left;
     margin-top: -4px;
-    line-height: 0; 
+    line-height: 0;
 }
 .content-header .header-title {
     margin-left: 62px;

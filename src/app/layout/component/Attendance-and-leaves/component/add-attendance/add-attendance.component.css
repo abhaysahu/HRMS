@@ -1,3 +1,18 @@
+tr.is-green {
+  background: green;
+}
+tr.is-red {
+  background: red;
+}
+
+
+
+
+
+
+
+
+
 /*.content-header {
     position: relative;
     padding: 15px 30px;
