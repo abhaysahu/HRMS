@@ -44,7 +44,7 @@
   <div class="card-header">
    Add Pick List <span style="float: right;"><a routerLink="/dashboard/picklist/list" ><i class="fa fa-plus-circle" ></i>  Pick List</a></span>
   </div>
-  <div class="card-body">
+  <div class="card-body" *ngIf="showForm">
     <form #f="ngForm" (ngSubmit)="StringMapData(f.value)" class="was-validated">
       <div class="form-row">
         <!---1-->

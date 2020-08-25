@@ -31,6 +31,8 @@ export class StringMapSaveComponent implements OnInit {
   // dangerStatus=false;
   message="";
 
+  showForm= false;
+
   constructor(
     private stringMapService: StringMapService, 
     private customToastrService: CustomToastrService,
@@ -44,21 +46,20 @@ export class StringMapSaveComponent implements OnInit {
       if(resp.Success)
       {
         this.dropdownList = resp.Data
-       
+        this.showForm=true;
       }
       else
       {
-        // this.dangerStatus=true;
-        // this.successStatus=false;
+        
         this.message=resp.ErrorMessage;
         this.message=resp.Message;
-        this.customToastrService.GetErrorToastr(this.message, "StringMap Save Status", 5000)
+        this.customToastrService.GetErrorToastr(this.message, "StringMap Save Status", 3000)
 
       }
       
     }
     ,   (error: AppResponse) => {
-      this.errorHandlingService.errorStatus(error,"Login Status")
+      this.errorHandlingService.errorStatus(error,"StringMap Save Status")
 
 }
 )
@@ -74,11 +75,10 @@ export class StringMapSaveComponent implements OnInit {
 
     console.log(stringMap)
     this.stringMapService.stringMapDataSave(stringMap).subscribe(resp =>{
-      // console.log(resp)
+      
       if(resp.Success)
       {
-        // this.successStatus=true;
-        // this.dangerStatus=false;
+        
         this.message="Data is Added successfully"
         this.customToastrService.GetSuccessToastr(this.message, "StringMap Save Status", 5000)
 
