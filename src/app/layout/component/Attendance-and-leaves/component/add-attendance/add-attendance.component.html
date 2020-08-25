@@ -78,40 +78,20 @@
               </tr>
             </thead>
             <tbody *ngIf="Addattendance?.length != 0">
-              <!-- <tr  [ngClass]="{
-                'is-green': addAttendances.Status === 'FullDay',
-                'is-blue': addAttendances.Status === 'HalfDay',
-                'is-red': addAttendances.Status === 'OnLeave',
-                'is-green': addAttendances.Status === 'Absent'
-              }" -->
+
               <tr *ngFor="let addAttendances of Addattendance | addAttendanceSearch:email; let i = index" >
-               <!------>
-               <!-- <popover-content #myPopover
-                          title="Popover"
-                          placement="right"
-                          [animation]="true"
-                          [closeOnClickOutside]="false"
-                          [closeOnMouseOutside]="false">
-                          <p>aastha</p>
-                          </popover-content> -->
-               <!------>
-               <!-- <td>{{ addAttendances.Employee.Name }}</td> -->
+
 
 
                 <td ><span [popoverOnHover]="true" [popover]="myPopover">{{ addAttendances.Employee.Name }}</span></td>
 <!--------------------------->
-                <!-- <td *ngFor="let cell of row"
-                [ngStyle]="{'color':(addAttendances.Status == 'FullDay') ? 'green' : ''}"{{addAttendances.Status}}>
-                  <select class="custom-select" value={{addAttendances.Status}} (change)="Statuschange($event.target.value,i)"  name="Status" id="Status"  id="selectEntity">
-                    <option *ngFor="let dropdownLists of dropdownList" [value]="dropdownLists.Value">{{dropdownLists.Text}}</option>
-                  </select>
-                </td> -->
+
                 <td>
                   <select class="custom-select" value={{addAttendances.Status}} (change)="Statuschange($event.target.value,i)"  name="Status" id="Status"  id="selectEntity">
                     <option *ngFor="let dropdownLists of dropdownList" [value]="dropdownLists.Value">{{dropdownLists.Text}}</option>
                   </select>
                 </td>
-                
+
 
                 <td *ngIf="addAttendances.Status==1 || addAttendances.Status==2">
                   <input type="time" [value]="addAttendances.InTime" (change)="InTimechange($event.target.value,i)" class="form-control" name="InTime" id="InTime">
@@ -143,7 +123,7 @@
           </table>
 
       </div><br>
-      <button type="button"class="btn btn-primary">Save</button>
+      <button type="button"class="btn btn-primary" sty>Save</button>
       <button type="button" class="btn btn-primary" style="margin-left: 15px;">Submit</button>
 
   </div>
