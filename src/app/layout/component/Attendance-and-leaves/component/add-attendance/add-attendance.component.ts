@@ -10,7 +10,7 @@ import { ErrorHandlingService } from 'src/app/service/error-handling.service';
   styleUrls: ['./add-attendance.component.css']
 })
 export class AddAttendanceComponent implements OnInit {
-    persons: any[]=[];
+  persons: any[]=[];
 
   Addattendance: any[] = [];
 
@@ -22,6 +22,7 @@ export class AddAttendanceComponent implements OnInit {
   FormData: any[]=[];
   ProductForm: any;
 
+  colors:any[]=[];
   showTime;
 
   email="";
@@ -36,7 +37,15 @@ export class AddAttendanceComponent implements OnInit {
 
     ) {
 
-
+      this.FormData=[{
+        EmployeeId:"",
+        Date:"",
+        InTime: "",
+        OutTime: "",
+        CreatedBy: "",
+        Status: 1
+      }]
+    
       // let d = new Date();
       let d = new Date();
       let calculatedDate =new Date(d.setDate(d.getDate()));
@@ -49,20 +58,31 @@ export class AddAttendanceComponent implements OnInit {
         Date: date12,
       }
 
-      console.log(this.ProductForm)
+      // console.log(this.ProductForm)
 
-      this.getUserForAttendanceByDate(this.ProductForm.Date)
+      this.attendanceService.AttendanceColourCode().subscribe(resp => {
 
+        // console.log(resp);
 
+        if (resp.Success) {
+          this.colors = resp.Data;
+          console.log(this.colors)
+          // this.getUserForAttendanceByDate(this.ProductForm.Date)
+        } else {
 
-      this.FormData=[{
-        EmployeeId:"",
-        Date:"",
-        InTime: "",
-        OutTime: "",
-        CreatedBy: "",
-        Status: 1
-      }]
+          this.message = resp.ErrorMessage;
+          this.message = resp.Message;
+          this.customToastrService.GetErrorToastr(this.message, "Attendance Status", 5000)
+
+        }
+
+      }
+      ,   (error: AppResponse) => {
+
+        this.errorHandlingService.errorStatus(error,"Attendance Status")
+
+      }
+    )
 
 
       this.attendanceService.AttendanceStatus().subscribe(resp => {
@@ -71,6 +91,7 @@ export class AddAttendanceComponent implements OnInit {
         if (resp.Success) {
           this.dropdownList = resp.Data;
           console.log(this.dropdownList)
+          this.getUserForAttendanceByDate(this.ProductForm.Date)
         } else {
 
           this.message = resp.ErrorMessage;
@@ -88,6 +109,12 @@ export class AddAttendanceComponent implements OnInit {
     );
 }
  ngOnInit() {
+  }
+
+  getTheColor(status) {
+
+    return this.colors.filter(item => item.Value == status)[0]
+
   }
 
   getUserForAttendanceByDate(date)
@@ -120,9 +147,11 @@ export class AddAttendanceComponent implements OnInit {
           {
             this.Addattendance[i].OutTime=this.Addattendance[i].OutTime
           }
+
         }
 
         console.log(this.Addattendance)
+        
 
         this.Addattendance=this.Addattendance.sort((a,b)=>a.Employee.Name.localeCompare(b.Employee.Name)); // For ascending sort
 
@@ -153,7 +182,7 @@ export class AddAttendanceComponent implements OnInit {
     this.Addattendance[i].Status=status
 
     this.FormData[0].Status = status
-    if(status==3 || status==4)
+    if(status==3 || status==4 || status==5 || status==6)
     {
       this.Addattendance[i].InTime="00:00";
       this.Addattendance[i].OutTime="00:00";

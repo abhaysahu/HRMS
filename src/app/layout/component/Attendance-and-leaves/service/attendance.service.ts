@@ -53,6 +53,16 @@ export class AttendanceService {
   }
 
 
+  AttendanceColourCode(): Observable<DropDown>
+  {
+
+    const headers = this.errorHandlingService.getauthorization()
+
+    return this.httpClient.get<DropDown>(environment.webapiUrl+ 'api/get/PickList?attributeName=ColourCode&objectTypeCode=11', { headers: headers })
+  }
+
+
+
   attendanceDataSave(attendanceData)
   {
     const headers = this.errorHandlingService.getauthorization()
