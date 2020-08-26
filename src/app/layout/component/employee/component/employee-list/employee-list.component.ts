@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { DataTableDirective } from 'angular-datatables';
+// import { DataTableDirective } from 'angular-datatables';
 import { LoginService } from 'src/app/login/services/login.service';
 import { EmployeeService } from '../../services/employee.service';
 import { AppResponse } from 'src/app/models/appResponse';

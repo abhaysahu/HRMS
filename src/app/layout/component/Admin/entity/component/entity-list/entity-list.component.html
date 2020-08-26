@@ -55,8 +55,9 @@
 
     <br>
 
+    <div class="tableFixHead">
     <table class="table table-bordered">
-      <thead>
+      <thead class="thead-dark">
         <tr style="cursor: pointer;">
           <th scope="col" (click)="sortFilter(1)">Name <i class={{sortIcon1}} aria-hidden="true"></i> </th>
           <th scope="col" (click)="sortFilter(2)">Logical Name <i class="{{sortIcon2}}" aria-hidden="true"></i> </th>
@@ -89,6 +90,7 @@
         </tr>
       <tbody>
     </table>
+  </div>
   </div>
 </div>
 

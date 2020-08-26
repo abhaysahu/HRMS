@@ -21,7 +21,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login/login.component';
 import { RouterModule } from '@angular/router';
-import { DataTablesModule } from 'angular-datatables';
+// import { DataTablesModule } from 'angular-datatables';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { LoginService } from './login/services/login.service';
@@ -193,7 +193,7 @@ import { SplashScreenComponent } from './layout/common/splash-screen/splash-scre
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,
-    DataTablesModule,
+    // DataTablesModule,
     MatSelectModule,
     MatFormFieldModule,
     MatNativeDateModule,

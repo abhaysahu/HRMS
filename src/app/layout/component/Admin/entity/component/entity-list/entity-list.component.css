@@ -58,3 +58,14 @@ label{
     text-align: center;
 } */
 /*the code ends here*/
+
+
+.tableFixHead {
+    overflow-y: auto;
+    height: 500px;
+  }
+
+  .tableFixHead th {
+  position: sticky;
+  top: 0;
+}
