@@ -19,13 +19,11 @@
       </div>
 
       <div class="form-group col-md-6">
-        <label for="ApprovingPerson">Approving Person(Manager)</label>
-       <input type="text" class="form-control" #ApprovingPerson="ngModel" [(ngModel)]="EditAttendance.ApprovingPerson" name="ApproingPerson" id="ApprovingPerson" required>
-
-        <!-- <select class="custom-select"  #ApprovalPerson="ngModel" [(ngModel)]="MyShifts.ApprovalPerson" name="ApprovalPerson" id="ApprovalPerson"  id="selectApprovedBy" required> -->
-          <!-- <option *ngFor="let dropdownLists of dropdownList" [value]="dropdownLists.Id">{{dropdownLists.Name}}</option> -->
-        <!-- </select> -->
-        <div class="invalid-feedback" *ngIf="ApprovingPerson.touched && ApprovingPerson.invalid">
+        <label for="ApprovalPerson">Approving Person(Manager)</label>
+        <select class="custom-select"  #ApprovalPerson="ngModel" [(ngModel)]="EditAttendance.ApprovalPerson" name="ApprovalPerson" id="ApprovalPerson"  id="selectApprovedBy" required>
+          <option *ngFor="let dropdownLists of dropdownList" [value]="dropdownLists.Id">{{dropdownLists.Name}}</option>
+        </select>
+        <div class="invalid-feedback" *ngIf="ApprovalPerson.touched && ApprovalPerson.invalid">
           Approving Person  Is Required.
         </div>
       </div>
