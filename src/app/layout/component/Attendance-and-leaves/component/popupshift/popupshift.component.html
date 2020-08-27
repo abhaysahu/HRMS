@@ -32,7 +32,7 @@
 
     </div>
 
-    <button type="submit" class="btn btn-primary">Save</button>
+    <button type="submit" [disabled]="!form.valid" class="btn btn-primary">Save</button>
 
     <button type="button" class="btn btn-outline-dark ml-2" (click)="close()" ><i class="fa fa-close"></i> Close</button>
 

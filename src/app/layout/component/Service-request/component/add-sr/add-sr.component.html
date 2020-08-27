@@ -81,7 +81,7 @@
         </div>
       </div>
 
-      <button type="submit" class="btn btn-primary" style="margin-left: 15px;">Submit</button>
+      <button type="submit" [disabled]="!form.valid" class="btn btn-primary" style="margin-left: 15px;">Submit</button>
 
     </form>
 
