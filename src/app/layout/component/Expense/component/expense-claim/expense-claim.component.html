@@ -1,28 +1,28 @@
 <div class="col">
-  <div class="row my-row" >
+  <div class="row my-row">
     <div class="col my-col">
-       <ul class="breadcrumb" style="background-color: transparent;">
-        <li class="breadcrumb-item " >
-            <span class="icon">
+      <ul class="breadcrumb" style="background-color: transparent;">
+        <li class="breadcrumb-item ">
+          <span class="icon">
             <i class="fa fa-briefcase"></i></span>
-            <span class="heading" style="color: black; background-color: transparent;">Expense Claim</span></li>
+          <span class="heading" style="color: black; background-color: transparent;">Expense Claim</span></li>
 
       </ul>
     </div>
-<div class="col my-col">
-  <div class="a">
-      <ul class="breadcrumb" style="background-color: transparent;">
-        <li class="breadcrumb-item"><a routerLink="/dashboard">
-          <i class="fa fa-home"></i> Home</a></li>
-        <li class="breadcrumb-item"><a routerLink="/dashboard/expenseclaim">Expense Claim</a></li>
-      </ul>
-  </div>
-</div>
+    <div class="col my-col">
+      <div class="a">
+        <ul class="breadcrumb" style="background-color: transparent;">
+          <li class="breadcrumb-item"><a routerLink="/dashboard">
+              <i class="fa fa-home"></i> Home</a></li>
+          <li class="breadcrumb-item"><a routerLink="/dashboard/expenseclaim">Expense Claim</a></li>
+        </ul>
+      </div>
+    </div>
   </div>
   <div class="row my-row">
     <div class="col my-col1">
-    <!-- Expense Claim Record -->
-  </div>
+      <!-- Expense Claim Record -->
+    </div>
   </div>
 </div>
 <div class="card">
@@ -30,285 +30,121 @@
     Expense Claim
   </div>
   <div class="card-body">
-    <form #form="ngForm" (submit)="onSubmit(form.value)" class="was-validated">
+
+    <form #form="ngForm" (submit)="SaveExpenseClaim(form.value)" class="was-validated">
       <div class="form-row">
 
-          <div class="form-group col-md-4">
-            <label for="period">Period</label>
-
-            <select class="custom-select" #period="ngModel" [(ngModel)]="Expenseclaim.period" name="period" id="period" required>
-              <option selected>04 May 2020 - 10 May 2020</option>
-              <option value="1">27 Apr 2020 - 03 May 2020</option>
-              <option value="2">11 May 2020 - 17 May 2020</option>
-              <option value="3">10 Feb 2020 - 16 Feb 2020</option>
-              </select>
-              <div class="invalid-feedback" *ngIf="period.touched && period.invalid">
-                Period is required.
-              </div>
-
+        <div class="form-group col-md-4">
+          <label for="period">Period</label>
+          <select class="custom-select" #period="ngModel" [(ngModel)]="Expenseclaim.period" name="period" id="period" required>
+            <option selected>04 May 2020 - 10 May 2020</option>
+            <option value="1">27 Apr 2020 - 03 May 2020</option>
+            <option value="2">11 May 2020 - 17 May 2020</option>
+            <option value="3">10 Feb 2020 - 16 Feb 2020</option>
+          </select>
+          <div class="invalid-feedback" *ngIf="period.touched && period.invalid">
+            Period is required.
           </div>
-          <div class="form-group col-md-4">
-            <label for="project">Project</label>
+        </div>
 
-            <select class="custom-select"  #project="ngModel" [(ngModel)]="Expenseclaim.project" name="project" id="project" required>
-              <option selected>Select</option>
-              <option value="1">Working Out Of Office</option>
-              <option value="2">Work From Home</option>
-              <option value="3">Attendance Modification</option>
-              <option value="4">Earning Compensatory</option>
-              <option value="5">Short Leave</option>
-
-            </select>
-            <div class="invalid-feedback" *ngIf="date.project && project.invalid">
-              Project is required.
-            </div>
-
+        <div class="form-group col-md-4">
+          <label for="project">Project</label>
+          <select class="custom-select" #project="ngModel" [(ngModel)]="Expenseclaim.project" name="project"id="project" required>
+            <option *ngFor="let dropdownLists of dropDownListOfProject" [value]="dropdownLists.Value">{{dropdownLists.Text}}</option>
+          </select>
+          <div class="invalid-feedback" *ngIf="date.project && project.invalid">
+            Project is required.
           </div>
-          <div class="form-group">
-            <div class="form-group col-md-14">
-              <label for="date">Date</label>
+        </div>
 
-            <input type="date" #date="ngModel" [(ngModel)]="Expenseclaim.date" name="date" id="date"
-            max="3000-12-31" id="date"  min="1000-01-01" class="form-control" required>
-            <div class="invalid-feedback" *ngIf="date.touched && date.invalid">
-              Date is required.
-            </div>
-
+        <div class="form-group col-md-4">
+          <label for="date">Date</label>
+          <input type="date" #date="ngModel" [(ngModel)]="Expenseclaim.date" name="date" id="date" max="3000-12-31" id="date" min="1000-01-01" class="form-control" required>
+          <div class="invalid-feedback" *ngIf="date.touched && date.invalid">
+            Date is required.
           </div>
+        </div>
+     
+
+        <div class="form-group col-md-4">
+          <label for="type">Type</label>
+          <select class="custom-select" #type="ngModel" [(ngModel)]="Expenseclaim.type" name="type"id="type" required>
+            <option *ngFor="let dropdownLists of dropDownListOfType" [value]="dropdownLists.Value">{{dropdownLists.Text}}</option>
+          </select>
+          <div class="invalid-feedback" *ngIf="type.touched && type.invalid">
+            Type is required.
           </div>
-          <div class="form-group col-md-4">
-            <label for="description">Description</label>
-            <textarea class="form-control" #description="ngModel" [(ngModel)]="Expenseclaim.description" name="description" id="description"
-            rows="1" required></textarea>
-            <div class="invalid-feedback" *ngIf="description.touched && description.invalid">
-              Description is required.
-            </div>
-
-            </div>
-
-            <div class="form-group col-md-4">
-              <label for="type">Type</label>
-              <select class="custom-select" #type="ngModel" [(ngModel)]="Expenseclaim.type" name="type" id="type" required>
-
-                <option selected>Carework</option>
-                 <option value="1">Working Out Of Office</option>
-                 <option value="2">Work From Home</option>
-                 <option value="3">Attendance Modification</option>
-                 <option value="4">Earning Compensatory</option>
-                 <option value="5">Short Leave</option>
-                </select>
-                <div class="invalid-feedback" *ngIf="type.touched && type.invalid">
-                  Type is required.
-                </div>
-              </div>
+        </div>
 
 
-              <div class="form-group col-md-2">
-                <label for="number">Amount</label><br>
-                <input type="number" class="form-control" #number="ngModel" [(ngModel)]="Expenseclaim.number" name="number" id="number" required>
-                <div class="invalid-feedback" *ngIf="number.touched && number.invalid">
-                  Amount is required.
-                </div>
+        <div class="form-group col-md-4">
+          <label for="number">Amount</label><br>
+          <input type="number" class="form-control" #number="ngModel" [(ngModel)]="Expenseclaim.number" name="number"
+            id="number" required>
+          <div class="invalid-feedback" *ngIf="number.touched && number.invalid">
+            Amount is required.
+          </div>
 
-                </div>
-
-
-                <div class="form-group col-md-4">
-                  <label for="paidBy">Paid By</label>
-                  <select class="custom-select" #paidBy="ngModel" [(ngModel)]="Expenseclaim.paidBy" name="paidBy" id="paidBy" required>
-
-                    <option selected>Select</option>
-                     <option value="1">Working </option>
-                     <option value="2">Work </option>
-                     <option value="3">Attendance</option>
-                     <option value="4">Earning </option>
-                     <option value="5">Short </option>
-                    </select>
-                    <div class="invalid-feedback" *ngIf="paidBy.touched && paidBy.invalid">
-                      Paid By is required.
-                    </div>
-                  </div>
-                  <div class="form-group col-md-4">
-
-                    <label for="scannedBills">Scanned Bills</label><br><br>
-                    <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="radio" [value]="true" #scannedBills="ngModel" [(ngModel)]="Expenseclaim.scannedBills" name="scannedBills" required>
-                      <label class="form-check-label" for="inlineRadio1">Yes</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="radio" [value]="false" #scannedBills="ngModel" [(ngModel)]="Expenseclaim.scannedBills" name="scannedBills" required>
-                      <label class="form-check-label" for="inlineRadio2">No</label>
-                      </div>
-                    <div class="invalid-feedback" *ngIf="scannedBills.touched &&  scannedBills.invalid">
-                      Scanned Bills Is Required.
-                    </div>
-                  </div>
-
-                  <div class="form-group col-md-4">
-
-                    <label for="physicalBills">Physical Bills</label><br><br>
-                    <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="radio" [value]="true" #physicalBills="ngModel" [(ngModel)]="Expenseclaim.physicalBills" name="physicalBills" required>
-                      <label class="form-check-label" for="inlineRadio1">Yes</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="radio" [value]="false" #physicalBills="ngModel" [(ngModel)]="Expenseclaim.physicalBills" name="physicalBills" required>
-                      <label class="form-check-label" for="inlineRadio2">No</label>
-                      </div>
-                    <div class="invalid-feedback" *ngIf="physicalBills.touched &&  physicalBills.invalid">
-                      Physical Bills Is Required.
-                    </div>
-                  </div>
-                 <!--- <div class="form-group col-md-4">
-                    <label for="scannedBills">Scanned Bills</label><br>
-                    <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-                      <label class="form-check-label" for="inlineRadio1">Yes</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                      <label class="form-check-label" for="inlineRadio2">No</label>
-                      </div>
-                    </div>-->
+        </div>
 
 
-                   <!---- <div class="form-group col-md-4">
-                      <label for="physicalBills">Physical Bills</label><br>
-                      <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-                        <label class="form-check-label" for="inlineRadio1">Yes</label>
-                      </div>
-                      <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                        <label class="form-check-label" for="inlineRadio2">No</label>
-                        </div>
-                      </div>-->
+        <div class="form-group col-md-4">
+          <label for="paidBy">Paid By</label>
+          <select class="custom-select" #paidBy="ngModel" [(ngModel)]="Expenseclaim.paidBy" name="paidBy"id="paidBy" required>
+            <option *ngFor="let dropdownLists of dropDownListOfPaidBy" [value]="dropdownLists.Value">{{dropdownLists.Text}}</option>
+          </select>
+          <div class="invalid-feedback" *ngIf="paidBy.touched && paidBy.invalid">
+            Paid By is required.
+          </div>
+        </div>
+
+        <div class="form-group col-md-4">
+          <label for="scannedBills">Scanned Bills</label><br><br>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" [value]="true" #scannedBills="ngModel" [(ngModel)]="Expenseclaim.scannedBills" name="scannedBills" required>
+            <label class="form-check-label" for="inlineRadio1">Yes</label>
+          </div>
+
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" [value]="false" #scannedBills="ngModel" [(ngModel)]="Expenseclaim.scannedBills" name="scannedBills" required>
+            <label class="form-check-label" for="inlineRadio2">No</label>
+          </div>
+          <div class="invalid-feedback" *ngIf="scannedBills.touched &&  scannedBills.invalid">
+            Scanned Bills Is Required.
+          </div>
+        </div>
+
+        <div class="form-group col-md-4">
+          <label for="physicalBills">Physical Bills</label><br><br>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" [value]="true" #physicalBills="ngModel" [(ngModel)]="Expenseclaim.physicalBills" name="physicalBills" required>
+            <label class="form-check-label" for="inlineRadio1">Yes</label>
+          </div>
+
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" [value]="false" #physicalBills="ngModel" [(ngModel)]="Expenseclaim.physicalBills" name="physicalBills" required>
+            <label class="form-check-label" for="inlineRadio2">No</label>
+          </div>
+          <div class="invalid-feedback" *ngIf="physicalBills.touched &&  physicalBills.invalid">
+            Physical Bills Is Required.
+          </div>
+        </div>
+
+
+        <div class="form-group col-md-4">
+          <label for="description">Description</label>
+          <textarea class="form-control" #description="ngModel" [(ngModel)]="Expenseclaim.description" name="description" id="description" rows="3" required></textarea>
+          <div class="invalid-feedback" *ngIf="description.touched && description.invalid">
+            Description is required.
+          </div>
+        </div>
+
       </div>
-                      <button type="button" class="btn btn-primary">Save</button>
-                      <button type="submit" class="btn btn-primary" style="margin-left: 15px;">Submit</button>
 
-
-
-
-
+      <button type="submit" [disabled]="!form.valid" class="btn btn-primary">Save</button>
+      <button type="button" class="btn btn-primary" style="margin-left: 15px;">Submit</button>
 
     </form>
-    <!--<form class="form-inline">
-      <div class="form-group mb-2">
-        <label for="period">Period</label>
-      </div>
-      <div class="form-group mx-sm-3 mb-2">
-        <select class="custom-select" id="type">
-          <option selected>04 May 2020 - 10 May 2020</option>
-          <option value="1">27 Apr 2020 - 03 May 2020</option>
-          <option value="2">11 May 2020 - 17 May 2020</option>
-          <option value="3">10 Feb 2020 - 16 Feb 2020</option>
-          </select>
-      </div>
-
-      <div class="form-group mb-2">
-        <label for="period">Project</label>
-      </div>
-      <div class="form-group mx-sm-3 mb-2">
-        <select class="custom-select" id="type">
-
-        <option selected>Careworks- CRM Implementation-BYT</option>
-         <option value="1">Working Out Of Office</option>
-         <option value="2">Work From Home</option>
-         <option value="3">Attendance Modification</option>
-         <option value="4">Earning Compensatory</option>
-         <option value="5">Short Leave</option>
-        </select>
-      </div>
-
-    </form><br>--->
-     <!----table -->
-     <!---<div style="overflow-x: scroll;">
-      <table class="table table-bordered">
-        <thead>
-          <tr>
-            <th scope="col">Date</th>
-            <th scope="col">Description</th>
-            <th scope="col">Type</th>
-            <th scope="col">Amount</th>
-            <th scope="col">Paid By</th>
-            <th scope="col">Scanned Bills</th>
-            <th scope="col">Physical Bills</th>
-
-
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>
-              <div class="form-group">
-                <input type="date"  max="3000-12-31" id="date"  min="1000-01-01" class="form-control">
-
-              </div>
-            </td>
-            <td>
-              <textarea class="form-control" rows="1" id="comment"></textarea>
-
-            </td>
-            <td>
-              <div class="form-group mx-sm-3 mb-2">
-                <select class="custom-select" id="type">
-
-                <option selected>Carework</option>
-                 <option value="1">Working Out Of Office</option>
-                 <option value="2">Work From Home</option>
-                 <option value="3">Attendance Modification</option>
-                 <option value="4">Earning Compensatory</option>
-                 <option value="5">Short Leave</option>
-                </select>
-              </div>
-            </td>
-            <td>
-              <input type="number" id="quantity" name="quantity" min="1" max="5">
-
-            </td>
-            <td>
-              <div class="form-group mx-sm-3 mb-2">
-                <select class="custom-select" id="type">
-
-                <option selected>Select</option>
-                 <option value="1">Working </option>
-                 <option value="2">Work </option>
-                 <option value="3">Attendance</option>
-                 <option value="4">Earning </option>
-                 <option value="5">Short </option>
-                </select>
-              </div>
-            </td>
-            <td>
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-                <label class="form-check-label" for="inlineRadio1">Yes</label>
-              </div>
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                <label class="form-check-label" for="inlineRadio2">No</label>
-                </div>
-            </td>
-            <td>
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-                <label class="form-check-label" for="inlineRadio1">Yes</label>
-              </div>
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                <label class="form-check-label" for="inlineRadio2">No</label>
-                </div>
-            </td>
-
-
-          </tr>
-
-        </tbody>
-      </table>
-      </div><br>
-      <button type="button" class="btn btn-primary">Save</button>
-      <button type="button" class="btn btn-primary" style="margin-left: 15px;">Submit</button>-->
 
   </div>
-  </div>
+</div>
