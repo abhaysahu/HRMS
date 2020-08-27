@@ -17,51 +17,35 @@ export class ServiceRequestsService {
     private errorHandlingService: ErrorHandlingService
   ) { }
 
-  listOfDesignation(): Observable<DropDown>
+  listOfFunction(): Observable<DropDown>
   {
-    // const token = sessionStorage.getItem('token')
-
-    // const headers = new HttpHeaders({
-    //   'Content-Type': 'application/json',
-    //   'authorization': `bearer ${token}`
-    // })
 
     const headers = this.errorHandlingService.getauthorization()
-
-
     return this.httpClient.get<DropDown>(environment.webapiUrl+'api/get/PickList?attributeName=Designation&objectTypeCode=9', { headers: headers })
   }
 
 
-  listOfMaritalStatus(): Observable<DropDown>
+  listOfSubFunction(): Observable<DropDown>
   {
-    // const token = sessionStorage.getItem('token')
-
-    // const headers = new HttpHeaders({
-    //   'Content-Type': 'application/json',
-    //   'authorization': `bearer ${token}`
-    // })
-
+    
     const headers = this.errorHandlingService.getauthorization()
-
-
     return this.httpClient.get<DropDown>(environment.webapiUrl+'api/get/PickList?attributeName=MaritalStatus&objectTypeCode=9', { headers: headers })
   }
 
 
-  listOfGender(): Observable<DropDown>
+  listOfPriority(): Observable<DropDown>
   {
-    // const token = sessionStorage.getItem('token')
-
-    // const headers = new HttpHeaders({
-    //   'Content-Type': 'application/json',
-    //   'authorization': `bearer ${token}`
-    // })
 
     const headers = this.errorHandlingService.getauthorization()
-
-
     return this.httpClient.get<DropDown>(environment.webapiUrl+'api/get/PickList?attributeName=Gender&objectTypeCode=9', { headers: headers })
+  }
+
+  serviceRequestDataSave(Sr)
+  {
+  
+    const headers = this.errorHandlingService.getauthorization()
+
+    return this.httpClient.post<any>(environment.webapiUrl+'',Sr, { headers: headers })
   }
 
 }
