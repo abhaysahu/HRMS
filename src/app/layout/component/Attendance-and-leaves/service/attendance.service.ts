@@ -66,7 +66,6 @@ export class AttendanceService {
   attendanceDataSave(attendanceData)
   {
     const headers = this.errorHandlingService.getauthorization()
-
     return this.httpClient.post<any>(environment.webapiUrl+'api/add/Attendance',attendanceData, { headers: headers })
   }
 
@@ -76,23 +75,36 @@ export class AttendanceService {
 
     return this.httpClient.post<any>(environment.webapiUrl+'api/update/Attendance',attendanceData, { headers: headers })
   }
+  
+
+  attendanceDataEdit(attendanceData)
+  {
+    const headers = this.errorHandlingService.getauthorization()
+    return this.httpClient.post<any>(environment.webapiUrl+'api/edit/Attendance',attendanceData, { headers: headers })
+  }
+
 
   getAttendanceByEmployee(EmployeeId, Month, Year)
   {
-
     const headers = this.errorHandlingService.getauthorization()
-
     return this.httpClient.get<DropDown>(environment.webapiUrl+`api/get/AttendanceByEmployee?employeeId=${EmployeeId}&month=${Month}&year=${Year}`, { headers: headers })
 
   }
 
+
+  getAttendanceOfAwaitingMyApproval(EmployeeId, Month, Year)
+  {
+    const headers = this.errorHandlingService.getauthorization()
+    return this.httpClient.get<DropDown>(environment.webapiUrl+`api/get/AttendanceByEmployee?employeeId=${EmployeeId}&month=${Month}&year=${Year}`, { headers: headers })
+
+  }
+
+
   getDateOfJoining(id)
   {
-    
     const headers = this.errorHandlingService.getauthorization()
 
     return this.httpClient.get<DropDown>(environment.webapiUrl+`api/user/${id}`, { headers: headers })
-
   }
   
 }

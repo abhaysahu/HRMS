@@ -20,13 +20,17 @@ export class MyAttendanceComponent implements OnInit {
   dateOfJoining: any=[];
 
   Attendance: any[]=[];
-  message;
-  showTable=false
-  ListOfMonth: any[]=[];
+  AwaitingAttendance: any[]=[];
+  // ListOfMonth: any[]=[];
   dropDownListOfMonth: any[]=[];
   dropDownListOfYear: any[]=[];
-  data={}
   month:any[]=[]
+
+  message;
+  showTable=false
+  
+  data={}
+  
   Name
   length=1;
 
@@ -51,9 +55,6 @@ export class MyAttendanceComponent implements OnInit {
     private errorHandlingService: ErrorHandlingService,
     private route: ActivatedRoute,
    ) {
-
-
-
 
     if(this.route.snapshot.paramMap.get('id'))
     {
@@ -195,7 +196,7 @@ export class MyAttendanceComponent implements OnInit {
 
             if(this.Attendance[i].OutTime=="00:00:00")
             {
-              this.Attendance[i].WorkingHours=0.00
+              this.Attendance[i].WorkingHours="0.00"
             }
             else
             {
@@ -255,8 +256,52 @@ export class MyAttendanceComponent implements OnInit {
 
   ngOnInit() {
   }
-  onSubmit(attendance) {
-    console.log(attendance)
+  // onSubmit(attendance) {
+  //   console.log(attendance)
+  // }
+
+
+  DataOfAwaitingMyApproval()
+  {
+
+    this.length=1
+    //console.log(data)
+
+    this.attendanceService.getAttendanceOfAwaitingMyApproval(this.Id,"08","2020").subscribe(resp =>{
+
+      if(resp.Success)
+      {
+        this.AwaitingAttendance = resp.Data
+        if(this.AwaitingAttendance!=null)
+        {
+          this.AwaitingAttendance=this.AwaitingAttendance.sort((a, b) => new Date(a.Date).getTime() - new Date(b.Date).getTime()); // For ascending sort
+
+          this.showTable=true
+
+          console.log(this.AwaitingAttendance)
+        }
+        else
+        {
+          this.length=0;
+          this.customToastrService.GetInfoToastr("No Awaiting Attendance Found!!..", "No Data", 5000);
+        }
+      }
+      else
+      {
+          this.message=resp.ErrorMessage;
+          this.message=resp.Message;
+          this.customToastrService.GetErrorToastr(this.message, "My Awaiting Attendance Status", 5000)
+
+      }
+
+    },   (error: AppResponse) => {
+
+      this.errorHandlingService.errorStatus(error,"My Awaiting Attendance Status")
+
+}
+)
+
+
   }
 
 
@@ -267,10 +312,6 @@ export class MyAttendanceComponent implements OnInit {
   {
 
     this.dropDownListOfMonth=[]
-
-    // let date12 =new Date(`08-08-${Year}`);
-
-    // let year=date12.getFullYear();
 
     let year=Year
     // console.log(year)
@@ -404,7 +445,7 @@ export class MyAttendanceComponent implements OnInit {
       else
       {
         this.sortIcon6="fa fa-sort-asc"
-        this.Attendance=this.Attendance.sort((a,b)=>b.WorkingHours.localeCompare(a.WorkingHours)); // For descending sort
+        this.Attendance=this.Attendance.sort((a,b)=>b.WorkingHours.localeCompare(a.WorkingHours)); // For ascending sort
       }
     }
 

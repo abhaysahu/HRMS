@@ -60,6 +60,7 @@ const routes: Routes = [
   {
     path: 'dashboard', component: DefaultComponent,
       canActivate: [AuthGuardService],
+      // data: { roles: [Role.User] },
       
     children: [
       {

@@ -13,9 +13,10 @@ export class AuthGuardService implements CanActivate {
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
     let url: string = state.url;
-    const roles = route.data.roles
+    // const roles = route.data.roles
+    // console.log(roles)
     console.log(state.url)
-    console.log(roles)
+    
     return this.checkLogin(state.url);
   }
 
@@ -30,4 +31,37 @@ export class AuthGuardService implements CanActivate {
     this.router.navigate(['/login']);
     return false;
   }
+
+  // canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
+  //   const currentUser = this.authService.isLoggedIn;
+  //   const Roles= this.authService.getRole()
+  //   console.log(Roles)
+  
+
+  //   if (currentUser) {
+  //       console.log(currentUser)
+  //       console.log(route.data.roles)
+  //       if (route.data.roles && route.data.roles.indexOf(Roles) === -1) {
+  //           // role not authorised so redirect to home page
+  //           console.log("abaha")
+
+  //           this.router.navigate(['/']);
+  //           return false;
+
+  //       }
+
+        
+  //       return true;
+
+  //   }
+
+  //   // not logged in so redirect to login page with the return url
+  //   this.router.navigate(['/login'], { queryParams: { returnUrl: state.url }});
+  //   return false;
+//}
+
+
+
+
+
 }

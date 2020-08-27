@@ -49,13 +49,18 @@ export class AuthService {
 
   public get getRefreshToken() { return sessionStorage.getItem('refresh'); }
 
-  
+  getRole()
+  {
+    return sessionStorage.getItem('role')
+  }
 
 
   public manageSession(data: LoggedinUser) {
     sessionStorage.setItem('token', data.access_token);
     sessionStorage.setItem('refresh', data.refresh_token);
     sessionStorage.setItem('user', JSON.stringify(data));
+    
+    sessionStorage.setItem('role',"User");
 
   }
  
@@ -69,6 +74,7 @@ export class AuthService {
     sessionStorage.removeItem('token');
     sessionStorage.removeItem('refresh');
     sessionStorage.removeItem('user');
+    sessionStorage.removeItem('role')
     
     this.router.navigate(['/login']);
     this.loginStatus.emit(false);

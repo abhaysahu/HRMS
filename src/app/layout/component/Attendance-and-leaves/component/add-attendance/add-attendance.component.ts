@@ -37,6 +37,10 @@ export class AddAttendanceComponent implements OnInit {
 
     ) {
 
+      let str = "full day #569824";
+      let splits = str.split("#")
+      console.log("#"+splits[1])
+
       this.FormData=[{
         EmployeeId:"",
         Date:"",
@@ -66,6 +70,12 @@ export class AddAttendanceComponent implements OnInit {
 
         if (resp.Success) {
           this.colors = resp.Data;
+          for(let i=0;i<this.colors.length;i++)
+          {
+            let str = this.colors[i].Text
+            let splits = str.split("#")
+            this.colors[i].Text= "#"+splits[1]
+          }
           console.log(this.colors)
           // this.getUserForAttendanceByDate(this.ProductForm.Date)
         } else {
