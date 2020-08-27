@@ -30,7 +30,7 @@ export class CustomToastrService {
       this.toastr.clear()
     }
 
-    return this.toastr.error(Message, Status, {
+    return this.toastr.error(Message, Status, { 
       progressBar: true, 
       timeOut: time,
       
