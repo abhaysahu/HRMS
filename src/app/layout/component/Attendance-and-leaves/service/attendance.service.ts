@@ -91,6 +91,15 @@ export class AttendanceService {
 
   }
 
+
+  getAttendanceOfAwaitingMyApproval(EmployeeId, Month, Year)
+  {
+    const headers = this.errorHandlingService.getauthorization()
+    return this.httpClient.get<DropDown>(environment.webapiUrl+`api/get/AttendanceByEmployee?employeeId=${EmployeeId}&month=${Month}&year=${Year}`, { headers: headers })
+
+  }
+
+
   getDateOfJoining(id)
   {
     const headers = this.errorHandlingService.getauthorization()

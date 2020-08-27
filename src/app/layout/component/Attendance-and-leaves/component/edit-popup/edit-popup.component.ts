@@ -5,6 +5,7 @@ import { CustomToastrService } from 'src/app/service/customToastr.service';
 import { ErrorHandlingService } from 'src/app/service/error-handling.service';
 import { AppResponse } from 'src/app/models/appResponse';
 import { AttendanceService } from '../../service/attendance.service';
+import { EditAttendance } from '../../models/EditAttendance';
 
 
 @Component({
@@ -14,8 +15,8 @@ import { AttendanceService } from '../../service/attendance.service';
 })
 export class EditPopupComponent implements OnInit {
 
-  EditAttendance = {}
-  dropdownList:any[]=[]
+  EditAttendance = {} as EditAttendance;
+  dropdownList:any[]=[];
   Id;
   message;
 
@@ -27,8 +28,8 @@ export class EditPopupComponent implements OnInit {
     private errorHandlingService: ErrorHandlingService,
     private attendanceService: AttendanceService,
 
-  ) {
-
+  ) 
+  {
 
     this.Id=JSON.parse(sessionStorage.getItem('user')).Id;
 
@@ -68,8 +69,8 @@ export class EditPopupComponent implements OnInit {
 
     editattendance.EmployeeId = this.Id;
     editattendance.Status = 2;
-    editattendance.StartTime = editattendance.StartTime + ":00"
-    editattendance.EndTime = editattendance.EndTime + ":00"
+    // editattendance.StartTime = editattendance.StartTime + ":00"
+    // editattendance.EndTime = editattendance.EndTime + ":00"
     console.log(editattendance)
 
 
