@@ -59,10 +59,7 @@ export class LoginComponent implements OnInit {
           if (this.authService.redirectUrl)
           {
             console.log(this.authService.redirectUrl)
-
             this.message="You are Login successfully Wait for redirect"
-
-
             this.customToastrService.GetSuccessToastr(this.message, "Login Status", 3000)
 
             setTimeout(()=>
