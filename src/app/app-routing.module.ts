@@ -60,162 +60,393 @@ const routes: Routes = [
   {
     path: 'dashboard', component: DefaultComponent,
       canActivate: [AuthGuardService],
-      // data: { roles: [Role.User] },
+      // data: { roles: [
+      //   Role.Admin,
+      //   Role.HR,
+      //   Role.Manager,
+      //   Role.User
+      // ] },
       
     children: [
       {
         path: '', component: DashboardComponent,
-        //canActivate: [AuthGuardService]
+        canActivate: [AuthGuardService]
       },
 
       {
         path: 'employee/details', component: EmployeeDetailsComponent,
-        //canActivate: [AuthGuardService]
+        canActivate: [AuthGuardService],
+        data: { roles: [
+          Role.Admin,
+          Role.HR,
+          Role.Manager,
+          Role.User
+        ]}
       },
       {
         path: 'employee/list', component: EmployeeListComponent,
-        //canActivate: [AuthGuardService],
+        canActivate: [AuthGuardService],
+        data: { roles: [
+          Role.Admin,
+          Role.HR,
+          Role.Manager,
+        ]}
       },
       {
         path: 'create/new/employee', component:CreateEmployeeComponent,
-        //canActivate: [AuthGuardService],
+        canActivate: [AuthGuardService],
+        data: { roles: [
+          Role.Admin,
+          Role.HR,
+          //Role.Manager,
+          //Role.User
+        ]}
       },
       {
         path: 'edit/employee/:id',component:EditEmployeeComponent,
-        //canActivate: [AuthGuardService],
-      },
-      {
-        path: 'myattendance', component: MyAttendanceComponent,
-        //canActivate: [AuthGuardService],
-      },
-      {
-        path: 'use/attendance/:id/:name', component: MyAttendanceComponent,
-        //canActivate: [AuthGuardService],
-      },
-      {
-        path: 'applytimeaway', component: ApplyTimeAwayComponent,
-        //canActivate: [AuthGuardService],
-      },
-      {
-        path: 'mytimeawayrequests', component: MyTimeAwayRequestsComponent,
-        //canActivate: [AuthGuardService],
-      },
-      {
-        path: 'myleaves', component: MyLeavesComponent,
-        //canActivate: [AuthGuardService],
-      },
-      {
-        path: 'shift', component: ShiftComponent
-      },
-      {
-        path: 'mytimesheet', component: MyTimesheetComponent,
-        //canActivate: [AuthGuardService],
-      },
-      {
-        path: 'timesheetbank', component: TimesheetBankComponent,
-        //canActivate: [AuthGuardService],
-      },
-      {
-        path: 'myservicerequests', component: MyServiceRequetsComponent,
-        //canActivate: [AuthGuardService],
-      },
-      {
-        path: 'addsr', component: AddSRComponent,
-        //canActivate: [AuthGuardService],
+        canActivate: [AuthGuardService],
+        data: { roles: [
+          Role.Admin,
+          Role.HR,
+          //Role.Manager,
+          //Role.User
+        ]}
       },
       {
         path: 'addattendance', component: AddAttendanceComponent,
-        //canActivate: [AuthGuardService],
+        canActivate: [AuthGuardService],
+        data: { roles: [
+          Role.Admin,
+          Role.HR,
+          //Role.Manager,
+          //Role.User
+        ]}
       },
       {
+        path: 'myattendance', component: MyAttendanceComponent,
+        canActivate: [AuthGuardService],
+        data: { roles: [
+          Role.Admin,
+          Role.HR,
+          Role.Manager,
+          Role.User
+        ]}
+      },
+      {
+        path: 'use/attendance/:id/:name', component: MyAttendanceComponent,
+        canActivate: [AuthGuardService],
+        data: { roles: [
+          Role.Admin,
+          Role.HR,
+          //Role.Manager,
+          //Role.User
+        ]}
+      },
+      {
+        path: 'applytimeaway', component: ApplyTimeAwayComponent,
+        canActivate: [AuthGuardService],
+        data: { roles: [
+          Role.Admin,
+          Role.HR,
+          Role.Manager,
+          Role.User
+        ]}
+      },
+      {
+        path: 'mytimeawayrequests', component: MyTimeAwayRequestsComponent,
+        canActivate: [AuthGuardService],
+        data: { roles: [
+          Role.Admin,
+          Role.HR,
+          Role.Manager,
+          Role.User
+        ]}
+      },
+      {
+        path: 'myleaves', component: MyLeavesComponent,
+        canActivate: [AuthGuardService],
+        data: { roles: [
+          Role.Admin,
+          Role.HR,
+          Role.Manager,
+          Role.User
+        ]}
+      },
+      {
+        path: 'shift', component: ShiftComponent,
+        canActivate: [AuthGuardService],
+        data: { roles: [
+          Role.Admin,
+          Role.HR,
+          Role.Manager,
+          Role.User
+        ]}
+      },
+      {
+        path: 'mytimesheet', component: MyTimesheetComponent,
+        canActivate: [AuthGuardService],
+        data: { roles: [
+          Role.Admin,
+          Role.HR,
+          Role.Manager,
+          Role.User
+        ]}
+      },
+      {
+        path: 'timesheetbank', component: TimesheetBankComponent,
+        canActivate: [AuthGuardService],
+        data: { roles: [
+          Role.Admin,
+          Role.HR,
+          Role.Manager,
+          Role.User
+        ]}
+      },
+      {
+        path: 'myservicerequests', component: MyServiceRequetsComponent,
+        canActivate: [AuthGuardService],
+        data: { roles: [
+          Role.Admin,
+          Role.HR,
+          Role.Manager,
+          Role.User
+        ]}
+      },
+      {
+        path: 'addsr', component: AddSRComponent,
+        canActivate: [AuthGuardService],
+        data: { roles: [
+          Role.Admin,
+          Role.HR,
+          Role.Manager,
+          Role.User
+        ]}
+      },
+      
+      {
         path: 'expenseclaim' , component: ExpenseClaimComponent,
-        //canActivate: [AuthGuardService],
+        canActivate: [AuthGuardService],
+        data: { roles: [
+          Role.Admin,
+          Role.HR,
+          Role.Manager,
+          Role.User
+        ]}
       },
       {
         path: 'expensebank' , component: ExpenseBankComponent,
-        //canActivate: [AuthGuardService],
+        canActivate: [AuthGuardService],
+        data: { roles: [
+          Role.Admin,
+          Role.HR,
+          Role.Manager,
+          Role.User
+        ]}
       },
       {
         path: 'entity/list' , component: EntityListComponent,
-        //canActivate: [AuthGuardService],
+        canActivate: [AuthGuardService],
+        data: { roles: [
+          Role.Admin,
+          //Role.HR,
+          //Role.Manager,
+          //Role.User
+        ]}
       },
       {
         path: 'entity/save' , component: EntitySaveComponent,
-        //canActivate: [AuthGuardService],
+        canActivate: [AuthGuardService],
+        data: { roles: [
+          Role.Admin,
+          //Role.HR,
+          //Role.Manager,
+          //Role.User
+        ]}
       },
       {
         path: 'project/save' , component: ProjectSaveComponent,
-        //canActivate: [AuthGuardService],
+        canActivate: [AuthGuardService],
+        data: { roles: [
+          Role.Admin,
+          //Role.HR,
+          //Role.Manager,
+          //Role.User
+        ]}
       },
       {
         path: 'project/list' , component: ProjectListComponent,
-        //canActivate: [AuthGuardService],
+        canActivate: [AuthGuardService],
+        data: { roles: [
+          Role.Admin,
+          //Role.HR,
+          //Role.Manager,
+          //Role.User
+        ]}
       },
       {
         path: 'picklist/save' , component: StringMapSaveComponent,
-        //canActivate: [AuthGuardService],
+        canActivate: [AuthGuardService],
+        data: { roles: [
+          Role.Admin,
+          //Role.HR,
+          //Role.Manager,
+          //Role.User
+        ]}
       },
       {
         path: 'picklist/list' , component: StringMapListComponent,
-        //canActivate: [AuthGuardService],
+        canActivate: [AuthGuardService],
+        data: { roles: [
+          Role.Admin,
+          //Role.HR,
+          //Role.Manager,
+          //Role.User
+        ]}
       },
       {
         path: 'systemlog/list' , component: SystemLogListComponent,
-        //canActivate: [AuthGuardService],
+        canActivate: [AuthGuardService],
+        data: { roles: [
+          Role.Admin,
+          //Role.HR,
+          //Role.Manager,
+          //Role.User
+        ]}
       },
       {
         path: 'pagenotfound' , component: PageNotFoundComponent,
-        //canActivate: [AuthGuardService],
+        canActivate: [AuthGuardService],
+        data: { roles: [
+          Role.Admin,
+          Role.HR,
+          Role.Manager,
+          Role.User
+        ]}
       },
       {
         path: 'employer/list', component: EmployerListComponent,
-        //canActivate: [AuthGuardService],
+        canActivate: [AuthGuardService],
+        data: { roles: [
+          Role.Admin,
+          //Role.HR,
+          //Role.Manager,
+          //Role.User
+        ]}
       },
       {
         path: 'employer/save', component: EmployerSaveComponent,
-        //canActivate: [AuthGuardService],
+        canActivate: [AuthGuardService],
+        data: { roles: [
+          Role.Admin,
+          //Role.HR,
+          //Role.Manager,
+          //Role.User
+        ]}
       },
       {
         path: 'rewardskip', component: RewardSkipComponent,
+        canActivate: [AuthGuardService],
+        data: { roles: [
+          Role.Admin,
+          //Role.HR,
+          //Role.Manager,
+          //Role.User
+        ]}
       },
       {
         path: 'test/rewardskip', component: InvoiceComponent
       },
       {
-        path: 'finance/mytransaction', component: MyTransactionComponent
+        path: 'finance/mytransaction', component: MyTransactionComponent,
+        canActivate: [AuthGuardService],
+        data: { roles: [
+          Role.Admin,
+          //Role.HR,
+          //Role.Manager,
+          //Role.User
+        ]}
       },
       {
-        path: 'finance/transaction', component: TransactionComponent
+        path: 'finance/transaction', component: TransactionComponent,
+        canActivate: [AuthGuardService],
+        data: { roles: [
+          Role.Admin,
+          //Role.HR,
+          //Role.Manager,
+          //Role.User
+        ]}
       },
       {
-        path: 'finance/ledger', component: LedgerComponent
+        path: 'finance/ledger', component: LedgerComponent,
+        canActivate: [AuthGuardService],
+        data: { roles: [
+          Role.Admin,
+          //Role.HR,
+          //Role.Manager,
+          //Role.User
+        ]}
       },
       {
-        path: 'finance/vender/list', component: VenderComponent
+        path: 'finance/vender/list', component: VenderComponent,
+        canActivate: [AuthGuardService],
+        data: { roles: [
+          Role.Admin,
+          //Role.HR,
+          //Role.Manager,
+          //Role.User
+        ]}
       },
       {
-        path: 'finance/vender/save', component: VenderSaveComponent
+        path: 'finance/vender/save', component: VenderSaveComponent,
+        canActivate: [AuthGuardService],
+        data: { roles: [
+          Role.Admin,
+          //Role.HR,
+          //Role.Manager,
+          //Role.User
+        ]}
       },
       {
-        path: 'report', component: ReportComponent
+        path: 'report', component: ReportComponent,
+        canActivate: [AuthGuardService],
+        data: { roles: [
+          Role.Admin,
+          //Role.HR,
+          //Role.Manager,
+          //Role.User
+        ]}
       },
       {
-        path: 'finance/lender', component: LenderComponent
+        path: 'finance/lender', component: LenderComponent,
+        canActivate: [AuthGuardService],
+        data: { roles: [
+          Role.Admin,
+          //Role.HR,
+          //Role.Manager,
+          //Role.User
+        ]}
       },
       {
-        path: 'report/unsoldproducts', component: UnsoldProductsComponent
+        path: 'report/unsoldproducts', component: UnsoldProductsComponent,
+        canActivate: [AuthGuardService],
+        data: { roles: [
+          Role.Admin,
+          //Role.HR,
+          //Role.Manager,
+          //Role.User
+        ]}
       },
       {
-        path: 'subdashboard' , component: SubdashboardComponent
-
+        path: 'subdashboard' , component: SubdashboardComponent,
+        canActivate: [AuthGuardService],
+        data: { roles: [
+          Role.Admin,
+          Role.HR,
+          Role.Manager,
+          Role.User
+        ]}
       }
-
-
-
     ],
-
-
-
   },
 
   ];

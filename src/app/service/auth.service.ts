@@ -59,9 +59,28 @@ export class AuthService {
     sessionStorage.setItem('token', data.access_token);
     sessionStorage.setItem('refresh', data.refresh_token);
     sessionStorage.setItem('user', JSON.stringify(data));
-    
-    sessionStorage.setItem('role',"User");
 
+    console.log(data.Id)
+    
+
+
+    if(data.Id=="72fecddb-fcfa-4afb-a8ec-7c0a3839e7c5")
+    {
+      sessionStorage.setItem('role',"Admin");
+    }
+    else if(data.Id=="eca650a6-25fe-45a0-a9a1-5934eac3d64a")
+    {
+      sessionStorage.setItem('role', "HR");
+    }
+    else if(data.Id=="b2e6392c-f944-4f17-9f48-f0a79e561397")
+    {
+      sessionStorage.setItem('role', "Manager");
+    }
+    else
+    {
+      sessionStorage.setItem('role', "User");
+    }
+    
   }
  
   
