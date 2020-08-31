@@ -33,7 +33,7 @@
   <div class="card-header">
     Employee List
 
-    <a [routerLink]="['/dashboard/create/new/employee']" style="float: right; color: black;"><i class="fa fa-plus-circle" ></i>  New Employee</a>
+    <a *ngIf="Admin || HR" [routerLink]="['/dashboard/create/new/employee']" style="float: right; color: black;"><i class="fa fa-plus-circle" ></i>  New Employee</a>
 
   </div>
   <div class="card-body">

@@ -32,18 +32,20 @@
                   </li>
 
               </ul>
-          </li><hr>
+              <hr>
+          </li>
             <li>
                 <a href="#page2Submenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" style="font-size: 16px;"><i class="fa fa-address-book"></i>  Employee</a>
                 <ul class="collapse list-unstyled" id="page2Submenu" data-accordion="false">
                     <li>
                         <a routerLink="/dashboard/employee/details" style="color:rgb(127,131,135);">Emplopyee Details</a>
                     </li>
-                    <li>
+                    <li *ngIf="Admin || HR || Manager">
                         <a routerLink="/dashboard/employee/list" style="color:rgb(127,131,135);">Emplopyee List</a>
                     </li>
                 </ul>
-            </li><hr>
+                <hr>
+            </li>
 
             <li>
                 <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" style="font-size: 16px;"><i class="fa fa-server"></i>  Attendance & Leaves</a>
@@ -51,7 +53,7 @@
                     <li>
                         <a routerLink="/dashboard/myattendance" style="color:rgb(127,131,135);">My Attendance</a>
                     </li>
-                    <li>
+                    <li *ngIf="Admin || HR">
                         <a routerLink="/dashboard/addattendance" style="color:rgb(127,131,135);">Manage Attendance</a>
                     </li>
                     <li>
@@ -67,7 +69,8 @@
                       <a routerLink="/dashboard/shift" style="color:rgb(127,131,135);">Shift Timing</a>
                   </li>
                 </ul>
-            </li><hr>
+                <hr>
+            </li>
 
             <li>
                 <a href="#page1Submenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" style="font-size: 16px;"><i class="fa fa-calendar"></i>  Timesheet</a>
@@ -81,7 +84,8 @@
 
 
                 </ul>
-            </li><hr>
+                <hr>
+            </li>
 
             <li>
                 <a href="#page3Submenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" style="font-size: 16px;"><i class="fa fa-check-square"></i>  Service Request</a>
@@ -95,7 +99,8 @@
 
 
                 </ul>
-            </li><hr>
+                <hr>
+            </li>
 
            <li>
                 <a href="#page4Submenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" style="font-size: 16px;"><i class="fa fa-folder-open"></i>  Expense</a>
@@ -109,8 +114,10 @@
 
 
                 </ul>
-            </li><hr>
-            <li>
+                <hr>
+            </li>
+
+            <li *ngIf="Admin">
                 <a href="#page5Submenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" style="font-size: 16px;"><i class="fa fa-user-circle"></i>  Admin</a>
                 <ul class="collapse list-unstyled" id="page5Submenu">
                     <li>
@@ -131,8 +138,10 @@
 
 
                 </ul>
-            </li><hr style="background-color: white;">
-            <li>
+                <hr style="background-color: white;">
+            </li>
+
+            <li *ngIf="Admin">
                 <a href="#page6Submenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" style="font-size: 16px;"><i class="fa fa-calendar"></i>  Pobara</a>
                 <ul class="collapse list-unstyled" id="page6Submenu">
                     <li>
@@ -140,7 +149,8 @@
                     </li>
 
                 </ul>
-            </li><hr>
+                <hr>
+            </li>
 
             <li>
                 <a href="#page7Submenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" style="font-size: 16px;"><i class="fa fa-money"></i>  Finance</a>
@@ -162,9 +172,10 @@
                   </li>
 
                 </ul>
-            </li><hr>
+                <hr>
+            </li>
 
-            <li>
+            <li *ngIf="Admin">
               <a routerLink="/dashboard/report" style="font-size: 16px;"><i class="fa fa-folder-o" ></i>  Report</a>
               <!-- <ul class="collapse list-unstyled" id="page8Submenu"> -->
                   <!-- <li>
@@ -173,7 +184,8 @@
 
 
               <!-- </ul> -->
-          </li><hr>
+              <hr>
+          </li>
 
           <!-- <li>
             <a href="#page8Submenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" style="font-size: 16px;"><i class="fa fa-money"></i>  Shift Timing</a>

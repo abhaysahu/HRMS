@@ -79,7 +79,7 @@ export class EmployeeDetailsComponent implements OnInit {
 
           if(this.Employee.Department==null)
           {
-            this.Employee.Department="N/N"
+            this.Employee.Department="-------"
           }
           else
           {
@@ -89,7 +89,7 @@ export class EmployeeDetailsComponent implements OnInit {
 
           if(this.Employee.Designation==null)
           {
-            this.Employee.Designation="N/N"
+            this.Employee.Designation="-------"
           }
           else
           {
@@ -98,7 +98,7 @@ export class EmployeeDetailsComponent implements OnInit {
 
           if(this.Employee.Gender==null)
           {
-            this.Employee.Gender="N/N"
+            this.Employee.Gender="-------"
           }
           else
           {
@@ -108,7 +108,7 @@ export class EmployeeDetailsComponent implements OnInit {
 
           if(this.Employee.Grade==null)
           {
-            this.Employee.Grade="N/N"
+            this.Employee.Grade="-------"
           }
           else
           {
@@ -117,7 +117,7 @@ export class EmployeeDetailsComponent implements OnInit {
 
           if(this.Employee.MaritalStatus==null)
           {
-            this.Employee.MaritalStatus="N/N"
+            this.Employee.MaritalStatus="-------"
           }
           else
           {
@@ -126,7 +126,7 @@ export class EmployeeDetailsComponent implements OnInit {
 
           if(this.Employee.Status==null)
           {
-            this.Employee.Status="N/N"
+            this.Employee.Status="-------"
           }
           else
           {

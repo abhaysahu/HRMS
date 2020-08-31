@@ -6,6 +6,8 @@ import { AppResponse } from 'src/app/models/appResponse';
 import { ActivatedRoute } from '@angular/router';
 import { MatDialog, MatDialogConfig, MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
 import { EditPopupComponent } from '../edit-popup/edit-popup.component';
+import { AuthService } from 'src/app/service/auth.service';
+import { Role } from 'src/app/models/role';
 
 
 
@@ -34,6 +36,10 @@ export class MyAttendanceComponent implements OnInit {
   Name
   length=1;
 
+  roles;
+  Admin= false;
+  HR=false;
+
   Id;
   ascNumberSort = true;
 
@@ -54,7 +60,24 @@ export class MyAttendanceComponent implements OnInit {
     private customToastrService: CustomToastrService,
     private errorHandlingService: ErrorHandlingService,
     private route: ActivatedRoute,
+    private authService: AuthService
    ) {
+
+    this.Admin= false;
+    this.HR=false;
+    
+
+    this.roles = authService.getRole()
+
+    if(Role.Admin == authService.getRole())
+    {
+      this.Admin=true
+    }
+    if(Role.HR == authService.getRole())
+    {
+      this.HR=true
+    }
+
 
     if(this.route.snapshot.paramMap.get('id'))
     {
