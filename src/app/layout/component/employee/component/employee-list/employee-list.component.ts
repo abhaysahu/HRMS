@@ -6,6 +6,8 @@ import { EmployeeService } from '../../services/employee.service';
 import { AppResponse } from 'src/app/models/appResponse';
 import { ErrorHandlingService } from 'src/app/service/error-handling.service';
 import { CustomToastrService } from 'src/app/service/customToastr.service';
+import { AuthService } from 'src/app/service/auth.service';
+import { Role } from 'src/app/models/role';
 
 
 
@@ -36,6 +38,10 @@ export class EmployeeListComponent implements OnInit {
 
   // dtOptions: DataTables.Settings = {};
 
+  roles;
+  Admin= false;
+  HR=false;
+
   persons: any[]=[];
   length=1
 
@@ -59,9 +65,26 @@ export class EmployeeListComponent implements OnInit {
     private loginService: LoginService,
     private employeeService: EmployeeService,
     private errorHandlingService: ErrorHandlingService,
-    private customToastrService: CustomToastrService
+    private customToastrService: CustomToastrService,
+    private authService: AuthService
 
     ) {
+
+      this.Admin= false;
+    this.HR=false;
+    
+
+    this.roles = authService.getRole()
+
+    if(Role.Admin == authService.getRole())
+    {
+      this.Admin=true
+    }
+    if(Role.HR == authService.getRole())
+    {
+      this.HR=true
+    }
+
 
       this.employeeService.getUser().subscribe(resp =>{
         console.log(resp)
@@ -81,7 +104,7 @@ export class EmployeeListComponent implements OnInit {
             {
               if(this.persons[i].Designation==null)
               {
-                this.persons[i].Designation="N/N"
+                this.persons[i].Designation="-------"
               }
               else
               {
@@ -90,7 +113,7 @@ export class EmployeeListComponent implements OnInit {
 
               if(this.persons[i].Department==null)
               {
-                this.persons[i].Department="N/N"
+                this.persons[i].Department="-------"
               }
               else
               {
@@ -99,7 +122,7 @@ export class EmployeeListComponent implements OnInit {
 
               if(this.persons[i].Status==null)
               {
-                this.persons[i].Status="N/N"
+                this.persons[i].Status="-------"
               }
               else
               {
@@ -108,6 +131,8 @@ export class EmployeeListComponent implements OnInit {
 
             }
           }
+
+          this.persons=this.persons.sort((a,b)=>a.FullName.localeCompare(b.FullName));
         }
         else
         {

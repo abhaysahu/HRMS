@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { LoggedinUser } from '../models/loggedInUser';
+import { Role } from '../models/role';
 
 @Injectable({
   providedIn: 'root'
@@ -48,6 +49,7 @@ export class AuthService {
   public get getToken() { return sessionStorage.getItem('token'); }
 
   public get getRefreshToken() { return sessionStorage.getItem('refresh'); }
+  
 
   getRole()
   {
@@ -66,19 +68,19 @@ export class AuthService {
 
     if(data.Id=="72fecddb-fcfa-4afb-a8ec-7c0a3839e7c5")
     {
-      sessionStorage.setItem('role',"Admin");
+      sessionStorage.setItem('role', Role.Admin);
     }
     else if(data.Id=="eca650a6-25fe-45a0-a9a1-5934eac3d64a")
     {
-      sessionStorage.setItem('role', "HR");
+      sessionStorage.setItem('role', Role.HR);
     }
     else if(data.Id=="b2e6392c-f944-4f17-9f48-f0a79e561397")
     {
-      sessionStorage.setItem('role', "Manager");
+      sessionStorage.setItem('role', Role.Manager);
     }
     else
     {
-      sessionStorage.setItem('role', "User");
+      sessionStorage.setItem('role', Role.User);
     }
     
   }
