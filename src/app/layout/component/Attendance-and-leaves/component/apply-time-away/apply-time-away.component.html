@@ -170,26 +170,42 @@
         </div>
 
 
-        <label for="category">Category</label>
+        <label for="category">Category</label><br>
+        <!-- <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" #personalLeave="ngModel" [(ngModel)]="Attendance.personalLeave" name="personalLeave" id="personalLeave" value="option1">
+          <label class="form-check-label" for="personalLeave">Personal Leave</label>
+        </div> -->
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+          <label class="form-check-label" for="inlineRadio1" style="color: black;">Personal Leave</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+          <label class="form-check-label" for="inlineRadio2" style="color: black;">Sick Leave</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3">
+          <label class="form-check-label" for="inlineRadio3" style="color: black;">Emergency Leave</label>
+        </div>
 
-        <div class="form-check">
+        <!-- <div class="form-check">
           <label class="form-check-label">
             <input type="radio" #personalLeave="ngModel" [(ngModel)]="Attendance.personalLeave" name="personalLeave"
               id="personalLeave" class="form-check-input">Personal Leave
           </label>
-        </div>
-        <div class="form-check-inline">
+        </div> -->
+        <!-- <div class="form-check-inline">
           <label class="form-check-label">
             <input type="radio" #sickLeave="ngModel" [(ngModel)]="Attendance.sickLeave" name="sickLeave" id="sickLeave"
               class="form-check-input">Sick Leave
           </label>
-        </div><br>
-        <div class="form-check-inline ">
+        </div><br> -->
+        <!-- <div class="form-check-inline ">
           <label class="form-check-label">
             <input type="radio" #emergencyLeave="ngModel" [(ngModel)]="Attendance.emergencyLeave" name="emergencyLeave"
               id="emergencyLeave" class="form-check-input">Emergency Leave
           </label>
-        </div>
+        </div> -->
         <br><br>
         <div class="form-group col-md-6">
           <div class="form-group">
