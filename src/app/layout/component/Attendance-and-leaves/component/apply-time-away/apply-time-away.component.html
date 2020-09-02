@@ -172,14 +172,7 @@
 
         <label for="category">Category</label><br>
 
-        <div class="form-group">
-          <div *ngFor="let option of options; let i=index">
-            <div class="radio">
-              <input type="radio" id="{{option.id}}" name="radio" [(ngModel)]="option.value" [value]="option.id" />
-              <label for="{{option.id}}">{{option.id}}</label>
-            </div>
-          </div>
-        </div>
+
 
             <!-- <div class="radio">
               <input type="radio" id="{{option.id}}" name="radio{{i}}" [(ngModel)]="option.value" [value]="option.id" />
