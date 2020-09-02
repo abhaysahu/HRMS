@@ -171,22 +171,50 @@
 
 
         <label for="category">Category</label><br>
+
+        <div class="form-group">
+          <div *ngFor="let option of options; let i=index">
+            <div class="radio">
+              <input type="radio" id="{{option.id}}" name="radio" [(ngModel)]="option.value" [value]="option.id" />
+              <label for="{{option.id}}">{{option.id}}</label>
+            </div>
+          </div>
+        </div>
+
+            <!-- <div class="radio">
+              <input type="radio" id="{{option.id}}" name="radio{{i}}" [(ngModel)]="option.value" [value]="option.id" />
+              <label for="{{option.id}}">{{option.id}}</label>
+            </div>
+
+            <div class="radio">
+              <input type="radio" id="{{option.id}}" name="radio{{i}}" [(ngModel)]="option.value" [value]="option.id" />
+              <label for="{{option.id}}">{{option.id}}</label>
+            </div> -->
+
+
+<!-- <ul>
+  <ng-container *ngFor="let option of options; let i=index">
+    <li *ngIf="option.value !== ''">Value for {{option.id}}: {{option.value}}</li>
+  </ng-container>
+</ul> -->
+
         <!-- <div class="form-check form-check-inline">
           <input class="form-check-input" type="radio" #personalLeave="ngModel" [(ngModel)]="Attendance.personalLeave" name="personalLeave" id="personalLeave" value="option1">
           <label class="form-check-label" for="personalLeave">Personal Leave</label>
         </div> -->
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-          <label class="form-check-label" for="inlineRadio1" style="color: black;">Personal Leave</label>
+        <!-- <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio"  #personalLeave="ngModel" [(ngModel)]="Attendance.personalLeave" name="personalLeave"
+          id="personalLeave" value="personalLeave">
+          <label class="form-check-label" for="personalLeave" style="color: black;">Personal Leave</label>
         </div>
         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-          <label class="form-check-label" for="inlineRadio2" style="color: black;">Sick Leave</label>
+          <input class="form-check-input" type="radio" #sickLeave="ngModel" [(ngModel)]="Attendance.sickLeave" name="sickLeave" id="sickLeave" value="sickLeave">
+          <label class="form-check-label" for="sickLeave" style="color: black;">Sick Leave</label>
         </div>
         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3">
-          <label class="form-check-label" for="inlineRadio3" style="color: black;">Emergency Leave</label>
-        </div>
+          <input class="form-check-input" type="radio"  #emergencyLeave="ngModel" [(ngModel)]="Attendance.emergencyLeave" name="emergencyLeave" value="emergencyLeave">
+          <label class="form-check-label" for="emergencyLeave" style="color: black;">Emergency Leave</label>
+        </div> -->
 
         <!-- <div class="form-check">
           <label class="form-check-label">

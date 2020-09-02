@@ -52,7 +52,7 @@
           <select class="custom-select" #project="ngModel" [(ngModel)]="Expenseclaim.project" name="project"id="project" required>
             <option *ngFor="let dropdownLists of dropDownListOfProject" [value]="dropdownLists.Value">{{dropdownLists.Text}}</option>
           </select>
-          <div class="invalid-feedback" *ngIf="date.project && project.invalid">
+          <div class="invalid-feedback" *ngIf="project.touched && project.invalid">
             Project is required.
           </div>
         </div>
@@ -64,7 +64,7 @@
             Date is required.
           </div>
         </div>
-     
+
 
         <div class="form-group col-md-4">
           <label for="type">Type</label>
