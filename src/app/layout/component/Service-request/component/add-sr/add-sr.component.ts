@@ -12,9 +12,11 @@ import { CustomToastrService } from 'src/app/service/customToastr.service';
 })
 export class AddSRComponent implements OnInit {
   Sr ={} as AddSr;
-  dropDownListOfFunction:any[]=[]
-  dropDownListOfSubFunction:any[]=[]
+  dropDownListOfCategory:any[]=[]
+  dropDownListOfSubCategory:any[]=[]
   dropDownListOfPriority:any[]=[]
+  dropDownListOfApprovalBy:any[]=[]
+
 
   message;
 
@@ -22,14 +24,14 @@ export class AddSRComponent implements OnInit {
     private requestsService: ServiceRequestsService,
     private customToastrService: CustomToastrService,
     private errorHandlingService: ErrorHandlingService
-    ) { 
+    ) {
 
 
     this.requestsService.listOfFunction().subscribe(resp => {
       console.log(resp);
 
       if (resp.Success) {
-        this.dropDownListOfFunction = resp.Data;
+        this.dropDownListOfCategory = resp.Data;
       } else {
 
         this.message = resp.ErrorMessage;
@@ -48,7 +50,7 @@ export class AddSRComponent implements OnInit {
     console.log(resp);
 
     if (resp.Success) {
-      this.dropDownListOfSubFunction = resp.Data;
+      this.dropDownListOfSubCategory = resp.Data;
     } else {
 
       this.message = resp.ErrorMessage;

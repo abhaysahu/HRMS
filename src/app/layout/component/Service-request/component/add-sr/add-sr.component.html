@@ -34,26 +34,36 @@
   <div class="card-body">
     <form #form="ngForm" (submit)="onSubmit(form.value)" class="was-validated">
       <div class="form-row">
-        
+
         <div class="form-group col-md-4">
-          <label for="function">Function</label>
-          <select class="custom-select" #function="ngModel" [(ngModel)]="Sr.function" name="function" id="function" required>
-            <option *ngFor="let dropdownLists of dropDownListOfFunction" [value]="dropdownLists.Value">{{dropdownLists.Text}}</option>
+          <label for="approvalBy">Approval By</label>
+          <select class="custom-select" #approvalBy="ngModel" [(ngModel)]="Sr.approvalBy" name="approvalBy" id="approvalBy" required>
+            <!-- <option *ngFor="let dropdownLists of dropDownListOfSubFunction" [value]="dropdownLists.Value">
+              {{dropdownLists.Text}}</option> -->
           </select>
-          <div class="invalid-feedback" *ngIf="function.touched && function.invalid">
-            Function is required.
+          <div class="invalid-feedback" *ngIf="approvalBy.touched && approvalBy.invalid">
+            ApprovalBy is required.
           </div>
         </div>
 
-
         <div class="form-group col-md-4">
-          <label for="subFunction">Sub Function</label>
-          <select class="custom-select" #subFunction="ngModel" [(ngModel)]="Sr.subFunction" name="subFunction"id="subFunction" required>
-            <option *ngFor="let dropdownLists of dropDownListOfSubFunction" [value]="dropdownLists.Value">
+          <label for="subCategory">Sub Category</label>
+          <select class="custom-select" #subCategory="ngModel" [(ngModel)]="Sr.subCategory" name="subCategory" id="subCategory" required>
+            <option *ngFor="let dropdownLists of dropDownListOfSubCategory" [value]="dropdownLists.Value">
               {{dropdownLists.Text}}</option>
           </select>
-          <div class="invalid-feedback" *ngIf="subFunction.touched && subFunction.invalid">
-            Subfunction is required.
+          <div class="invalid-feedback" *ngIf="subCategory.touched && subCategory.invalid">
+            Sub Category is required.
+          </div>
+        </div>
+
+        <div class="form-group col-md-4">
+          <label for="category">Category</label>
+          <select class="custom-select" #category="ngModel" [(ngModel)]="Sr.category" name="category" id="category" required>
+            <option *ngFor="let dropdownLists of dropDownListOfCategory" [value]="dropdownLists.Value">{{dropdownLists.Text}}</option>
+          </select>
+          <div class="invalid-feedback" *ngIf="category.touched && category.invalid">
+            Category is required.
           </div>
         </div>
 
