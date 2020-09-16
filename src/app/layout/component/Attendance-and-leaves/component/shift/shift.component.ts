@@ -32,7 +32,7 @@ export class ShiftComponent implements OnInit {
   message="";
   pendingValue:number;
   email="";
-  
+
 
 
   MyShiftList: any[]=[];
@@ -66,7 +66,7 @@ export class ShiftComponent implements OnInit {
       if(resp.Success)
       {
         let data ={
-          Value: 0, 
+          Value: 0,
           Text: "All"
         }
         this.dropDownListOfShiftStatus = resp.Data
@@ -168,7 +168,7 @@ export class ShiftComponent implements OnInit {
     {
       this.customToastrService.GetInfoToastr("There is no Matching record for this Request", "Shift Request", 5000)
     }
-    
+
   }
 
 
@@ -232,7 +232,7 @@ export class ShiftComponent implements OnInit {
     this.shiftTimeService.GetAwaitingMyApprovalList(this.Id,StatusCode).subscribe(resp => {
       console.log(resp);
 
-      if (resp.Success) 
+      if (resp.Success)
       {
         this.MyApprovalList = resp.Data;
 
@@ -248,7 +248,7 @@ export class ShiftComponent implements OnInit {
             this.MyApprovalList[i].CreatedOn=new Date(this.MyApprovalList[i].CreatedOn).toDateString().substr(4,13)
           }
         }
-      } 
+      }
       else {
         this.message = resp.ErrorMessage;
         this.message = resp.Message;

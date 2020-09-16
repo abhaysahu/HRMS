@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog, MatDialogConfig, MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
+import { SubcategorypopupComponent } from '../subcategorypopup/subcategorypopup.component';
+
 
 @Component({
   selector: 'app-sub-category',
@@ -7,9 +10,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SubCategoryComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private dialog: MatDialog
+  ) { }
 
   ngOnInit() {
+  }
+
+  SubCategoryPopup()
+  {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.autoFocus = true;
+    dialogConfig.disableClose = true;
+    dialogConfig.width="50%";
+    dialogConfig.data={}
+    this.dialog.open(SubcategorypopupComponent, dialogConfig).afterClosed().subscribe(res =>{
+
+    });
   }
 
 }

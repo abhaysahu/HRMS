@@ -117,6 +117,7 @@ import { PopoverModule } from 'ngx-smart-popover';
 import { EditPopupComponent } from './layout/component/Attendance-and-leaves/component/edit-popup/edit-popup.component';
 import { SplashScreenComponent } from './layout/common/splash-screen/splash-screen.component';
 import { SubCategoryComponent } from './layout/component/Service-request/component/sub-category/sub-category.component';
+import { SubcategorypopupComponent } from './layout/component/Service-request/component/subcategorypopup/subcategorypopup.component';
 
 
 @NgModule({
@@ -186,7 +187,8 @@ import { SubCategoryComponent } from './layout/component/Service-request/compone
     RejectPopupComponent,
     EditPopupComponent,
     SplashScreenComponent,
-    SubCategoryComponent
+    SubCategoryComponent,
+    SubcategorypopupComponent
 
   ],
   imports: [
@@ -224,7 +226,7 @@ import { SubCategoryComponent } from './layout/component/Service-request/compone
 
 
   ],
-  entryComponents:[CommentsComponent, EditpicklistComponent, PopupComponent, PrintPopupComponent, AddRewardComponent, PopupshiftComponent, ResetPopupComponent, RejectPopupComponent,EditPopupComponent],
+  entryComponents:[CommentsComponent, EditpicklistComponent, PopupComponent, PrintPopupComponent, AddRewardComponent, PopupshiftComponent, ResetPopupComponent, RejectPopupComponent,EditPopupComponent, SubcategorypopupComponent],
 
   providers: [
       {provide: LocationStrategy, useClass: HashLocationStrategy},
