@@ -146,7 +146,7 @@ export class AddAttendanceComponent implements OnInit {
           }
           else
           {
-            this.Addattendance[i].Status=1
+            this.Addattendance[i].Status=7
           }
 
           if((this.Addattendance[i].OutTime)=="00:00:00" && (this.Addattendance[i].Status==1 || this.Addattendance[i].Status==2))
@@ -189,6 +189,7 @@ export class AddAttendanceComponent implements OnInit {
   Statuschange(status,i)
   {
 
+    console.log(status)
     this.Addattendance[i].Status=status
 
     this.FormData[0].Status = status
@@ -199,6 +200,7 @@ export class AddAttendanceComponent implements OnInit {
     }
     else
     {
+      console.log(status)
       this.Addattendance[i].InTime=null;
       this.Addattendance[i].OutTime=null;
     }
