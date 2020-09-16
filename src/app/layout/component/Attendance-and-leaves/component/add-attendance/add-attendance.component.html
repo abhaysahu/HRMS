@@ -90,10 +90,10 @@
                 </td>
 
 
-                <td *ngIf="addAttendances.Status==1 || addAttendances.Status==2">
+                <td *ngIf="addAttendances.Status==1 || addAttendances.Status==2 || addAttendances.Status==7">
                   <input type="time" [value]="addAttendances.InTime" (change)="InTimechange($event.target.value,i)" class="form-control" name="InTime" id="InTime">
                 </td>
-                <td *ngIf="addAttendances.Status==1 || addAttendances.Status==2">
+                <td *ngIf="addAttendances.Status==1 || addAttendances.Status==2 || addAttendances.Status==7">
                   <input type="time" [value]="addAttendances.OutTime"  (change)=" OutTimechange($event.target.value,i)" class="form-control" name="OutTime" id="OutTime">
                 </td>
 
