@@ -46,6 +46,7 @@ import { ReportComponent } from './layout/component/Report/components/report/rep
 import { ShiftComponent } from './layout/component/Attendance-and-leaves/component/shift/shift.component';
 import { SubdashboardComponent } from './layout/component/dashboard/components/subdashboard/subdashboard.component';
 import { Role } from './models/role';
+import { SubCategoryComponent } from './layout/component/Service-request/component/sub-category/sub-category.component';
 
 const routes: Routes = [
 
@@ -66,7 +67,7 @@ const routes: Routes = [
       //   Role.Manager,
       //   Role.User
       // ] },
-      
+
     children: [
       {
         path: '', component: DashboardComponent,
@@ -213,6 +214,16 @@ const routes: Routes = [
         ]}
       },
       {
+        path: 'subcategory', component: SubCategoryComponent,
+        canActivate: [AuthGuardService],
+        data: { roles: [
+          Role.Admin,
+          Role.HR,
+          Role.Manager,
+          Role.User
+        ]}
+      },
+      {
         path: 'addsr', component: AddSRComponent,
         canActivate: [AuthGuardService],
         data: { roles: [
@@ -222,7 +233,7 @@ const routes: Routes = [
           Role.User
         ]}
       },
-      
+
       {
         path: 'expenseclaim' , component: ExpenseClaimComponent,
         canActivate: [AuthGuardService],

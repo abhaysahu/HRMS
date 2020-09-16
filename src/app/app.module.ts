@@ -116,6 +116,7 @@ import { RejectPopupComponent } from './layout/component/Attendance-and-leaves/c
 import { PopoverModule } from 'ngx-smart-popover';
 import { EditPopupComponent } from './layout/component/Attendance-and-leaves/component/edit-popup/edit-popup.component';
 import { SplashScreenComponent } from './layout/common/splash-screen/splash-screen.component';
+import { SubCategoryComponent } from './layout/component/Service-request/component/sub-category/sub-category.component';
 
 
 @NgModule({
@@ -184,7 +185,8 @@ import { SplashScreenComponent } from './layout/common/splash-screen/splash-scre
     ResetPopupComponent,
     RejectPopupComponent,
     EditPopupComponent,
-    SplashScreenComponent
+    SplashScreenComponent,
+    SubCategoryComponent
 
   ],
   imports: [
