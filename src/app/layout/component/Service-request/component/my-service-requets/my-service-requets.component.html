@@ -29,147 +29,279 @@
   </div>
 </div>
 
+<ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+  <li class="nav-item">
+    <a class="nav-link active" id="myServiceRequest-tab" data-toggle="pill" href="#myServiceRequest" role="tab" aria-controls="myServiceRequest"  aria-selected="true">My Service Request</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="AwaitingMyServiceRequest-tab" data-toggle="pill" href="#AwaitingMyServiceRequest" role="tab" aria-controls="AwaitingMyServiceRequest"  aria-selected="false">Awaiting My Service Request</a>
+  </li>
+</ul>
 
+<div class="tab-content" id="pills-tabContent">
+  <div class="tab-pane fade show active" id="myServiceRequest" role="tabpanel" aria-labelledby="myServiceRequest-tab">
 
-
-<div class="card">
-  <div class="card-header">
-    My Service Requests
-  </div>
-  <div class="card-body">
-    <form #form="ngForm" (submit)="onSubmit(form.value)" class="was-validated">
-<div class="form-row">
-
-  <div class="form-group col-md-2">
-    <label for="requestId">Request Id</label><br>
-    <input type="number" class="form-control"  #requestId="ngModel" [(ngModel)]="Servicerequest.requestId" name="requestId" id="requestId" min="0000000000" max="999999999999999" required>
-    <div class="invalid-feedback" *ngIf="requestId.touched && requestId.invalid">
-      RequestId is required.
-    </div>
-  </div>
-  <div class="form-group col-md-3">
-    <label for="function">Function</label>
-
-    <select class="custom-select" #function="ngModel" [(ngModel)]="Servicerequest.function" name="function" id="function" required>
-      <option selected>All</option>
-      <option value="1">Working Out Of Office</option>
-      <option value="2">Work From Home</option>
-      <option value="3">Attendance Modification</option>
-      <option value="4">Earning Compensatory</option>
-      <option value="5">Short Leave</option>
-
-
-
-    </select>
-    <div class="invalid-feedback" *ngIf="function.touched && function.invalid">
-      Function is required.
-    </div>
-  </div>
-
-  <div class="form-group col-md-3">
-    <label for="subFunction">Subfunction</label>
-
-    <select class="custom-select" #subFunction="ngModel" [(ngModel)]="Servicerequest.subFunction" name="subFunction" id="subFunction" required >
-      <option selected>All</option>
-      <option value="1">Working Out Of Office</option>
-      <option value="2">Work From Home</option>
-      <option value="3">Attendance Modification</option>
-      <option value="4">Earning Compensatory</option>
-      <option value="5">Short Leave</option>
-
-
-
-    </select>
-   <div class="invalid-feedback" *ngIf="subFunction.touched && subFunction.invalid">
-      Subfunction is required.
-   </div>
-  </div>
-
-  <div class="form-group col-md-3">
-    <label for="status">Status</label>
-
-    <select class="custom-select" #status="ngModel" [(ngModel)]="Servicerequest.status" name="status" id="status" required>
-      <option selected>Open</option>
-      <option value="1">Working Out Of Office</option>
-      <option value="2">Work From Home</option>
-      <option value="3">Attendance Modification</option>
-      <option value="4">Earning Compensatory</option>
-      <option value="5">Short Leave</option>
-
-
-
-    </select>
-   <div class="invalid-feedback" *ngIf="status.touched && status.invalid">
-      Status is required.
-    </div>
-  </div>
+    <div class="card">
+      <div class="card-header">
+        My Service Requests
+      </div>
+      <div class="card-body">
+        <form #form="ngForm" (submit)="onSubmit(form.value)" class="was-validated">
+    <div class="form-row">
+<!--
       <div class="form-group col-md-2">
-        <label for="dateFrom">Date From</label>
-        <div class="form-group">
-          <input type="date" #dateFrom="ngModel" [(ngModel)]="Servicerequest.dateFrom" name="dateFrom" id="dateFrom"  max="3000-12-31"
-                min="1000-01-01" class="form-control" required>
-                <div class="invalid-feedback" *ngIf="dateFrom.touched && dateFrom.invalid">
-                  Date  is required.
-                </div>
+        <label for="requestId">Request Id</label><br>
+        <input type="number" class="form-control"  #requestId="ngModel" [(ngModel)]="Servicerequest.requestId" name="requestId" id="requestId" min="0000000000" max="999999999999999" required>
+        <div class="invalid-feedback" *ngIf="requestId.touched && requestId.invalid">
+          RequestId is required.
         </div>
+      </div> -->
+      <!-- <div class="form-group col-md-3">
+        <label for="function">Function</label>
+
+        <select class="custom-select" #function="ngModel" [(ngModel)]="Servicerequest.function" name="function" id="function" required>
+          <option selected>All</option>
+          <option value="1">Working Out Of Office</option>
+          <option value="2">Work From Home</option>
+          <option value="3">Attendance Modification</option>
+          <option value="4">Earning Compensatory</option>
+          <option value="5">Short Leave</option>
+
+
+
+        </select>
+        <div class="invalid-feedback" *ngIf="function.touched && function.invalid">
+          Function is required.
         </div>
+      </div> -->
+
+      <!-- <div class="form-group col-md-3">
+        <label for="subFunction">Subfunction</label>
+
+        <select class="custom-select" #subFunction="ngModel" [(ngModel)]="Servicerequest.subFunction" name="subFunction" id="subFunction" required >
+          <option selected>All</option>
+          <option value="1">Working Out Of Office</option>
+          <option value="2">Work From Home</option>
+          <option value="3">Attendance Modification</option>
+          <option value="4">Earning Compensatory</option>
+          <option value="5">Short Leave</option>
+
+
+
+        </select>
+       <div class="invalid-feedback" *ngIf="subFunction.touched && subFunction.invalid">
+          Subfunction is required.
+       </div>
+      </div> -->
+
+      <!-- <div class="form-group col-md-3">
+        <label for="status">Status</label>
+
+        <select class="custom-select" #status="ngModel" [(ngModel)]="Servicerequest.status" name="status" id="status" required>
+          <option selected>Open</option>
+          <option value="1">Working Out Of Office</option>
+          <option value="2">Work From Home</option>
+          <option value="3">Attendance Modification</option>
+          <option value="4">Earning Compensatory</option>
+          <option value="5">Short Leave</option>
+
+
+
+        </select>
+       <div class="invalid-feedback" *ngIf="status.touched && status.invalid">
+          Status is required.
+        </div>
+      </div> -->
+          <!-- <div class="form-group col-md-2">
+            <label for="dateFrom">Date From</label>
+            <div class="form-group">
+              <input type="date" #dateFrom="ngModel" [(ngModel)]="Servicerequest.dateFrom" name="dateFrom" id="dateFrom"  max="3000-12-31"
+                    min="1000-01-01" class="form-control" required>
+                    <div class="invalid-feedback" *ngIf="dateFrom.touched && dateFrom.invalid">
+                      Date  is required.
+                    </div>
+            </div>
+            </div> -->
+          <!-- <div class="form-group col-md-2"> -->
+            <!-- <label for="dateTo">Date To</label>
+            <div class="form-group">
+              <input type="date" #dateTo="ngModel" [(ngModel)]="Servicerequest.dateTo" name="dateTo" id="dateTo" max="3000-12-31"
+                    min="1000-01-01" class="form-control" required>
+                    <div class="invalid-feedback" *ngIf="dateTo.touched && dateTo.invalid">
+                      Date  is required.
+                    </div>
+            </div>
+            </div> -->
+            <!-- <div class="form-group col-md-2">
+              <label for="dateTo"></label>
+              <div class="form-group">
+                <button type="submit" class="btn btn-primary">Filter</button>
+            </div>
+    </div> -->
+
+
+
+    </div>
+    <div style="overflow-x: scroll;">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th scope="col">Request No.</th>
+          <th scope="col">Submit Date</th>
+          <th scope="col">Division</th>
+          <th scope="col">Function</th>
+          <th scope="col">Status</th>
+          <th scope="col">Resolving Time(Hrs.)</th>
+          <th scope="col">Option</th>
+
+        </tr>
+      </thead>
+      <tbody>
+
+      </tbody>
+    </table>
+    </div>
+    </form>
+    </div>
+    </div>
+
+
+
+  </div>
+
+
+  <div class="tab-pane fade" id="AwaitingMyServiceRequest" role="tabpanel" aria-labelledby="AwaitingMyServiceRequest-tab">
+    <div class="card">
+      <div class="card-header">
+        Awaiting My Service Requests
+      </div>
+      <div class="card-body">
+        <form #form="ngForm" (submit)="onSubmit(form.value)" class="was-validated">
+    <div class="form-row">
+<!--
       <div class="form-group col-md-2">
-        <label for="dateTo">Date To</label>
-        <div class="form-group">
-          <input type="date" #dateTo="ngModel" [(ngModel)]="Servicerequest.dateTo" name="dateTo" id="dateTo" max="3000-12-31"
-                min="1000-01-01" class="form-control" required>
-                <div class="invalid-feedback" *ngIf="dateTo.touched && dateTo.invalid">
-                  Date  is required.
-                </div>
+        <label for="requestId">Request Id</label><br>
+        <input type="number" class="form-control"  #requestId="ngModel" [(ngModel)]="Servicerequest.requestId" name="requestId" id="requestId" min="0000000000" max="999999999999999" required>
+        <div class="invalid-feedback" *ngIf="requestId.touched && requestId.invalid">
+          RequestId is required.
         </div>
+      </div> -->
+      <!-- <div class="form-group col-md-3">
+        <label for="function">Function</label>
+
+        <select class="custom-select" #function="ngModel" [(ngModel)]="Servicerequest.function" name="function" id="function" required>
+          <option selected>All</option>
+          <option value="1">Working Out Of Office</option>
+          <option value="2">Work From Home</option>
+          <option value="3">Attendance Modification</option>
+          <option value="4">Earning Compensatory</option>
+          <option value="5">Short Leave</option>
+
+
+
+        </select>
+        <div class="invalid-feedback" *ngIf="function.touched && function.invalid">
+          Function is required.
         </div>
-        <div class="form-group col-md-2">
-          <label for="dateTo"></label>
-          <div class="form-group">
-            <button type="submit" class="btn btn-primary">Filter</button>
+      </div> -->
+
+      <!-- <div class="form-group col-md-3">
+        <label for="subFunction">Subfunction</label>
+
+        <select class="custom-select" #subFunction="ngModel" [(ngModel)]="Servicerequest.subFunction" name="subFunction" id="subFunction" required >
+          <option selected>All</option>
+          <option value="1">Working Out Of Office</option>
+          <option value="2">Work From Home</option>
+          <option value="3">Attendance Modification</option>
+          <option value="4">Earning Compensatory</option>
+          <option value="5">Short Leave</option>
+
+
+
+        </select>
+       <div class="invalid-feedback" *ngIf="subFunction.touched && subFunction.invalid">
+          Subfunction is required.
+       </div>
+      </div> -->
+
+      <!-- <div class="form-group col-md-3">
+        <label for="status">Status</label>
+
+        <select class="custom-select" #status="ngModel" [(ngModel)]="Servicerequest.status" name="status" id="status" required>
+          <option selected>Open</option>
+          <option value="1">Working Out Of Office</option>
+          <option value="2">Work From Home</option>
+          <option value="3">Attendance Modification</option>
+          <option value="4">Earning Compensatory</option>
+          <option value="5">Short Leave</option>
+
+
+
+        </select>
+       <div class="invalid-feedback" *ngIf="status.touched && status.invalid">
+          Status is required.
         </div>
+      </div> -->
+          <!-- <div class="form-group col-md-2">
+            <label for="dateFrom">Date From</label>
+            <div class="form-group">
+              <input type="date" #dateFrom="ngModel" [(ngModel)]="Servicerequest.dateFrom" name="dateFrom" id="dateFrom"  max="3000-12-31"
+                    min="1000-01-01" class="form-control" required>
+                    <div class="invalid-feedback" *ngIf="dateFrom.touched && dateFrom.invalid">
+                      Date  is required.
+                    </div>
+            </div>
+            </div> -->
+          <!-- <div class="form-group col-md-2"> -->
+            <!-- <label for="dateTo">Date To</label>
+            <div class="form-group">
+              <input type="date" #dateTo="ngModel" [(ngModel)]="Servicerequest.dateTo" name="dateTo" id="dateTo" max="3000-12-31"
+                    min="1000-01-01" class="form-control" required>
+                    <div class="invalid-feedback" *ngIf="dateTo.touched && dateTo.invalid">
+                      Date  is required.
+                    </div>
+            </div>
+            </div> -->
+            <!-- <div class="form-group col-md-2">
+              <label for="dateTo"></label>
+              <div class="form-group">
+                <button type="submit" class="btn btn-primary">Filter</button>
+            </div>
+    </div> -->
+
+
+
+    </div>
+    <div style="overflow-x: scroll;">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th scope="col">Request No.</th>
+          <th scope="col">Submit Date</th>
+          <th scope="col">Division</th>
+          <th scope="col">Function</th>
+          <th scope="col">Status</th>
+          <th scope="col">Resolving Time(Hrs.)</th>
+          <th scope="col">Option</th>
+
+        </tr>
+      </thead>
+      <tbody>
+
+      </tbody>
+    </table>
+    </div>
+    </form>
+    </div>
+    </div>
+
+
+
+
+
+  </div>
 </div>
 
 
 
-</div>
-<div style="overflow-x: scroll;">
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th scope="col">Request No.</th>
-      <th scope="col">Submit Date</th>
-      <th scope="col">Division</th>
-      <th scope="col">Function</th>
-      <th scope="col">Status</th>
-      <th scope="col">Resolving Time(Hrs.)</th>
-      <th scope="col">Option</th>
 
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td >Larry the Bird</td>
-      <td>@twitter</td>
-      <td>@fat</td>
-
-    </tr>
-  </tbody>
-</table>
-</div>
-</form>
-</div>
-</div>
