@@ -72,6 +72,7 @@
         <thead>
           <tr class="table-header">
             <th scope="col">Product Name</th>
+            <!-- <th scope="col">Margin</th> -->
             <th scope="col">Published</th>
           </tr>
         </thead>
@@ -80,11 +81,11 @@
             <td width="80%">{{rewardLists.Name}}</td>
             <td>
               <div *ngIf="rewardLists.Published; then thenBlock else elseBlock"></div>
-              <ng-template #thenBlock><i class="fa fa-check" aria-hidden="true" style="color: green; font-size: 30px;"></i></ng-template>
-              <ng-template #elseBlock><i class="fa fa-times" aria-hidden="true" style="color: red; font-size: 30px;"></i></ng-template>
+              <ng-template #thenBlock><i class="fa fa-check" aria-hidden="true" style="color: green; font-size: 25px;"></i></ng-template>
+              <ng-template #elseBlock><i class="fa fa-times" aria-hidden="true" style="color: red; font-size: 25px;"></i></ng-template>
             </td>
             <!-- <td ><span class="add"><i class="fa fa-file-o" aria-hidden="true"> Add </i> -->
-              <td width="10%"><button type="button" (click)="AddProduct(rewardLists.Id,rewardLists.Name)" class="btn btn-info"> Add</button>
+              <td width="10%"><button type="button" (click)="AddProduct(rewardLists.Id,rewardLists.Name)" class="btn btn-info btn-sm"> Add</button>
               </td>
           </tr>
 
@@ -107,6 +108,7 @@
         <thead>
           <tr class="table-header">
             <th scope="col">Product Name</th>
+            <!-- <th scope="col">Margin</th> -->
             <th scope="col">Active</th>
           </tr>
         </thead>
