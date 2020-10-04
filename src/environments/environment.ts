@@ -10,6 +10,8 @@ export const environment = {
 
   webapiUrl:'//apitest.pobara.com/'
 
+  //webapiUrl:'http://localhost:59934/'
+
   
 };
 
