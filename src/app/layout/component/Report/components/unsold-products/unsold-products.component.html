@@ -92,9 +92,9 @@
       <thead>
         <tr style="cursor: pointer;">
           <th scope="col" (click)="sortFilter(1)">Product Name <i class={{sortIcon1}} aria-hidden="true"></i></th>
-          <!-- <th scope="col" (click)="sortFilter(2)">Selling Price <i class={{sortIcon2}} aria-hidden="true"></i></th>
+          <th scope="col" (click)="sortFilter(2)">Selling Price <i class={{sortIcon2}} aria-hidden="true"></i></th>
           <th scope="col" (click)="sortFilter(3)">MRP <i class={{sortIcon3}} aria-hidden="true"></i></th>
-          <th scope="col" (click)="sortFilter(4)">Buying Cost <i class={{sortIcon4}} aria-hidden="true"></i></th> -->
+          <th scope="col" (click)="sortFilter(4)">Buying Cost <i class={{sortIcon4}} aria-hidden="true"></i></th>
           <th scope="col" (click)="sortFilter(5)">Stock Quantity <i class={{sortIcon5}} aria-hidden="true"></i></th>
           <th scope="col" (click)="sortFilter(6)">Sold Quantity <i class={{sortIcon6}} aria-hidden="true"></i></th>
           <th scope="col" (click)="sortFilter(7)">Days To Last Order <i class={{sortIcon7}} aria-hidden="true"></i></th>
@@ -104,9 +104,9 @@
       <tbody>
         <tr *ngFor="let UnsoldProducts of UnsoldProduct | unsold:email;">
           <td>{{ UnsoldProducts.ProductName }}</td>
-          <!-- <td>{{ UnsoldProducts.SellingPrice }}</td>
+          <td>{{ UnsoldProducts.SellingPrice }}</td>
           <td>{{ UnsoldProducts.MRP }}</td>
-          <td>{{ UnsoldProducts.BuyingCost }}</td> -->
+          <td>{{ UnsoldProducts.BuyingCost }}</td>
           <td>{{ UnsoldProducts.StockQuantity }}</td>
           <td>{{ UnsoldProducts.SoldQuantity }}</td>
           <td>{{ UnsoldProducts.DaysToLastOrder }}</td>

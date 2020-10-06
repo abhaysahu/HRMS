@@ -91,7 +91,6 @@ import { PrintPopupComponent } from './layout/component/employee/component/creat
 import { ListEmployeePipe } from './layout/component/employee/list-employee.pipe';
 import { RewardSkipComponent } from './layout/component/reward-skip/component/reward-skip.component';
 import { RewardSkipService } from './layout/component/reward-skip/service/reward-skip.service';
-import { AddRewardComponent } from './layout/component/reward-skip/component/add-reward/add-reward.component';
 import { CustomToastrService } from './service/customToastr.service';
 import { ErrorHandlingService } from './service/error-handling.service';
 import { MyTransactionComponent } from './layout/component/Finance/component/my-transaction/my-transaction.component';
@@ -118,6 +117,7 @@ import { EditPopupComponent } from './layout/component/Attendance-and-leaves/com
 import { SplashScreenComponent } from './layout/common/splash-screen/splash-screen.component';
 import { SubCategoryComponent } from './layout/component/Service-request/component/sub-category/sub-category.component';
 import { SubcategorypopupComponent } from './layout/component/Service-request/component/subcategorypopup/subcategorypopup.component';
+import { RewardPipe } from './layout/component/reward-skip/pipe/reward.pipe';
 
 
 @NgModule({
@@ -167,7 +167,6 @@ import { SubcategorypopupComponent } from './layout/component/Service-request/co
     AddAttendanceSearchPipe,
     ListEmployeePipe,
     RewardSkipComponent,
-    AddRewardComponent,
     MyTransactionComponent,
     TransactionComponent,
     LedgerComponent,
@@ -188,7 +187,8 @@ import { SubcategorypopupComponent } from './layout/component/Service-request/co
     EditPopupComponent,
     SplashScreenComponent,
     SubCategoryComponent,
-    SubcategorypopupComponent
+    SubcategorypopupComponent,
+    RewardPipe
 
   ],
   imports: [
@@ -226,7 +226,7 @@ import { SubcategorypopupComponent } from './layout/component/Service-request/co
 
 
   ],
-  entryComponents:[CommentsComponent, EditpicklistComponent, PopupComponent, PrintPopupComponent, AddRewardComponent, PopupshiftComponent, ResetPopupComponent, RejectPopupComponent,EditPopupComponent, SubcategorypopupComponent],
+  entryComponents:[CommentsComponent, EditpicklistComponent, PopupComponent, PrintPopupComponent, PopupshiftComponent, ResetPopupComponent, RejectPopupComponent,EditPopupComponent, SubcategorypopupComponent],
 
   providers: [
       {provide: LocationStrategy, useClass: HashLocationStrategy},
