@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { RewardSkipService } from '../service/reward-skip.service';
 import { AppResponse } from 'src/app/models/appResponse';
 import { MatDialog, MatDialogConfig } from '@angular/material';
-import { AddRewardComponent } from './add-reward/add-reward.component';
+
 import { ErrorHandlingService } from 'src/app/service/error-handling.service';
+import { CustomToastrService } from 'src/app/service/customToastr.service';
 
 @Component({
   selector: 'app-reward-skip',
@@ -16,19 +17,18 @@ export class RewardSkipComponent implements OnInit {
   rewardListForPobara:any[]=[];
   rewardListForHRMS:any[]=[];
 
-  successStatus=false;
-  dangerStatus=false;
-
   message="";
 
   email="";
 
   constructor(private rewardservice: RewardSkipService,
     private dialog: MatDialog,
-    private errorHandlingService: ErrorHandlingService
+    private errorHandlingService: ErrorHandlingService,    
+    private customToastrService: CustomToastrService,
+
     ) { 
 
-
+      console.log("yes")
       this.rewardservice.getAllRewardSkipData().subscribe(resp =>{
       
       if(resp.Success)
@@ -38,14 +38,15 @@ export class RewardSkipComponent implements OnInit {
       }
       else
       {
-          this.dangerStatus=true;
-          this.successStatus=false;
+         
           this.message=resp.ErrorMessage;
           this.message=resp.Message;
+
+          this.customToastrService.GetErrorToastr(this.message, "Reward Skip", 5000)
       }
       
     },   (error: AppResponse) => {
-      this.errorHandlingService.errorStatus(error,"List Employee Status")
+      this.errorHandlingService.errorStatus(error,"Reward Skip")
 
 }
 )
@@ -67,14 +68,18 @@ export class RewardSkipComponent implements OnInit {
       if(resp.Success)
       {
         this.rewardListForPobara = resp.Data
+        if(this.rewardListForPobara==null)
+        {
+          this.customToastrService.GetInfoToastr("No product found!!", "Reward Skip", 5000)
+        }
         console.log(this.rewardListForPobara)
       }
       else
       {
-          this.dangerStatus=true;
-          this.successStatus=false;
+          
           this.message=resp.ErrorMessage;
           this.message=resp.Message;
+          this.customToastrService.GetErrorToastr(this.message, "Reward Skip", 5000)
       }
       
     },   (error: AppResponse) => {
@@ -123,16 +128,17 @@ export class RewardSkipComponent implements OnInit {
       // console.log(resp)
       if(resp.Success)
       {
-        this.successStatus=true;
-        this.dangerStatus=false;
+        
         this.message="Data is Added successfully"
         this.rewardListForHRMS.push(pushData)
+        this.customToastrService.GetSuccessToastr(this.message, "Reward Skip Status", 5000)
+
       }
       else
       {
-        this.dangerStatus=true;
-        this.successStatus=false;
+        
         this.message=resp.Message + " Because record is already exist";
+        this.customToastrService.GetInfoToastr(this.message, "Reward Skip", 5000)
       }
       
     }
@@ -163,17 +169,19 @@ export class RewardSkipComponent implements OnInit {
       // console.log(resp)
       if(resp.Success)
       {
-        this.successStatus=true;
-        this.dangerStatus=false;
+        
         this.message="Data is Delete successfully"
         this.rewardListForHRMS.splice(index,1);
         console.log(this.rewardListForHRMS)
+        this.customToastrService.GetSuccessToastr(this.message, "Reward Skip Status", 5000)
+
+        
       }
       else
       {
-        this.dangerStatus=true;
-        this.successStatus=false;
         this.message=resp.Message;
+        this.customToastrService.GetErrorToastr(this.message, "Reward Skip", 5000)
+
       }
       
     }
@@ -216,15 +224,16 @@ export class RewardSkipComponent implements OnInit {
      
       if(resp.Success)
       {
-        this.successStatus=true;
-        this.dangerStatus=false;
+        
         this.message="Data is update successfully"
+        this.customToastrService.GetSuccessToastr(this.message, "Reward Skip Status", 5000)
+
       }
       else
       {
-        this.dangerStatus=true;
-        this.successStatus=false;
         this.message=resp.Message;
+        this.customToastrService.GetErrorToastr(this.message, "Reward Skip", 5000)
+
       }
       
     }
