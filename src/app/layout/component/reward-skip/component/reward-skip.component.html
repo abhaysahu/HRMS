@@ -88,7 +88,7 @@
             <!-- <td ><span class="add"><i class="fa fa-file-o" aria-hidden="true"> Add </i> -->
               <td>
                 <div *ngIf="rewardLists.AlreadyAdded; then thenBlocks else elseBlocks"></div>
-                <ng-template #thenBlocks><button [disabled]="true" class="btn btn-success btn-sm">Added</button></ng-template>
+                <ng-template #thenBlocks><button [disabled]="true" class="btn btn-success btn-circle btn-sm" style="border-radius: 25px;">Added</button></ng-template>
                 <ng-template #elseBlocks><button type="button" (click)="AddProduct(rewardLists.Id,rewardLists.Name)" class="btn btn-info btn-sm">Add</button></ng-template>
               </td>
 
