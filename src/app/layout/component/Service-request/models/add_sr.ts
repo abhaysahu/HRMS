@@ -1,9 +1,10 @@
 export interface AddSr {
 
-    function:string;
-    subFunction:string;
-    priority:string;
-    description: string;
+  category:string;
+  subCategory:string;
+  approvalBy:string;
+  priority:string;
+  description:string;
     
   }
   
