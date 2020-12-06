@@ -65,7 +65,7 @@ export class EntityListComponent implements OnInit {
         this.entity = resp.Data
       }
       else
-      {
+      { 
           // this.dangerStatus=true;
           // this.successStatus=false;
           this.message=resp.ErrorMessage;

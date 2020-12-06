@@ -1,5 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
+import { SubCategory } from '../../models/SubCategory';
 
 @Component({
   selector: 'app-subcategorypopup',
@@ -7,7 +8,7 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
   styleUrls: ['./subcategorypopup.component.css']
 })
 export class SubcategorypopupComponent implements OnInit {
-  SubCategory= {} as SubcategorypopupComponent;
+  SubCategory= {} as SubCategory;
 
 
   constructor(
