@@ -1,0 +1,127 @@
+<div class="col">
+  <div class="row my-row">
+    <div class="col my-col">
+      <ul class="breadcrumb" style="background-color: transparent;">
+        <li class="breadcrumb-item ">
+          <span class="icon">
+            <i class="fa fa-clock-o"></i></span>
+          <span class="heading" style="color: black; background-color: transparent;">Manage Attendance</span></li>
+
+      </ul>
+    </div>
+    <div class="col my-col">
+      <div class="a">
+        <ul class="breadcrumb" style="background-color: transparent;">
+          <li class="breadcrumb-item"><a routerLink="/dashboard">
+              <i class="fa fa-home"></i> Home</a></li>
+          <li class="breadcrumb-item"><a routerLink="/dashboard/addattendance">Manage Attendance</a></li>
+          <li class="breadcrumb-item"><a routerLink="/dashboard/myattendance">My Attendance</a></li>
+
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="row my-row">
+    <div class="col my-col1">
+      <!-- Add Attendance Record -->
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header">
+    Manage Attendance
+  </div>
+  <div class="card-body">
+
+    <form class="was-validated">
+
+      <div class="form-row">
+        <div class="form-group col-md-4">
+          <label for="date">Date</label>
+          <div class="form-group">
+        <input type="date" class="form-control" (change)="getUserForAttendanceByDate($event.target.value)" #Date="ngModel"  [ngModel]="ProductForm.Date | date:'yyyy-MM-dd'" (ngModelChange)="ProductForm.Date = $event" name="Date" required>
+          </div>
+        </div>
+      </div><br>
+    </form>
+    <popover-content #myPopover
+                          title="employee id"
+                          placement="bottom-right"
+                          [animation]="true"
+                          [closeOnClickOutside]="true"
+                          [closeOnMouseOutside]="false">
+                          <div>
+                            <p>Employee Email</p>
+                            <p>Employee Phone Number</p>
+
+                          </div>
+     </popover-content>
+
+
+
+      <div *ngIf="showStatus" style="overflow-x: scroll;">
+
+        <!-- <input type="text" class="form-control" [(ngModel)]="email" placeholder="Serach any fields"/> -->
+      <br>
+
+
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th scope="col">Employee Name/Id</th>
+                <th scope="col">Attendance</th>
+                <th scope="col">In Time</th>
+                <th scope="col">Out Time</th>
+                <th scope="col">Action</th>
+                <th scope="col">View</th>
+              </tr>
+            </thead>
+            <tbody *ngIf="Addattendance?.length != 0">
+
+              <tr *ngFor="let addAttendances of Addattendance | addAttendanceSearch:email; let i = index" [ngStyle]="{'background':(getTheColor(addAttendances.Status)).Text}">
+
+                <td><span [popoverOnHover]="true" [popover]="myPopover">{{ addAttendances.Employee.Name }}</span></td>
+
+                <td>
+                  <select class="custom-select" value={{addAttendances.Status}} (change)="Statuschange($event.target.value,i)"  name="Status" id="Status"  id="selectEntity">
+                    <option *ngFor="let dropdownLists of dropdownList" [value]="dropdownLists.Value">{{dropdownLists.Text}}</option>
+                  </select>
+                </td>
+
+
+                <td *ngIf="addAttendances.Status==1 || addAttendances.Status==2 || addAttendances.Status==7">
+                  <input type="time" [value]="addAttendances.InTime" (change)="InTimechange($event.target.value,i)" class="form-control" name="InTime" id="InTime">
+                </td>
+                <td *ngIf="addAttendances.Status==1 || addAttendances.Status==2 || addAttendances.Status==7">
+                  <input type="time" [value]="addAttendances.OutTime"  (change)=" OutTimechange($event.target.value,i)" class="form-control" name="OutTime" id="OutTime">
+                </td>
+
+                <td *ngIf="addAttendances.Status==3 || addAttendances.Status==4 || addAttendances.Status==5 || addAttendances.Status==6">
+                  <input type="time"  readonly [value]="addAttendances.InTime" (change)="InTimechange($event.target.value,i)" class="form-control" name="InTime" id="InTime">
+                </td>
+                <td *ngIf="addAttendances.Status==3 || addAttendances.Status==4 || addAttendances.Status==5 || addAttendances.Status==6">
+                  <input type="time"  readonly [value]="addAttendances.OutTime"  (change)=" OutTimechange($event.target.value,i)" class="form-control" name="OutTime" id="OutTime">
+                </td>
+
+
+                <td *ngIf="addAttendances.Id==null">
+                  <button type="button" (click)="SaveAttendance(addAttendances.Employee.Id,i)" class="btn btn-primary">Save</button>
+                </td>
+
+                <td *ngIf="addAttendances.Id">
+                  <button type="button" (click)="UpdateAttendance(addAttendances.Id,i)" class="btn btn-primary">Update</button>
+                </td>
+
+                <td ><a [routerLink]="['/dashboard/use/attendance/', addAttendances.Employee.Id , addAttendances.Employee.Name]"><i class="fa fa-eye fa-2x" aria-hidden="true"></i> </a> </td>
+
+              </tr>
+            </tbody>
+          </table>
+
+      </div><br>
+      <button type="button"class="btn btn-primary" >Save</button>
+      <button type="button" class="btn btn-primary" style="margin-left: 15px;">Submit</button>
+
+  </div>
+</div>

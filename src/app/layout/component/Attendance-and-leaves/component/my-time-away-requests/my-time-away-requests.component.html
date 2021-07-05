@@ -1,0 +1,249 @@
+<!--<section class="content-header z-depth-1">
+  <div class="header-icon">
+      <i class="fa fa-clock-o"></i>
+  </div>
+  <div class="header-title">
+      <h1>My Time Away Requests</h1>
+      <small>My Time Away Requests Record</small>
+      <ul class="link hidden-xs">
+          <li><a href="index-2.html"><i class="fa fa-home"></i>Home</a></li>
+          <li><a href="datatable.html">My Time Away Requests Record</a></li>
+      </ul>
+  </div>
+</section>
+<br><br>-->
+<div class="col">
+  <div class="row my-row" >
+    <div class="col my-col">
+       <ul class="breadcrumb" style="background-color: transparent;">
+        <li class="breadcrumb-item " >
+            <span class="icon">
+            <i class="fa fa-briefcase"></i></span>
+            <span class="heading" style="color: black; background-color: transparent;"> Time Away Requests</span></li>
+
+      </ul>
+    </div>
+<div class="col my-col">
+  <div class="a">
+      <ul class="breadcrumb" style="background-color: transparent;">
+        <li class="breadcrumb-item"><a routerLink="/dashboard">
+          <i class="fa fa-home"></i> Home</a></li>
+        <li class="breadcrumb-item"><a routerLink="/dashboard/mytimeawayrequests">My Time Away Requests</a></li>
+      </ul>
+  </div>
+</div>
+  </div>
+  <div class="row my-row">
+    <div class="col my-col1">
+    <!-- My Time Away Requests Record -->
+  </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header">
+    My Time Away Requests
+  </div>
+  <div class="card-body">
+    <form #form="ngForm" (submit)="onSubmit(form.value)" class="was-validated">
+      <div class="form-row">
+      <div class="form-group col-md-2">
+        <label for="requestId">Request Id</label>
+
+        <select class="custom-select" #requestId="ngModel" [(ngModel)]="Attendance.requestId" name="requestId" id="requestId" required>
+          <option selected>All</option>
+          <option value="1">A</option>
+          <option value="2">B</option>
+
+          </select>
+          <div class="invalid-feedback" *ngIf="requestId.touched && requestId.invalid">
+            RequestId is required.
+          </div>
+        </div>
+        <div class="form-group col-md-2">
+          <label for="type">Type</label>
+
+          <select class="custom-select" #type="ngModel" [(ngModel)]="Attendance.type" name="type" id="type" required>
+            <option selected>All</option>
+            <option value="1">Working Out Of Office</option>
+            <option value="2">Work From Home</option>
+            <option value="3">Attendance Modification</option>
+            <option value="4">Earning Compensatory</option>
+            <option value="5">Short Leave</option>
+            </select>
+            <div class="invalid-feedback" *ngIf="type.touched && type.invalid">
+              Type is required.
+            </div>
+          </div>
+
+          <div class="form-group col-md-2">
+            <label for="month">Month</label>
+
+            <select class="custom-select" #month="ngModel" [(ngModel)]="Attendance.month" name="month" id="month" required>
+              <option selected>Select</option>
+              <option value="1">Jan</option>
+              <option value="2">Feb</option>
+              <option value="3">March</option>
+              <option value="4">April</option>
+              <option value="5">May</option>
+              <option value="6">June</option>
+              <option value="7">July</option>
+              <option value="8">August</option>
+              <option value="9">September</option>
+              <option value="10">October</option>
+              <option value="11">November</option>
+              <option value="12">December</option>
+
+            </select>
+            <div class="invalid-feedback" *ngIf="month.touched && month.invalid">
+              Month is required.
+            </div>
+            </div>
+
+            <div class="form-group col-md-2">
+              <label for="year">Year</label>
+
+              <select class="custom-select" #year="ngModel" [(ngModel)]="Attendance.year" name="year" id="year" required>
+                <option selected>Select</option>
+                <option value="1">Jan</option>
+                <option value="2">Feb</option>
+                <option value="3">March</option>
+                <option value="4">April</option>
+                <option value="5">May</option>
+                <option value="6">June</option>
+                <option value="7">July</option>
+                <option value="8">August</option>
+                <option value="9">September</option>
+                <option value="10">October</option>
+                <option value="11">November</option>
+                <option value="12">December</option>
+
+              </select>
+              <div class="invalid-feedback" *ngIf="year.touched && year.invalid">
+                Year is required.
+              </div>
+              </div>
+
+              <div class="form-group col-md-2">
+                <label for="approvalStatus">Approval Status</label>
+
+                <select class="custom-select" #approvalStatus="ngModel" [(ngModel)]="Attendance.approvalStatus" name="approvalStatus" id="approvalStatus" required>
+                  <option selected>Pending</option>
+                  <option value="1">Working Out Of Office</option>
+                  <option value="2">Work From Home</option>
+                  <option value="3">Attendance Modification</option>
+                  <option value="4">Earning Compensatory</option>
+                  <option value="5">Short Leave</option>
+                  </select>
+                  <div class="invalid-feedback" *ngIf="approvalStatus.touched && approvalStatus.invalid">
+                    ApprovalStatus is required.
+                  </div>
+                </div>
+
+                <div class="form-group col-md-2">
+                  <label for="hrStatus">Hr Status</label>
+
+                  <select class="custom-select" #hrStatus="ngModel" [(ngModel)]="Attendance.hrStatus" name="hrStatus" id="hrStatus" required>
+                    <option selected>Pending</option>
+                    <option value="1">Working Out Of Office</option>
+                    <option value="2">Work From Home</option>
+                    <option value="3">Attendance Modification</option>
+                    <option value="4">Earning Compensatory</option>
+                    <option value="5">Short Leave</option>
+                    </select>
+                    <div class="invalid-feedback" *ngIf="hrStatus.touched && hrStatus.invalid">
+                      Hr status is required.
+                    </div>
+
+                  </div>
+      </div>
+      <button type="submit" class="btn btn-primary">Filter</button>
+
+    </form><br>
+    <div style="overflow-x: scroll;">
+    <table class="table table-bordered">
+      <thead>
+        <tr class="table-header" >
+          <th scope="col" >S.No.</th>
+          <th scope="col">Request Id</th>
+          <th scope="col">Requested By</th>
+          <th scope="col">Approver</th>
+          <th scope="col">Submit Date</th>
+          <th scope="col">Approved Date</th>
+          <th scope="col">Period</th>
+          <th scope="col">Approver Status</th>
+          <th scope="col">Hr Status</th>
+          <th scope="col">Option</th>
+
+
+
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row"></th>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+
+        </tr>
+        <tr >
+          <th scope="row" ></th>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <th scope="row"></th>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <th scope="row"></th>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+
+        </tr>
+        <tr>
+          <th scope="row"></th>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+    </div>
+    </div>

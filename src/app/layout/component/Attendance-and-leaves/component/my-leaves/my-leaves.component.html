@@ -1,0 +1,110 @@
+
+<div class="col">
+  <div class="row my-row" >
+    <div class="col my-col">
+       <ul class="breadcrumb" style="background-color: transparent;">
+        <li class="breadcrumb-item " >
+            <span class="icon">
+            <i class="fa fa-clock-o"></i></span>
+            <span class="heading" style="color: black; background-color: transparent;">My Leaves</span></li>
+
+      </ul>
+    </div>
+<div class="col my-col">
+  <div class="a">
+      <ul class="breadcrumb" style="background-color: transparent;">
+        <li class="breadcrumb-item"><a routerLink="/dashboard">
+          <i class="fa fa-home"></i> Home</a></li>
+        <li class="breadcrumb-item"><a routerLink="/dashboard/myleaves">My Leaves</a></li>
+      </ul>
+  </div>
+</div>
+  </div>
+  <div class="row my-row">
+    <div class="col my-col1">
+    <!-- My Leaves Record -->
+  </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header">
+    My Leaves
+  </div>
+  <div class="card-body">
+    <form #form="ngForm" (submit)="onSubmit(form.value)" class="was-validated">
+    <div class="form-row">
+    <div class="form-group col-md-2">
+      <label for="year">Year</label>
+
+      <select class="custom-select" #year="ngModel" [(ngModel)]="Leaves.year" name="year" id="year" required>
+        <option selected>2020</option>
+        <option value="1">2008</option>
+        <option value="2">2009</option>
+        <option value="3">2010</option>
+
+
+      </select>
+      <div class="invalid-feedback" *ngIf="year.touched && year.invalid">
+        Year is required.
+      </div>
+      </div>
+      <div class="form-group col-md-3">
+        <label for="dateOfJoining">Date Of Joining</label>
+        <div class="form-group">
+          <input type="date" #dateOfJoining="ngModel" [(ngModel)]="Leaves.dateOfJoining" name="dateOfJoining" id="dateOfJoining" required  max="3000-12-31"
+                min="1000-01-01" class="form-control" required>
+                <div class="invalid-feedback" *ngIf="dateOfJoining.touched && dateOfJoining.invalid">
+                  Date Of Joining is required.
+                </div>
+        </div>
+        </div>
+      </div>
+      </form>
+
+      <table class="table table-bordered" style="width: 50%;">
+        <thead>
+          <tr class="table-header">
+            <th scope="col"></th>
+            <th scope="col">Comp</th>
+            <th scope="col">FL</th>
+            <th scope="col">GL</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">B/F Leaves</th>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <th scope="row">Current Entiltement</th>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <th scope="row">Leaves Availed Till Date</th>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <th scope="row">Applied Leaves</th>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <th scope="row">Current Balance</th>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+      <button type="submit" class="btn btn-primary">Submit</button>
+
+    </div>
+    </div>

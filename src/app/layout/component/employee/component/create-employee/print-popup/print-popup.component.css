@@ -1,0 +1,25 @@
+.header, .header-space,
+.footer, .footer-space { height: 100px; }
+.header { position: fixed; top: 30px; }
+.footer { position: fixed; bottom: 0; }
+
+.content{
+    margin-top: -70px;
+}
+h1{
+  padding-left: 105px;
+}
+li{
+  font-size: 25px;
+}
+
+
+
+
+
+@media print {
+    .btn {
+      display: none !important;
+    }
+  }
+

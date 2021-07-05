@@ -1,0 +1,41 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    
+}
+
+mat-drawer{
+    width: 230px;
+    background: #212529;
+}
+
+mat-drawer-container {
+    height: 100%;
+}
+
+
+mat-drawer-content {
+    padding: 20px;
+}
+
+
+
+@media(max-width: 540px){
+
+    #mat-drawer{
+        transform: translateX(230px);
+    }
+
+
+
+	/* #sidebar{margin-left: -250px;}
+	#sidebar.active{
+		margin-left: 0px;
+	}
+	#sidebarCollapse span{
+		display: none;
+	} */
+
+
+}

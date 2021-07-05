@@ -1,0 +1,215 @@
+<div class="wrapper">
+    <nav  id="sidebar">
+        <!--<div class="sidebar-header">
+            <h3>Bootstrap</h3>
+        </div>-->
+
+
+        <ul class="list-unstyled components">
+            <p></p>
+            <!--<li class="active">
+                <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">HOME</a>
+                <ul class="collapse list-unstyled" id="homeSubmenu">
+                    <li>
+                        <a href="#">home</a>
+                    </li>
+                    <li>
+                        <a href="#">home1</a>
+                    </li>
+                    <li>
+                        <a href="#">home3</a>
+                    </li>
+                </ul>
+            </li>-->
+            <!-- <li>
+                <a routerLink="/dashboard" style="font-size: 16px;"><i class="fa fa-window-maximize" ></i>  Dashboard</a>
+             </li><hr> -->
+             <li>
+              <a href="#page10Submenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" style="font-size: 16px;"><i class="fa fa-window-maximize"></i>  Dashboard</a>
+              <ul class="collapse list-unstyled" id="page10Submenu" data-accordion="false">
+                  <li>
+                      <a routerLink="subdashboard" style="color:rgb(127,131,135);">Sub Dashboard</a>
+                  </li>
+
+              </ul>
+              <hr>
+          </li>
+            <li>
+                <a href="#page2Submenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" style="font-size: 16px;"><i class="fa fa-address-book"></i>  Employee</a>
+                <ul class="collapse list-unstyled" id="page2Submenu" data-accordion="false">
+                    <li>
+                        <a routerLink="/dashboard/employee/details" style="color:rgb(127,131,135);">Emplopyee Details</a>
+                    </li>
+                    <li *ngIf="Admin || HR || Manager">
+                        <a routerLink="/dashboard/employee/list" style="color:rgb(127,131,135);">Emplopyee List</a>
+                    </li>
+                </ul>
+                <hr>
+            </li>
+
+            <li>
+                <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" style="font-size: 16px;"><i class="fa fa-server"></i>  Attendance & Leaves</a>
+                <ul class="collapse list-unstyled" id="pageSubmenu">
+                    <li>
+                        <a routerLink="/dashboard/myattendance" style="color:rgb(127,131,135);">My Attendance</a>
+                    </li>
+                    <li *ngIf="Admin || HR">
+                        <a routerLink="/dashboard/addattendance" style="color:rgb(127,131,135);">Manage Attendance</a>
+                    </li>
+                    <li>
+                        <a routerLink="/dashboard/applytimeaway" style="color:rgb(127,131,135);">Apply Time Away</a>
+                    </li>
+                    <li>
+                        <a routerLink="/dashboard/mytimeawayrequests" style="color:rgb(127,131,135);">My Time Away Requests</a>
+                    </li>
+                    <li>
+                        <a routerLink="/dashboard/myleaves" style="color:rgb(127,131,135);">My Leaves</a>
+                    </li>
+                    <li>
+                      <a routerLink="/dashboard/shift" style="color:rgb(127,131,135);">Shift Timing</a>
+                  </li>
+                </ul>
+                <hr>
+            </li>
+
+            <li>
+                <a href="#page1Submenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" style="font-size: 16px;"><i class="fa fa-calendar"></i>  Timesheet</a>
+                <ul class="collapse list-unstyled" id="page1Submenu">
+                    <li>
+                        <a routerLink="/dashboard/mytimesheet" style="color:rgb(127,131,135);">My TimeSheet</a>
+                    </li>
+                    <li>
+                        <a routerLink="/dashboard/timesheetbank" style="color:rgb(127,131,135);">Timesheet Bank</a>
+                    </li>
+
+
+                </ul>
+                <hr>
+            </li>
+
+            <li>
+                <a href="#page3Submenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" style="font-size: 16px;"><i class="fa fa-check-square"></i>  Service Request</a>
+                <ul class="collapse list-unstyled" id="page3Submenu">
+                    <li>
+                        <a routerLink="/dashboard/myservicerequests" style="color:rgb(127,131,135);">My Service Requests</a>
+                    </li>
+                    <li>
+                        <a routerLink="/dashboard/addsr" style="color:rgb(127,131,135);">Add SR</a>
+                    </li>
+                    <li>
+                      <a routerLink="/dashboard/subcategory" style="color:rgb(127,131,135);">Sub Category</a>
+                  </li>
+
+
+                </ul>
+                <hr>
+            </li>
+
+           <li>
+                <a href="#page4Submenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" style="font-size: 16px;"><i class="fa fa-folder-open"></i>  Expense</a>
+                <ul class="collapse list-unstyled" id="page4Submenu">
+                    <li>
+                        <a routerLink="/dashboard/expenseclaim" style="color:rgb(127,131,135);">Expense Claim</a>
+                    </li>
+                    <li>
+                        <a routerLink="/dashboard/expensebank" style="color:rgb(127,131,135);">Expense Bank</a>
+                    </li>
+
+
+                </ul>
+                <hr>
+            </li>
+
+            <li *ngIf="Admin">
+                <a href="#page5Submenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" style="font-size: 16px;"><i class="fa fa-user-circle"></i>  Admin</a>
+                <ul class="collapse list-unstyled" id="page5Submenu">
+                    <li>
+                        <a routerLink="/dashboard/entity/list" style="color:rgb(127,131,135);">Entity</a>
+                    </li>
+                    <li>
+                        <a routerLink="/dashboard/picklist/list" style="color:rgb(127,131,135);">Pick List</a>
+                    </li>
+                    <li>
+                        <a routerLink="/dashboard/employer/list" style="color:rgb(127,131,135);">Employer</a>
+                    </li>
+                    <li>
+                        <a routerLink="/dashboard/project/list" style="color:rgb(127,131,135);">Project</a>
+                    </li>
+                    <li>
+                        <a routerLink="/dashboard/systemlog/list" style="color:rgb(127,131,135);">System Log</a>
+                    </li>
+
+
+                </ul>
+                <hr style="background-color: white;">
+            </li>
+
+            <li *ngIf="Admin">
+                <a href="#page6Submenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" style="font-size: 16px;"><i class="fa fa-calendar"></i>  Pobara</a>
+                <ul class="collapse list-unstyled" id="page6Submenu">
+                    <li>
+                        <a routerLink="/dashboard/rewardskip" style="color:rgb(127,131,135);">Reward Skip</a>
+                    </li>
+
+                </ul>
+                <hr>
+            </li>
+
+            <li>
+                <a href="#page7Submenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" style="font-size: 16px;"><i class="fa fa-money"></i>  Finance</a>
+                <ul class="collapse list-unstyled" id="page7Submenu">
+                    <li>
+                        <a routerLink="/dashboard/finance/transaction" style="color:rgb(127,131,135);">Transaction</a>
+                    </li>
+                    <li>
+                        <a routerLink="/dashboard/finance/mytransaction" style="color:rgb(127,131,135);">My Transaction</a>
+                    </li>
+                    <li>
+                        <a routerLink="/dashboard/finance/ledger" style="color:rgb(127,131,135);">Ledger</a>
+                    </li>
+                    <li>
+                        <a routerLink="/dashboard/finance/vender/list" style="color:rgb(127,131,135);">Vender</a>
+                    </li>
+                    <li>
+                      <a routerLink="/dashboard/finance/lender" style="color:rgb(127,131,135);">Lender</a>
+                  </li>
+
+                </ul>
+                <hr>
+            </li>
+
+            <li *ngIf="Admin">
+              <a routerLink="/dashboard/report" style="font-size: 16px;"><i class="fa fa-folder-o" ></i>  Report</a>
+              <!-- <ul class="collapse list-unstyled" id="page8Submenu"> -->
+                  <!-- <li>
+                      <a routerLink="/dashboard/report" style="color:rgb(127,131,135);">Report</a>
+                  </li> -->
+
+
+              <!-- </ul> -->
+              <hr>
+          </li>
+
+          <!-- <li>
+            <a href="#page8Submenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" style="font-size: 16px;"><i class="fa fa-money"></i>  Shift Timing</a>
+            <ul class="collapse list-unstyled" id="page8Submenu">
+                <li>
+                    <a routerLink="/dashboard/shifttiming/myshifts" style="color:rgb(127,131,135);">My Shifts</a>
+                </li>
+                <li>
+                    <a routerLink="/dashboard/shifttiming/awaitingmyapproval" style="color:rgb(127,131,135);">Awaiting My Approval</a>
+                </li>
+
+
+            </ul>
+        </li><hr> -->
+
+
+
+
+
+        </ul>
+
+    </nav>
+ </div>
+

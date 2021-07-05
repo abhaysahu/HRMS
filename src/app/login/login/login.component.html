@@ -1,0 +1,49 @@
+<body>
+
+  <!-- <div *ngIf="successStatus" class="alert alert-success" role="alert">
+    {{ message }}
+    <i class="fa fa-times-circle" (click)="closeStatus()"  aria-hidden="true"></i>
+     <a class="btn btn-primary" routerLink="/login">Go To Login Page</a>
+  </div>
+  
+  <div *ngIf="dangerStatus" class="alert alert-danger" role="alert">
+    {{ message }}
+    <i class="fa fa-times-circle" (click)="closeStatus()"  aria-hidden="true"></i>
+     <a class="btn btn-primary" routerLink="/login">Go To Login Page</a>
+  </div> -->
+
+<div class="login">
+  <p id="logo"><img src="../../../assets/images/logo.png" ></p>
+  <h1>Login Here</h1><br>
+  <form #f="ngForm" (ngSubmit)="Login(f.value)">
+    <p>User Name</p>
+    <input type="hidden" value="password"  name="grant_type" #grant_type="ngModel" [(ngModel)]="login.grant_type">
+
+    <input type="text" #userName="ngModel" [(ngModel)]="login.userName" name="userName" id="userName" placeholder="Enter Username" class="form-control" required>
+    <div class="invalid-feedback" *ngIf="userName.touched && userName.invalid">
+      User Name Is Required.
+    </div>
+
+    <p>Password</p>
+    <div class="input-group" id="show_hide_password">
+      <input [type]="isTextFieldType ? 'text' : 'password'"  #password="ngModel" [(ngModel)]="login.password" name="password" id="password" placeholder="Enter password" class="form-control" required>
+      <div class="input-group-addon" *ngIf="!isTextFieldType">
+        <a (click)="togglePasswordFieldType()"><i class="fa fa-eye" aria-hidden="true"></i></a>
+      </div>
+
+      <div class="input-group-addon" *ngIf="isTextFieldType">
+        <a (click)="togglePasswordFieldType()"><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
+      </div>
+    </div>
+
+    <div class="invalid-feedback" *ngIf="password.touched && password.invalid">
+			Password Is Required.
+		</div>
+
+   <input [disabled]="!f.valid" type="submit" value="Login">
+   
+  </form>
+</div>
+</body>
+
+

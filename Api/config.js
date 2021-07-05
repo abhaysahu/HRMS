@@ -15,7 +15,7 @@ let dbConfig={
             host : 'localhost',
             user : 'postgres',
             password : '123abhaysahu321',
-            database : 'restaurant'
+            database : 'hrms'
             }
         
     }

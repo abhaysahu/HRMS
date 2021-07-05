@@ -1,0 +1,490 @@
+<!-- <button (click)="showSuccess()">showSuccess</button><br/> -->
+<!-- <section id="faclities">
+  <div class="title">
+    <h1>Users</h1>
+    <p>a b c d</p>
+  </div>
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card-body">
+        <p class="card-text">some quick</p>
+        <hr>
+        <a href="">More info</a>
+      </div>
+    </div>
+  </div>
+</section> -->
+<div class="conten1">
+  <h2>Current Income Summary</h2><br>
+<!------>
+
+<div class="row">
+  <div class="col-xl-3 col-md-6 mb-4" *ngFor="let item of cards">
+    <div class="card border-left-primary shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">{{item.name}}</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800"><h2>{{ item.cost | currency:'INR':'symbol':'2.0' }}</h2></div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+  </div>
+
+  <!-- <div class="col-xl-3 col-md-6 mb-4">
+    <div class="card border-left-primary shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Total Income</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800"><h2>{{ 28 | currency:'INR':'symbol':'2.0' }}</h2></div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+  </div> -->
+
+  <!-- <div class="col-xl-3 col-md-6 mb-4">
+    <div class="card border-left-primary shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Total Expenditure</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800"><h2>{{ 4000 | currency:'INR':'symbol':'4.0' }}</h2></div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+  </div> -->
+
+
+  <!-- <div class="col-xl-3 col-md-6 mb-4">
+    <div class="card border-left-primary shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">EBIT</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800"><h2>{{ 28 | currency:'INR':'symbol':'2.0' }}</h2></div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+  </div> -->
+
+
+  <!-- <div class="col-xl-3 col-md-6 mb-4">
+    <div class="card border-left-primary shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Interest</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800"><h2>{{ 28 | currency:'INR':'symbol':'2.0' }}</h2></div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+  </div> -->
+
+  <!-- <div class="col-xl-3 col-md-6 mb-4">
+    <div class="card border-left-primary shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Tax</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800"><h2>{{ 28 | currency:'INR':'symbol':'2.0' }}</h2></div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+  </div> -->
+
+<!--
+  <div class="col-xl-3 col-md-6 mb-4">
+    <div class="card border-left-primary shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Net Profit</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800"><h2>{{ 28 | currency:'INR':'symbol':'2.0' }}</h2></div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+  </div> -->
+
+
+
+
+
+
+</div>
+
+<!------>
+
+  <!-- <div class="card-group">
+
+<div class="card " style="width: 10rem;">
+  <div class="card-header">
+    Total Sales
+
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item"><h2>0</h2></li>
+
+
+  </ul>
+</div>
+
+
+<div class="card" style="width: 10rem; margin-left: 20px;">
+  <div class="card-header">
+    Total Expenditure
+
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item"><h2>0</h2></li>
+
+
+  </ul>
+</div>
+
+<div class="card" style="width: 10rem; margin-left: 20px;">
+  <div class="card-header">
+    EBIT
+
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item"><h2>0</h2></li>
+
+
+  </ul>
+</div>
+
+<div class="card" style="width: 10rem; margin-left: 20px;">
+  <div class="card-header">
+    Interest
+
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item"><h2>0</h2></li>
+
+
+  </ul>
+</div>
+
+<div class="card" style="width: 10rem; margin-left: 20px;">
+  <div class="card-header">
+    Tax
+
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item"><h2>0</h2></li>
+
+
+  </ul>
+</div>
+<div class="card" style="width: 10rem; margin-left: 20px;">
+  <div class="card-header">
+    Net Profit
+
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item"><h2>0</h2></li>
+
+
+  </ul>
+</div>
+</div><br><br> -->
+
+<!-- <div class="form-row">
+<div class="form-group col-md-6">
+  <app-graph></app-graph>
+</div>
+<div class="form-group col-md-6">
+  <app-graph></app-graph>
+</div>
+</div> -->
+
+<!-- </div> -->
+
+
+<div class="content2">
+  <h2>Current Balance Summary</h2><br>
+  <div class="subcontent2">
+    <h4>Assets</h4><br>
+    <div class="row">
+      <div class="col-xl-3 col-md-6 mb-4" *ngFor="let item1 of assets" >
+        <div class="card border-left-primary shadow h-100 py-2">
+                    <div class="card-body">
+                      <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                          <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">{{item1.name}}</div>
+                          <div class="h5 mb-0 font-weight-bold text-gray-800"><h2>{{ item1.cost | currency:'INR':'symbol':'2.0' }}</h2></div>
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+      </div>
+
+      <!-- <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-primary shadow h-100 py-2">
+                    <div class="card-body">
+                      <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                          <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Pobara Inventory</div>
+                          <div class="h5 mb-0 font-weight-bold text-gray-800"><h2>{{ 28 | currency:'INR':'symbol':'2.0' }}</h2></div>
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+      </div> -->
+<!--
+      <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-primary shadow h-100 py-2">
+                    <div class="card-body">
+                      <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                          <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Virtual Asset</div>
+                          <div class="h5 mb-0 font-weight-bold text-gray-800"><h2>{{ 28 | currency:'INR':'symbol':'2.0' }}</h2></div>
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+      </div> -->
+
+      <!-- <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-primary shadow h-100 py-2">
+                    <div class="card-body">
+                      <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                          <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Bank Balance</div>
+                          <div class="h5 mb-0 font-weight-bold text-gray-800"><h2>{{ 28 | currency:'INR':'symbol':'2.0' }}</h2></div>
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+      </div> -->
+
+      <!-- <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-primary shadow h-100 py-2">
+                    <div class="card-body">
+                      <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                          <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Cash Balance</div>
+                          <div class="h5 mb-0 font-weight-bold text-gray-800"><h2>{{ 28 | currency:'INR':'symbol':'2.0' }}</h2></div>
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+      </div> -->
+
+      <!-- <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-primary shadow h-100 py-2">
+                    <div class="card-body">
+                      <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                          <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Total Assets</div>
+                          <div class="h5 mb-0 font-weight-bold text-gray-800"><h2>{{ 28 | currency:'INR':'symbol':'2.0' }}</h2></div>
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+      </div> -->
+      </div>
+
+
+    <!-- <div class="card-group">
+      <div class="card " style="width: 10rem;">
+        <div class="card-header">
+          Physical Assets
+
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item"><h2>0</h2></li>
+
+        </ul>
+      </div>
+
+      <div class="card" style="width: 10rem; margin-left: 20px;">
+        <div class="card-header">
+          Pobara Inventory
+
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item"><h2>0</h2></li>
+
+
+        </ul>
+      </div>
+
+      <div class="card" style="width: 10rem; margin-left: 20px;">
+        <div class="card-header">
+          Virtual Asset
+
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item"><h2>0</h2></li>
+
+        </ul>
+      </div>
+
+      <div class="card" style="width: 10rem; margin-left: 20px;">
+        <div class="card-header">
+          Bank Balance
+
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item"><h2>0</h2></li>
+
+
+        </ul>
+      </div>
+
+      <div class="card" style="width: 10rem; margin-left: 20px;">
+        <div class="card-header">
+          Cash Balance
+
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item"><h2>0</h2></li>
+
+
+        </ul>
+      </div>
+      <div class="card" style="width: 10rem; margin-left: 20px;">
+        <div class="card-header">
+          Total Assets
+
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item"><h2>0</h2></li>
+
+
+        </ul>
+      </div>
+      </div> -->
+
+  </div><br>
+  <!-- <div class="form-row">
+    <div class="form-group col-md-6">
+      <app-graph></app-graph>
+    </div>
+    <div class="form-group col-md-6">
+      <app-graph></app-graph>
+    </div>
+    </div> -->
+</div>
+
+  <div class="subcontent3">
+    <h4>Liabilities</h4><br>
+    <div class="row">
+      <div class="col-xl-3 col-md-6 mb-4" *ngFor="let item2 of liab">
+        <div class="card border-left-primary shadow h-100 py-2">
+                    <div class="card-body">
+                      <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                          <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">{{item2.name}}</div>
+                          <div class="h5 mb-0 font-weight-bold text-gray-800"><h2>{{ item2.cost | currency:'INR':'symbol':'2.0' }}</h2></div>
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+      </div>
+
+      <!-- <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-primary shadow h-100 py-2">
+                    <div class="card-body">
+                      <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                          <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Creditor</div>
+                          <div class="h5 mb-0 font-weight-bold text-gray-800"><h2>{{ 28 | currency:'INR':'symbol':'2.0' }}</h2></div>
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+      </div> -->
+
+      <!-- <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-primary shadow h-100 py-2">
+                    <div class="card-body">
+                      <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                          <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Toal Liabilities</div>
+                          <div class="h5 mb-0 font-weight-bold text-gray-800"><h2>{{ 28 | currency:'INR':'symbol':'2.0' }}</h2></div>
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+      </div> -->
+      </div>
+
+
+    <!-- <div class="card-group">
+      <div class="card " style="width: 10rem;">
+        <div class="card-header">
+          Loan
+
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item"><h2>0</h2></li>
+
+
+        </ul>
+      </div>
+
+      <div class="card" style="width: 10rem; margin-left: 20px;">
+        <div class="card-header">
+          Creditor
+
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item"><h2>0</h2></li>
+
+
+        </ul>
+      </div>
+
+      <div class="card" style="width: 10rem; margin-left: 20px;">
+        <div class="card-header">
+          Total Liabilities
+
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item"><h2>0</h2></li>
+
+
+        </ul>
+      </div>
+
+      </div><br> -->
+
+
+  <!-- <div class="form-row">
+    <div class="form-group col-md-6">
+      <app-graph></app-graph>
+    </div>
+    <div class="form-group col-md-6">
+      <app-graph></app-graph>
+    </div>
+    </div> -->
+
+</div>
+<!----->
+

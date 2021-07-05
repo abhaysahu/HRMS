@@ -1,0 +1,32 @@
+.box{
+    width: 130%;
+    padding: 10%;
+    margin-top: 15%;
+    background-color: #fff;
+    position: absolute;
+    right: -65%;
+}
+
+
+
+.fa{
+    font-size: 80px;
+    color: #FFB310;;
+}
+
+p{
+    color: #8C837F;
+}
+
+.form-control{
+    height: 40px;
+    line-height: 2;
+    border-radius: 0;
+    font-size: 15px;
+    box-shadow: 0 10px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+
+}
+
+h2{
+    font-weight: bold;
+}

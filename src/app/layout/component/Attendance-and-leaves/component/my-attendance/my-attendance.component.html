@@ -1,0 +1,168 @@
+<div class="col">
+  <div class="row my-row" >
+    <div class="col my-col">
+       <ul class="breadcrumb" style="background-color: transparent;">
+        <li class="breadcrumb-item " >
+            <span class="icon">
+            <i class="fa fa-briefcase"></i></span>
+            <span class="heading" style="color: black; background-color: transparent;">My Attendance</span></li>
+
+      </ul>
+    </div>
+<div class="col my-col">
+  <div class="a">
+      <ul class="breadcrumb" style="background-color: transparent;">
+        <li class="breadcrumb-item"><a routerLink="/dashboard">
+          <i class="fa fa-home"></i> Home</a></li>
+        <li class="breadcrumb-item"><a routerLink="/dashboard/myattendance">My Attendance</a></li>
+
+      </ul>
+  </div>
+</div>
+  </div>
+  <div class="row my-row">
+    <div class="col my-col1">
+    <!-- My Attendance Record -->
+  </div>
+  </div>
+</div>
+
+<ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+  <li class="nav-item">
+    <a class="nav-link active" id="myAttendance-tab" data-toggle="pill" href="#myAttendance" role="tab" aria-controls="myattendance"  aria-selected="true">My Attendance</a>
+  </li>
+  <li *ngIf="Admin || HR" class="nav-item">
+    <a class="nav-link" id="AwaitingMyApproval-tab" data-toggle="pill" href="#AwaitingMyApproval" role="tab" aria-controls="AwaitingMyApproval" (click)="DataOfAwaitingMyApproval()"  aria-selected="false">Awaiting My Approval</a>
+  </li>
+</ul>
+
+<div class="tab-content" id="pills-tabContent">
+  <div class="tab-pane fade show active" id="myAttendance" role="tabpanel" aria-labelledby="myAttendance-tab">
+
+
+<div class="card">
+  <div class="card-header">
+    <!-- My Attendance -->
+    {{Name}} Attendance
+  </div>
+  <div class="card-body">
+    <form #f="ngForm" (ngSubmit)="GetAttendance(f.value)" class="was-validated">
+      <div class="form-row">
+
+
+        <div class="form-group col-md-4">
+          <label for="year">Year</label>
+
+
+          <select class="custom-select" #year="ngModel" [(ngModel)]="SearchAttendance.year"(change)="getListOfMonth($event.target.value)" name="year" id="year" >
+            <option *ngFor="let dropdownLists of dropDownListOfYear" [value]="dropdownLists.Value">{{dropdownLists.Text}}</option>
+          </select>
+            <div class="invalid-feedback" *ngIf="year.touched && year.invalid">
+              Year is required.
+            </div>
+          </div>
+
+        <div class="form-group col-md-4">
+          <label for="month">Month</label>
+
+          <select class="custom-select" #month="ngModel" [(ngModel)]="SearchAttendance.month" name="month" id="month">
+            <option *ngFor="let dropdownLists of dropDownListOfMonth" [value]="dropdownLists.Value">{{dropdownLists.Text}}</option>
+          </select>
+            <div class="invalid-feedback" *ngIf="month.touched && month.invalid">
+              Month is required.
+            </div>
+          </div>
+
+
+            <div class="form-group col-md-2">
+              <button type="submit" [disabled]="!f.valid" class="btn btn-primary" style="margin-top: 30px;">Save</button>
+
+            </div>
+        </div>
+      </form>
+
+
+
+      <div style="overflow-x: scroll;" *ngIf="showTable">
+    <table class="table table-striped table-bordered">
+      <thead>
+        <tr style="cursor: pointer;">
+          <th scope="col" (click)="sortFilter(2)">Date  <i class={{sortIcon2}} aria-hidden="true"></i> </th>
+          <th scope="col" (click)="sortFilter(3)">Shift  <i class={{sortIcon3}} aria-hidden="true"></i> </th>
+          <th scope="col" (click)="sortFilter(4)">In Time <i class={{sortIcon4}} aria-hidden="true"></i> </th>
+          <th scope="col" (click)="sortFilter(5)">Out Time <i class={{sortIcon5}} aria-hidden="true"></i> </th>
+          <th scope="col" (click)="sortFilter(6)">Working H<i class={{sortIcon6}} aria-hidden="true"></i> </th>
+          <th scope="col" (click)="sortFilter(7)">Status <i class={{sortIcon7}} aria-hidden="true"></i> </th>
+          <th scope="col" (click)="sortFilter(8)">Options <i class={{sortIcon8}} aria-hidden="true"></i> </th>
+
+        </tr>
+      </thead>
+      <tbody *ngIf="Attendance?.length!= 0">
+        <tr *ngFor="let Attendances of Attendance let i = index">
+          <td>{{ Attendances.Date }}</td>
+          <td>{{ Attendances.ShiftTimeing}}</td>
+          <td>{{ Attendances.InTime }}</td>
+          <td>{{ Attendances.OutTime }}</td>
+          <td>{{ Attendances.WorkingHours }}</td>
+          <td>{{ Attendances.Status.Text }}</td>
+          <td (click)="EditPopup()" style="cursor: pointer;">Edit</td>
+        </tr>
+      </tbody>
+      <tbody *ngIf="length==0">
+        <tr>
+          <td colspan="8" class="no-data-available">No matching records found</td>
+        </tr>
+      <tbody>
+
+
+    </table>
+    </div><br>
+
+  </div>
+</div>
+</div>
+
+<div class="tab-pane fade" id="AwaitingMyApproval" role="tabpanel" aria-labelledby="AwaitingMyApproval-tab">
+  <div class="card">
+    <div class="card-header">
+      Awaiting My Approval
+
+    </div>
+
+    <div class="card-body" style="overflow-x: scroll;">
+
+      <table class="table table-bordered">
+        <thead>
+          <tr style="cursor: pointer;">
+            <th scope="col">Employee</th>
+            <th scope="col">Date</th>
+            <th scope="col">In Time</th>
+            <th scope="col">Out Time</th>
+            <th scope="col">Status</th>
+            <th scope="col">Approving Manager</th>
+            <th scope="col">Approving HR</th>
+
+
+          </tr>
+         </thead>
+         <tbody>
+           <tr>
+             <td></td>
+             <td></td>
+             <td></td>
+             <td></td>
+             <td></td>
+             <td></td>
+             <td></td>
+
+           </tr>
+         </tbody>
+
+      </table>
+
+    </div>
+    </div>
+
+
+
+

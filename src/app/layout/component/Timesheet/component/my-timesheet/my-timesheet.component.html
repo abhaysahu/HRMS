@@ -1,0 +1,222 @@
+<div class="col">
+  <div class="row my-row" >
+    <div class="col my-col">
+       <ul class="breadcrumb" style="background-color: transparent;">
+        <li class="breadcrumb-item " >
+            <span class="icon">
+            <i class="fa fa-clock-o"></i></span>
+            <span class="heading" style="color: black; background-color: transparent;">My Timesheet</span></li>
+
+      </ul>
+    </div>
+<div class="col my-col">
+  <div class="a">
+      <ul class="breadcrumb" style="background-color: transparent;">
+        <li class="breadcrumb-item"><a routerLink="/dashboard">
+          <i class="fa fa-home"></i> Home</a></li>
+        <li class="breadcrumb-item" ><a routerLink="/dashboard/mytimesheet">My Timesheet</a></li>
+      </ul>
+  </div>
+</div>
+  </div>
+  <div class="row my-row">
+    <div class="col my-col1">
+    <!-- My Timesheet Record -->
+  </div>
+  </div>
+</div>
+
+
+
+<div class="card">
+  <div class="card-header">
+    Timesheet Entry
+
+  </div>
+  <form #form="ngForm" (submit)="onSubmit(form.value)">
+  <div class="card-body">
+    <div class="form-row">
+        <div class="form-group col-md-3">
+          <label for="Period"><strong>Period:-</strong></label>
+          <div class="form-group col-md-12" style="width: 400px;">
+
+            <select class="custom-select" id="type">
+              <option selected>04 May 2020 - 10 May 2020</option>
+              <option value="1">27 Apr 2020 - 03 May 2020</option>
+              <option value="2">11 May 2020 - 17 May 2020</option>
+              <option value="3">10 Feb 2020 - 16 Feb 2020</option>
+              </select>
+            </div><br>
+
+
+
+          </div>
+
+
+            <div class="form-group col-md-2">
+              <br><br>Working Hours:0.00
+
+            </div>
+            <div class="form-group col-md-2"><br><br>
+              Leave Hours:0.00
+
+            </div>
+
+            <div class="form-group col-md-2">
+              Status: New<br><br>
+              Holiday Hours: 16.00
+
+            </div>
+        </div>
+        <button type="button" class="btn btn-primary">Cancel</button>
+        <button type="submit" class="btn btn-primary" style="margin-left: 10px;">Save</button>
+        <button type="button" class="btn btn-primary" style="margin-left: 10px;">Submit</button>
+        <br><br>
+
+
+
+        <!----code for table-->
+        <div class="card-header">
+          Project/Activity
+          </div>
+          <div style="overflow-x:auto;">
+
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">
+                <div class="form-row">
+                  <i class="material-icons">&#xE872;</i><i class="fa fa-plus-circle" ></i>
+
+                <div class="form-group col-md-10" style="width: 400px;">
+
+                  <select class="custom-select" id="type">
+                    <option selected>Careworks- CRM Implementation-BYT</option>
+                    <option value="1">Working Out Of Office</option>
+                    <option value="2">Work From Home</option>
+                    <option value="3">Attendance Modification</option>
+                    <option value="4">Earning Compensatory</option>
+                    <option value="5">Short Leave</option>
+                    </select>
+                  </div><br>
+
+
+                  </div>
+              </th>
+
+
+              <th scope="col">{{dateResult[0].Week}}<br><u>{{dateResult[0].Date}} {{dateResult[0].Month}}</u></th>
+              <th scope="col">{{dateResult[1].Week}}<br><u>{{dateResult[1].Date}} {{dateResult[1].Month}}</u></th>
+              <th scope="col">{{dateResult[2].Week}}<br><u>{{dateResult[2].Date}} {{dateResult[2].Month}}</u></th>
+              <th scope="col">{{dateResult[3].Week}}<br><u>{{dateResult[3].Date}} {{dateResult[3].Month}}</u></th>
+              <th scope="col">{{dateResult[4].Week}}<br><u>{{dateResult[4].Date}} {{dateResult[4].Month}}</u></th>
+              <th scope="col">{{dateResult[5].Week}}<br><u>{{dateResult[5].Date}} {{dateResult[5].Month}}</u></th>
+              <th scope="col">{{dateResult[6].Week}}<br><u>{{dateResult[6].Date}} {{dateResult[6].Month}}</u></th>
+              <th scope="col">Total<br><span style="color: white">a</span></th>
+            </tr>
+
+
+          </thead>
+
+          <tbody *ngFor="let timesheet of Timesheet; let i = index">
+            <tr>
+              <!---first row starts from here-->
+              <td >{{timesheet.projectid}}</td>
+
+              <td>
+                <div class="input-group" style="width: 120px;">
+                  <!-- <input #timeOneOfOne="ngModel" [(ngModel)]="timesheet.monefforts" name="timeOneOfOne" id="timeOneOfOne" type="number" class="form-control" readonly> -->
+                  <p class="form-control">{{timesheet.monefforts}}</p>
+                  <span class="input-group-text" type="submit" (click)="AddOrEditOrderItem(1,timesheet.monefforts,i,timesheet.mondesc)">
+                      <i class="fa fa-file-excel-o"></i>
+                    </span>
+                </div>
+              </td>
+
+              <td>
+                <div class="input-group" style="width: 120px;">
+                  <!-- <input #timeOneOfTwo="ngModel" [(ngModel)]="Timesheet.timeOneOfTwo" name="timeOneOfTwo" id="timeOneOfTwo" type="number" class="form-control" placeholder="0.0" step="0.01" min="0" max="10" >                  -->
+                  <p class="form-control">{{timesheet.tusefforts}}</p>
+                  <span class="input-group-text" type="submit" (click)="AddOrEditOrderItem(2,timesheet.tusefforts,i,timesheet.tusdesc)">
+                    <i class="fa fa-file-excel-o"></i>
+                  </span>
+                </div>
+              </td>
+
+              <td>
+                <div class="input-group" style="width: 120px;">
+                  <!-- <input type="number" #timeOneOfThree="ngModel" [(ngModel)]="Timesheet.timeOneOfThree" name="timeOneOfThree" id="timeOneOfThree" class="form-control" placeholder="0.0" step="0.01" min="0" max="10" >    -->
+                  <p class="form-control">{{timesheet.wedefforts}}</p>
+                  <span class="input-group-text" type="submit" (click)="AddOrEditOrderItem(3,timesheet.wedefforts,i,timesheet.weddesc)">
+                    <i class="fa fa-file-excel-o"></i>
+                  </span>
+                </div>
+              </td>
+
+              <td>
+                <div class="input-group" style="width: 120px;">
+                  <!-- <input type="number" #timeOneOfFour="ngModel" [(ngModel)]="Timesheet.timeOneOfFour" name="timeOneOffour" id="timeOneOfFour" class="form-control" placeholder="0.0" step="0.01" min="0" max="10" > -->
+                  <p class="form-control">{{timesheet.thuefforts}}</p>
+                  <span class="input-group-text" type="submit" (click)="AddOrEditOrderItem(4,timesheet.thuefforts,i,timesheet.thudesc)">
+                    <i class="fa fa-file-excel-o"></i>
+                  </span>
+                </div>
+              </td>
+
+              <td>
+                <div class="input-group" style="width: 120px;">
+                  <!-- <input type="number" #timeOneOfFive="ngModel" [(ngModel)]="Timesheet.timeOneOfFive" name="timeOneOfFive" id="timeOneOfFive" class="form-control" placeholder="0.0" step="0.01" min="0" max="10" >                 -->
+                  <p class="form-control">{{timesheet.friefforts}}</p>
+                  <span class="input-group-text" type="submit" (click)="AddOrEditOrderItem(5,timesheet.friefforts,i,timesheet.fridesc)">
+                    <i class="fa fa-file-excel-o"></i>
+                  </span>
+                </div>
+              </td>
+
+              <td>
+                <div class="input-group" style="width: 120px;">
+                  <!-- <input type="number" #timeOneOfSix="ngModel" [(ngModel)]="Timesheet.timeOneOfSix" name="timeOneOfSix" id="timeOneOfSix" class="form-control" placeholder="0.0" step="0.01" min="0" max="10" >               -->
+                  <p class="form-control">{{timesheet.satefforts}}</p>
+                  <span class="input-group-text" type="submit" (click)="AddOrEditOrderItem(6,timesheet.satefforts,i,timesheet.satdesc)">
+                    <i class="fa fa-file-excel-o"></i>
+                  </span>
+                </div>
+              </td>
+
+              <td>
+                <div class="input-group" style="width: 120px;">
+                  <!-- <input type="number" #timeOneOfSeven="ngModel" [(ngModel)]="Timesheet.timeOneOfSeven" name="timeOneOfSeven" id="timeOneOfSeven" class="form-control" placeholder="0.0" step="0.01" min="0" max="10" > -->
+                  <p class="form-control">{{timesheet.sunefforts}}</p>
+                  <span class="input-group-text" type="submit" (click)="AddOrEditOrderItem(7,timesheet.sunefforts,i,timesheet.sundesc)">
+                    <i class="fa fa-file-excel-o"></i>
+                  </span>
+                </div>
+              </td>
+
+              <td>
+                <div class="input-group" style="width: 120px;">
+                  <!-- <input type="number" #Total="ngModel" [(ngModel)]="Timesheet.Total" name="Total" id="Total" class="form-control" placeholder="0.0" step="0.01" min="0" max="10" > -->
+                  <!-- <p class="form-control">{{timesheet.monefforts}}+{{timesheet.monefforts}}</p> -->
+                  <span class="input-group-text" type="submit" (click)="AddOrEditOrderItem(2,0)">
+                    <i class="fa fa-file-excel-o"></i>
+                  </span>
+                </div>
+              </td>
+
+            </tr>
+
+
+          </tbody>
+          <tr>
+            <td>
+              <button type="button" class="btn btn-dark" (click)="AddProject()" >Add Project</button>
+            </td>
+          </tr>
+        </table>
+        </div>
+    </div>
+  </form>
+</div>
+
+
+

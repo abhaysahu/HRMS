@@ -1,0 +1,138 @@
+<div class="col">
+  <div class="row my-row" >
+    <div class="col my-col">
+       <ul class="breadcrumb" style="background-color: transparent;">
+        <li class="breadcrumb-item " >
+            <span class="icon">
+            <i class="fa fa-circle-o-notch"></i></span>
+            <span class="heading" style="color: black; background-color: transparent;"> Sub Category</span></li>
+
+      </ul>
+    </div>
+<div class="col my-col">
+  <div class="a">
+      <ul class="breadcrumb" style="background-color: transparent;">
+        <li class="breadcrumb-item"><a routerLink="/dashboard">
+          <i class="fa fa-home"></i> Home</a></li>
+        <li class="breadcrumb-item"><a routerLink="/dashboard/subcategory"> Sub Category</a></li>
+        <!-- <li class="breadcrumb-item"><a routerLink="/dashboard/shifttiming/requestnewshifttiming"> Request New Shift Timing</a></li> -->
+
+
+      </ul>
+  </div>
+</div>
+  </div>
+  <div class="row my-row">
+    <div class="col my-col1">
+     <!-- Report Record -->
+  </div>
+  </div>
+</div>
+
+
+<ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+  <li class="nav-item">
+    <a class="nav-link active" id="subCategory-tab" data-toggle="pill" href="#subCategory" role="tab" aria-controls="subCategory" aria-selected="true">Sub Category</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="AwaitingsubCategory-tab" data-toggle="pill" href="#AwaitingsubCategory" role="tab" aria-controls="AwaitingsubCategory"  aria-selected="false">Awaiting Sub Category</a>
+  </li>
+</ul>
+
+
+<div class="tab-content" id="pills-tabContent">
+  <div class="tab-pane fade show active" id="subCategory" role="tabpanel" aria-labelledby="subCategory-tab">
+
+    <div class="card">
+      <div class="card-header">
+        Sub Category
+        <span (click)="SubCategoryPopup()" style="float: right; cursor: pointer;"><i class="fa fa-plus-circle" ></i>  Request New Sub Category</span>
+
+
+      </div>
+      <div class="card-body" style="overflow-x: scroll;">
+        <!-- <input type="text" class="form-control" [(ngModel)]="email" placeholder="Serach any fields"/> -->
+        <!-- <div class="form-group col-md-4">
+
+          <select class="custom-select" [value]="pendingValue"(change)="getListOfShift($event.target.value)">
+            <option *ngFor="let dropdownLists of dropDownListOfShiftStatus" [value]="dropdownLists.Value">{{dropdownLists.Text}}</option>
+          </select>
+
+        </div> -->
+
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th scope="col">Category Id</th>
+              <th scope="col">Name</th>
+              <th scope="col">Approval Required</th>
+
+
+
+            </tr>
+           </thead>
+           <tbody>
+             <tr>
+               <td></td>
+               <td></td>
+               <td></td>
+
+             </tr>
+           </tbody>
+
+        </table>
+
+      </div>
+      </div>
+
+
+  </div>
+
+
+  <div class="tab-pane fade" id="AwaitingsubCategory" role="tabpanel" aria-labelledby="AwaitingsubCategory-tab">
+
+
+    <div class="card">
+      <div class="card-header">
+        Awaiting Sub Category
+
+      </div>
+      <div class="card-body" style="overflow-x: scroll;">
+<!--
+        <div class="form-group col-md-4">
+          <select class="custom-select" [value]="pendingValue"(change)="getTheDataOfMyApproval($event.target.value)">
+            <option *ngFor="let dropdownLists of dropDownListOfShiftStatus" [value]="dropdownLists.Value">{{dropdownLists.Text}}</option>
+          </select>
+        </div> -->
+
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th scope="col">Category Id</th>
+              <th scope="col">Name</th>
+              <th scope="col">Approval Required</th>
+
+
+
+            </tr>
+           </thead>
+           <tbody>
+             <tr>
+               <td></td>
+               <td></td>
+               <td></td>
+
+             </tr>
+           </tbody>
+
+
+
+        </table>
+
+      </div>
+      </div>
+
+
+  </div>
+</div>
+

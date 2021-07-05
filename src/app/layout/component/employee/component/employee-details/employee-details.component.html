@@ -1,0 +1,771 @@
+<div *ngIf="successStatus" class="alert alert-success" role="alert">
+  {{ message }}
+  <i class="fa fa-times-circle" (click)="closeStatus()"  aria-hidden="true"></i>
+   <!-- <a class="btn btn-primary" routerLink="/login">Go To Login Page</a> -->
+</div>
+
+<div *ngIf="dangerStatus" class="alert alert-danger" role="alert">
+  {{ message }}
+  <i class="fa fa-times-circle" (click)="closeStatus()"  aria-hidden="true"></i>
+   <!-- <a class="btn btn-primary" routerLink="/login">Go To Login Page</a> -->
+</div>
+
+
+<div class="col">
+  <div class="row my-row" >
+    <div class="col my-col">
+       <ul class="breadcrumb" style="background-color: transparent;">
+        <li class="breadcrumb-item " >
+            <span class="icon">
+            <i class="fa fa-clock-o"></i></span>
+            <span class="heading" style="color: black; background-color: transparent;">Employee Details</span></li>
+      </ul>
+    </div>
+<div class="col my-col">
+  <div class="a">
+      <ul class="breadcrumb" style="background-color: transparent; margin-left: 45px;" >
+        <li class="breadcrumb-item"><a routerLink="/dashboard">
+          <i class="fa fa-home"></i> Home</a></li>
+        <li class="breadcrumb-item"><a routerLink="/dashboard/employee/details">Employee Details</a></li>
+
+
+      </ul>
+  </div>
+</div>
+  </div>
+  <div class="row my-row">
+    <div class="col my-col1">
+    <!-- Employee Full Details  -->
+  </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header">Details
+    <span (click)="ResetPopup()" style="float: right; cursor: pointer;">Reset Password</span>
+  </div>
+  <!-- *ngIf="Status" -->
+  <div class="card-body">
+    <div class="accordion" id="accordionExample">
+
+      <div class="card">
+        <div class="card-header" id="headingOne">
+          <h2 class="mb-0">
+            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne"
+              aria-expanded="true" aria-controls="collapseOne">
+              Basic information
+            </button>
+          </h2>
+        </div>
+        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+          <div class="card-body">
+            <form #f="ngForm">
+              <div class="form-row">
+                <div class="form-group col-md-4">
+                  <label for="FullName">Full Name</label>
+                  <input #FullName="ngModel" [(ngModel)]="Employee.FullName" name="FullName" id="FullName" type="text"
+                    class="form-control" readonly>
+                </div>
+
+                <div class="form-group col-md-4">
+                  <label for="LoginId">LoginId</label>
+                  <input #LoginId="ngModel" [(ngModel)]="Employee.LoginId" name="LoginId" id="LoginId" type="text"
+                    class="form-control" readonly>
+                </div>
+
+                <div class="form-group col-md-4">
+                  <label for="EmpCode">Emp Code</label>
+                  <input #EmpCode="ngModel" [(ngModel)]="Employee.EmpCode" name="EmpCode" id="EmpCode" type="text"
+                    class="form-control" readonly>
+                </div>
+
+
+                <div class="form-group col-md-4">
+                  <label for="DateOfJoining">Date Of Joining</label>
+                  <div class="form-group">
+                    <input type="text" max="3000-12-31" #DateOfJoining="ngModel" [(ngModel)]="Employee.DateOfJoining"
+                      name="DateOfJoining" id="DateOfJoining" min="1000-01-01" class="form-control" readonly>
+                  </div>
+                </div>
+
+                <div class="form-group col-md-4">
+                  <label for="DateOfConfirmation">Date Of Confirmation</label>
+                  <div class="form-group">
+                    <input type="text" max="3000-12-31" #DateOfConfirmation="ngModel"
+                      [(ngModel)]="Employee.DateOfConfirmation" name="DateOfConfirmation" id="DateOfConfirmation"
+                      min="1000-01-01" class="form-control" readonly>
+                  </div>
+                </div>
+
+
+                <div class="form-group col-md-4">
+                  <label for="Department">Department</label>
+                  <input type="text" class="form-control" #Department="ngModel" [(ngModel)]="Employee.Department"
+                    name="Department" id="Department" readonly>
+                </div>
+
+
+
+                <div class="form-group col-md-4">
+                  <label for="Designation">Designation</label>
+                  <input type="text" class="form-control" #Designation="ngModel" [(ngModel)]="Employee.Designation"
+                    name="Designation" id="Designation" readonly>
+
+                </div>
+
+                <div class="form-group col-md-4">
+                  <label for="Grade">Grade</label>
+                  <input type="text" #Grade="ngModel" [(ngModel)]="Employee.Grade" name="Grade" id="Grade"
+                    class="form-control" readonly>
+                </div>
+
+                <div class="form-group col-md-4">
+                  <label for="PersonalEmail">Personal Email</label>
+                  <input type="text" class="form-control" #PersonalEmail="ngModel" [(ngModel)]="Employee.PersonalEmail"
+                    name="PersonalEmail" id="PersonalEmail" readonly>
+                </div>
+
+                <div class="form-group col-md-4">
+                  <label for="OfficialEmail">Official Email</label>
+                  <input type="text" class="form-control" #OfficialEmail="ngModel" [(ngModel)]="Employee.OfficialEmail"
+                    name="OfficialEmail" id="OfficialEmail" readonly>
+                </div>
+
+                <div class="form-group col-md-4">
+                  <label for="HighestQualification">High Qualification</label>
+                  <input type="text" class="form-control" #HighestQualification="ngModel"
+                    [(ngModel)]="Employee.HighestQualification" name="HighestQualification" id="HighestQualification"
+                    readonly>
+                </div>
+
+                <div class="form-group col-md-4">
+                  <label for="PriorExperience">Total Experience(yrs)</label><br>
+                  <input type="number" id="PriorExperience" class="form-control" #PriorExperience="ngModel"
+                    [(ngModel)]="Employee.PriorExperience" name="PriorExperience" id="PriorExperience" min="1" max="20"
+                    readonly>
+                </div>
+
+                <!-- <div class="form-group col-md-4">
+                  <label for="experienceIn">Experience in Pobara</label>
+                  <input type="text" class="form-control" #experienceIn="ngModel" [(ngModel)]="Employee.experienceIn" name="experienceIn" id="experienceIn" readonly>
+                </div> -->
+
+                <div class="form-group col-md-4">
+                  <label for="MaritalStatus">Marital Status</label>
+                  <input type="text" class="form-control" #MaritalStatus="ngModel"
+                    [(ngModel)]="Employee.MaritalStatus" name="MaritalStatus" id="MaritalStatus" readonly>
+                </div>
+
+                <div class="form-group col-md-4">
+                  <label for="Gender">Gender</label>
+                  <input type="text" class="form-control" #Gender="ngModel" [(ngModel)]="Employee.Gender"
+                    name="Gender" id="Gender" readonly>
+                </div>
+
+                <div class="form-group col-md-4">
+                  <label for="Status">Status</label>
+                  <input type="text" class="form-control" #Status="ngModel" [(ngModel)]="Employee.Status"
+                    name="Status" id="Status" readonly>
+                </div>
+
+              </div>
+              <!-- <button type="submit" class="btn btn-primary">Save</button> -->
+            </form>
+
+          </div>
+        </div>
+      </div>
+
+
+      <!-- <div class="card">
+        <div class="card-header" id="headingTwo">
+          <h2 class="mb-0">
+            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+              KYC Details
+            </button>
+          </h2>
+        </div>
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+          <div class="card-body">
+              <form #f="ngForm" (ngSubmit)="Current(f.value)" class="was-validated">
+              <div class="form-row">
+                <div class="form-group col-md-3">
+                  <label for="aadharCardNumber">Aadhar Card Number</label><br>
+                  <input type="text" class="form-control" #aadharCardNumber="ngModel" [(ngModel)]="Employee.aadharCardNumber" id="aadharCardNumber" name="aadharCardNumber" min="0000000000" max="999999999999999" readonly>
+                </div>
+
+                <div class="form-group col-md-3">
+                  <label for="panCard">PAN #</label><br>
+                  <input type="text" class="form-control" #panCard="ngModel" [(ngModel)]="Employee.panCard" id="panCard" name="panCard" min="0000000000" max="999999999999999" readonly>
+                </div>
+
+                <div class="form-group col-md-3">
+                  <label for="uanCard">UAN #</label><br>
+                  <input type="text"  class="form-control" #uanCard="ngModel" [(ngModel)]="Employee.uanCard" id="uanCard" name="uanCard" min="0000000000" max="999999999999999" readonly>
+                </div>
+
+                <div class="form-group col-md-3">
+                  <label for="pfCard">PF #</label><br>
+                  <input type="text" class="form-control" #pfCard="ngModel" [(ngModel)]="Employee.pfCard" id="pfCard" name="pfCard" min="0000000000" max="999999999999999" readonly>
+                </div>
+
+              </div>
+              <button type="submit" class="btn btn-primary">Save</button>
+            </form>
+
+          </div>
+        </div>
+      </div> -->
+
+
+
+      <div class="card">
+        <div class="card-header" id="headingThree">
+          <h2 class="mb-0">
+            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree"
+              aria-expanded="false" aria-controls="collapseThree">
+              Current Contact Details
+            </button>
+          </h2>
+        </div>
+        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+          <div class="card-body">
+
+            <form #current="ngForm" (ngSubmit)="Current(current.value)" class="was-validated">
+
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="FullName">Contact Name</label>
+                  <input type="text" class="form-control" #FullName="ngModel" [(ngModel)]="currentAddress.FullName"
+                    name="FullName" id="FullName" required>
+                  <div class="invalid-feedback" *ngIf="FullName.touched && FullName.invalid">
+                    Name Is Required.
+                  </div>
+                </div>
+
+                <div class="form-group col-md-6">
+                  <label for="PhoneNumber">Contact Number</label>
+                  <input type="text" class="form-control" #PhoneNumber="ngModel"
+                    [(ngModel)]="currentAddress.PhoneNumber" name="PhoneNumber" id="PhoneNumber" required>
+                  <div class="invalid-feedback" *ngIf="PhoneNumber.touched && PhoneNumber.invalid">
+                    Number Is Required.
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="Address1">Address Line 1</label>
+                <input type="text" class="form-control" #Address1="ngModel" [(ngModel)]="currentAddress.Address1"
+                  name="Address1" id="Address1" placeholder="1234 Main St" required>
+                <div class="invalid-feedback" *ngIf="Address1.touched && Address1.invalid">
+                  Address Line 1 Is Required.
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="Address2">Address 2</label>
+                <input type="text" class="form-control" #Address2="ngModel" [(ngModel)]="currentAddress.Address2"
+                  name="Address2" id="Address2" placeholder="Apartment, studio, or floor" required>
+                <div class="invalid-feedback" *ngIf="Address2.touched && Address2.invalid">
+                  Address Line 2 Is Required.
+                </div>
+              </div>
+
+
+              <div class="form-row">
+                <div class="form-group col-md-8">
+                  <label for="Landmark">Land Mark</label>
+                  <input type="text" class="form-control" #Landmark="ngModel" [(ngModel)]="currentAddress.Landmark"
+                    name="Landmark" id="Landmark" required>
+                  <div class="invalid-feedback" *ngIf="Landmark.touched && Landmark.invalid">
+                    Landmark Is Required.
+                  </div>
+                </div>
+
+
+                <div class="form-group col-md-4">
+                  <label for="CountryId">Country</label>
+                  <select class="custom-select" #CountryId="ngModel" [(ngModel)]="currentAddress.CountryId"
+                    name="CountryId" id="CountryId" id="selectEntity" required>
+                    <option>Select any option</option>
+                    <option *ngFor="let dropdownLists of dropdownListOfCountry" [value]="dropdownLists.Id">
+                      {{dropdownLists.Name}}</option>
+                  </select>
+                  <div class="invalid-feedback" *ngIf="CountryId.touched && CountryId.invalid">
+                    Country Is Required.
+                  </div>
+                </div>
+
+
+                <div class="form-group col-md-4">
+                  <label for="StateProvinceId">State</label>
+                  <select id="StateProvinceId" class="form-control" #StateProvinceId="ngModel"
+                    [(ngModel)]="currentAddress.StateProvinceId" name="StateProvinceId" required>
+                    <option *ngFor="let dropdownLists of dropdownListOfState" [value]="dropdownLists.Id">
+                      {{dropdownLists.Name}}</option>
+
+                  </select>
+                  <div class="invalid-feedback" *ngIf="StateProvinceId.touched && StateProvinceId.invalid">
+                    State Is Required.
+                  </div>
+                </div>
+
+
+
+                <div class="form-group col-md-5">
+                  <label for="City">City</label>
+                  <input type="text" class="form-control" #City="ngModel" [(ngModel)]="currentAddress.City" name="City"
+                    id="City" required>
+                  <div class="invalid-feedback" *ngIf="City.touched && City.invalid">
+                    City Is Required.
+                  </div>
+                </div>
+
+
+
+                <div class="form-group col-md-3">
+                  <label for="ZipPostalCode">Zip</label>
+                  <input type="text" class="form-control" #ZipPostalCode="ngModel"
+                    [(ngModel)]="currentAddress.ZipPostalCode" name="ZipPostalCode" id="ZipPostalCode" required>
+                  <div class="invalid-feedback" *ngIf="ZipPostalCode.touched && ZipPostalCode.invalid">
+                    Zip Code Is Required.
+                  </div>
+                </div>
+              </div>
+
+                <input type="hidden" class="form-control" #Id="ngModel"
+                [(ngModel)]="currentAddress.Id" name="Id" id="Id">
+
+
+              <button type="submit" [disabled]="!current.valid" class="btn btn-primary">Save</button>
+            </form>
+
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="card">
+        <div class="card-header" id="headingFour">
+          <h2 class="mb-0">
+            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFour"
+              aria-expanded="false" aria-controls="collapseThree">
+              Permanent Contact Details
+            </button>
+          </h2>
+        </div>
+        <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
+          <div class="card-body">
+
+
+            <div class="form-group form-check">
+              <input type="checkbox" class="form-check-input" id="exampleCheck1"
+                (change)="copyCurrentToPermanent($event)">
+              <label class="form-check-label" for="exampleCheck1">Same As Current Address</label>
+            </div>
+
+
+            <form #permanent="ngForm" (ngSubmit)="Permanent(permanent.value)" class="was-validated">
+
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="FullName">Contact Name</label>
+                  <input type="text" class="form-control" #FullName="ngModel" [(ngModel)]="permanentAddress.FullName"
+                    name="FullName" id="FullName" required>
+                  <div class="invalid-feedback" *ngIf="FullName.touched && FullName.invalid">
+                    Name Is Required.
+                  </div>
+                </div>
+
+                <div class="form-group col-md-6">
+                  <label for="PhoneNumber">Contact Number</label>
+                  <input type="text" class="form-control" #PhoneNumber="ngModel"
+                    [(ngModel)]="permanentAddress.PhoneNumber" name="PhoneNumber" id="PhoneNumber" required>
+                  <div class="invalid-feedback" *ngIf="PhoneNumber.touched && PhoneNumber.invalid">
+                    Number Is Required.
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="Address1">Address Line 1</label>
+                <input type="text" class="form-control" #Address1="ngModel" [(ngModel)]="permanentAddress.Address1"
+                  name="Address1" id="Address1" placeholder="1234 Main St" required>
+                <div class="invalid-feedback" *ngIf="Address1.touched && Address1.invalid">
+                  Address Line 1 Is Required.
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="Address2">Address 2</label>
+                <input type="text" class="form-control" #Address2="ngModel" [(ngModel)]="permanentAddress.Address2"
+                  name="Address2" id="Address2" placeholder="Apartment, studio, or floor" required>
+                <div class="invalid-feedback" *ngIf="Address2.touched && Address2.invalid">
+                  Address Line 2 Is Required.
+                </div>
+              </div>
+
+
+              <div class="form-row">
+                <div class="form-group col-md-8">
+                  <label for="Landmark">Land Mark</label>
+                  <input type="text" class="form-control" #Landmark="ngModel" [(ngModel)]="permanentAddress.Landmark"
+                    name="Landmark" id="Landmark" required>
+                  <div class="invalid-feedback" *ngIf="Landmark.touched && Landmark.invalid">
+                    City Is Required.
+                  </div>
+                </div>
+
+
+                <div class="form-group col-md-4">
+                  <label for="CountryId">Country</label>
+                  <select class="custom-select" #CountryId="ngModel" [(ngModel)]="permanentAddress.CountryId"
+                    name="CountryId" id="CountryId" id="selectEntity" required>
+                    <option>Select any option</option>
+                    <option *ngFor="let dropdownLists of dropdownListOfCountry" [value]="dropdownLists.Id">
+                      {{dropdownLists.Name}}</option>
+                  </select>
+                  <div class="invalid-feedback" *ngIf="CountryId.touched && CountryId.invalid">
+                    Country Is Required.
+                  </div>
+                </div>
+
+
+                <div class="form-group col-md-4">
+                  <label for="StateProvinceId">State</label>
+                  <select id="StateProvinceId" class="form-control" #StateProvinceId="ngModel"
+                    [(ngModel)]="permanentAddress.StateProvinceId" name="StateProvinceId" required>
+                    <option *ngFor="let dropdownLists of dropdownListOfState" [value]="dropdownLists.Id">
+                      {{dropdownLists.Name}}</option>
+
+                  </select>
+                  <div class="invalid-feedback" *ngIf="StateProvinceId.touched && StateProvinceId.invalid">
+                    State Is Required.
+                  </div>
+                </div>
+
+
+
+                <div class="form-group col-md-5">
+                  <label for="City">City</label>
+                  <input type="text" class="form-control" #City="ngModel" [(ngModel)]="permanentAddress.City"
+                    name="City" id="City" required>
+                  <div class="invalid-feedback" *ngIf="City.touched && City.invalid">
+                    City Is Required.
+                  </div>
+                </div>
+
+
+
+                <div class="form-group col-md-3">
+                  <label for="ZipPostalCode">Zip</label>
+                  <input type="text" class="form-control" #ZipPostalCode="ngModel"
+                    [(ngModel)]="permanentAddress.ZipPostalCode" name="ZipPostalCode" id="ZipPostalCode" required>
+                  <div class="invalid-feedback" *ngIf="ZipPostalCode.touched && ZipPostalCode.invalid">
+                    Zip Code Is Required.
+                  </div>
+                </div>
+              </div>
+
+              <input type="hidden" class="form-control" #Id="ngModel"
+                [(ngModel)]="permanentAddress.Id" name="Id" id="Id">
+
+              <button type="submit" [disabled]="!permanent.valid" class="btn btn-primary">Save</button>
+            </form>
+
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="card">
+        <div class="card-header" id="headingFive">
+          <h2 class="mb-0">
+            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFive"
+              aria-expanded="false" aria-controls="collapseThree">
+              Office Contact Details
+            </button>
+          </h2>
+        </div>
+        <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordionExample">
+          <div class="card-body">
+
+
+            <!-- <div class="form-row shift">
+
+              <div class="form-group form-check col-md-6">
+                <input type="checkbox" class="form-check-input" id="exampleCheck1" (change)="copyCurrentToEmergency($event)">
+                <label class="form-check-label" for="exampleCheck1">Same As Current Address</label>
+              </div>
+
+              <div class="form-group form-check col-md-6">
+                <input type="checkbox" class="form-check-input" id="exampleCheck1" (change)="copyPermanentToEmergency($event)">
+                <label class="form-check-label" for="exampleCheck1">Same As Permanent Address</label>
+              </div>
+
+            </div> -->
+
+
+            <form #office="ngForm" (ngSubmit)="Office(office.value)" class="was-validated">
+
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="FullName">Contact Name</label>
+                  <input type="text" class="form-control" #FullName="ngModel" [(ngModel)]="officeAddress.FullName"
+                    name="FullName" id="FullName" required>
+                  <div class="invalid-feedback" *ngIf="FullName.touched && FullName.invalid">
+                    Name Is Required.
+                  </div>
+                </div>
+
+                <div class="form-group col-md-6">
+                  <label for="PhoneNumber">Contact Number</label>
+                  <input type="text" class="form-control" #PhoneNumber="ngModel" [(ngModel)]="officeAddress.PhoneNumber"
+                    name="PhoneNumber" id="PhoneNumber" required>
+                  <div class="invalid-feedback" *ngIf="PhoneNumber.touched && PhoneNumber.invalid">
+                    Number Is Required.
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="Address1">Address Line 1</label>
+                <input type="text" class="form-control" #Address1="ngModel" [(ngModel)]="officeAddress.Address1"
+                  name="Address1" id="Address1" placeholder="1234 Main St" required>
+                <div class="invalid-feedback" *ngIf="Address1.touched && Address1.invalid">
+                  Address Line 1 Is Required.
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="Address2">Address 2</label>
+                <input type="text" class="form-control" #Address2="ngModel" [(ngModel)]="officeAddress.Address2"
+                  name="Address2" id="Address2" placeholder="Apartment, studio, or floor" required>
+                <div class="invalid-feedback" *ngIf="Address2.touched && Address2.invalid">
+                  Address Line 2 Is Required.
+                </div>
+              </div>
+
+
+              <div class="form-row">
+                <div class="form-group col-md-8">
+                  <label for="Landmark">Land Mark</label>
+                  <input type="text" class="form-control" #Landmark="ngModel" [(ngModel)]="officeAddress.Landmark"
+                    name="Landmark" id="Landmark" required>
+                  <div class="invalid-feedback" *ngIf="Landmark.touched && Landmark.invalid">
+                    City Is Required.
+                  </div>
+                </div>
+
+
+                <div class="form-group col-md-4">
+                  <label for="CountryId">Country</label>
+                  <select class="custom-select" #CountryId="ngModel" [(ngModel)]="officeAddress.CountryId"
+                    name="CountryId" id="CountryId" id="selectEntity" required>
+                    <option>Select any option</option>
+                    <option *ngFor="let dropdownLists of dropdownListOfCountry" [value]="dropdownLists.Id">
+                      {{dropdownLists.Name}}</option>
+                  </select>
+                  <div class="invalid-feedback" *ngIf="CountryId.touched && CountryId.invalid">
+                    Country Is Required.
+                  </div>
+                </div>
+
+
+                <div class="form-group col-md-4">
+                  <label for="StateProvinceId">State</label>
+                  <select id="StateProvinceId" class="form-control" #StateProvinceId="ngModel"
+                    [(ngModel)]="officeAddress.StateProvinceId" name="StateProvinceId" required>
+                    <option *ngFor="let dropdownLists of dropdownListOfState" [value]="dropdownLists.Id">
+                      {{dropdownLists.Name}}</option>
+
+                  </select>
+                  <div class="invalid-feedback" *ngIf="StateProvinceId.touched && StateProvinceId.invalid">
+                    State Is Required.
+                  </div>
+                </div>
+
+
+
+                <div class="form-group col-md-5">
+                  <label for="City">City</label>
+                  <input type="text" class="form-control" #City="ngModel" [(ngModel)]="officeAddress.City" name="City"
+                    id="City" required>
+                  <div class="invalid-feedback" *ngIf="City.touched && City.invalid">
+                    City Is Required.
+                  </div>
+                </div>
+
+
+
+                <div class="form-group col-md-3">
+                  <label for="ZipPostalCode">Zip</label>
+                  <input type="text" class="form-control" #ZipPostalCode="ngModel"
+                    [(ngModel)]="officeAddress.ZipPostalCode" name="ZipPostalCode" id="ZipPostalCode" required>
+                  <div class="invalid-feedback" *ngIf="ZipPostalCode.touched && ZipPostalCode.invalid">
+                    Zip Code Is Required.
+                  </div>
+                </div>
+              </div>
+
+              <input type="hidden" class="form-control" #Id="ngModel"
+                [(ngModel)]="officeAddress.Id" name="Id" id="Id">
+
+              <button type="submit" [disabled]="!office.valid" class="btn btn-primary">Save</button>
+            </form>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header" id="headingsix">
+          <h2 class="mb-0">
+            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapsesix"
+              aria-expanded="false" aria-controls="collapseThree">
+              Emergency Contact Details
+            </button>
+          </h2>
+        </div>
+        <div id="collapsesix" class="collapse" aria-labelledby="headingsix" data-parent="#accordionExample">
+          <div class="card-body">
+
+
+            <div class="form-row shift">
+
+              <div class="form-group form-check col-md-6">
+                <input type="checkbox" class="form-check-input" id="exampleCheck1"
+                  (change)="copyCurrentToEmergency($event)">
+                <label class="form-check-label" for="exampleCheck1">Same As Current Address</label>
+              </div>
+
+              <div class="form-group form-check col-md-6">
+                <input type="checkbox" class="form-check-input" id="exampleCheck1"
+                  (change)="copyPermanentToEmergency($event)">
+                <label class="form-check-label" for="exampleCheck1">Same As Permanent Address</label>
+              </div>
+            </div>
+
+
+            <form #emergency="ngForm" (ngSubmit)="Emergency(emergency.value)" class="was-validated">
+
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="FullName">Contact Name</label>
+                  <input type="text" class="form-control" #FullName="ngModel" [(ngModel)]="emergencyAddress.FullName"
+                    name="FullName" id="FullName" required>
+                  <div class="invalid-feedback" *ngIf="FullName.touched && FullName.invalid">
+                    Name Is Required.
+                  </div>
+                </div>
+
+                <div class="form-group col-md-6">
+                  <label for="PhoneNumber">Contact Number</label>
+                  <input type="text" class="form-control" #PhoneNumber="ngModel"
+                    [(ngModel)]="emergencyAddress.PhoneNumber" name="PhoneNumber" id="PhoneNumber" required>
+                  <div class="invalid-feedback" *ngIf="PhoneNumber.touched && PhoneNumber.invalid">
+                    Number Is Required.
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="Address1">Address Line 1</label>
+                <input type="text" class="form-control" #Address1="ngModel" [(ngModel)]="emergencyAddress.Address1"
+                  name="Address1" id="Address1" placeholder="1234 Main St" required>
+                <div class="invalid-feedback" *ngIf="Address1.touched && Address1.invalid">
+                  Address Line 1 Is Required.
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="Address2">Address 2</label>
+                <input type="text" class="form-control" #Address2="ngModel" [(ngModel)]="emergencyAddress.Address2"
+                  name="Address2" id="Address2" placeholder="Apartment, studio, or floor" required>
+                <div class="invalid-feedback" *ngIf="Address2.touched && Address2.invalid">
+                  Address Line 2 Is Required.
+                </div>
+              </div>
+
+
+              <div class="form-row">
+                <div class="form-group col-md-8">
+                  <label for="Landmark">Land Mark</label>
+                  <input type="text" class="form-control" #Landmark="ngModel" [(ngModel)]="emergencyAddress.Landmark"
+                    name="Landmark" id="Landmark" required>
+                  <div class="invalid-feedback" *ngIf="Landmark.touched && Landmark.invalid">
+                    City Is Required.
+                  </div>
+                </div>
+
+
+                <div class="form-group col-md-4">
+                  <label for="CountryId">Country</label>
+                  <select class="custom-select" #CountryId="ngModel" [(ngModel)]="emergencyAddress.CountryId"
+                    name="CountryId" id="CountryId" id="selectEntity" required>
+                    <option>Select any option</option>
+                    <option *ngFor="let dropdownLists of dropdownListOfCountry" [value]="dropdownLists.Id">
+                      {{dropdownLists.Name}}</option>
+                  </select>
+                  <div class="invalid-feedback" *ngIf="CountryId.touched && CountryId.invalid">
+                    Country Is Required.
+                  </div>
+                </div>
+
+
+                <div class="form-group col-md-4">
+                  <label for="StateProvinceId">State</label>
+                  <select id="StateProvinceId" class="form-control" #StateProvinceId="ngModel"
+                    [(ngModel)]="emergencyAddress.StateProvinceId" name="StateProvinceId" required>
+                    <option *ngFor="let dropdownLists of dropdownListOfState" [value]="dropdownLists.Id">
+                      {{dropdownLists.Name}}</option>
+
+                  </select>
+                  <div class="invalid-feedback" *ngIf="StateProvinceId.touched && StateProvinceId.invalid">
+                    State Is Required.
+                  </div>
+                </div>
+
+
+
+                <div class="form-group col-md-5">
+                  <label for="City">City</label>
+                  <input type="text" class="form-control" #City="ngModel" [(ngModel)]="emergencyAddress.City"
+                    name="City" id="City" required>
+                  <div class="invalid-feedback" *ngIf="City.touched && City.invalid">
+                    City Is Required.
+                  </div>
+                </div>
+
+
+
+                <div class="form-group col-md-3">
+                  <label for="ZipPostalCode">Zip</label>
+                  <input type="text" class="form-control" #ZipPostalCode="ngModel"
+                    [(ngModel)]="emergencyAddress.ZipPostalCode" name="ZipPostalCode" id="ZipPostalCode" required>
+                  <div class="invalid-feedback" *ngIf="ZipPostalCode.touched && ZipPostalCode.invalid">
+                    Zip Code Is Required.
+                  </div>
+                </div>
+              </div>
+
+              <input type="hidden" class="form-control" #Id="ngModel"
+                [(ngModel)]="emergencyAddress.Id" name="Id" id="Id">
+
+              <button type="submit" [disabled]="!emergency.valid" class="btn btn-primary">Save</button>
+            </form>
+
+          </div>
+        </div>
+      </div>
+
+
+
+    </div>
+
+  </div>
+</div>
+
+

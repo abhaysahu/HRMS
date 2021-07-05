@@ -1,0 +1,39 @@
+<div class="popup">
+  <form #form="ngForm" (submit)="onSubmit(form.value)" class="was-validated">
+    <div class="form-row">
+
+      <div class="form-group col-md-6">
+        <label for="InTime">In Time</label>
+        <input type="time" class="form-control" #InTime="ngModel" [(ngModel)]="EditAttendance.InTime" name="InTime" id="InTime" required>
+        <div class="invalid-feedback" *ngIf="InTime.touched && InTime.invalid">
+          In Time Is Required.
+        </div>
+      </div>
+
+      <div class="form-group col-md-6">
+        <label for="OutTime">Out Time</label>
+        <input type="time" class="form-control" #OutTime="ngModel" [(ngModel)]="EditAttendance.OutTime" name="OutTime" id="OutTime" required>
+        <div class="invalid-feedback" *ngIf="OutTime.touched && OutTime.invalid">
+          Out Time Is Required.
+        </div>
+      </div>
+
+      <div class="form-group col-md-6">
+        <label for="ApprovalPerson">Approving Person(Manager)</label>
+        <select class="custom-select"  #ApprovalPerson="ngModel" [(ngModel)]="EditAttendance.ApprovalPerson" name="ApprovalPerson" id="ApprovalPerson"  id="selectApprovedBy" required>
+          <option *ngFor="let dropdownLists of dropdownList" [value]="dropdownLists.Id">{{dropdownLists.Name}}</option>
+        </select>
+        <div class="invalid-feedback" *ngIf="ApprovalPerson.touched && ApprovalPerson.invalid">
+          Approving Person  Is Required.
+        </div>
+      </div>
+
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save</button>
+
+    <button type="button" class="btn btn-outline-dark ml-2" (click)="close()" ><i class="fa fa-close"></i> Close</button>
+
+  </form>
+
+</div>

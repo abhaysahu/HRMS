@@ -1,0 +1,113 @@
+
+.mycontent-left {
+  border-right: 1px dashed #333;
+}
+
+
+.my-container{
+    border: transparent ;
+}
+
+.my-row{
+    border: transparent;
+}
+
+.my-col{
+    border: transparent;
+}
+.mycontent-left {
+    border-right: 3px solid black;
+    left: 20px;
+  }
+
+  .search-div{
+      margin-left: 15px;
+  }
+  .fa{
+      margin-left: 5px ;
+  }
+  button{
+      margin-left: 5px;
+      border-radius: 3px;
+  }
+  .search-box{
+      height: 35px;
+  }
+  
+  #vertical-line{
+      width: 3px;
+      height: auto;
+      background-color: black;
+  }
+  .table-header{
+      background-color: #ddd;
+  }
+  .add{
+      background-color: rgb(23, 162,184);
+      color: white;
+  }
+ 
+p{
+    color: red;
+    font-weight: bold;
+    margin-left: 5px;
+}
+.card{
+
+    box-shadow: 0 0 20px rgba(0,0, 0, 0.20);
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+    border-collapse: collapse;
+    
+
+}
+.my-row {
+	border: transparent;
+}
+.my-col {
+	border: transparent;
+}
+.a{
+    float: right;
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 12px;
+    position: absolute;
+    bottom: 20px;
+    right: 30px;
+    top: -3px;
+    border-radius: 0;
+    font-weight: 600;
+
+}
+
+.heading{
+    margin: 0;
+    font-size: 24px;
+}
+.icon{
+    font-size: 32px;
+    color: #4b4b79;
+    width: 65px;
+    float: left;
+    margin-top: -4px;
+    line-height: 0;
+
+}
+.my-col1{
+	font-size: 14px;
+    display: inline-block;
+    padding-left: 95px;
+    font-weight: 600;
+    color: #555;
+    bottom: 35px;
+}
+
+
+label{
+    font-weight: bold;
+}
+
+.table-header{
+    background-color: #ddd;
+}

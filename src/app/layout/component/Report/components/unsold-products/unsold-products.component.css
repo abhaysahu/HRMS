@@ -1,0 +1,181 @@
+/* .card{
+
+  box-shadow: 0 0 20px rgba(0,0, 0, 0.20);
+  border-radius: 5px 5px 0 0;
+  overflow: hidden;
+  border-collapse: collapse;
+
+
+}
+.my-row {
+border: transparent;
+}
+.my-col {
+border: transparent;
+}
+.a{
+  float: right;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 12px;
+  position: absolute;
+  bottom: 20px;
+  right: 30px;
+  top: -3px;
+  border-radius: 0;
+  font-weight: 600;
+
+}
+
+.heading{
+  margin: 0;
+  font-size: 24px;
+}
+.icon{
+  font-size: 32px;
+  color: #4b4b79;
+  width: 65px;
+  float: left;
+  margin-top: -4px;
+  line-height: 0;
+
+}
+.my-col1{
+font-size: 14px;
+  display: inline-block;
+  padding-left: 95px;
+  font-weight: 600;
+  color: #555;
+  bottom: 35px;
+}
+
+label{
+  font-weight: bold;
+} */
+/* th {
+  position: sticky;
+}
+table tbody
+{
+   overflow: auto;
+   height: 100px;
+}
+table tbody, table thead
+{
+    display: table;
+} */
+/* th {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+th[scope=row] {
+  position: -webkit-sticky;
+  position: sticky;
+  left: 0;
+  z-index: 1;
+}
+thead {
+  position: sticky;
+} */
+/* .table-fixed tbody {
+  height: 230px;
+  overflow-y: auto;
+  width: 100%;
+}
+.table-fixed thead, .table-fixed tbody, .table-fixed tr, .table-fixed td, .table-fixed th {
+  display: block;
+}
+.table-fixed tbody td, .table-fixed thead > tr> th {
+  float: left;
+  border-bottom-width: 0;
+} */
+/* tbody {
+  height:200px;
+  overflow:auto;
+}
+thead, tbody tr {
+  display:table;
+  width:100%;
+  table-layout:fixed;
+}
+thead {
+
+} */
+/* table.responsive-table thead {
+  position: fixed;
+  top: 50px;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 50px;
+  line-height: 3em;
+  background: #eee;
+  table-layout: fixed;
+  display: table;
+} */
+.btn{
+  margin-top: 30px;
+}
+
+/* .table.sticky th{
+  position: sticky;
+}
+.table.sticky th::after {
+  content: ' ';
+  position: absolute;
+
+} */
+th{
+  position: fixed;
+}
+/* th {
+  position: sticky;
+}
+table{
+  position: sticky;
+  border-collapse: collapse;
+}
+thead{
+  position: sticky;
+} */
+
+
+  /* background: transparent; */
+  /* color: #fff; */
+  /* padding: 9px 25px; */
+  /* top: 0; */
+  /* margin-left: -25px; */
+  /* line-height: normal; */
+  /* border-left: 1px solid #800; */
+
+
+/* th{
+  position: sticky;
+
+} */
+/* thead{
+  position: sticky;
+  top: 0;
+} */
+/* .div1{
+  position: sticky;
+} */
+/* .table-fixed thead {
+  width: 97%;
+} */
+/* .table-fixed tbody {
+
+  overflow-y: auto;
+  /* width: 100%; */
+/* } */
+/*.table-fixed thead, .table-fixed tbody, .table-fixed tr, .table-fixed td, .table-fixed th {
+  display: block;
+}
+.table-fixed tbody td, .table-fixed thead > tr> th {
+  float: left;
+} */
+th{
+  position: sticky;
+}

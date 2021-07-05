@@ -1,0 +1,169 @@
+<!--<section class="content-header z-depth-1">
+  <div class="header-icon">
+    <i class="fa fa-university" ></i>
+  </div>
+  <div class="header-title">
+      <h1>Timesheet Bank</h1>
+      <small>Timesheet Bank Record</small>
+      <ul class="link hidden-xs">
+          <li><a href="index-2.html"><i class="fa fa-home"></i>Home</a></li>
+          <li><a href="datatable.html">Timesheet Bank</a></li>
+      </ul>
+  </div>
+</section>
+<br><br>-->
+
+<div class="col">
+  <div class="row my-row" >
+    <div class="col my-col">
+       <ul class="breadcrumb" style="background-color: transparent;">
+        <li class="breadcrumb-item " >
+            <span class="icon">
+            <i class="fa fa-clock-o"></i></span>
+            <span class="heading" style="color: black; background-color: transparent;">Timesheet Bank</span></li>
+
+      </ul>
+    </div>
+<div class="col my-col">
+  <div class="a">
+      <ul class="breadcrumb" style="background-color: transparent;">
+        <li class="breadcrumb-item"><a routerLink="/dashboard">
+          <i class="fa fa-home"></i> Home</a></li>
+        <li class="breadcrumb-item" ><a routerLink="/dashboard/timesheetbank">Timesheet Bank</a></li>
+      </ul>
+  </div>
+</div>
+  </div>
+  <div class="row my-row">
+    <div class="col my-col1">
+    <!-- Timesheet Bank Record -->
+  </div>
+  </div>
+</div>
+
+
+<div class="card">
+  <div class="card-header">
+    Timesheet Bank
+
+  </div>
+  <div class="card-body">
+    <div class="form-row">
+      <div class="form-group col-md-2">
+        <label for="weekPeriod">Week Period</label>
+        <div class="form-group">
+          <input type="date" name="bday" max="3000-12-31"
+                min="1000-01-01" class="form-control">
+        </div>
+        </div>
+          <div class="form-group col-md-2">
+            <label for="weekPeriod" style="color: white;">week</label>
+            <div class="form-group">
+              <input type="date" name="bday" max="3000-12-31"
+                    min="1000-01-01" class="form-control">
+            </div>
+            </div>
+            <div class="form-group col-md-2">
+              <label for="status">Status</label>
+
+              <select class="custom-select" id="status">
+                <option selected>All</option>
+                <option value="1">option1</option>
+                <option value="2">option2</option>
+                <option value="3">option3</option>
+
+
+              </select>
+              </div>
+              <div class="form-group col-md-4">
+                <label for="project">Project</label>
+
+                <select class="custom-select" id="project">
+                  <option selected>All</option>
+                  <option value="1">option1</option>
+                  <option value="2">option2</option>
+                  <option value="3">option3</option>
+
+
+                </select>
+                </div>
+                <div class="form-group col-md-2">
+                  <label for="filter" style="color: white;">Filter</label><br>
+                <button type="button" class="btn btn-primary">Filter</button>
+                </div>
+
+
+
+
+    </div>
+    <!---Expand all and collapse all-->
+    <div class="form-row">
+      <div class="form-group col-md-2">
+
+       <a  data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample" style="color: black;">
+        <i class="fa fa-chevron-down"></i>
+
+     Expand all
+       </a>
+     </div>
+     <div class="form-group col-md-2">
+
+       <a href="#collapseExample" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" style="color: black;">
+         Collapse all<i class="fa fa-chevron-up" ></i>
+
+
+       </a>
+     </div>
+     </div>
+     <div class="collapse" id="collapseExample">
+       <div class="card card-body">
+         <!---the code for  must be written here-->
+         <table class="table">
+       <thead>
+         <tr>
+           <th scope="col">Period</th>
+           <th scope="col">Working Hours</th>
+           <th scope="col">Leave Hours</th>
+           <th scope="col">Holiday Hours</th>
+           <th scope="col">Status</th>
+           <th scope="col">Option</th>
+
+
+         </tr>
+       </thead>
+       <tbody>
+         <tr>
+           <td scope="row"><i class="fa fa-plus-circle" ></i> 06 Apr 2020 - 12 Apr 2020
+           </td>
+           <td>41.25</td>
+           <td>0.00</td>
+           <td>16.00</td>
+           <td></td>
+           <td></td>
+         </tr>
+         <tr>
+          <td scope="row"><i class="fa fa-plus-circle" ></i> 06 Apr 2020 - 12 Apr 2020
+          </td>
+          <td>41.25</td>
+          <td>0.00</td>
+          <td>16.00</td>
+          <td></td>
+          <td></td>
+         </tr>
+         <tr>
+          <td scope="row"><i class="fa fa-plus-circle" ></i> 06 Apr 2020 - 12 Apr 2020
+          </td>
+          <td>41.25</td>
+          <td>0.00</td>
+          <td>16.00</td>
+          <td>Aprroved</td>
+          <td></td>
+         </tr>
+       </tbody>
+     </table>
+
+       </div>
+       <!------------>
+     </div>
+
+    </div>

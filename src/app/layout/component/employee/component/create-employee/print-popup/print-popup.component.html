@@ -1,0 +1,37 @@
+<table>
+  <thead><tr><td>
+    <div class="header-space"></div>
+  </td></tr></thead>
+  <tbody><tr><td>
+    <div class="content">
+      <div class="w3-container">
+        <h1>Welcome To Pobara</h1>
+
+        <ul class="w3-ul w3-card">
+          <li>Full Name: {{prints.FullName}}</li>  
+          <li>Login Id: {{prints.LoginId}} </li>  
+          <li>Password: {{prints.Password}}</li>
+        </ul>
+        </div>
+      
+    </div>
+  </td></tr></tbody>
+  <tfoot><tr><td>
+    <div class="footer-space"></div>
+  </td></tr></tfoot>
+</table>
+<button type="button" (click)="onPrint()" class="btn btn-primary"><i class="fa fa-check"></i>Print </button>
+      <button style="margin-left: 10px;" type="button" class="btn btn-danger" (click)="close()" ><i class="fa fa-close"></i> Close</button>
+
+
+
+<div class="header">Pobara </div>
+<div class="footer">@copyright</div>
+
+
+
+<!-- 
+ <button (click)="onPrint()">Print me</button>
+<div class="printMe">
+  This is all that should print! But I get the mat-tab-group too.
+</div> -->
